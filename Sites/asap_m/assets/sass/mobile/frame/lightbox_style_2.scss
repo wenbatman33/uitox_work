@@ -1,0 +1,92 @@
+@import "../define/__init.scss";
+body{
+	background-attachment: fixed;
+	@include background-gradient(white, $gray);
+}
+h1{
+	color: $dark_gray;
+	border-bottom: 1px solid $light_gray;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+}
+input[type='text'], input[type='email'], input[type='tel'], input[type='password']{
+	border: 1px solid $gray;
+	width: 100%;
+	padding: 10px;
+	@include box-sizing(border-box);
+}
+textarea{
+	border: 1px solid $gray;
+	width: 100%;
+	padding: 10px;
+	@include box-sizing(border-box);
+}
+.actions{
+	margin: 10px;
+	text-align: center;
+	.button{
+		font-size: 1em;
+	}
+	.btn-close{
+		border: 1px solid 
+	}
+}
+.icon-close{
+	position: absolute;
+	top: 5px;
+	right: 5px;
+}
+h2{
+	margin: 5px 0 10px;
+	font-size: 0.9em;
+	line-height: 140%;
+}
+select{
+	border: 1px solid $gray;
+	background: white;
+	width: 100%;
+	padding: 10px 5px;
+	@include box-sizing(border-box);
+}
+.city-1{
+	float: left;
+	border: 1px solid $gray;
+	background: white;
+	height: 38px;
+	width: 49%;
+	padding: 0;
+	margin: 2px 0;
+	@include box-sizing(border-box);
+}
+.city-2{
+	float: right;
+	border: 1px solid $gray;
+	background: white;
+	height: 38px;
+	width: 49%;
+	padding: 0;
+	margin: 2px 0;
+	@include box-sizing(border-box);
+}
+.scroll{
+	height: 300px;
+	overflow-y: scroll;
+}
+.rule{
+	li{
+		font-size: 0.8em;
+		line-height: 140%;
+		margin: 5px 5px 5px 24px;
+		color: $dark_gray;
+		list-style: decimal;
+	}
+}
+.line{
+	padding: 5px 0;
+	input[type="radio"]{
+		margin: 0 5px 2px 5px;
+	}
+	.input-code{
+		width: 50%;
+	}
+}

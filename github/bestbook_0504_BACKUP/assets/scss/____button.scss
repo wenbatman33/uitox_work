@@ -1,0 +1,85 @@
+.btn{
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.8;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background:#fff;
+    border: 1px solid #eaeaea;
+    border-radius: 0px;
+    &:hover{
+		background:#f8f8f8;
+    }
+}
+$btnTypes:(
+	navReport : #4277A8,
+	addBook: #F2254C,
+) !default;
+@each $name, $color in $btnTypes{
+	.btn-#{$name}{
+		background: $color;
+		color: #fff ;
+		border: 1px solid $color;
+		margin: 5px;
+		&:hover{
+			background: #fff;
+			border: 1px solid $color;
+			color: $color;
+			@include buttonPressShadow;
+		}
+	}
+}
+@each $name, $color in $btnTypes{
+	.outLinebtn-#{$name}{
+		background: #fff;
+		color: $color ;
+		border: 1px solid $color;
+		margin: 2px;
+		&:hover{
+			background: #f8f8f8;
+			border: 1px solid $color;
+			color: $color;
+			@include buttonPressShadow;
+		}
+	}
+}
+
+.setBtn{
+	display: inline-block;
+	background-color: #F2254C;
+	color: #fff;
+	text-align: center;
+	line-height: 40px;
+	vertical-align: middle;
+	font-size: 14px;
+}
+.setBtn:hover{
+	background-color: #F01E62;
+	@include buttonPressShadow;
+}
+.cancelbutton{
+	display: inline-block;
+	background-color: #fff;
+	color: #F2254C;
+	text-align: center;
+	line-height: 40px;
+	vertical-align: middle;
+	border: solid 1px #F2254C;
+	font-size: 14px;
+}
+.cancelbutton:hover{
+	@include buttonPressShadow;
+}
+
+

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>書籍上架 > 發佈至其他平台 | bestBook</title>
+<link rel="shortcut icon" href="../favicon.ico" />
+<link rel="stylesheet" type="text/css" href="../stylesheets/reset.css">
+<link rel="stylesheet" type="text/css" href="../stylesheets/bb.css">
+<link rel="stylesheet" type="text/css" href="../stylesheets/panel.css">
+<link rel="stylesheet" type="text/css" href="../stylesheets/formUI.css">
+<link rel="stylesheet" type="text/css" href="../stylesheets/notices.css">
+<link rel="stylesheet" type="text/css" href="../stylesheets/jquery-ui-1.10.4.custom.min.css">
+<!--link rel="stylesheet" type="text/css" href="../stylesheets/jquery-ui-1.10.4.custom.fix.css"-->
+
+<script src="../js/jquery-1.11.0.min.js"></script>
+<script src="../js/jquery-ui-1.10.4.custom.min.js"></script>
+<script src="../js/ckeditor/ckeditor.js"></script>
+</head>
+
+<body>
+<div id="page"> 
+	<!-- Header -->
+	<header class="header-inn" data-tr-l="h">
+		<div class="container">
+		<a href="http://w.bestbook.com/" class="logo"></a>
+		<nav id="function" class="function">
+			<a href="#" class="feedback"><i class="icon-feedback"></i><span>問題回報與建議</span></a>
+		    <div  class="link link-account">
+		        <a id="link" href="#" class="icon-account"></a>
+		        <ul class="account-item hide">
+		            <li><a href="#">會員中心</a></li>
+		            <li><a href="#">登出</a></li>
+		        </ul>
+		    </div>
+		    <div class="notices_btu"><div class="notice_tips">99+</div></div>
+		</nav>
+		</div>
+	</header>
+	<!-- Header -->
+	<div class="content w800">
+		<div class="headtitle">
+			<h1>書籍上架</h1>發佈至其他平台
+		</div>
+		<div class="wrap-box onSellUI">
+			<form action="BookSet-publish-step1.shtml" class="formUI">
+				<div class="wrap-inner">
+				<div class="column l"><img src="../images/bb-9.jpg"></div>
+				<div class="column r">
+					<div class="fs-18">恭喜您，您的書：<b class="fs-24 col-green">東京自助行2014</b> 已經上架！</div>
+					<h2 class="marginTB10">上架資訊</h2>
+					<ul class="listdisc">
+						<li>電子書售價：<b class="col-red">99元</b></li>
+						<li>同意也賣紙本書，售價為 <b class="col-red">279元</b></li>
+						<li>您選擇書為<b class="col-red">限制級</b></li>
+						<li>您提供的紙本書，在ASAP的銷售網址（需先簽約） <a href=" http://www.asap.com.tw/item/201310AM190000678" target="_blank">http://www.asap.com.tw/item/201310AM190000678</a></li>
+					</ul>
+					<hr>
+					<ul class="listdisc">
+						<li>讓更多讀者找到您的書<div class="otherInfo">您尚未編輯：<span class="disboc">分類、關鍵字、書的簡介、作者簡介 <a href="AuthorBook-List.shtml">>>回『書籍介紹頁』編輯</a></span></div>
+						</li>
+						<li>$$版稅收入<div class="otherInfo">您尚未填寫個人匯款資料 <a href="#">>>到『收款管理中心』編輯</a></div></li>
+					</ul>
+				</div>
+				<div class="clearfix"></div>
+				</div>
+				<div class="toolbar alignC style2">
+					<a href="#" class="btn-default">取消</a>
+					<a href="#" class="btn-default btn-accept btn-l">修改確認資料將與網頁同步更新</a>
+				</div>
+			</form>
+		</div>
+	</div>
+<script>
+$('#pod').hide();
+$('#isAgeSelected').bind('change', function () {
+   if ($(this).is(':checked'))
+     $("#pod").show();
+   else
+     $("#pod").hide();
+});
+$(".link-account").hover(function(){
+        $('.account-item').removeClass('hide');
+    },function(){
+        $('.account-item').addClass('hide');
+    });
+</script> 
+	<!-- Footer -->
+	<footer class="footer-copyright"></footer>
+	<script>$("footer").load("../footer.html");</script> 
+</div>
+</body>
+</html>

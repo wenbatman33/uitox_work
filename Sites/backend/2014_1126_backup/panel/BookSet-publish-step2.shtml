@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>編輯書封 | bestBook</title>
+<link rel="stylesheet" type="text/css" href="../stylesheets/reset.css"/>
+<link rel="stylesheet" type="text/css" href="../stylesheets/bb.css"/>
+<link rel="stylesheet" type="text/css" href="../stylesheets/panel.css"/>
+<link rel="stylesheet" type="text/css" href="../stylesheets/formUI.css"/>
+<link rel="stylesheet" type="text/css" href="../stylesheets/message.css"/>
+<link rel="stylesheet" type="text/css" href="../stylesheets/CoverEditorUI.css">
+<link rel="stylesheet" type="text/css" href="../stylesheets/jquery-ui-1.10.4.custom.min.css"/>
+<script src="../js/fabric/fabric.min.js"></script>
+<script src="../js/jquery-1.11.0.min.js"></script>
+<script src="../js/jquery-ui-1.10.4.custom.min.js"></script>
+<script src="../dev/Utils.js"></script>
+<script src="../js/jquery.colorPicker.js"/></script>
+</head>
+<body>
+<div class="ui-widget-overlay ui-front"></div>
+<div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front ui-dialog-buttons ui-resizable" tabindex="-1" role="dialog" style="position:absolute; height: auto; width:880px; top:30px; left:133px; display:block;" aria-describedby="ui-id-1" aria-labelledby="ui-id-2"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix">
+<span id="ui-id-2" class="ui-dialog-title">編輯書的封面</span>
+<button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close" role="button" aria-disabled="false" title="close">
+<span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span><span class="ui-button-text">close</span>
+</button></div>
+<div id="ui-id-1" class="ui-dialog-content ui-widget-content" style="width: auto; min-height: 42px; max-height: none; height: auto;">
+
+<div class="onSellUI">
+				<div class="column l"><img src="../images/bb-9.jpg">
+					<div class="alignC"><span class="state s1">轉檔完成</span></div>
+				</div>
+				<div class="column r">
+					<div class="fs-18">恭喜您，您的書：<b class="fs-24 col-green">東京自助行2014</b> 已經上架！</div>
+					<div class="field">
+						<div class="label"><b>電子書售價</b></div>
+						<div class="setting">
+							<input type="text" value="" size="6" maxlength="6" tabindex="2"> 元 (可為0)
+							<div>
+								<label><input type="checkbox" id="isAgeSelected">同意也賣紙本書</label>
+							</div>
+							<ul id="pod">
+								<li>
+									<label class="qtip"><input name="pod" type="radio">雲書bestbook代為印刷、配送</label>
+									<div class="wrap-tip">
+										<div class="wrap-inner"><b>(紙本書售價 = 電子書售價 + 180元)</b><br>
+											<span>180元為印刷 + 運送成本，成本變動以網頁顯示為準</span></div>
+									</div>
+								</li>
+								<li>
+									<label><input name="pod" type="radio">紙本書自行提供，由ASAP出貨 （需先簽約）</label>
+								</li>
+								<li>
+									<input type="text" class="l" placeholder="ASAP書籍商品頁連結">
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="field">
+						<div class="label"><b>請問是否為限制級？</b></div>
+						<div class="setting">
+							<label><input type="radio" name="restricted">否</label>
+							<label><input type="radio" name="restricted">是</label>
+						</div>
+					</div>
+					<div class="field">
+						<div class="label"><b>版權與發行同意</b></div>
+						<div class="setting">
+							<div><label><input type="radio">我是作者，我確認文章、圖片絕無抄襲或已取得授權</label></div>
+							<div><label><input type="radio">我是出版社，已得到本書作者授權可發行此書</label></div>
+							<div><label><input type="radio">我是代理商，已得到本書作者/出版授權可以發行此書</label></div>
+							<div style="margin-top:20px;">
+								<label><input type="checkbox" checked>我已閱讀並同意 <a href="#">出版品發行合約書</a></label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+				</div>
+		</div>
+
+</div>
+<div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+<div class="ui-dialog-buttonset">
+<button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">預覽結果</span></button>
+<button type="button" class="btn-default btn-accept ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">立即上架</span></button>
+</div>
+</div>
+<div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div>
+<div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div>
+<div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div>
+<div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div>
+<div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div>
+<div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div>
+<div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div>
+<div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div>
+</div>
+
+</body>
+</html>

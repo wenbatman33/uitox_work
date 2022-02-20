@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>編輯書封 | bestBook</title>
+<link rel="stylesheet" type="text/css" href="../stylesheets/reset.css"/>
+<link rel="stylesheet" type="text/css" href="../stylesheets/bb.css"/>
+<link rel="stylesheet" type="text/css" href="../stylesheets/panel.css"/>
+<link rel="stylesheet" type="text/css" href="../stylesheets/formUI.css"/>
+<link rel="stylesheet" type="text/css" href="../stylesheets/message.css"/>
+<link rel="stylesheet" type="text/css" href="../stylesheets/CoverEditorUI.css">
+<link rel="stylesheet" type="text/css" href="../stylesheets/jquery-ui-1.10.4.custom.min.css"/>
+<script src="../js/fabric/fabric.min.js"></script>
+<script src="../js/jquery-1.11.0.min.js"></script>
+<script src="../js/jquery-ui-1.10.4.custom.min.js"></script>
+<script src="../dev/Utils.js"></script>
+<script src="../js/jquery.colorPicker.js"/></script>
+</head>
+<body>
+<div class="ui-widget-overlay ui-front"></div>
+<div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front ui-dialog-buttons ui-resizable" tabindex="-1" role="dialog" style="position: absolute; height: auto; width: 620px; top:30px; left: 133px; display: block;" aria-describedby="ui-id-1" aria-labelledby="ui-id-2">
+	<div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix">
+		<span id="ui-id-2" class="ui-dialog-title">編輯書的封面</span>
+		<button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close" role="button" aria-disabled="false" title="close">
+			<span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span><span class="ui-button-text">close</span>
+		</button>
+	</div>
+	
+	<div id="ui-id-1" class="ui-dialog-content ui-widget-content" style="width: auto; min-height: 42px; max-height: none; height: auto;">	
+		<div>
+			<div class="text fs-24">書的封面自己編輯</div>
+			<ul class="uploadSelect">
+				<li class="icon-bestbook"><div class="tip">● 提供1000種圖檔選擇<br>● 選完後，可在圖上編輯書名、改字體大小</div><a href="CoverEditor-Step02.html">從系統圖庫選擇</a></li>
+				<li class="icon-system"><div class="tip">● 限jpg，png檔<br>● 尺寸建議：<br>　只出電子書：2000x4000，72dpi<br>　只出電子書：2000x4000，300dpi<br>● 上傳後，可在圖上編輯書名、改字體大小</div><a href="javascript:void(0);" class="btn_addPic"><span>從電腦檔案選擇</span><div><input type="file" name="pic" class="filePrew"></div></a></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+		<div class="ui-dialog-buttonset">
+			<button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">取消</span></button>
+			<button type="button" class="btn-default btn-accept ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">確定</span></button>
+		</div>
+	</div>
+	
+	<div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div>
+	<div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div>
+	<div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div>
+	<div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div>
+	<div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div>
+	<div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div>
+	<div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div>
+	<div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div>
+</div>
+</body>
+</html>

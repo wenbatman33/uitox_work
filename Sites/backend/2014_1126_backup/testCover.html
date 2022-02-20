@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Insert title here</title>
+<script src="./js/fabric/fabric.min.js"></script>
+
+<script src="./js/jquery-1.11.0.min.js"></script>
+<script src="./js/jquery-ui/jquery-ui-1.10.4.custom.min.js"></script>
+<script src="./dev/Utils.js"></script>
+
+<link rel="stylesheet" type="text/css" href="./css/reset.css"/>
+	<link rel="stylesheet" type="text/css" href="./css/bb.css"/>
+	<link rel="stylesheet" type="text/css" href="./css/panel.css"/>
+	<link rel="stylesheet" type="text/css" href="./css/formUI.css"/>
+	<link rel="stylesheet" type="text/css" href="./css/message.css"/>
+	<link rel="stylesheet" type="text/css" href="./js/jquery-ui/css/bb-theme/jquery-ui-1.10.4.bb.min.css"/>
+<script type="text/javascript">
+var selectedObj = null;
+var coverCanvas = null;
+
+var bookname = new fabric.Text("書名", {left: 50, top: 50, fontFamily: '新細明體'});
+var subname = new fabric.Text("副標", {left: 50, top: 50, fontFamily: '新細明體'});
+var author = new fabric.Text("作者", {left: 50, top: 50, fontFamily: '新細明體'});
+
+$(document).ready(function(){
+	coverCanvas = new fabric.Canvas('coverCanvas');
+	coverCanvas.setWidth(543);
+	coverCanvas.setHeight(768);
+	
+	
+	$("#create_new_text").on('click', function() {
+		coverCanvas.add(createText());
+	});
+	
+	$("#output_template").on('click', function() {
+		output();
+	});
+	
+	coverCanvas.on('selection:cleared', function() {//unSelected Text
+		selectedObj = null;
+		$(".objectProperties").hide();
+	});
+	
+	$(".coverSpace").keydown(function(e){
+		if(e.which == 46){
+			removeSelected();
+		}
+	});
+	
+	coverCanvas.add(createText());
+	
+	coverCanvas.setBackgroundImage('./Cover-19.jpg', coverCanvas.renderAll.bind(coverCanvas));
+	
+	$(".objectProperties .objectText textarea").on('keyup', function() {
+		selectedObj.setText(this.value);
+		coverCanvas.renderAll();
+	});
+});
+
+function createText() {
+	var text = new fabric.Text("輸入文字", {
+		left: 50, top: 50,
+		fontFamily: '新細明體'
+	});
+	text.lockUniScaling = true;
+	
+	text.on('selected', showTextProperties);
+	
+	return text;
+}
+
+function output() {
+	var text = new fabric.Text("輸入文字", {
+		left: 50, top: 50,
+		fontFamily: '新細明體'
+	});
+	text.lockUniScaling = true;
+	
+	text.on('selected', showTextProperties);
+	
+	return text;
+}
+
+function showTextProperties() {
+	$(".objectProperties").find(".objectText textarea").html(selectedObj.getText());
+	
+	$(".objectProperties").find(".objectFontFamily span").html(selectedObj.getFontFamily());
+	$(".objectProperties").find(".objectFontWeight span").html(selectedObj.getFontWeight());
+	$(".objectProperties").find(".objectFontStyle span").html(selectedObj.getFontStyle());
+	
+	var decoration = selectedObj.getTextDecoration();
+	$(".objectProperties").find(".objectTextUnderline span").html(decoration);
+	
+	$(".objectProperties").find(".objectFontColor span").html(selectedObj.getFill());
+}
+
+function removeSelected() {
+	var activeObject = coverCanvas.getActiveObject(),
+	activeGroup = coverCanvas.getActiveGroup();
+
+	if (activeGroup) {
+		var objectsInGroup = activeGroup.getObjects();
+		coverCanvas.discardActiveGroup();
+		objectsInGroup.forEach(function(object) {
+			coverCanvas.remove(object);
+		});
+		
+	}else if (activeObject) {
+		coverCanvas.remove(activeObject);
+	}
+}
+</script>
+<style>
+.coverSpace{
+	float:left;
+	margin-top: 5px;
+	margin-left: 5px;
+}
+.coverToolbar{
+	float:left;
+	margin-top: 5px;
+	margin-left: 5px;
+	width: 200px;
+}
+#coverCanvas {
+	border-color: #333333;
+	border-width: 1px;
+	border-style: solid;
+}
+</style>
+</head>
+<body>
+<div class="coverEditor">
+	<div class="coverSpace" tabindex="0">
+		<canvas id="coverCanvas"></canvas>
+	</div>
+	<div class="coverToolbar">
+		<button class="btn" id="create_new_text">Add text</button>
+		<button class="btn" id="output_template">匯出設定</button>
+		<div class="objectProperties">
+			<div class="objectFontFamily">Font Family: <span></span></div>
+			<div class="objectFontWeight">Font Weight: <span></span></div>
+			<div class="objectFontStyle">Font Style: <span></span></div>
+			<div class="objectTextUnderline">Underline: <span></span></div>
+			<div class="objectTextLineThrough">LineThrough: <span></span></div>
+			<div class="objectTextOverline">Overline: <span></span></div>
+			<div class="objectFontColor">Color: <span></span></div>
+			<div class="objectText"><textarea style="width: 100%; height: 200px;"></textarea></div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

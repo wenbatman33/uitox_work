@@ -1,0 +1,18 @@
+doctype html
+html
+  include _frame/__htmlHead.jade
+  body
+    include _frame/__globalheader.jade
+    .localNav
+      .container
+        .breadcrumbs
+          a(href='booksList.html') 首頁
+          span="｜作品列表"
+        .navButton
+          a(class='btn btn-navReport' href='google.com') 業績報表
+          a(class='btn btn-addBook' href='google.com') 新增書本
+    .mainColumn
+      .container
+        include _frame/_booksList.jade
+    //-底下footer
+    include _frame/__footer.jade

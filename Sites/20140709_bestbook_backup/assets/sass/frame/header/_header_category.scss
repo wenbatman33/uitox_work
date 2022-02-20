@@ -1,0 +1,131 @@
+.header-inn{
+	.main-category{
+		position: relative;
+		display: inline-block;
+		float: left;
+		position: relative;
+		cursor: pointer;
+		margin-left: 25px;
+		padding: 15px 10px 14px 10px;
+		.icon-menu{
+			font-style: normal;
+			font-size: 20px;
+			z-index: 12;
+			&:before{
+				margin-right: 5px;
+				top: -2px;
+			}
+		}
+	}
+	.category-item{
+		position: absolute;
+		display: none;
+		top: 100%;
+		left: 0;
+		border: 2px solid #1176ba;
+		padding: 0 5px;
+		width: 430px;
+		background: white;
+		z-index: 10;
+		//@include one-line;
+		@include clearfix;
+		@include box-sizing(border-box);
+		li{
+			//float: left;
+			padding: 3px 0;
+			border-bottom: 1px solid $light_gray;
+			&:last-child{
+				border-bottom: none;
+			}
+			a{
+				display: inline-block;
+				font-size: 0.9em;
+				padding: 5px;
+				&:hover{
+					text-decoration: underline;
+				}
+				&:first-child{
+					color: #1176ba;
+					padding-left: 0;
+				}
+			}
+		}
+		&:before{
+            position: absolute;
+        }
+	}
+	.category-mask{
+		position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0,0,0,0);
+        z-index: 10;
+        //display: none;
+    }
+    .categoryBG{
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0,0,0,0);
+        z-index: 2;
+        display: none;
+    }
+}
+
+@media only screen and (min-width: $screen-md-min) and (max-width: $screen-md-max){
+    .header-inn{
+    	.main-category{
+    		display: block;
+    	}
+    	.menu-txt{
+    		display: none;
+    	}
+    }
+}
+
+@media only screen and (max-width: $screen-sm-max){
+    .header-inn{
+    	.main-category{
+    		display: block;
+    		margin-left: 5px;
+    	}
+    	.menu-txt{
+    		display: none;
+    	}
+        .category-mask{
+            position: fixed;
+            top: 57px;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 200px;
+            background: rgba(0,0,0,0);
+            z-index: 10;
+            display: none;
+        }
+    	.category-item{
+    		position: fixed;
+    		top: 57px;
+    		left: -300px;
+    		bottom: 0;
+    		width: 200px;
+    		border: none;
+    		border-right: 2px solid $light_gray;
+    		overflow-y: scroll;
+    		li{
+    			float: none;
+    			a{
+    				display: block;
+    				padding: 10px;
+    				&:first-child{
+						padding-left: 10px;
+					}
+    			}
+    		}
+    	}
+    }
+}

@@ -1,0 +1,236 @@
+.bbProduct{
+	display:block;
+	width: 100%;
+	height: auto;
+	border-bottom: solid 1px #e4e4e4;
+}
+
+.bbProduct .bbProductCover{
+	position: relative;
+	float: left;
+	width: 35%;
+	min-height: 480px;
+	background-color: #fff;
+	border-right: solid 1px #e4e4e4;
+}
+.bbProduct .bbProductCover .deviceIpad{
+	position: absolute;
+	display: block;
+	top: 50px;
+	left: 150px;
+	width: 235px;
+	height: 334px;
+}
+.bbProduct .bbProductCover .deviceIpad img{
+	width: 100%;
+	height: auto;
+}
+.bbProduct .bbProductCover .deviceIpad .cover{
+	position: absolute;
+	display: block;
+	top: 8.8%;
+	left: 6.3%;
+	width: 87.5%;
+	height: 82.7%;
+	background-color: #666;
+	z-index: 4;
+}
+.bbProduct .bbProductCover .deviceIpad .cover img{
+	position: absolute;
+	max-height:100%;
+}
+
+
+.bbProduct .bbProductCover .deviceIphone6{
+	position: absolute;
+	display: block;
+	top: 120px;
+	left: 10px;
+	width: 130px;
+	height: 269px;
+}
+.bbProduct .bbProductCover .deviceIphone6 .cover{
+	position: absolute;
+	display: inline-block;
+	top: 13.1%;
+    left: 6.8%;
+	width: 86%;
+	height: 73%;
+	z-index: 3;
+}
+.bbProduct .bbProductCover .deviceIphone6 .cover img{
+	position: absolute;
+	top: 10%;
+	max-height:100%;
+}
+
+.bbProduct .bbProductCover .deviceIphone6 img{
+	width: 100%;
+	height: auto;
+}
+
+
+
+
+
+
+.bbProduct .booksPDData{
+	position: relative;
+	display: block;
+	float: left;
+	width: 64%;
+	min-height: 480px;
+	background-color: #fff;
+	@include box-sizing(border-box);
+}
+.bbProduct .booksPDData ul{
+	@include box-sizing(border-box);
+	display: block;
+	border-bottom: solid 1px #e4e4e4;
+	padding: 10px 10px;
+	margin-left: 10px;
+	@include box-sizing(border-box);
+}
+.bbProduct .booksPDData ul:last-child{
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	border-bottom: none;
+}
+.bbProduct .booksPDData li{
+	color: #999999;
+	font-size: 13px;
+	line-height: 24px;
+}
+.bbProduct .booksPDData li.title{
+	color: #2D6CA2;
+	font-size: 18px;
+	line-height: 24px;
+	overflow:hidden;
+	width: 300px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+
+.bbProduct .booksPDData li span.tag{
+  display: inline-block;
+  height: 24px;
+  line-height: 24px;
+  border-radius: 99em;
+  font-size: 12px;
+  color: #2D6CA2;
+  text-align: center;
+  border: solid 1px #2D6CA2;
+  padding: 0px 10px;
+  margin-right: 5px;
+}
+.bbProduct .booksPDDatali.subData{
+	margin-top: 10px;
+}
+
+
+.bbProductIntro{
+	display: inline-block;
+	width: 100%;
+	height: auto;
+	background: #999;
+	background-color: #F8F8F8;
+	border-top: solid 1px #e4e4e4;
+	border-bottom: solid 1px #e4e4e4;
+}
+
+.bbProductIntroInner{
+	line-height: 24px;
+	margin: 20px;
+	color: #999;
+	font-size: 14px;
+	@include box-sizing(border-box);
+}
+.bbProductIntroInner h3{
+	color: #666;
+	font-size: 16px;
+}
+
+
+
+
+.bbProductSaleLink{
+	position: absolute;
+	top: 0px;
+	right: 0;
+	display: block;
+	background-color: #fff;
+	width: 370px;
+	padding: 20px;
+	border: solid 2px #F2254C;
+	z-index: 3
+}
+.bbProductSaleLink .t{
+	position: absolute;
+	left: -20px;
+	top: 8px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 10px 20px 10px 0;
+	border-color: transparent #F2254C transparent transparent;
+}
+.bbProductSaleLink .priceInfo ,.booksPDSaleLink .shareButtons{
+	padding: 10px 0px 20px 0;
+	border-bottom: solid 1px #e4e4e4;
+	@include box-sizing(border-box);
+}
+.bbProductSaleLink .priceInfo span{
+	font-size: 18px;
+	color: #F52A4E;
+}
+.bbProductSaleLink .priceInfo span.price{
+	font-size: 28px;
+}
+.bbProductSaleLink .priceInfo ul{
+}
+.bbProductSaleLink .priceInfo ul li{
+	display: block;
+	height: 40px;
+	margin: 40px 0px;
+}
+.bbProductSaleLink .priceInfo ul li img{
+	display: inline-block;
+}
+.bbProductSaleLink .priceInfo ul li a.saleBtn{
+	display: inline-block;
+	height: 32px;
+	line-height:32px;
+	border-radius: 99em;
+	font-size: 14px;
+	color: #fff;
+	background-color: #F2254C;
+	text-align: center;
+	padding: 0px 10px;
+	margin-right: 5px;
+	float: right;
+}
+.bbProductSaleLink .priceInfo ul li a.saleBtn span{
+	font-size: 14px;
+	color: #fff;
+}
+.bbProductSaleLink .priceInfo ul li a.saleBtn .icon_14_cArrow{
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	@include cssSprite($icon_14_cArrow);
+}
+
+
+.bbProductSaleLink .settingButtons{
+	padding-top: 60px;
+	@include box-sizing(border-box);
+}
+.bbProductSaleLink .settingButtons a.button{
+	float: left;
+	width: 43%;
+	height: 40px;
+	@include box-sizing(border-box);
+	margin: 10px;
+}

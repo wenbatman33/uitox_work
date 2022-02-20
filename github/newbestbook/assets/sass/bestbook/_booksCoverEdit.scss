@@ -1,0 +1,323 @@
+.booksCoverEdit{
+    margin-top: 15px;
+    .booksCover{
+        text-align: center;
+        padding: 0px 15px 15px 15px;
+        height: 750px;
+        img{
+            width: 100%;
+        }
+    }
+    .booksCoverEdit__block{
+        div{
+            padding: 8px;
+        }
+        .borderBlockTitle{
+            text-align: center;
+            border-bottom: solid 1px #e4e4e4;
+        }
+    }
+    ul.template_list {
+        display: block;
+        height: auto;
+        padding: 0;
+        margin: 0 auto;
+        background-color: #fff;
+        overflow: hidden;
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        box-sizing: content-box
+    }
+    ul.template_list li {
+        position: relative;
+        float: left;
+        margin: 7px 0 0 21px;
+        width: 75px;
+        height: 105px;
+        border: solid 1px #ccc;
+        cursor: pointer;
+        overflow: hidden
+    }
+
+    ul.template_list li:hover:after,ul.template_list li.current:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.3)
+    }
+
+    ul.template_list li.current {
+        border: solid 1px #09F;
+        -webkit-box-shadow: 0 0 5px #09F;
+        -box-shadow: 0 0 5px #09F;
+        box-shadow: 0 0 5px #09F
+    }
+
+    ul.template_list li img {
+        width: 75px;
+        height: 105px
+    }
+    .fileUpLoad{
+        position: relative;
+        input{
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            opacity: 0;
+            filter: alpha(opacity=0);
+        }
+    }
+}
+.paginationBlock{
+    margin: 10px 0;
+}
+///////////////////////////////
+.booksCoverEdit,.booksCoverEdit_step2{
+    .booksCoverEditWrap{
+        position: relative;
+        height: auto;
+        padding: 20px;
+        border: solid 2px #2D6CA2;
+        .t{
+            position: absolute;
+            left: -20px;
+            top: 40px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 10px 20px 10px 0;
+            border-color: transparent #2D6CA2 transparent transparent;
+        }
+    }
+    margin-top: 15px;
+    .coverSpace {
+      height: auto;
+    }
+    .selectpPic {
+        margin-top: 15px
+    }
+    .coverCanvas {
+      background: url(../img/viewer/transp_bg.png) repeat #fff;
+      -webkit-box-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+      -moz-box-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+      box-shadow: 1px 1px 5px rgba(0,0,0,0.6);
+    }
+    .coverCanvas {
+      width: 560px;
+      height: 747px;
+    }
+    .field{
+        margin: 5px 0;
+        vertical-align: top;
+        .label{
+            width: 60px;
+            margin-right: 5px;
+            display: inline-block;
+        }
+        .setting{
+            margin-right: 5px;
+            display: inline-block;
+        }
+        .newTxt{
+            color: #2D6CA2;
+            text-decoration: underline;
+        }
+    }
+    .objectProperties {
+        display: inline-block;
+    }
+
+    ul.objectSetUI {
+        margin-top: 10px;
+        padding: 8px;
+        height: 40px;
+        border: solid 1px #c2c2c2;
+        border-bottom: 0;
+        overflow: hidden;
+        -webkit-box-shadow: inset 0 1px 0 #fff;
+        -moz-box-shadow: inset 0 1px 0 #fff;
+        box-shadow: inset 0 1px 0 #fff;
+        overflow: hidden;
+        vertical-align: top;
+    }
+
+    ul.objectSetUI li {
+        float: left;
+        background-image: url(../img/viewer/icon-Toolbar.png);
+        background-repeat: no-repeat;
+        min-width: 23px;
+        height: 25px;
+        margin-right: 2px;
+        cursor: pointer;
+        box-sizing: border-box
+    }
+
+    ul.objectSetUI li:hover {
+        border: solid 1px #CCC
+    }
+
+    ul.objectSetUI li.current {
+        background-color: rgba(0,0,0,0.6);
+        -webkit-box-shadow: inset 1px 1px 3px rgba(0,0,0,0.6);
+        -moz-box-shadow: inset 1px 1px 3px rgba(0,0,0,0.6);
+        box-shadow: inset 1px 1px 3px rgba(0,0,0,0.6)
+    }
+
+    ul.objectSetUI li.current:hover {
+        border: 0
+    }
+
+    ul.objectSetUI li.objectFontFamily {
+        background-color: transparent!important;
+        border: 0
+    }
+
+    ul.objectSetUI li.objectFontWeight {
+        background-position: -50px 0
+    }
+
+    ul.objectSetUI li.objectFontStyle {
+        background-position: -50px -25px
+    }
+
+    ul.objectSetUI li.objectTextUnderline {
+        background-position: -50px -75px
+    }
+
+    ul.objectSetUI li.objectFontColor {
+        background-position: -75px -100px
+    }
+
+    ul.objectSetUI li.objectFontWeight.current {
+        background-position: 0 0
+    }
+
+    ul.objectSetUI li.objectFontStyle {
+        background-position: -50px -25px
+    }
+
+    ul.objectSetUI li.objectTextUnderline {
+        background-position: -50px -75px
+    }
+
+    ul.objectSetUI li.objectFontColor {
+        background-position: -75px -100px
+    }
+
+    ul.objectSetUI li.objectFontFamily {
+        background-image: none
+    }
+
+    ul.objectSetUI li.objectFontFamily select {
+        padding: 0px;
+        height: 24px;
+        margin: 0;
+        border: 0;
+        outline-style: solid;
+        outline-width: 1px;
+        outline-color: #222;
+        background-color: transparent;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        width: 190px;
+    }
+    .objectText textarea {
+        width: 100%;
+        height: 60px;
+        -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+        border-radius: 0;
+        border: solid 1px #c2c2c2 ;
+    }
+    .objFontColor{
+        height: 24px;
+    }
+
+}
+@-webkit-keyframes coverUPLoadAnimation {
+    0%   {background-position: 0px 0px;opacity: 1;}
+    50%   {background-position: 0px 0px;opacity: 1;}
+    65%   {background-position: 0px 0px;opacity: 0;}
+    86%   {background-position: 0px 0px;opacity: 0;}
+    90%  {background-position: -500px 0px;opacity: 0;}
+    100%  {background-position: -500px 0px;opacity: 1;}
+}
+@keyframes coverUPLoadAnimation {
+    0%   {background-position: 0px 0px;opacity: 1;}
+    50%   {background-position: 0px 0px;opacity: 1;}
+    65%   {background-position: 0px 0px;opacity: 0;}
+    86%   {background-position: 0px 0px;opacity: 0;}
+    90%  {background-position: -500px 0px;opacity: 0;}
+    100%  {background-position: -500px 0px;opacity: 1;}
+}
+.booksCoverSelect{
+    position: relative;
+    margin-top: 15px;
+    h1{
+        padding: 5px 45px;
+    }
+    .coverSelectOR{
+        position: absolute;
+        top: 250px;
+        left: 575px;
+    }
+    .coverSelect{
+        h2{
+            text-align: center;
+        }
+    }
+    .coverSelect_dec{
+        width: 500px;
+        margin: 0 auto;
+        text-align: left;
+        h2{
+            text-align: left;
+        }
+    }
+    .coverSelect_01{
+        position: relative;
+        width: 500px;
+        height: 500px;
+        background-image: url(../img/coverUpload.jpg);
+        cursor: pointer;
+        margin: 0 auto;
+        .coverSelectInput{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            left: 0px;
+            z-index: 3;
+            cursor: pointer;
+        }
+
+        &:hover{
+            -webkit-animation-name: coverUPLoadAnimation;
+            -webkit-animation-duration: 0.5s;
+            -webkit-animation-fill-mode: forwards;
+            -webkit-animation-delay: 0.3s;
+
+            animation-name: coverUPLoadAnimation;
+            animation-duration: 0.5s;
+            animation-fill-mode: forwards;
+            animation-delay: 0.3s;
+        }
+    }
+    .coverSelect_02{
+        width: 500px;
+        height: 500px;
+        background-image: url(../img/coverUpload.jpg);
+        background-position: -1000px 0px;
+        cursor: pointer;
+        margin: 0 auto;
+    }
+}

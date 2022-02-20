@@ -1,0 +1,575 @@
+
+@import reset
+@import compass/css3
+//reset css
+@mixin image-set($img1,$img2)
+	background-image:url('#{$img1}')
+	background-image: -webkit-image-set(url('#{$img1}') 1x, url('#{$img2}') 2x)
+	background-image: -moz-image-set(url('#{$img1}') 1x, url('#{$img2}') 2x)
+	background-image: -o-image-set(url('#{$img1}') 1x, url('#{$img2}') 2x)
+	background-image: -ms-image-set(url('#{$img1}') 1x, url('#{$img2}') 2x)
+	background-image: image-set(url('#{$img1}') 1x, url('#{$img2}') 2x)
+
+body
+	overflow-x: hidden
+	font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif
+	-webkit-text-size-adjust: 100%
+
+.loginTopWrap
+	display: block
+	width: 100%
+	height: 600px
+	overflow: hidden
+	background: url(../images/bg.jpg) #9edff8  top center no-repeat
+
+.rwdDiv
+	display: block
+	position: relative
+	margin: 10px 0 0 0 
+	width: 680px
+	&:before
+		content: ""
+		display: block
+		padding-top: 100%
+.logo
+	display: block
+	position: relative
+	margin: 30px auto auto auto
+	width: 183px
+	height: 60px
+	background-image: url(../images/logo.png)
+	@include image-set('../images/logo.png', '../images/logo2x.png')
+	cursor: pointer
+.registrForm
+	display: none
+	position: relative
+	margin: 0 auto
+	width: 	290px
+	text-align: center
+	color: #fff
+
+.registrFormTitle
+	font-size: 20px
+	line-height: 30px
+	margin: 30px auto auto auto
+
+.loginForm
+	display: block
+	position: relative
+	margin: 0 auto
+	width: 280px
+	text-align: center
+	color: #fff
+
+.formsCircle
+	width: 100%
+	display: block
+	position: absolute
+	margin: 0 auto
+	top: 0
+	left: 0
+	bottom: 0
+	right: 0
+	background: #36bcf1
+	border-radius: 100%
+
+.circle
+	position: absolute
+	-moz-border-radius: 50px
+	-webkit-border-radius: 50px
+	border-radius: 50px
+.c1
+	width: 100px
+	height: 100px
+	top: 100px
+	left: -116px
+	background: rgba(255,255,255,.3)
+.c2
+	width: 60px
+	height: 60px
+	top: 300px
+	left: 610px
+	background: rgba(255,255,255,.3)
+.c3
+	width: 100px
+	height: 100px
+	top: 300px
+	left: 640px
+	background: rgba(255,255,255,.2)
+
+
+@-webkit-keyframes loopMove
+	0%
+		left: -100px
+	50%
+		left: 10px
+	100%
+		left: -100px
+@-moz-keyframes loopMove
+	0%
+		left: -100px
+	50%
+		left: 10px
+	100%
+		left: -100px
+@-mskeyframes loopMove
+	0%
+		left: -100px
+	50%
+		left: 10px
+	100%
+		left: -100px
+@-o-keyframes loopMove
+	0%
+		left: -100px
+	50%
+		left: 10px
+	100%
+		left: -100px
+@keyframes loopMove
+	0%
+		left: -100px
+	50%
+		left: 10px
+	100%
+		left: -100px
+
+.cloud
+	display: block
+	position: absolute
+	width: 222px
+	height: 155px
+	top: 0
+	left: -100px
+	background: inline-image('../images/cloud.png')
+	+background-size(100% 100%)
+	-webkit-animation-duration: 40s
+	-moz-animation-duration: 40s
+	-ms-animation-duration: 40s
+	-o-animation-duration: 40s
+	animation-duration: 40s
+
+	-webkit-animation-name: loopMove
+	-moz-animation-name: loopMove
+	-ms-animation-name: loopMove
+	-o-animation-name: loopMove
+	animation-name: loopMove
+	-webkit-animation-iteration-count: infinite
+	-moz-animation-iteration-count: infinite
+	-ms-animation-iteration-count: infinite
+	-o-animation-iteration-count: infinite
+	animation-iteration-count: infinite
+
+.loginSubWrap
+	display: block
+	position: relative
+	width: 100%
+	height: 150px
+	z-index: 100
+	background: #fff
+.loginSubInner
+	display: block
+	position: relative
+	margin: 10px auto
+	width: 960px
+.device_pc
+	display: block
+	position: absolute
+	width: 313px
+	height: 226px
+	top: -150px
+	left: -120px
+	background: inline-image('../images/device_pc.png')
+.device_notebook
+	display: block
+	position: absolute
+	width: 290px
+	height: 153px
+	top: -60px
+	left: 0px
+	background: inline-image('../images/device_notebook.png')
+.device_phone
+	display: block
+	position: absolute
+	width: 46px
+	height: 97px
+	top: -20px
+	left: 800px
+	background: inline-image('../images/device_phone.png')
+.device_pad
+	display: block
+	position: absolute
+	width: 104px
+	height: 150px
+	top: -72px
+	left: 843px
+	background: inline-image('../images/device_pad.png')
+.field
+	display: block
+	margin: 5px 0 0 0
+	line-height: 38px
+
+.fieldPolicy
+	display: block
+	margin: 5px 0 0 0
+	line-height: 24px
+	text-align: left
+	.qtip
+		margin-left: 60px
+	a
+		color: #a8e6ff
+.fieldTitle
+	width: 26%
+	height: auto
+	float: left
+	font-size: 18px
+	text-align: right
+	margin-right: 3px
+.fieldinput
+	width: 70%
+	height: auto
+	float: right
+	text-align: left
+.fieldinput_100
+	width: 100%
+	height: auto
+	float: right
+	text-align: left
+.field_bottom
+	display: block
+	margin: 5px 0 0 0
+	line-height: 38px
+	text-align: left
+	img
+		display: inline-block
+		height: 50px
+		vertical-align: middle
+		margin-left: 30%
+	.reCaptcha
+		color: #fff000
+		font-size: 14px
+		line-height: 46px
+.qtip
+	font-size: 12px
+.error
+	clear: both
+	margin: 0
+	height: 14px
+	color: #fff000
+	font-size: 14px
+	text-align: right
+	font-weight: bold
+	line-height: 14px
+.loginFormTitle
+	font-size: 20px
+	line-height: 30px
+	margin: 80px auto 10px auto
+.loginFormSubTitle
+	font-size: 14px
+	line-height: 24px
+	margin: 20px auto
+.toolbar
+	margin: 18px auto
+	width: 100%
+	text-align: left
+.toolbar_center
+	margin: 18px auto
+	width: 100%
+	text-align: center
+.forget
+	font-size: 14px
+	line-height: 46px
+	color: #a8e6ff
+	text-align: left
+	&:hover
+		color: #fff
+
+.btn-default
+	display: inline-block
+	border-style: solid
+	border-width: 1px
+	border-color: rgb(255, 255, 255)
+	border-radius: 4px
+	background-color: rgba(255, 255, 255, 0)
+	height: 46px
+	line-height: 46px
+	color: #fff
+	text-decoration: none
+	padding: 0 8px
+	margin: 0 0 0 8px
+	min-width: 60px
+	text-align: center
+	&:hover
+		background-color: rgba(255, 255, 255, 1)
+		color: #36bcf1
+.btn-newMember
+	display: inline-block
+	border-style: solid
+	border-width: 1px
+	border-color: rgba(255, 240, 1, 1)
+	border-radius: 4px
+	background-color: rgba(255, 240, 1, 0)
+	height: 46px
+	line-height: 46px
+	color: rgba(255, 240, 1, 1)
+	text-decoration: none
+	padding: 0 8px
+	margin: 0 0 0 8px
+	min-width: 60px
+	text-align: center
+	&:hover
+		background-color: rgba(255, 240, 1, 1)
+		color: #36bcf1
+
+
+.btn-cancel
+	display: inline-block
+	border-style: solid
+	border-width: 1px
+	border-color: rgba(168, 230, 255, 1)
+	border-radius: 4px
+	background-color: rgba(255, 255, 255, 0)
+	height: 46px
+	line-height: 46px
+	color: rgba(168, 230, 255, 1)
+	text-decoration: none
+	padding: 0 8px
+	margin: 0 0 0 8px
+	min-width: 60px
+	text-align: center
+	&:hover
+		background-color: rgba(168, 230, 255, 1)
+		color: #36bcf1
+.btnLarge
+	width: 120px
+
+.floatRight
+	float: right
+.floatLeft
+	float: left
+.footer
+	position: relative
+	bottom: 8px
+	width: 100%
+	margin: 0 auto
+	padding: 10px 0 0 0
+	color: #999
+	font-size: 12px
+	line-height: 18px
+	text-align: center
+
+input[type=text], textarea, input[type="password"], input[type="file"], input[type="email"], input[type="date"]
+	color: #333
+	padding: 8px
+	margin-left: 0
+	outline: none
+	width: 100%
+	border: solid 1px #fff
+	background-color: #fff
+	-webkit-box-sizing: border-box
+	-moz-box-sizing border-box
+	box-sizing: border-box
+	-webkit-appearance: none
+	+border-radius(4px)
+	&:focus
+		border: solid 1px  #fff000
+
+
+
+@media screen and (min-width : 768px) and (max-width : 1024px) 
+	.loginTopWrap
+		height: 600px
+		overflow: hidden
+	.rwdDiv
+		margin: 20px auto
+		width: 100%
+	.loginSubWrap
+		height: 150px
+		z-index: 100
+		background: #fff
+	.loginTitle
+		margin: 80px auto auto auto
+	.loginSubInner
+		width: 100%
+	.device_pc
+		left: -8%
+	.device_notebook
+		left: 7%
+	.device_phone
+		left: 86%
+	.device_pad
+		left: 90%
+	.cloud
+		width: 140px
+		height: 98px
+		left: 440px
+	.c1
+		top: 220px
+		left: -40px
+	.c2
+		top: 300px
+		left: 780px
+	.c3
+		top: 251px
+		left: 800px
+
+@media screen and (min-device-width : 768px) and (max-device-width : 1024px) and  (orientation: portrait)
+	.device_pc
+		left: -20%
+	.device_notebook
+		left: -4%
+
+@media screen and (min-width:480px) and (max-width:767px)
+	.loginTopWrap
+		width: 100%
+	.loginSubWrap
+		width: 100%
+		height: 150px
+		z-index: 100
+		background: #fff
+	.rwdDiv
+		margin: 30px auto auto auto
+		width: 100%
+		height: 100%
+	.device_pc
+		display: none
+	.device_notebook
+		display: none
+	.device_phone
+		left: 54%
+	.device_pad
+		left: 58%
+	.formsCircle
+		width: 960px
+		height: 960px
+	.c1
+		display: none
+	.c2
+		display: none
+	.c3
+		display: none
+	.cloud
+		width: 110px
+		height: 70px
+		left: 100%
+		-webkit-animation-duration: 15s
+		-moz-animation-duration: 15s
+		-ms-animation-duration: 15s
+		-o-animation-duration: 15s
+		animation-duration: 15s
+
+	@-webkit-keyframes loopMove
+		0%
+			left: 120%
+		50%
+			left: 110%
+		100%
+			left: 120%
+	@-moz-keyframes loopMove
+		0%
+			left: 190%
+		50%
+			left: 180%
+		100%
+			left: 190%
+	@-ms-keyframes loopMove
+		0%
+			left: 190%
+		50%
+			left: 180%
+		100%
+			left: 190%
+	@-o-keyframes loopMove
+		0%
+			left: 190%
+		50%
+			left: 180%
+		100%
+			left: 190%
+	@keyframes loopMove
+		0%
+			left: 190%
+		50%
+			left: 180%
+		100%
+			left: 190%
+
+@media screen and (min-width : 320px) and (max-width : 480px) 
+	.loginTopWrap
+		width: 100%
+		height: 100%
+		min-height: 600px
+	.loginSubWrap
+		display: none
+	.rwdDiv
+		margin: 30px auto auto auto
+		width: 100%
+		height: 100%
+	.formsCircle
+		width: 960px
+		height: 960px
+	.footer
+		position: relative
+		bottom: 0px
+		background: #36bcf1
+		color: #fff
+		font-size: 12px
+	.c1
+		display: none
+	.c2
+		display: none
+	.c3
+		display: none
+
+	.cloud
+		width: 110px
+		height: 70px
+		left: 190%
+		-webkit-animation-duration: 15s
+		-moz-animation-duration: 15s
+		-ms-animation-duration: 15s
+		-o-animation-duration: 15s
+		animation-duration: 15s
+
+	@-webkit-keyframes loopMove
+		0%
+			left: 190%
+		50%
+			left: 186%
+		100%
+			left: 190%
+	@-moz-keyframes loopMove
+		0%
+			left: 190%
+		50%
+			left: 186%
+		100%
+			left: 190%
+	@-ms-keyframes loopMove
+		0%
+			left: 190%
+		50%
+			left: 186%
+		100%
+			left: 190%
+	@-o-keyframes loopMove
+		0%
+			left: 190%
+		50%
+			left: 186%
+		100%
+			left: 190%
+	@keyframes loopMove
+		0%
+			left: 190%
+		50%
+			left: 186%
+		100%
+			left: 190%
+@media screen and (max-width : 320px)
+	.loginTopWrap
+		width: 100%
+		height: 100%
+		min-height: 600px
+	.loginSubWrap
+		display: none

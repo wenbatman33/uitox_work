@@ -1,0 +1,300 @@
+.mainColumn
+  .container
+    .incomeSetting
+      .tabs
+        ul
+          a(class='linkstyle' href='incomeSetting_1.html')
+            li.col-phone-4.col-pad_v-4.col-pad_h-4.col-pc-4.tab-1  銷售報表
+          a(class='linkstyle' href='incomeSetting_2.html') 
+            li.col-phone-4.col-pad_v-4.col-pad_h-4.col-pc-4.tab-2 結帳金額與匯款紀錄
+          a(class='linkstyle' href='incomeSetting_3.html') 
+            li.col-phone-4.col-pad_v-4.col-pad_h-4.col-pc-4.tab-3.current 銀行帳號設定
+      .tab_container.tabBlock-3
+        .accountSetting_1
+          .accountInfo.col-phone-12.col-pad_v-6.col-pad_h-6.col-pc-6
+            h4 收款帳戶資料:
+            .row
+              div.accountData
+                p
+                  span.title.ta_right 身分別:
+                  span.data 個人作家
+                p
+                  span.title.ta_right 姓名:
+                  span.data 休豪伊
+                p
+                  span.title.ta_right 地址:
+                  span.data 11008 臺北市信義區市府路1號 
+                p
+                  span.title.ta_right 電話:
+                  span.data 02-27208889
+                p
+                  span.title.ta_right 身分證字號:
+                  span.data A10*****00
+                h4.is-hide 未設定
+              div.accountDataBtn
+                a(class='btn btn-navReport' href='#') 設定
+          .accountInfo.col-phone-12.col-pad_v-6.col-pad_h-6.col-pc-6
+            h4 匯款銀行資料:
+            .row
+              div.accountData
+                p
+                  span.title.ta_right 身分別:
+                  span.data 個人作家
+                p
+                  span.title.ta_right 姓名:
+                  span.data 休豪伊
+                p
+                  span.title.ta_right 地址:
+                  span.data 11008 臺北市信義區市府路1號 
+                p
+                  span.title.ta_right 電話:
+                  span.data 02-27208889
+                p
+                  span.title.ta_right 身分證字號:
+                  span.data A10*****00
+                h4.is-hide 未設定
+              div.accountDataBtn
+                a(class='btn btn-navReport' href='#') 設定
+          hr
+          h4 匯款銀行資料
+          table.rwd-table.col-phone-12.col-pad_v-12.col-pad_h-12.col-pc-12
+            thead
+              tr
+                th 付款指定銀行
+                th 銀行所在地
+                th 銀行
+                th 分行
+                th 匯款帳戶
+                th 銀行代碼
+                th 分行代碼
+                th 付款幣別
+                th.table_center 設定
+            tbody
+              tr.current
+                td(data-title="付款指定銀行" class='table_center') 目前指定銀行
+                td(data-title="銀行所在地") 台灣
+                td(data-title="銀行") 國泰世華
+                td(data-title="分行") 景美分行
+                td(data-title="匯款帳戶") 000123*******78290
+                td(data-title="銀行代碼") 013
+                td(data-title="分行代碼") 32
+                td(data-title="付款幣別") 台幣
+                td(data-title="設定" class='table_center')
+                  a(class='btn btn-navReport' href='#') 修改
+                  a(class='btn outLinebtn-navReport' href='#') 刪除
+              tr
+                td(data-title="付款指定銀行" class='table_center')
+                  a(class='btn outLinebtn-navReport' href='#') 設定為指定銀行
+                td(data-title="銀行所在地") 台灣
+                td(data-title="銀行") 國泰世華
+                td(data-title="分行") 景美分行
+                td(data-title="匯款帳戶") 000123*******78290
+                td(data-title="銀行代碼") 013
+                td(data-title="分行代碼") 32
+                td(data-title="付款幣別") 台幣
+                td(data-title="設定" class='table_center')
+                  a(class='btn btn-navReport' href='#') 修改
+                  a(class='btn outLinebtn-navReport' href='#') 刪除
+              tr
+                td(data-title="付款指定銀行" class='table_center')
+                  a(class='btn outLinebtn-navReport' href='#') 設定為指定銀行
+                td(data-title="銀行所在地") 台灣
+                td(data-title="銀行") 國泰世華
+                td(data-title="分行") 景美分行
+                td(data-title="匯款帳戶") 000123*******78290
+                td(data-title="銀行代碼") 013
+                td(data-title="分行代碼") 32
+                td(data-title="付款幣別") 台幣
+                td(data-title="設定" class='table_center')
+                  a(class='btn btn-navReport' href='#') 修改
+                  a(class='btn outLinebtn-navReport' href='#') 刪除
+          .subDec.col-phone-12.col-pad_v-12.col-pad_h-10.col-pc-10
+          .subDec.ta_right.col-phone-12.col-pad_v-12.col-pad_h-2.col-pc-2
+            a(class='btn btn-navReport addBnak' href='#') 新增
+        .accountSetting_2
+          h4 收款帳戶設定 
+            span.cololr_red 需與匯款帳戶名稱完全相同，才能匯款成功
+          .accountInfo
+            h5 身分別:
+            .accountType_1.accountInfoDiv.col-phone-12.col-pad_v-12.col-pad_h-12.col-pc-12
+              .radioField
+                input(type="radio" id="radio_1" name="radio1" value="1" checked)
+                label(for='radio_1') 個人作家
+              .radioField
+                input(type="radio" id="radio_2" name="radio1" value="2")
+                label(for='radio_2') 公司/法人
+            .accountType_2.accountInfoDiv.col-phone-12.col-pad_v-12.col-pad_h-12.col-pc-12
+              .radioField
+                input(type="radio" id="radio_2-1"  name="radio2" value="1" checked)
+                label(for='radio_2-1') 台灣
+              .radioField
+                input(type="radio" id="radio_2-2" name="radio2" value="2")
+                label(for='radio_2-2') 大陸、港、澳地區
+              .radioField
+                input(type="radio" id="radio_2-3" name="radio2" value="3")
+                label(for='radio_2-3') 其他地區
+              .subDec.accountTips.col-phone-12.col-pad_v-12.col-pad_h-10.col-pc-10
+                span *非台灣地區之公司戶 Invoice 請於
+                span.cololr_red 每月10日
+                span 前mail至 
+                a(class='linkstyle' href='mailto:payment@bestbook.com') payment@bestbook.com
+            hr
+            .occupation_1
+              h5 個人資料:
+              .accountInfoDiv.col-phone-12.col-pad_v-12.col-pad_h-6.col-pc-6
+                .editBookTextField
+                  label(class='cololr_gray6 textAligLeft') 姓名:
+                  span.prompt.cololr_red 尚未填寫
+                  input(class='cololr_gray6' type='text', value='')
+                .editBookTextField
+                  label(class='cololr_gray6 textAligLeft') 出生年月日:
+                  span.prompt.cololr_red 尚未填寫
+                  input(class='cololr_gray6' type='date', value='YYYY/MM/DD')
+              .accountInfoDiv.col-phone-12.col-pad_v-12.col-pad_h-6.col-pc-6
+                .editBookTextField
+                  label(class='cololr_gray6 textAligLeft') 地址:
+                  span.prompt.cololr_red 尚未填寫
+                  input(class='cololr_gray6' type='text', value='')
+                .editBookTextField
+                  label(class='cololr_gray6 textAligLeft') 電話:
+                  span.prompt.cololr_red 尚未填寫
+                  input(class='cololr_gray6'  type='text', value='')
+            .occupation_2
+              h5 公司/法人資料:
+              .accountInfoDiv.col-phone-12.col-pad_v-12.col-pad_h-6.col-pc-6
+                .editBookTextField
+                  label(class='cololr_gray6 textAligLeft') 公司名稱:
+                  span.prompt.cololr_red 尚未填寫
+                  input(class='cololr_gray6' type='text', value='')
+                .editBookTextField
+                  label(class='cololr_gray6 textAligLeft') 地址:
+                  span.prompt.cololr_red 尚未填寫
+                  input(class='cololr_gray6'  type='text', value='')
+              .accountInfoDiv.col-phone-12.col-pad_v-12.col-pad_h-6.col-pc-6
+                .editBookTextField
+                  label(class='cololr_gray6 textAligLeft') 聯絡人姓名:
+                  span.prompt.cololr_red 尚未填寫
+                  input(class='cololr_gray6' type='text', value='')
+                .editBookTextField
+                  label(class='cololr_gray6 textAligLeft') 聯絡人電話:
+                  span.prompt.cololr_red 尚未填寫
+                  input(class='cololr_gray6'  type='text', value='')
+                .editBookTextField
+                  label(class='cololr_gray6 textAligLeft') 聯絡人Email:
+                  span.prompt.cololr_red 尚未填寫
+                  input(class='cololr_gray6'  type='text', value='')
+          hr
+          .subDec.col-phone-12.col-pad_v-12.col-pad_h-10.col-pc-6
+            span *不同身份別之政府課稅費率不同，詳情請參閱
+            a(class='linkstyle' href='#') 收入與付款說明
+          .subDec.ta_right.col-phone-12.col-pad_v-12.col-pad_h-6.col-pc-6
+            a(class='btn outLinebtn-navReport backStep_1' href='#') 取消
+            a(class='btn btn-navReport backStep_1' href='#') 確定
+        .accountSetting_3
+          h4 新增銀行資料
+          table.addBnak.rwd-table.col-phone-12.col-pad_v-12.col-pad_h-12.col-pc-12
+            thead
+              tr
+                th 銀行所在地
+                th 銀行
+                th 分行
+                th 匯款帳號
+                th 銀行代碼
+                th 分行代碼
+                th 付款幣別
+            tbody
+              tr
+                td(data-title="銀行所在地")
+                  select
+                    option(value='台灣') 台灣
+                    option(value='中國') 中國
+                    option(value='香港') 香港
+                    option(value='日本') 日本
+                  .prompt.cololr_red.ta_right 尚未選擇
+                td(data-title="銀行")
+                  input(class='cololr_gray6' type='text', value='')
+                  .prompt.cololr_red.ta_right 尚未填寫
+                td(data-title="分行")
+                  input(class='cololr_gray6' type='text', value='')
+                  .prompt.cololr_red.ta_right 尚未填寫
+                td(data-title="匯款帳號")
+                  input(class='cololr_gray6' type='text', value='')
+                  .prompt.cololr_red.ta_right 尚未填寫
+                td(data-title="銀行代碼")
+                  input(class='cololr_gray6' type='text', value='')
+                  .prompt.cololr_red.ta_right 尚未填寫
+                td(data-title="分行代碼")
+                  input(class='cololr_gray6' type='text', value='')
+                  .prompt.cololr_red.ta_right 尚未填寫
+                td(data-title="付款幣別")
+                  select.currency
+                    option(value='NTD') NTD
+                    option(value='USD') USD
+                    option(value='CNY') RMB
+                    option(value='JPY') JPY
+                  .prompt.cololr_red.ta_right 尚未選擇
+              tr
+                td(data-title="銀行所在地")
+                  select
+                    option(value='台灣') 台灣
+                    option(value='中國') 中國
+                    option(value='香港') 香港
+                    option(value='日本') 日本
+                  .prompt.cololr_red.ta_right 尚未選擇
+                td(data-title="銀行")
+                  input(class='cololr_gray6' type='text', value='')
+                  .prompt.cololr_red.ta_right 尚未填寫
+                td(data-title="分行")
+                  input(class='cololr_gray6' type='text', value='')
+                  .prompt.cololr_red.ta_right 尚未填寫
+                td(data-title="匯款帳號")
+                  input(class='cololr_gray6' type='text', value='')
+                  .prompt.cololr_red.ta_right 尚未填寫
+                td(data-title="銀行代碼")
+                  input(class='cololr_gray6' type='text', value='')
+                  .prompt.cololr_red.ta_right 尚未填寫
+                td(data-title="分行代碼")
+                  input(class='cololr_gray6' type='text', value='')
+                  .prompt.cololr_red.ta_right 尚未填寫
+                td(data-title="付款幣別")
+                  select.currency
+                    option(value='NTD') NTD
+                    option(value='USD') USD
+                    option(value='CNY') RMB
+                    option(value='JPY') JPY
+                  .prompt.cololr_red.ta_right 尚未選擇
+              tr
+                td(data-title="銀行所在地")
+                  select
+                    option(value='台灣') 台灣
+                    option(value='中國') 中國
+                    option(value='香港') 香港
+                    option(value='日本') 日本
+                  .prompt.cololr_red.ta_right 尚未選擇
+                td(data-title="銀行")
+                  input(class='cololr_gray6' type='text', value='')
+                  .prompt.cololr_red.ta_right 尚未填寫
+                td(data-title="分行")
+                  input(class='cololr_gray6' type='text', value='')
+                  .prompt.cololr_red.ta_right 尚未填寫
+                td(data-title="匯款帳號")
+                  input(class='cololr_gray6' type='text', value='')
+                  .prompt.cololr_red.ta_right 尚未填寫
+                td(data-title="銀行代碼")
+                  input(class='cololr_gray6' type='text', value='')
+                  .prompt.cololr_red.ta_right 尚未填寫
+                td(data-title="分行代碼")
+                  input(class='cololr_gray6' type='text', value='')
+                  .prompt.cololr_red.ta_right 尚未填寫
+                td(data-title="付款幣別")
+                  select.currency
+                    option(value='NTD') NTD
+                    option(value='USD') USD
+                    option(value='CNY') RMB
+                    option(value='JPY') JPY
+                  .prompt.cololr_red.ta_right 尚未選擇
+          .subDec.col-phone-12.col-pad_v-12.col-pad_h-10.col-pc-6
+            a(class='btn btn-navReport' href='#') 新增一筆
+          .subDec.ta_right.col-phone-12.col-pad_v-12.col-pad_h-6.col-pc-6
+            a(class='btn outLinebtn-navReport backStep_1' href='#') 取消
+            a(class='btn btn-navReport backStep_1' href='#') 確定

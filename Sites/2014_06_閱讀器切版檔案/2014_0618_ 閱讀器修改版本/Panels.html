@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Panels</title>
+
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+
+<link rel="stylesheet" type="text/css" media="all" href="./js/jquery-ui/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
+<link rel="stylesheet" type="text/css" media="all" href="./dev/viewer.css" />
+
+<script type="text/javascript" src="./js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="./js/jquery-ui/js/jquery-ui-1.10.3.custom.js"></script>
+
+<script type="text/javascript">
+var rangePanel = null;
+$(document).ready(function(){
+	rangePanel = new RangePanel();
+	rangePanel.render();
+	
+	$(window).resize(function() {
+		$(rangePanel).trigger('resize');
+	});
+});
+
+function RangePanel(){
+	this.id = "rangePanel";
+	this.allRange = [];
+	this.render = function() {
+		this.isRender = true;
+		this.resize();
+		
+		var parent = this;
+		//parent.jumpPercentage(10);
+		
+		document.getElementById(this.id).addEventListener('mouseup', function(event){
+			parent.changeRangePoint();
+			parent.enableMove = false;
+			
+			event.preventDefault();
+			return false;
+			
+		}, false);
+		
+		document.getElementById(this.id).addEventListener('mousedown', function(event){
+			parent.enableMove = true;
+			
+			event.preventDefault();
+			return false;
+			
+		}, false);
+
+		document.getElementById(this.id).addEventListener('mousemove', function(event){
+			parent.changeRange(event);
+			
+			event.preventDefault();
+			return false;
+			
+		}, false);
+		
+		document.getElementById(this.id).addEventListener('touchstart', function(event){
+			parent.enableMove = true;
+			
+			event.preventDefault();
+			return false;
+			
+		}, false);
+		
+		document.getElementById(this.id).addEventListener('touchmove', function(event){
+			parent.changeRange(event.touches[0]);
+			
+			event.preventDefault();
+			return false;
+			
+		}, false);
+
+		document.getElementById(this.id).addEventListener('touchend', function(event){
+			parent.changeRangePoint();
+			parent.enableMove = false;
+			
+			event.preventDefault();
+			return false;
+			
+		}, false);
+	
+		document.getElementById(this.id).addEventListener('touchcancel', function(event){
+			parent.changeRange(event.changedTouches[0]);
+			parent.enableMove = false;
+			
+			event.preventDefault();
+			return false;
+			
+		}, false);
+	
+	}
+	
+	this.enableMove = false;
+	this.overPosition = 0;
+	
+	this.changeRange = function(event) {
+		var x = event.clientX;
+		var position = $('div#'+this.id).find(".rangeBar").position();
+		x = x - position.left;
+		
+		if(x < 0){
+			x = 0;
+			
+		}else if(x > this.allRange[this.allRange.length -1]){
+			x = this.allRange[this.allRange.length -1];
+		}
+		
+		this.overPercentage = Math.round((x / this.pointWidth));
+		this.overPosition = this.allRange[this.overPercentage];
+		
+		this.showTooltip();
+		this.showDragPoint();
+	};
+	
+	this.overPercentage = 0;
+	this.showTooltip = function() {
+		this.changeTooltip(this.overPercentage);
+		var tooltip = $('div#'+this.id).find(".range_tooltip");
+		tooltip.clearQueue().show(0).delay(3000).hide(0);
+	};
+	
+	this.changeTooltip = function(percentage) {
+		var tooltip = $('div#'+this.id).find(".range_tooltip");
+		tooltip.html(percentage+" %");
+		tooltip.css("left", this.allRange[percentage]);
+		tooltip.css("margin-left", "-"+(tooltip.width()+8)+"px");
+	};
+	
+	this.nowPosition = 0;
+	this.nowPercentage = 0;
+	this.changeRangePoint = function() {
+		this.nowPercentage = this.overPercentage;
+		this.nowPosition = this.allRange[this.nowPercentage];
+		$('div#'+this.id).find(".rangePoint").css("left", this.nowPosition);
+		$('div#'+this.id).find(".rangeDragPoint").css("left", this.nowPosition);
+	};
+	
+	this.showDragPoint = function() {
+		if(this.enableMove){
+			$('div#'+this.id).find(".rangeDragPoint").css("left", this.overPosition);
+		}
+	};
+	
+	this.jumpPercentage = function(percentage) {
+		this.nowPercentage = percentage;
+		this.nowPosition = this.allRange[this.nowPercentage];
+		this.overPercentage = this.nowPercentage;
+		
+		this.changeRangePoint();
+		this.showTooltip();
+	};
+	
+	this.pointWidth = 10;
+	
+    $(this).bind( "resize", function( event ) {
+    	this.resize();
+	});
+    this.resize = function() {
+    	$('div#'+this.id).find(".rangeBar").width($('div#'+this.id).width() - 100);
+    	
+    	var width = $('div#'+this.id).find(".rangeBar").width();
+    	this.pointWidth = parseFloat((width / 100), 10);
+    	
+    	var all_point = [];
+    	all_point.push(0);
+    	for(var i=1;i<100;i++){
+    		all_point.push(( i * this.pointWidth));
+    	}
+    	all_point.push(width);
+    	
+    	this.allRange = all_point;
+    };
+    
+    this.width = function() {
+    	return $('div#'+this.id).width();
+    };
+}
+</script>
+</head>
+<body>
+<div id="toolsPanel">
+	<div class="btu_logo css3_tooltip" title="首頁">Logo</div>
+	<div class="btu_name">解憂雜貨店 -第一章節 序章　序章解憂雜貨店 -第一章節 序章解憂雜貨店 -第一章節 序章</div>
+	<div class="btu_div">
+		<div class="btu_catalog css3_tooltip" title="目錄">目錄</div>
+		<div class="btu_font css3_tooltip" title="字型">字型</div>
+		<div class="btu_setting css3_tooltip" title="設定">設定</div>
+		<div class="btu_Recommend css3_tooltip" title="推薦">推薦</div>
+	</div>
+</div>
+<div id="mainContentPanel" class="mainContent">
+	<div id="contents" style="text-align:center;vertical-align:middle;">
+		<div class="book_name">解憂雜貨店 -第一章節 </div>
+		<div class="initloading">資料載入 <span>0</span> %</div>
+		<div id="fontPanel" style="position:absolute; left: 10px; top: 150px;">
+		<div style="margin-top: 10px;"><label>字體大小</label></div>
+			<div id="font_size_radio">
+				<input type="radio" id="font_size_radio1" name="font_size_radio" value="1" /><label for="font_size_radio1" style="width: 33%;">小</label>
+				<input type="radio" id="font_size_radio2" name="font_size_radio" value="2" /><label for="font_size_radio2" style="width: 33%;">中</label>
+				<input type="radio" id="font_size_radio3" name="font_size_radio" value="3" /><label for="font_size_radio3" style="width: 33%;">大</label>
+			</div>
+			<div style="margin-top: 10px;"><label>黑底白字</label></div>
+			<div id="font_color_radio">
+				<input type="radio" id="font_color_radio1" name="font_color_radio" value="0" /><label for="font_color_radio1" style="width: 49%;">關</label>
+				<input type="radio" id="font_color_radio2" name="font_color_radio" value="1" /><label for="font_color_radio2" style="width: 49%;">開</label>
+			</div>
+		</div>
+		</div>
+		<div id="catalogPanel" style="display:block; position:absolute; left: 300px; top: 150px;">
+			<ol>
+				<li>目錄1</li>
+				<li>目錄2</li>
+				<li>目錄3</li>
+				<li>目錄4</li>
+				<li>目錄5</li>
+				<li>目錄6</li>
+				<li>目錄7</li>
+				<li>目錄8</li>
+				<li>目錄9</li>
+				<li>目錄10</li>
+			</ol><div class="scrollbar-y" style="top: 30px;"></div>
+		</div>
+		<div class="BuyNowBtn"><div class="Triangle"></div><div class="v1">立即<br>購買</div></div>
+		
+		<div class="BuyNowBtnWrap">
+			<div class="inner">
+				<img src="images/book.png" alt="" title=""/>
+	            <p class="BuyNowBookTitle">解憂雜貨店解憂雜貨店解憂雜貨店</p>
+	            <p class="BuyNowBookInfo">作者：東野圭吾</p>
+	            <p class="BuyNowBookInfo">購買日期：2013/08/05</p>
+	            <p class="BuyNowBookPrice">$99</p>
+	            <a class="btn" href="#">立即購買</a>
+            </div>
+		</div>
+		<div class="RecommendWrap">
+			<div class="inner">
+				<p class="RecommendTitle"><span class='icon'></span><span>熱門推薦</span></p>
+				<ul>
+					<li>
+						<img src="images/book.png" alt="" title=""/>
+			            <p class="BuyNowBookTitle">解憂雜貨店解憂雜貨店解憂雜貨店</p>
+			            <p class="BuyNowBookInfo">作者：東野圭吾</p>
+			            <p class="BuyNowBookInfo">購買日期：2013/08/05</p>
+			            <p class="BuyNowBookPrice">$99</p>
+			            <a class="btn" href="#">立即購買</a>
+	           			<a class="btn" href="#">試閱</a>
+	   		        </li>
+		            <li>
+						<img src="images/book.png" alt="" title=""/>
+			            <p class="BuyNowBookTitle">解憂雜貨店解憂雜貨店解憂雜貨店</p>
+			            <p class="BuyNowBookInfo">作者：東野圭吾</p>
+			            <p class="BuyNowBookInfo">購買日期：2013/08/05</p>
+			            <p class="BuyNowBookPrice">$99</p>
+			            <a class="btn" href="#">立即購買</a>
+	           			<a class="btn" href="#">試閱</a>
+		            </li>
+	            </ul>
+        	</div>
+            <div class="scrollbar-y" style="top: 120px;"></div>
+		</div>
+		
+		<div class="showAside" style="display:block; position:absolute; left: 700px; top: 150px;">
+			aside文字旁白，註釋
+		</div>
+		
+		<div class="arrow_pnael" style="display:block; position:absolute; left: 1000px; top: 150px; width: 100px; height: 500px;">
+			<span class="arrow_left">‹</span>
+		</div>
+		
+		<div class="arrow_pnael" style="display:block; position:absolute; left: 1200px; top: 150px; width: 100px; height: 500px;">
+			<span class="arrow_right">›</span>
+		</div>
+</div>
+
+<div id="rangePanel">
+	<div class="rangeBar">
+		<span class="rangePoint"></span>
+		<span class="rangeDragPoint"></span>
+		<span class="range_tooltip">0 %</span>
+	</div>
+</div>
+</body>
+</html>

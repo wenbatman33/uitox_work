@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title th:text="${i18n.editor.getString('name') +' | '+ i18n.site.getString('name')}">編輯內容 | 雲書</title>
+
+<link rel="stylesheet" type="text/css" href="./css/201505/bestbook.css"/>
+<link rel="stylesheet" type="text/css" href="./css/201505/girds.css"/>
+<link rel="stylesheet" type="text/css" href="./css/201505/_animate.css"/>
+
+<link rel="stylesheet" type="text/css" href="./css/message.css"/>
+
+<script src="./ckeditor/ckeditor.js"></script>
+<link rel="stylesheet" href="./ckeditor/skins/moono/editor.css"/>
+
+<link rel="stylesheet" href="./css/bookEditor.css"/>
+<link rel="stylesheet" type="text/css" href="./js/ImageCropper/cropper.min.css"/>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+
+<script src="./dev/lang/en.js"></script>
+<script src="./dev/lang/zh-TW.js"></script>
+<script src="./dev/i18n.js"></script>
+
+<script src="./dev/logout.js"></script>
+<script src="./dev/message.js"></script>
+<script src="./dev/Utils.js"></script>
+<script src="./dev/Notices.js"></script>
+
+<script src="./js/perfect-scrollbar/perfect-scrollbar-0.4.9.min.js"></script>
+<script src="./js/jquery.scrollstop.js"></script>
+		
+<script src="./dev/bookEditor/lang/en.js"></script>
+<script src="./dev/bookEditor/lang/zh-TW.js"></script>
+
+<script src="./dev/bookEditor/MetaData.js"></script>
+<script src="./dev/bookEditor/Monitor.js"></script>
+
+<script src="./dev/bookEditor/Panel.Basic.js"></script>
+<script src="./dev/bookEditor/Panel.Loading.js"></script>
+<script src="./dev/bookEditor/Panel.Tools.js"></script>
+<script src="./dev/bookEditor/Panel.ChapterList.js"></script>
+<script src="./dev/bookEditor/Panel.Original.js"></script>
+<script src="./dev/bookEditor/Panel.Coordination.js"></script>
+<script src="./dev/bookEditor/Panel.Cropper.js"></script>
+
+<script src="./dev/bookEditor/Panel.AdaptPreView.js"></script>
+<script src="./dev/bookEditor/Panel.ContentSlice.js"></script>
+<script src="./dev/bookEditor/Panel.SettingsOver.js"></script>
+
+<script src="./dev/bookEditor/Panel.AdaptEditor.js"></script>
+<script src="./dev/bookEditor/Panel.MainEditor.js"></script>
+
+<script src="./dev/bookEditor/Converter.js"></script>
+
+<script src="./dev/bookEditor/EditorController.js"></script>
+
+<script src="./js/ImageCropper/cropper.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="./js/splitter/splitter.css"/>
+
+<script src="./js/jquery-migrate-1.2.1.min.js"></script>
+<script src="./js/splitter/splitter.js"></script>
+
+<script src="./js/marked/marked.min.js"></script>
+
+<script th:inline="javascript" type="text/javascript">
+/*<![CDATA[*/
+	var local = "zh-TW";
+	
+	$(document).ready(function(){
+		core.i18n.push(local, core_lang);
+		
+		$(".userlogged").on( "click", function(event) {
+			$(".logMenu").toggle();
+			event.preventDefault();
+			return false;
+		});
+		
+		$(document).on( "click", function(event) {
+			if ($(".logMenu").is(":visible") ) {
+				$(".logMenu").hide();
+			}
+		});
+		
+		//var notices = new Notices();
+		//notices.init(base_url);
+	});
+/*]]>*/
+</script>
+<script th:inline="javascript" type="text/javascript">
+var book_id = "book_id";
+
+$(document).ready(function(){
+	/*
+	$(window).resize(function() {
+		bestbook.editor.initSize();
+	});
+	
+	bestbook.editor.i18n.push(local, editor_lang);
+	bestbook.editor.adaptMode(book_id, "base_url");
+	*/
+	
+	var width = 320;
+	var height = 540;
+	var columnGap = 60;
+	var margin_top = 20;
+	
+	var column_style = "";
+	column_style += " padding-top: "+this.margin_top+"px;";
+	
+	column_style += " -webkit-column-count: auto;";
+	column_style += " -moz-column-count: auto;";
+	column_style += " column-count: auto;";
+
+	column_style += " -webkit-column-gap: "+(this.columnGap)+"px;";
+	column_style += " -moz-column-gap: "+(this.columnGap)+"px;";
+	column_style += " column-gap: "+(this.columnGap)+"px;";
+	
+	column_style += " -webkit-column-fill: auto;";
+	column_style += " -moz-column-fill: auto;";
+	column_style += " column-fill: auto;";
+	
+	column_style += " -webkit-column-span: 1;";
+	column_style += " -moz-column-span: 1;";
+	column_style += " column-span: 1;";
+
+	column_style += " -webkit-column-width: "+width+"px;";
+	column_style += " -moz-column-width: "+width+"px;";
+	column_style += " column-width: "+width+"px;";
+	
+	column_style += " -webkit-column-rule: 1px double black;";
+	column_style += " -moz-column-rule: 1px double black;";
+	column_style += " column-rule: 1px double black;";
+	
+	column_style += " height: "+ (height - (this.margin_top * 2)) +"px;";
+	
+	$(".adapt_preview_panel_viewer_frame").attr("style", column_style);
+});
+</script>
+<style>
+/* Splitbar styles; these are the default class names and required styles */
+#splitterContainer {
+	height:100%;
+	width:100%;
+	margin:0;
+	padding:0;
+}
+</style>
+</head>
+<body>
+
+<div id="toolsPanel" class="tools_panel">
+	<a id="preview_btu" th:text="${i18n.site.getString('preview')}">預覽</a>
+	<a id="save_btu" th:text="${i18n.site.getString('save')}">儲存</a>
+	<a id="btu_publish" th:text="${i18n.site.getString('publish')}">內容發佈</a>
+	<a id="leave_btu" th:text="${i18n.site.getString('leave')}">離開</a>
+</div>
+<div id="splitterContainer">
+	<div id="coordinationPanel" class="coordination_panel">
+		<div class="coordination_panel_nav">
+			<ul class="panel_nav">
+				<li id="chapter_add_btu"><a th:text="${i18n.editor.getString('add')}">新章節</a></li>
+				<li id="chapter_list_btu"><a th:text="${i18n.editor.getString('list')}">章節列表</a></li>
+				<li id="compare_btu" class="current"><a th:text="${i18n.editor.getString('compare')}">轉檔比對</a></li>
+			</ul>
+		</div>
+		<div id="chapterListPanel" class="chapter_panel" style="display: block;">
+			<div th:if="false"><span class="remove_btu">X</span><input type="text" name="name" value="第一章" /></div>
+			<div th:if="false"><span class="remove_btu">X</span><input type="text" name="name" value="第二章" /></div>
+			<div th:if="false"><span class="remove_btu">X</span><input type="text" name="name" value="第三章" /></div>
+		</div>
+		<div id="originalPanel" class="original_panel" style="display: none;">
+			<div class="original_panel_tools wrapper-dropdown">
+				<ul class="view-zoom style_connector">
+					<li id="btu_original_confirm" class="has-sub"><span><th:block th:text="${i18n.editor.getString('original.confirm.total')}">共</th:block> <b class="col-red">2</b> <th:block th:text="${i18n.editor.getString('original.confirm.desc')}">處建議微調</th:block></span>
+						<ul class="maxHeight">
+							<li th:if="false"><a href="#" idx="0">第 1 個位置</a></li>
+							<li th:if="false"><a href="#" idx="1">第 2 個位置</a></li>
+						</ul>
+					</li>
+					<li><a id="btu_original_zoomin" href="#" class="icon-toolbar zoom-in" title="放大" th:title="${i18n.editor.getString('zoom.in')}" th:text="${i18n.editor.getString('zoom.in')}">放大</a></li>
+					<li><a id="btu_original" href="#" class="icon-toolbar zoom-original" title="正常" th:title="${i18n.editor.getString('zoom.original')}" th:text="${i18n.editor.getString('zoom.original')}">正常</a></li>
+					<li><a id="btu_original_zoomout" href="#" class="icon-toolbar zoom-out" title="縮小" th:title="${i18n.editor.getString('zoom.out')}" th:text="${i18n.editor.getString('zoom.out')}">縮小</a></li>
+				</ul>
+			</div>
+			<div class="original_panel_imgs">
+				<div class="original">
+					<div th:if="false" class="item" style="height:595px; width:419px;">
+						<img src="./images/bookcover-default.jpg"/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="mainEditorPanel" class="main_editor_panel"><div class="frame_mask"></div></div>
+</div>
+
+<div class="image_cropper_panel">
+	<div class="img-container-control">
+		<div class="img-container"></div>
+		<div class="toolbar alignC style2">
+			<a id="cropper_btu" href="#" class="btn btn-navReport send" th:title="${i18n.editor.getString('cropper.insert')}" th:text="${i18n.editor.getString('cropper.insert')}">插入</a>
+			<a id="close_btu" href="#" class="btn outLinebtn-navReport cancel" th:title="${i18n.site.getString('close')}" th:text="${i18n.site.getString('close')}">關閉</a>
+		</div>
+	</div>
+</div>
+
+<div class="content_slice_panel">
+	<div class="content_slice_range">
+		<div class="content_slice_range_before">
+			<p th:text="${i18n.editor.getString('slice.content.begin')}">內文開頭</p>
+			<p>... ... ... ...</p>
+			<p>... ... ... ...</p>
+			<p>... ... ... ...</p>
+			<span th:text="${i18n.editor.getString('slice.content.begin.new')}">設為新章節</span>
+		</div>
+		<div class="content_slice_range_after">
+			<p>Selected of Line</p>
+			<p>... ... ... ...</p>
+			<p>... ... ... ...</p>
+			<p th:text="${i18n.editor.getString('slice.content.end')}">內文結尾</p>
+			<span th:text="${i18n.editor.getString('slice.content.end.new')}">設為新章節</span>
+		</div>
+	</div>
+	<div class="toolbar alignC style2" style="text-align: center;">
+		<a id="close_btu" href="#" class="btn outLinebtn-navReport cancel" th:title="${i18n.site.getString('close')}" th:text="${i18n.site.getString('close')}">關閉</a>
+	</div>
+</div>
+
+<div class="settings_over_panel">
+	<div class="settings_over_preview">
+		<fieldset>
+	    	<legend th:text="${i18n.editor.getString('settings.preview')}">預覽</legend>
+	    	<h1 th:text="${i18n.editor.getString('toolbar.h1')}">標題1</h1>
+	    	<h2 th:text="${i18n.editor.getString('toolbar.h2')}">標題2</h2>
+	    	<h3 th:text="${i18n.editor.getString('toolbar.h3')}">標題3</h3>
+	    	<h4 th:text="${i18n.editor.getString('toolbar.h4')}">標題4</h4>
+	    	<h5 th:text="${i18n.editor.getString('toolbar.h5')}">標題5</h5>
+	    	<h6 th:text="${i18n.editor.getString('toolbar.h6')}">標題6</h6>
+	    	<p th:text="${i18n.editor.getString('settings.preview.p')}">內文斷落開頭，一二三四五六七八九十，ABCDEFGHIJKLMOPQRSTUVWXYZ</p>
+	  </fieldset>
+	</div>
+	<div class="settings_over_opt">
+		<div class="wrapper-overopt-info wrapper-dropdown">
+			<ul>
+				<li>
+					<span class="settings_over_opt_name" th:text="${i18n.editor.getString('toolbar.p')}">內文</span> 
+					<ul id="settings_over_opt_list" class="wrapper-overopt-list">
+						<li class="current"><a data-v="p" th:text="${i18n.editor.getString('toolbar.p')}">內文</a></li>
+						<li><a data-v="h1" th:text="${i18n.editor.getString('toolbar.h1')}">標題1</a></li>
+						<li><a data-v="h2" th:text="${i18n.editor.getString('toolbar.h2')}">標題2</a></li>
+						<li><a data-v="h3" th:text="${i18n.editor.getString('toolbar.h3')}">標題3</a></li>
+						<li><a data-v="h4" th:text="${i18n.editor.getString('toolbar.h4')}">標題4</a></li>
+						<li><a data-v="h5" th:text="${i18n.editor.getString('toolbar.h5')}">標題5</a></li>
+						<li><a data-v="h6" th:text="${i18n.editor.getString('toolbar.h6')}">標題6</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="settings_over_opt_info">
+			<div class="settings_over_opt_info_p">
+				<span class="settings_over_opt_info_n" th:text="${i18n.editor.getString('toolbar.font.size')}">字型大小</span>
+				<span class="settings_over_opt_info_v">
+					<span class="wrapper-overopt-info wrapper-dropdown">
+						<ul>
+							<li>
+								<span class="settings_opt_font_size">1</span> 
+								<ul id="settings_over_font_size_list" class="wrapper-overopt-list">
+									<li class="current"><a data-v="1rem">1</a></li>
+									<li><a data-v="1.1rem">1.1</a></li>
+									<li><a data-v="1.2rem">1.2</a></li>
+									<li><a data-v="1.3rem">1.3</a></li>
+									<li><a data-v="1.4rem">1.4</a></li>
+									<li><a data-v="1.5rem">1.5</a></li>
+									<li><a data-v="1.6rem">1.6</a></li>
+									<li><a data-v="1.7rem">1.7</a></li>
+									<li><a data-v="1.8rem">1.8</a></li>
+									<li><a data-v="2rem">2</a></li>
+									<li><a data-v="3rem">3</a></li>
+								</ul>
+							</li>
+						</ul>
+					</span>
+				</span>
+			</div>
+			<div class="settings_over_opt_info_p">
+				<span class="settings_over_opt_info_n" th:text="${i18n.editor.getString('toolbar.font.align')}">對齊方式</span>
+				<span class="settings_over_opt_info_v" id="settings_opt_align">
+					<a class="settings_over_opt_info_btu settings_opt_align_left" title="靠左對齊" th:title="${i18n.editor.getString('toolbar.font.align.left')}"></a>
+					<a class="settings_over_opt_info_btu settings_opt_align_center" title="置中" th:title="${i18n.editor.getString('toolbar.font.align.center')}"></a>
+					<a class="settings_over_opt_info_btu settings_opt_align_right" title="靠右對齊" th:title="${i18n.editor.getString('toolbar.font.align.right')}"></a>
+					<a class="settings_over_opt_info_btu settings_opt_align_justify" title="左右對齊" th:title="${i18n.editor.getString('toolbar.font.align.justify')}"></a>
+				</span>
+			</div>
+			<div class="settings_over_opt_info_p">
+				<span class="settings_over_opt_info_n" th:text="${i18n.editor.getString('toolbar.font.style')}">字型樣式</span>
+				<span class="settings_over_opt_info_v">
+					<a class="settings_over_opt_info_btu settings_opt_font_bold" title="粗體" th:title="${i18n.editor.getString('toolbar.font.style.bold')}"></a>
+					<a class="settings_over_opt_info_btu settings_opt_font_italic" title="斜體" th:title="${i18n.editor.getString('toolbar.font.style.italic')}"></a>
+					<a class="settings_over_opt_info_btu settings_opt_font_underline" title="底線" th:title="${i18n.editor.getString('toolbar.font.style.underline')}"></a>
+				</span>
+			</div>
+			<div class="settings_over_opt_info_p">
+				<span class="settings_over_opt_info_n" th:text="${i18n.editor.getString('toolbar.first.line.indent')}">首行縮排</span>
+				<span class="settings_over_opt_info_v">
+					<a class="settings_over_opt_info_btu settings_opt_indent_increase" title="增加縮排" th:title="${i18n.editor.getString('toolbar.indent.increase')}"></a>
+					<a class="settings_over_opt_info_btu settings_opt_indent_decrease" title="減少縮排" th:title="${i18n.editor.getString('toolbar.indent.decrease')}"></a>
+					<span class="settings_opt_indent_tips" th:text="${'2 '+i18n.editor.getString('toolbar.indent.unit')}">2 字元 </span>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="toolbar alignC style2">
+		<a id="accept_btu" class="btn btn-navReport send" th:title="${i18n.site.getString('apply')}" th:text="${i18n.site.getString('apply')}">套用</a>
+		<a id="close_btu" class="btn outLinebtn-navReport cancel" th:title="${i18n.site.getString('close')}" th:text="${i18n.site.getString('close')}">關閉</a>
+	</div>
+</div>
+<div class="blockDiv" style="z-index:200; opacity: 0.4;display: block;"></div>
+<div class="adapt_preview_panel" style="display: block;">
+	<div class="adapt_preview_panel_tools">
+		<div class="adapt_preview_panel_btus">
+			<ul class="panel_nav">
+				<!-- <li id="preview_catalog_btu"><a>Catalog</a></li> -->
+				<li id="preview_close_btu"><a th:title="${i18n.site.getString('close')}" th:text="${i18n.site.getString('close')}">關閉</a></li>
+			</ul>
+		</div>
+		<div class="adapt_preview_panel_option">
+			<ul class="panel_nav">
+				<li id="Phone"><a>Phone</a></li>
+				<li id="Note"><a>Note</a></li>
+				<li id="Kindle"><a>Kindle</a></li>
+				<li id="Pad"><a>Pad</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="adapt_preview_panel_main">
+		<div class="adapt_preview_chapter_info">
+			<div class="wrapper-chapter-info wrapper-dropdown">
+				<ul>
+					<li>
+						<span class="adapt_preview_chapter_info_name">First Chapter Name</span> 
+						<ul th:if="false" class="wrapper-chapter-list">
+							<li class="current"><a href="#" data-idx="0">第一章 序幕</a></li>
+							<li><a href="#" data-idx="1">第二章 前奏曲</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div> － <th:block th:text="${i18n.page.getString('total')}">共</th:block> <span class="adapt_preview_chapter_info_pages">100</span> <th:block th:text="${i18n.page.getString('page')}">頁</th:block>
+		</div>
+		<div class="adapt_preview_panel_viewer">
+			<div class="adapt_preview_panel_viewer_frame">
+<p bbtag="0g9xytbKhy" style="text-indent:0em; "><span style="color:rgba(255,0,0,1.0);font-size:1.5rem;font-style:normal;font-family:'DFMing-W12-WINP-BF';font-weight:bold">冬之夢</span></p>
+
+<p bbtag="KoYavLAICm"><span style="color:rgba(255,0,0,1.0);font-size:1.0rem;font-style:normal;font-family:'BookAntiqua-Bold';font-weight:bold">Winter Dreams</span></p>
+
+<p bbtag="dUp7UUbUO8"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFKaiShu-SB-Estd-BF';font-weight:normal">　　　　</span></p>
+
+<p bbtag="4OLh3KHQW9"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">有些桿弟一貧如洗，住在無隔間的小屋裡，前院還養了頭神經衰弱的乳牛。但德克</span></p>
+
+<p bbtag="vHYkXMxlxo"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="dAt9UgEU9j"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">斯特．葛林的父親擁有全黑熊村第二大的雜貨店</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">最大的一家名叫「樞紐」，雪利島的有錢人經常光顧</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">而德克斯特當桿弟只是為了賺點零花。</span></p>
+
+<p bbtag="slprHrXojn"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">當秋日漸漸陰涼，漫長的冬日像白色盒蓋緩緩罩上整座明尼蘇達，一片皚然的高爾</span></p>
+
+<p bbtag="0YmE1E1Dl9"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="NCoDCdE29x"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">夫球場盡是德克斯特在覆雪球道上滑行的痕跡。每每到了這個時節，他總會因鄉間景色而不勝惆悵</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">整個長冬，被迫歇業的球場竟讓吱喳不休的麻雀給強占去了，真叫人不快呀。看著原本在夏日飄揚著鮮豔旗幟的開球區，而今卻只剩及膝冰層凍結的荒涼沙地，此等景緻也使人煩悶。他穿行於斜坡時，刺骨的寒風陣陣襲來；若太陽露臉，他就會邊踏著沉重步伐，邊瞇著眼仰望炫目無垠的日光。</span></p>
+
+<p bbtag="UNwTucaipU"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">到了四月，冬景驟然消逝。等不及揮桿的球客已捷足先登，趁融雪潺潺流進黑熊湖</span></p>
+
+<p bbtag="ty5MVZjIH1"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="viW87extnS"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">之際敲擊著紅球和黑球。未聞萬物的雀躍之聲，也未見滋潤萬物的春雨，隆冬就這麼悄</span></p>
+
+<p bbtag="m45RG8XsXA"><span style="color:rgba(79,76,77,1.0);font-size:0.7rem;font-style:normal;font-family:'Ebrima';font-weight:normal">9</span><span style="color:rgba(79,76,77,1.0);font-size:0.7rem;font-style:normal;font-family:'DFLiHei-Md-WIN-BF';font-weight:normal">費茲傑羅</span></p>
+
+<p bbtag="CYTvB4FnT6"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">然無息地離開了。</span></p>
+
+<p bbtag="lezRDTKVHt"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">德克斯特自知北方的春天有股沉鬱之氣，如同秋日也有其美好宜人之處。在秋天，</span></p>
+
+<p bbtag="DU1zzGrsdc"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="nHnmxNp1Tn"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">他雙手交握、打著寒顫，獨自重覆著愚蠢的語句，粗聲粗氣地對假想的圍觀群眾頤指氣使。於十月孕育而生的滿懷期待，到了十一月已升格為一種勝利的狂喜，就在這種心情下，雪利島上那些短暫而鮮明的夏日記憶都成了他隨意取用的現成素材。他成了高爾夫冠軍，在一場精采絕倫的比賽中擊敗了海德里克先生，而這場比賽已經在他想像的球道上搬演過上百回，當中的每個細節也被不厭其煩地修了又修</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">有時他贏得不費吹灰之力，有時又來個漂亮的大逆轉。一次次，他擺著莫提瑪．瓊斯先生的姿態步出名貴的老爺車，旁若無人地晃進雪利島高爾夫球俱樂部的休息室</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">又或許，在旁人欽羨目光的簇擁下，他登上俱樂部浮台的跳板，秀了一招花式跳水&hellip;&hellip;而莫提瑪．瓊斯先生本人也在那群瞠目結舌的圍觀群眾之中。</span></p>
+
+<p bbtag="VLvAJvHKVg"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">想不到這事竟然發生了：瓊斯先生（是本人而非幻影）眼眶含淚走向德克斯特，說德克斯特是俱樂部最</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">優秀的桿弟，能不能看在瓊斯先生的分上就別辭職了吧，因為俱樂部裡其他桿弟全都讓他每打一洞就要遺失一顆球</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">少有例外</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span></p>
+
+<p bbtag="4ifSoNnHa0"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「不了，先生。」德克斯特口氣堅決。「我不想再替人揹桿撿球了。」稍微停頓一</span></p>
+
+<p bbtag="2kk4o45iQv"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="9vAirJU0PE"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">下之後，又說：「我太老了。」</span></p>
+
+<p bbtag="aM2u0WZJby"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「你連十四歲都還沒滿啊。一大清早就突發奇想說不幹是搞什麼鬼？你明明答應下</span></p>
+
+<p bbtag="OYmLu1qAup"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="23LrMINodF"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">週要跟我去參加州際錦標賽的呀。」</span></p>
+
+<p bbtag="GTumU3x7Z6"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「我認為自己太老了。」</span></p>
+
+<p bbtag="tKRQkeAoTZ"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="170AqYxXct"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">德克斯特繳回他的「Ａ級」徽章，向桿弟領班領了應得的薪津後，便走回黑熊村的</span></p>
+
+<p bbtag="UdxytMDz5M"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="fxyA810SGi"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">家。</span></p>
+
+<p bbtag="AQWJPaF72Y"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「我見過最</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">優秀的桿弟！」當天下午，莫提瑪．瓊斯先生一杯酒下肚後高聲叫</span></p>
+
+<p bbtag="czDOuvdLF0"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="KTbm7E0sK6"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">嚷：「從沒丟過球！積極！聰明！安靜！誠實！懂得感恩！」</span></p>
+
+<p bbtag="LmGCZlVNlJ"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">這一切都要怪一名十一歲的小女孩</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">就像那些幾年後註定要顛倒眾生，叫許多男</span></p>
+
+<p bbtag="kG6CJcWER8"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="qiPetjuIUe"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">人受盡悲苦的小女孩一樣，她醜得很漂亮。但她身上閃耀的光芒已清晰可辨。她一笑，往下噘的嘴角帶著絲絲邪意，還有</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">救命哦！</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">她雙眸流轉間那近乎激情的神采。這類女人在小小年紀就充滿了活力與熱情。現在從她單薄身形中迸射而出的耀人光芒，即是明證。</span></p>
+
+<p bbtag="WAHhgB2lmy"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">九點一到，她便急切地踏上球場，身旁跟了一位穿白色亞麻套裝的褓姆替她揹著白</span></p>
+
+<p bbtag="vzHPkBhk7A"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="qAzIxoGxsh"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">色帆布袋，袋裡裝了五枝小尺寸的新球桿。德克斯特初次見到她時，她正站在桿弟房舍旁，一副侷促不安的模樣，還想藉著跟褓姆交談來掩飾，不過她吃驚的表情和沒來由的鬼臉，卻讓交談顯得極不自然。</span></p>
+
+<p bbtag="kvo3c9qKZ0"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「嗯，天氣真好啊，希兒妲。」德克斯特聽到她說。她撇嘴一笑，悄悄打量著四週，</span></p>
+
+<p bbtag="qZ3zeRw58d"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="in6nGU38ny"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">移動的目光有那麼一剎那落在德克斯特身上。</span></p>
+
+<p bbtag="k7w8i2dTJu"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">然後轉向褓姆。</span></p>
+
+<p bbtag="0VfuPpJHFS"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="t68u7kdkfv"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「哎，我看今天早上來這兒的人不多嘛，對吧？」</span></p>
+
+<p bbtag="AiV0HoCzBq"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="b0MqMzyHzD"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">又是嫣然一笑</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">容光燦爛、矯揉造作</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">令人傾倒。</span></p>
+
+<p bbtag="a16bTRelpS"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="KBOxUL0asU"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「我不知道現在該做什麼才是。」褓姆茫然四顧。</span></p>
+
+<p bbtag="M3oUNgsNgN"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「哦，沒關係。包在我身上。」</span></p>
+
+<p bbtag="QF958dFv3z"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">德克斯特嘴脣微張，一動不動地站著。他知道若再向前一步，他的凝望就會落入她</span></p>
+
+<p bbtag="1wpoYVPfKK"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="TdLUTZ41aZ"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">視野之中，但若向後一步，又無法看見她整張臉。當下他沒意識到她的年紀有多輕。現在他想起來了：他去年曾見過她幾次</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">當時的她穿著燈籠褲。</span></p>
+
+<p bbtag="nB2XSGfQ3n"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">突然，他噗哧了一聲，不由自主地笑了出來</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">接著，被自己嚇到的他連忙轉身快</span></p>
+
+<p bbtag="awtOxWfBEl"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="MUEzg0XrY5"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">步走開。</span></p>
+
+<p bbtag="o7vuRPLH7K"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「小哥！」</span></p>
+
+<p bbtag="CIsm7KEDma"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="C91GNEImS1"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">德克斯特停下腳步。</span></p>
+
+<p bbtag="oKsq1fqCQZ"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="XA7TuIr8AN"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「小哥</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">」</span></p>
+
+<p bbtag="5tvNaB7iUx"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="K2Y3Zz23uG"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">毫無疑問是在叫他。不只如此，她還對他報以那難以理解、顛倒莫名的笑容</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">至</span></p>
+
+<p bbtag="Qq93P4hZV5"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="lH4peyumRq"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">少會讓一打男士到中年還難以忘懷。</span></p>
+
+<p bbtag="v8s5f4tAzf"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「小哥，你知道高爾夫球教練在哪裡嗎？」</span></p>
+
+<p bbtag="IXyO72Q3tc"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="nllGxpPTQb"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「他正在上課。」</span></p>
+
+<p bbtag="78BSILPYMJ"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="8oN5NLKB0i"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「那桿弟領班呢？」</span></p>
+
+<p bbtag="c9kzerkz92"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「今早還沒出現。」</span></p>
+
+<p bbtag="0ORjplLD8V"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="dcwFDdrw6V"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「喔。」她一聽，一時也不知該作何反應，於是佇在那兒，重心在左右腳間替換。</span></p>
+
+<p bbtag="RyUCcJK3nf"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="qYOKzG3H3b"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「我們需要一個桿弟。」褓姆說：「莫提瑪．瓊斯太太讓我們出門打高爾夫球，沒</span></p>
+
+<p bbtag="aA07jsYzLL"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="Jki03iuNd0"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">有桿弟這可要我們怎麼打？」</span></p>
+
+<p bbtag="pOnsJjD9Na"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">瓊斯小姐凶狠地瞥了她一眼，將她的話就此打住，旋即又換上那副笑容。</span></p>
+
+<p bbtag="nf43pWquRE"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="pkNQ9e890e"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「我是這兒唯一的桿弟。」德克斯特對褓姆說。「在領班出現之前，我得一直待在</span></p>
+
+<p bbtag="Om15OAqRMR"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="c7ZS5NTyKe"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">這裡值班。」</span></p>
+
+<p bbtag="RI0H1d7q4t"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「喔。」</span></p>
+
+<p bbtag="ybh0Ce9Hu9"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="xJJc9ij2rN"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">然後，瓊斯小姐和她的隨從走開，等到與德克斯特拉出適當的距離後，便開始熱烈</span></p>
+
+<p bbtag="OZiVoPbLhK"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="JrkQctOPkR"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">爭論起來，最後瓊斯小姐抽出一枝球桿，猛力往地上一甩。為了加強效果，她又拾起地上的球桿，正準備朝褓姆的胸口一揮，褓姆連忙抓住球桿，從她手上扭了下來。</span></p>
+
+<p bbtag="Yp1nel9n6m"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「你這卑鄙該死的老東西！」瓊斯小姐發狂似地吼道。</span></p>
+
+<p bbtag="LInsmsyVay"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">接著又是一番爭執。德克斯特看出這幕鬧劇蘊含的喜劇成分，好幾次都忍俊不禁，但總在發出笑聲前克制了自己。他曉得這樣的念頭很荒謬，但就是按捺不住地想，那褓姆真是活該挨小女孩揍。</span></p>
+
+<p bbtag="uoZMuKrz33"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">桿弟領班的出現適時化解了這局面，褓姆立刻向他投訴。</span></p>
+
+<p bbtag="mTujBRWNJC"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="kUMuqjMWrR"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「瓊斯小姐要找個小桿弟，但這位桿弟說他走不開。」</span></p>
+
+<p bbtag="NZz2oL5HIV"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="TvIDmKC7Np"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「麥肯納先生說你到之前，我都得待在這裡。」德克斯特連忙說。</span></p>
+
+<p bbtag="JczQiUv9fx"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="W7RCif5lRz"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「好啦，他來啦。」瓊斯小姐興高采烈地朝桿弟領班笑著，然後扔下球袋，趾高氣</span></p>
+
+<p bbtag="HREAEFjFrh"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="jKtX1E2piF"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">揚地走向開球區。</span></p>
+
+<p bbtag="fuFQOPVg7P"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「怎麼？」領班轉向德克斯特。「你還呆呆站在那裡幹嘛？還不去把小姐的球桿撿</span></p>
+
+<p bbtag="E5e1r394Vl"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="yGeMa5xXR0"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">起來。」</span></p>
+
+<p bbtag="bosrdXMLHk"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「我今天不想撿球了。」德克斯特說。</span></p>
+
+<p bbtag="ZaQlnEGvfj"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="HA71hP7lWy"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「你不想</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">」</span></p>
+
+<p bbtag="HtS4boJ960"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="WfgYwEX32k"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「我想要辭職。」</span></p>
+
+<p bbtag="fbV0j3VwK7"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="JcDPZCSkA0"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">如此離經叛道的決定連他自己都嚇了一跳。他是最受喜愛的桿弟，況且湖區週遭，只有這裡的夏季月薪高達三十美元。但他受到強烈的情感衝擊，騷動不安的情緒需要劇烈而立即的出口。</span></p>
+
+<p bbtag="hKGnbgI7Rd"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">事情也並非這麼簡單。往後，這類情形將一再重演，德克斯特已不知不覺為他的冬</span></p>
+
+<p bbtag="KFhJPiQz1t"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="87R6ACWoHU"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">之夢所掌控了。</span></p>
+
+<p bbtag="q02H2ZTb6b"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　　　</span></p>
+
+<p bbtag="I8rTZLAGhk"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">當然，這些冬之夢的內涵和時宜性都在遞變，但夢的本質依舊。幾年後，它們說服</span></p>
+
+<p bbtag="5Rtk7hLKdX"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="3iGhvGyN5u"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">了德克斯特放棄州立大學的商學院課程</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">他的父親現在生意興隆，本應該很樂意負擔這筆學費</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">轉而投向虛幻的前景，進入東岸一間歷史更悠久、更具名望的學府，他的日子也因此過得更為拮据。但千萬別因為他的冬之夢一開始剛好源於對財富的省思，就認為這孩子不過是個勢利眼。他並不想攀附富麗堂皇的事物或光彩奪目的人士</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">他要的是那光彩本身。他往往一伸手就拿取最好的，卻不明白自己為何要這麼做</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">有時候他也會遇上滿布於人生中那些不可解的橫逆與挫折。這篇故事就是要陳述其中一個難以得償的夙願，而非他人生的全貌。</span></p>
+
+<p bbtag="6hPGHCewS9"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">他賺了錢。這倒出人意料。大學畢業後，他去了黑熊湖區那些有錢主顧群聚的城市。</span></p>
+
+<p bbtag="PezVIcAAx7"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="isSQtuQbqj"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">在當地待不到兩年，就有人對當時年僅二十三歲的他議論紛紛：「有個年輕人啊&hellip;&hellip;」他週遭的富家子弟不是在玩債券、炒祖產，就是孜孜苦啃著二十四冊的《喬治．華盛頓商學課程》，但德克斯特卻憑藉大學文憑和滿口的自信借到一千美金，買下一家洗衣店的股份。</span></p>
+
+<p bbtag="O2uqtV2c9R"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">那家洗衣店在他剛入股時還沒什麼規模，不過德克斯特習得一項專門技術，知道英</span></p>
+
+<p bbtag="o58z8ztHpO"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="dQYYWkQBh7"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">國人洗高級羊毛球襪卻不縮水的竅門，不到一年他就負責接待起那些穿著燈籠褲的闊綽客戶了。人們堅持要把昔德蘭長統襪跟毛衣送到他的店洗，一如他們堅持桿弟就要能找得到高爾夫球才行。再過不久，他也洗起他們太太的貼身衣褲來</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">並分別在城裡不同的地區增設了五家分店。不到二十七歲，他就擁有了當地最大的連鎖洗衣店。就在那時他賣掉持股，前往紐約。不過，且先讓故事回到他剛嶄露頭角那時開始說起。</span></p>
+
+<p bbtag="JizgXuuNQR"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">在他二十三歲那年，哈特先生</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">那些鬢髮灰白，喜歡議論「有個年輕人啊」的男</span></p>
+
+<p bbtag="KfxCZ38gmQ"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="b0Sl2fXSBZ"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">人之一</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">給了他一張雪利島高爾夫球俱樂部的週末臨時貴賓卡。於是有天他在櫃台簽下自己的名字，並在當天下午和哈特先生、山伍德先生及海德里克先生打了一場四人球賽。他認為沒必要提及那些往事，告訴他們自己曾在這同一座球場上揹過哈特先生的球袋，且每個球坑和每條溝渠的位置他都瞭若指掌</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">但他仍情不自禁地覷著跟在身後的四名桿弟，想要從他們身上捕捉一個眼神、一個動作，讓他回想起昔日的自己，讓他縮窄自己現在和過去間的那道隔閡。</span></p>
+
+<p bbtag="LIPz3GlSXM"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">那是奇特的一天，不時有股熟悉感驀地從他心上掠過。前一分鐘他還覺得自己是個</span></p>
+
+<p bbtag="ApEBPpC4Xh"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="50rXEgtzPs"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">侵入者，下一分鐘卻自詡比海德里克先生優秀千百倍，非但嫌人家煩，甚至認為他連高爾夫球都打不好。</span></p>
+
+<p bbtag="eI43JfBoAK"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">接著，由於哈特先生在第十五洞果嶺附近掉了顆球，一件大事發生了。當他們在深</span></p>
+
+<p bbtag="cBACxFATXi"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="kBCfi99oeZ"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">草區的密叢中找球，一聲清楚的「前面當心！」自後方小丘傳來。他們馬上停了下來、猛地轉身，只見一顆明亮的新球飛快切過小丘，擊中海德里克先生的腹部。</span></p>
+
+<p bbtag="i7KO11Cpcn"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「要命！」海德里克先生叫著：「他們實在應該把這些瘋婆娘趕出球場。真是越來</span></p>
+
+<p bbtag="g2SxOgXb2f"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="VHS3RKUZv7"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">越無法無天了。」</span></p>
+
+<p bbtag="jBEfNdOK3W"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">小丘上探出了顆頭，還說：</span></p>
+
+<p bbtag="IdGNWR7jF1"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="VpWui53T1B"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「我們可以過去嗎？」</span></p>
+
+<p bbtag="tvH63NmpQ2"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="o2BJmbSzYE"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「你都打到我肚子上來啦！」海德里克先生氣急敗壞地聲明。</span></p>
+
+<p bbtag="8m3yI7oLyf"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="NrU4oVC1eb"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「是嗎？」女孩走近這群男士。「抱歉了，我有喊『前面當心』。」</span></p>
+
+<p bbtag="AVRtcTd11a"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="JiDe8ZxxLp"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">她的視線漫不經心地落在每位男士身上</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">接著掃過球道找她的球。</span></p>
+
+<p bbtag="5pDnCLO271"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="25eNesk4G8"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「我把球打進深草區了嗎？」</span></p>
+
+<p bbtag="gR9nTX506P"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="y7D2nWddkK"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">這究竟算是天真爛漫的問題抑或刻薄之辭，根本無從得知，但是片刻之後，一切就</span></p>
+
+<p bbtag="aj5mWEkNmO"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="uDGOoeus1Z"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">撥雲見日了，因為她的球友越過小丘出現時，她興奮地喊道：</span></p>
+
+<p bbtag="tCT4XS85gp"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「我在這裡！要不是打到東西，球早就上果嶺了。」</span></p>
+
+<p bbtag="0BsBXUVC7z"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="4OLOX2cMky"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">當她擺好姿勢準備用五號桿短打，德克斯特在一旁緊盯著她瞧。她身穿藍條紋棉製</span></p>
+
+<p bbtag="KLE4KcNHJO"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="efPsxZBc7w"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">洋裝，領口和肩線滾著白邊，襯托出她小麥色的肌膚。十一歲時曾讓那激情的眼神和下撇的嘴角顯得愚蠢可笑的誇張造作與纖細身形，如今已不復見。她美得令人揪心。她雙頰上的紅潤就像圖畫上的色彩一樣圓整</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">那不是「濃艷」的紅，而是一種蕩漾流轉的溫澤，彷彿隨時會消散無蹤的若隱若現。這顏色和她靈活的脣瓣讓人不斷感受到她變幻不定的特質、強烈奔放的生活、熱情洋溢的生命力</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">只有她那貴氣眼眸裡所流露的悲傷，才能稍稍沖淡這感覺。</span></p>
+
+<p bbtag="fLaruTNdgK"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">她不耐地揮動五號桿，了無興趣地將球敲進果嶺另一頭的沙坑中。一抹假意的淺笑</span></p>
+
+<p bbtag="1fBMohv9lA"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="K4Ucj0bTKT"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">迅速閃過她的臉龐，漫不經心地道了聲謝之後，她便追球去了。</span></p>
+
+<p bbtag="X3aDbaPCvq"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「好個茱迪．瓊斯！」海德里克先生在下一洞球座前說。當時的他們正在等</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">等</span></p>
+
+<p bbtag="o2k66aPh4U"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="5YhXloWQso"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">了好一陣子</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">她先打完這一洞。「就是少個人把她翻過身來，打她半年的屁股，再把她送給老古板的騎兵隊長當老婆。」</span></p>
+
+<p bbtag="CQZLfx8YIG"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「天啊，她可真漂亮！」山伍德先生說。他剛過三十歲。</span></p>
+
+<p bbtag="EOe15eKQB2"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="bsit6l88Ef"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「漂亮！」海德里克先生吼得輕蔑。「成天一副討人親吻的樣子！兩隻母牛般的銅</span></p>
+
+<p bbtag="Ut1AyPO14q"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="2UVdNv0LNA"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">鈴眼巴著城裡一隻隻小牛打轉。」</span></p>
+
+<p bbtag="f39HoHJBZm"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">海德里克先生的話中之意，恐怕不是指母性本能。</span></p>
+
+<p bbtag="oY9eszNk3q"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="PATXaxitJN"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「她肯努力的話，應該會是個高爾夫球好手。」山伍德先生說。</span></p>
+
+<p bbtag="YaYCXVCVjF"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="nJHhIfBTus"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「她的姿勢不對。」海德里克先生正經八百地說。</span></p>
+
+<p bbtag="yt84zNmccZ"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="8pTk8OvhcA"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「但是身材不錯。」山伍德先生說。</span></p>
+
+<p bbtag="SFmQTG7zBS"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="isp4i2XH1O"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「還是感謝老天爺她球的力道不強吧。」哈特先生說，並對德克斯特使了個眼色。</span></p>
+
+<p bbtag="NHGTJfDrj4"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="1f4HsKNSyw"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">到了傍晚，四射的霞光雜揉了金色與變幻繽紛的靛藍和緋紅，伴隨夕陽而落，留下</span></p>
+
+<p bbtag="ThgPqprE19"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="oMIZtDsaWd"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">一片乾爽而窸窣的西岸夏夜。德克斯特在俱樂部的陽台上觀望，望著輕風吹出均勻有致的粼粼水波，在滿月的映照下宛如銀色糖蜜。接著月娘單指抵脣，湖面頓時澄澈清明，泛白而幽靜。德克斯特換上泳褲，游向最遠處的浮台，再爬上披了帆布的浮台跳板，全身濕漉漉地伸著懶腰。</span></p>
+
+<p bbtag="f79vm9I9w3"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">魚躍出水，星光閃爍，湖畔燈火忽明忽滅。遠方漆黑的半島傳來鋼琴樂音，奏著去</span></p>
+
+<p bbtag="ufslMpWQy1"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="EatQo56wuD"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">年夏天以及前幾年夏日的流行曲子</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">有《請、請》、《盧森堡伯爵》及《少爺兵》等輕歌劇中的曲目</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">德克斯特一向覺得越過水面飄揚而來的琴聲似乎特別悠美，於是就安安靜靜躺著聆聽。</span></p>
+
+<p bbtag="uvBbZAkIIB"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">那個當下傳來一首相當輕快的曲子，正是五年前德克斯特大二時方問世的歌曲。有</span></p>
+
+<p bbtag="qEHLa9Iqap"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="lMbiOgIsZf"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">人曾在某回畢業舞會的場合上彈奏過，不過當時的他還負擔不起舞會這種花錢的享受，只能站在體育館外頭聽著。這曲調旋即颳起他某種狂喜的情感，他帶著這股狂喜檢視自己現在的境遇。強烈的感激之情油然而生，就這麼一次，他感覺自己如魚得水，週遭的一切正煥發著可遇不可求的光采與魅力。</span></p>
+
+<p bbtag="i5xMrbWjdQ"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">突然一個低矮、灰白的橢圓形體從島嶼的暗處脫出，競賽用的汽艇發出響亮而迴盪</span></p>
+
+<p bbtag="7XoC9btZxq"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="Zb58UY65y2"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">的聲響直直衝來。因船身劃出的兩道白沫兀自在船後綿延，轉眼之間，船已來到他身旁，嗡嗡的水花聲掩蓋了激昂清脆的琴音。德克斯特撐起身，發現船舵處立著一個人影，兩隻黑色眼眸穿過越拉越遠的水面打量著他</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">接著船呼嘯而去，獨留一圈圈無盡水花毫無目的地在湖面中央打轉。同樣古怪的是，其中一圈水花隨波平息後，又激起另一陣掉頭朝浮台而起的水花。</span></p>
+
+<p bbtag="0uYAXNoMJJ"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「誰在那裡？」她熄掉引擎喊道。她就近在咫尺，德克斯特連她身上穿的粉紅色連身泳衣都看得一清二楚。</span></p>
+
+<p bbtag="CRHDHjXT1q"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">船鼻撞上了浮台，而浮台放肆一傾，將他甩向了她。這兩人認出了彼此，只是其中</span></p>
+
+<p bbtag="da3aPtED5Q"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="AiH6NF52q8"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">興味各有巧妙不同。</span></p>
+
+<p bbtag="tf2o1jpBVP"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「你不是今天下午讓我們先打的其中一位男士嗎？」她問。</span></p>
+
+<p bbtag="18QQicIqps"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="X7Btp4ilLu"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">他是。</span></p>
+
+<p bbtag="gGM9SVmfd5"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="4smXT322aT"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「吶，你會開汽艇嗎？會開的話你來開，這樣我就能跟在後頭衝浪。我叫茱迪．瓊</span></p>
+
+<p bbtag="e6i9dxoCsi"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="axW5OxRU70"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">斯。」她對他投以裝模作樣的傻笑</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">確切說來，她是試著擺出那張笑臉而死命噘著嘴，但那模樣並不醜怪，她依舊美麗動人。「我住在島那邊的房子裡，房子裡有位男士正在等我。這男人一把車開上我家，我就把船開出船塢了，因為他說我是他的夢中情人。」</span></p>
+
+<p bbtag="ocIwssjO5s"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">魚躍出水，星光閃爍，湖畔燈火忽明忽滅。德克斯特坐在茱迪．瓊斯身旁，聽她說</span></p>
+
+<p bbtag="wnYSV2jfDQ"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="UdY4htY2FP"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">明駕駛汽艇的方法。然後，她下水，以柔美的自由式朝水面上的衝浪板前進。看著她就彷彿看著樹枝搖曳、海鷗翱翔，絲毫不費勁。她曬成淡褐色的手臂在幽光閃爍的水波間晃動，手肘先浮出水面，將前臂向後一甩，落下韻律有致的水花，接著再向前伸展，戳入水面，劃開一條水道。</span></p>
+
+<p bbtag="44vjl0twQM"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">他們移往湖心；德克斯特轉過身，見那翹起的衝浪板上，有她正跪在低斜的後端。</span></p>
+
+<p bbtag="mF7pYaNchP"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="lpGdEaHEsb"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「開快點。」她喊著。「能多快就多快。」</span></p>
+
+<p bbtag="o8Pftz0UBR"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="nGBpBiNmiE"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">他順從地猛推操縱桿，船頭前一團白色浪花湧現。再次回望時，女孩已經站在狂飆</span></p>
+
+<p bbtag="lPIosvThxF"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="M5QbYAZeYt"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">的浪板上了。她平舉著雙臂，抬眼望著月亮。</span></p>
+
+<p bbtag="FPUnYpWA2q"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「好冷哦。」她大喊。「你叫什麼名字？」</span></p>
+
+<p bbtag="MxgErdNWvh"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="qwi1cg6yFN"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">他告訴她他的名字。</span></p>
+
+<p bbtag="gS1bv4sYfL"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="6asEsjfcSs"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「明天晚上來我那兒吃晚飯怎麼樣？」</span></p>
+
+<p bbtag="9IOq4yhZJw"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="ozuxmCdbOd"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">他的心就像這艘汽艇的飛輪轉動不止。第二次了，她心血來潮的念頭再度讓他的人</span></p>
+
+<p bbtag="YbD8iQL4Ej"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="pQ7phox5oc"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">生轉了個新方向。</span></p>
+
+<p bbtag="kabSaXL2be"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　　　</span></p>
+
+<p bbtag="3kcGulnra4"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">隔天傍晚德克斯特等待她下樓時，所置身的淡雅、深靜夏居以及房間向外延伸的玻</span></p>
+
+<p bbtag="KQTZftWQL7"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="EfsXiZDCWE"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">璃圍廊，業已擠滿茱迪．瓊斯的仰慕者。他熟知這類男性</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">就是他剛上大學時，那些從一流預備學校畢業，帶著夏日健美的黝色肌膚、身著高雅服飾的男人。在某方面，他自認比這些人優秀：他更具新鮮感、更強壯。然而捫心自問，他何嘗不希望自己的孩子能像他們一樣；但這就表示他承認自己不過是個粗劣蠻橫的原型，是他們進化前的恆久源頭。</span></p>
+
+<p bbtag="VciPot4kkl"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">等到該他穿錦衣紈褲的時機成熟，他已結識全美一流的裁縫，而他今晚身上這套西</span></p>
+
+<p bbtag="qAR8c8dhBZ"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="N2K0U0Ryqq"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">裝便是出自全美一流裁縫之手。他也養成了大學母校那股特有的拘謹作風，這派風度與其他大學迥然不同。他看出這種矯揉造作對自己的價值，所以老早就加以奉行；他知道比起衣著和舉止上的謹慎講究，隨興不拘需要更大的自信。但風流倜儻就留待他的下一代吧。他母親原本叫克琳絲莉琪，是個波希米亞農家子女，一輩子都操著一口破英文。她的兒子還是謹守成規才是上策。</span></p>
+
+<p bbtag="ZipHnIENyF"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">剛過七點，茱迪．瓊斯下樓了。她穿藍色絲質小洋裝，而他起初有點失望，認為她</span></p>
+
+<p bbtag="CEQffFrHwR"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="qWfnAoZyfG"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">應該更盛裝打扮才是。但令他愈加失望的是，兩人簡短寒暄後，她便逕自走向管家的食材間，推開門喊：「瑪莎，可以上菜了。」他本以為會由管家請賓客入席，席上還備妥雞尾酒。不過當他們肩並著肩坐在長沙發上凝視著對方，這些念頭都被拋諸腦後了。</span></p>
+
+<p bbtag="3irfJ8vY0h"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「我父母今晚不在。」她若有所思地說。</span></p>
+
+<p bbtag="dvxZaHlZKX"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="X3gu8EoGyJ"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">他想起上一次見到她父親的情景，也很高興今晚她雙親都不會出現</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">他們可能會</span></p>
+
+<p bbtag="9N3fuwGBFJ"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="Y9pLn06qt3"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">納悶他究竟是何許人也。德克斯特在基堡出生，那是一個往北走五十哩才會到達的明尼蘇達村落；他一向覺得自己是基堡人，黑熊村稱不上他的家鄉。要不是離此地太近，還被當作高尚湖區的附庸，出生於鄉間其實沒什麼好難為情的。</span></p>
+
+<p bbtag="UuIOu1URyQ"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">他們談到他就讀的大學，她說過去兩年她也經常造訪。還談到那座為雪利島招攬大</span></p>
+
+<p bbtag="uRc7gumM9b"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="1DRTn5efYl"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">批主顧的鄰近城市，而德克斯特隔天就將返回該處，照料他蒸蒸日上的洗衣事業。</span></p>
+
+<p bbtag="CoGyQ4Kzs2"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">用餐時，她不知不覺陷入鬱鬱寡歡的情緒之中，使得德克斯特感到不甚自在。不管她以其低沉的嗓音迸出什麼任性狂語，都令他擔憂不安。不管她對什麼投以微笑</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">對著他、對著雞肝、對著一些無關緊要的瑣事</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">都叫他心神不寧，因為她的笑並非發自內心，那甚至不帶一絲絲喜悅。當她耷拉著鮮紅的嘴角向下撇，與其說她在笑，不如說是在邀吻。</span></p>
+
+<p bbtag="lVBta1bplT"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">晚餐後，她領他到幽暗的玻璃圍廊，有意轉換一下氣氛。</span></p>
+
+<p bbtag="nTTOsjNQ1k"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="5VpYYfn6ec"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「介意我哭一下嗎？」她說。</span></p>
+
+<p bbtag="sgsYvNzrGj"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="y1dxcT6uoP"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「恐怕是我讓你感到厭煩了。」他連忙回答。</span></p>
+
+<p bbtag="LuCmHmLSuX"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="foYrzGjqfX"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「沒這回事。我喜歡你，只是我今天下午實在過得太不順心了。有位我頗有好感的</span></p>
+
+<p bbtag="Yb2u22LnNn"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="NFLuRH0nNk"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">男士在下午告訴我他其實窮得一文不名，真是晴天霹靂呀，之前他根本連一點暗示都沒給。這聽起來是不是俗氣得要命？」</span></p>
+
+<p bbtag="is0f9Oi5Ad"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「或許他是不敢告訴你。」</span></p>
+
+<p bbtag="mpppaagFGA"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="iU6YKYsERN"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「即便如此</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">」她回答：「他從一開始也就做錯了。要是我早曉得他身無分文</span></p>
+
+<p bbtag="T1H8bUNvHc"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="3hom7myFiz"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">哎，我也曾瘋狂愛上好些個窮小子，而且每一個我都真心想嫁。但這一回，我既沒</span></p>
+
+<p bbtag="Ff7Iv1aQ8n"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">想到他是個窮人，對他的好感也沒強烈到足以承受這樣的打擊。這就好比一個女孩子家冷靜地告訴自己的未婚夫，說她是個寡婦一樣。他也許並不排斥寡婦，但是</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span></p>
+
+<p bbtag="ulidBJJi2N"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「我們按部就班來吧。」她冷不防打斷了自己的話。「總而言之，你究竟是誰？」</span></p>
+
+<p bbtag="JkhsXcCcef"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="5qQ7wIAuRm"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">德克斯特遲疑了一下，然後說：</span></p>
+
+<p bbtag="dTF9MNUmJ2"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="C63pTTMvz0"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「我是個無名小卒。」他宣稱。「我的事業大半得看未來的發展。」</span></p>
+
+<p bbtag="nAizJq7WCr"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="pu4CKKXERc"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「你窮嗎？」</span></p>
+
+<p bbtag="bWmCaquVso"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="MIgFYUkfze"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「不窮。」他坦白說。「我賺的錢大概比西北部任何同年紀的男人都多。我知道這</span></p>
+
+<p bbtag="0NTK3baoj8"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="jmhcCwC91M"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">話聽起來很惹人厭，不過是你勸我要按部就班，開誠佈公的。」</span></p>
+
+<p bbtag="MFiCiJ8Muc"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">兩人沉默了一陣。接著她微微一笑，嘴角也垂了下來。她輕輕一晃</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">那動作細微</span></p>
+
+<p bbtag="I0bwRao5F8"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="mtb0OoE6ou"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">得幾乎無可察覺</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">便將身子挨向了他，抬頭凝望他的眼睛。德克斯特一時如有硬塊哽住喉頭，屏息等待著這場實驗的到來，準備體會他們四脣相接時，兩人之間將生成何種不可思議的化合物。然後他發現</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">她藉親吻將興奮之情鋪張、濃烈地傳遞了過來，吻中不帶承諾，而是一種滿足。那些吻在他內心激起的不是需要重新引燃的飢渴，而是不知饜足的放縱&hellip;&hellip;那些吻就像救濟施捨，以毫無保留的有求必應勾扯出更多的匱乏。</span></p>
+
+<p bbtag="YbCUfX7I1p"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">他不用花上幾個鐘頭就確定，自他還是個驕傲、懂得渴望的小男孩起，便一心嚮往</span></p>
+
+<p bbtag="GpSVLyGkka"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="07r432u09L"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">著茱迪．瓊斯。</span></p>
+
+<p bbtag="PmNGdrJoxP"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　　　</span></p>
+
+<p bbtag="XEGjPIHt71"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">他倆就這麼起了頭</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">並以如此調性持續到終局，只是過程中的濃烈程度時有細微</span></p>
+
+<p bbtag="U8iZBGDt4k"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="SnL5aKjBc6"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">的變化。德克斯特放棄了部份自我，去迎合他有生以來遇過最直截了當、不擇手段的人物。無論茱迪想要什麼，她總會施展渾身魅力去追求，其中的方法既不拐彎抹角，也沒有較勁圖謀，她甚至不瞻前顧後</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">她一樁樁的情事都極少涉及精神層面，只不過是讓男人高度意識到她曼妙迷人的外在而已。德克斯特並無意改變她。她的種種缺陷與熱情活力纏繞交織，那些缺陷也因此顯得微不足道，情有可原。</span></p>
+
+<p bbtag="ToO0EZqOUI"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">茱迪將頭倚在他肩上的第一晚，便悄聲對他說道：「我不懂自己到底怎麼了。昨晚我還以為自己心有所屬，今晚卻又覺得我愛的就是你&hellip;&hellip;」</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">對他來說這話真是美麗又浪漫。他當下得以完全掌控並且擁有她那強烈的敏感激情。但過了一星期，他卻不得不用另一種眼光看待她這一特質。她開著她那輛雙人座敞篷車帶他去參加某個戶外晚宴，餐後她消失無蹤，敞篷車也開走了，車上載的卻是另一位男士。德克斯特火冒三丈，差點無法於其他在場人士面前保持得體的風度。事後她雖然向他再三保證自己沒有親吻那位男士，但他知道她在說謊</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">不過，他也為她願意費心撒謊而感到欣慰。</span></p>
+
+<p bbtag="dvU91LlJlq"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">夏天結束前，他已發現自己只是在她身邊兜轉的各色男子之一。連他在內的十二位</span></p>
+
+<p bbtag="kTzVQMaJTF"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="IXLKidN4E5"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">男士，一個個都曾凌駕其他對手之上，獨受寵愛</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">其中約有半數男性仍沐浴在不時復燃的情感撫慰之中。每當有人因長期遭受冷落而求退，她便賜予他短暫的甜蜜時光，足以鼓舞他繼續在她身後尾隨個一年半載。茱迪摧殘蹂躪這群為情所困的敗將，倒不是出於惡意，對於自己所作所為造成的傷害，她也同樣一知半解。</span></p>
+
+<p bbtag="rvste3Sylb"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">一有新人至，舊人便得退居一旁</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">約會也全都自動取消。</span></p>
+
+<p bbtag="HQRCDfkFAD"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">最讓人束手無策的是，她掌有一切主導權。她不屬於勤追苦求就可「贏得芳心」的女子</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">聰明才智無法打動她，她對風采魅力也無動於衷；無論是用上述哪一項攻勢猛烈地追求她，她都會立即將關係拉回肉體層次，而在她曼妙軀體的魔力之下，不管強健或聰敏的男人都得照她的遊戲規則走。只有當她的慾望得到滿足、她的魅力得到完全的施展，她才會感到開心。或許是曾擁有這麼多段年少輕狂的愛戀、這麼多位年少輕狂的愛人，出於自衛，她才變得完全求諸內在來滋養自己。</span></p>
+
+<p bbtag="HVvLAZG11j"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">繼最初的喜不自勝之後，焦躁與不滿的情緒在德克斯特心中雜陳。在她身上迷失自</span></p>
+
+<p bbtag="K3LsLIUILr"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="d3DATlI3yQ"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">我所產生的那種無可抵禦的狂喜並非振奮精神的補藥，而是致命的鴉片。幸虧那種狂喜的時刻在這冬日期間不常出現，才不致影響他的工作。剛交往時，他們彼此間似乎一度存在著濃烈且自然的吸引力</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">例如兩人首次共度的那個八月</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">有三天，他們在她昏暗的陽台上共享了漫漫長夜；從日暮到入夜，他們在幽暗的壁龕或庭院涼亭的護棚後面交換著奇妙而噬人心魂的吻；在旭日照耀的清明早晨，美得恍如迷離夢境的她帶著幾分嬌羞與他相會。那是訂有婚約的愛侶們才享有的喜樂，而意識到他倆並無婚約之名，便讓他更加心醉神迷了。就在那三天裡，他頭一次開口向她求婚。她回答：「以後再說吧。」她說：「吻我。」她說：「嫁給你也挺不錯的。」她說：「我愛你。」&hellip;&hellip;她說&hellip;&hellip;她什麼都沒說。</span></p>
+
+<p bbtag="i7gmQj99jH"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">那三天被一名從紐約來的男人打斷。九月時，紐約男子在她家作客整整半個月。他</span></p>
+
+<p bbtag="p4ZSZk5baY"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="UUOk1o6vKK"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">和茱迪間的流言蜚語不斷，害德克斯特痛苦得要命。他是一家大信託公司總裁的公子。不過到了月底，就聽說茱迪已對他意興闌珊了。有天晚上開舞會，紐約公子哥兒發狂似地在俱樂部中遍尋她的身影，此時的她卻跟當地一個小白臉在汽艇上待了一整晚。她告訴小白臉她對她家訪客已經膩了，而兩天之後她家訪客就告辭了。有人目睹她陪他到車站搭車，據聞他看上去也確實沮喪得不得了。</span></p>
+
+<p bbtag="A71e7UPS0m"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">夏天就在這樣的氣氛之下結束。年屆二十四的德克斯特發現自己益發處於如魚得水</span></p>
+
+<p bbtag="ER7CathOgF"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="RQfmaqLQ4I"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">之境。他是城中兩間俱樂部的會員，還是其中一間的房客。雖然絕非俱樂部中那些列隊尋覓舞伴的單身漢，但他總是設法出席茱迪．瓊斯可能大駕光臨的舞會。他大可隨時出外四處交際</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">現在他是條件優異的年輕男性，且備受城中父執輩人物的喜愛。他公開表明對茱迪．瓊斯的不渝之情，這反倒讓他的地位更為穩固。但他並不熱中於交際，還對那些老想著跑週四或週六舞會，以及硬要與已婚年輕夫婦湊在晚宴桌上的男士們嗤之以鼻。他已盤算著往東部發展，前往紐約了。他要帶著茱迪．瓊斯同行。就算對她生長於斯的世界再怎麼感到幻滅，也無法撼動他對她的美好想像。</span></p>
+
+<p bbtag="H86ilZDYdL"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">請記住這一點</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">因為唯有從這個角度視之，才能理解他為她所做的一切。</span></p>
+
+<p bbtag="5LUZF8Ptob"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="JdjW1WztmH"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">與茱迪．瓊斯相識十八個月後，他跟另一位女孩訂婚了。她名叫艾琳．胥爾，她的</span></p>
+
+<p bbtag="I0d3FivG7R"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="L2L0cAUIiZ"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">父親就是那些向來很賞識德克斯特的人之一。艾琳蓄著一頭淺色金髮，甜美高貴、略顯豐腴。德克斯特一正式向她提出婚約，她便爽快地棄當時另外兩名追求者於不顧。</span></p>
+
+<p bbtag="MR4zcxfnJf"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">夏、秋、冬、春、又一夏、又一秋</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">他為茱迪那處處留情的雙脣奉獻了多少青春</span></p>
+
+<p bbtag="sXAwTJhiTm"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="RZSn85z8Rg"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">歲月。她對他投以關心、鼓舞、怨恨、冷漠、蔑視，盡其所能地在他身上施以無數細微的輕慢和羞辱</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">彷彿是要為竟然曾喜歡過他而雪恥。她招他來，又呼他去，再招他來，他則經常心懷苦楚、皺著眉頭去回應她。她帶給他銷魂的滿足，也帶給他精神上難以承受的悲痛。她為他平添無盡的麻煩和困擾。她侮辱他、欺負他，利用他對她的關懷要他怠慢自己的工作</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">一切都是為了好玩。她對他為所欲為，除了批評他</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">這她還不曾做過</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">在他看來，那似乎只是因為這麼做可能有損她無動於衷的姿態，並對他動了真心。</span></p>
+
+<p bbtag="7G2a6DqRJJ"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">當秋天來了又走，他想自己與茱迪．瓊斯應是有緣無分了。將這個念頭牢記在心並</span></p>
+
+<p bbtag="Z2JaNlxyXv"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="O2uqcbNqwj"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">不容易，但他還是費了好一番工夫說服自己。夜裡躺在床上時，他總與自己反覆爭論，要自己想想她曾帶來的麻煩與痛苦，一一細數她作為妻子種種昭然若揭的缺陷。然後，他又自言自語地說他愛她，過一陣子後才睡著。一整個星期，他拼命超時工作，晚上還回到辦公室仔細規劃自己的未來，以免去想像起她那沙啞的聲線從電話另一端傳來，或共進午餐時她從對座頻送秋波。</span></p>
+
+<p bbtag="14YZwSaCFy"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">他在某個週末參加了一場舞會，一度從別的舞伴手上搶走了她。從他們相識以來，</span></p>
+
+<p bbtag="QYNqiVWac1"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="XGwty4gnmK"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">這或許是他頭一遭沒有邀她同到旁邊坐坐，沒有稱讚她美麗動人。而她也並沒有懷念這些習慣，這讓他有點受傷</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">僅此而已。看見今晚茱迪帶了位新男伴時，他並不感到忌妒。他早已心如鐵石，不知忌妒為何物了。</span></p>
+
+<p bbtag="mabV536DWI"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">他在舞會待到很晚。陪艾琳．胥爾坐著聊書籍、聊音樂，一小時就這麼過去。無論是書籍或音樂，他都知之甚少，但他現在將做起自己時間的主宰，而且還迸出個有點不可一世的想法</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">身為年輕又功成名就的德克斯特．葛林</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">他是該對這類事物多些瞭解了。</span></p>
+
+<p bbtag="eVXcdbeR5Z"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">那時候是十月，德克斯特二十五歲。隔年一月，他和艾琳訂婚了。他們將在六月公</span></p>
+
+<p bbtag="Qx6g2jEWJu"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="0HOq0pVfHN"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">開宣布訂婚的消息，三個月後再舉辦結婚典禮。</span></p>
+
+<p bbtag="Zl0pbxRwnF"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">明尼蘇達的冬季漫無盡期，將近五月才有和風拂來，雪水也才終於融進黑熊湖。這</span></p>
+
+<p bbtag="g57IEYsXyl"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="MpyAKcvJp8"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">一年多來，德克斯特首度享受到某種心靈上的寧靜。茱迪．瓊斯去了佛羅里達，隨後又前往溫泉城，在某個地方訂了婚，又在某個地方解除了婚約。在德克斯特對她徹底死心的初期，人們仍將他倆連繫在一起，並向他打探她的消息。這讓他很難受。不過，當人們看到他晚宴座位總安排在艾琳．胥爾的左右，他們就不再向他問起她了</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">反倒回過頭來跟他報告她的近況。他已非熟諳茱迪一切事務的權威人士了。</span></p>
+
+<p bbtag="UJNZlB3ZFu"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">五月終於到來。夜間的濕氣重得快滴出雨來，德克斯特漫步在漆黑街頭，嗟嘆曾幾</span></p>
+
+<p bbtag="v6Ne75zywJ"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="jUtdtq6VRY"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">何時，多少喜悅快樂就這麼迅速而輕易地離他遠去。記得去年五月時，他還深陷茱迪激起的騷動之中，那騷動如此引人沉痛，明明惡不可赦卻終究得到了諒解</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">那也是鮮少的幾次，他誤以為她終於漸漸愛上他了。他嚮往已久的幸福，原來是這般面貌。他知道艾琳將不過是張鋪展在他身後的幕簾、一隻在晶亮杯碟間擺弄的手、一副呼喚兒女的嗓音&hellip;&hellip;熾烈的慾火和美麗的身影都已消失，一併帶走了夜色的魔力以及四季與晨昏流轉幻化的景緻&hellip;&hellip;纖薄的雙脣向下一撇，落至他的脣上，引領著他飄然如見天堂幻境&hellip;&hellip;這些都已深深烙進他的心底。他還太強健、太易感，無法輕而易舉地將這段記憶拋擲。</span></p>
+
+<p bbtag="SJhoG5xw76"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">五月中旬，有幾日天氣正處於不冷不熱的過渡階段，眼看就要轉入炎夏。他在這樣</span></p>
+
+<p bbtag="PcwX7GKEN3"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="bmxbRwuOIH"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">的一個夜晚來到艾琳家門前。他們即將在一週後宣布訂婚</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">沒人會對此感到驚訝。而今晚他們將偕同彼此坐在大學俱樂部的長沙發上，花一小時觀賞舞池中男女的舞姿。與她同行的時候，他有種穩當的踏實感</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">她受歡迎的程度就如她的身形一般結實，「大大」地受人愛戴。</span></p>
+
+<p bbtag="VEbEg7XiBl"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">他登上那棟豪宅的階梯，走進屋裡。</span></p>
+
+<p bbtag="I39YL0pYBd"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「艾琳。」他呼喚。</span></p>
+
+<p bbtag="gTCKH5Vy2R"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">胥爾太太走出客廳招呼他。</span></p>
+
+<p bbtag="yslWJSlnl9"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="tR96KAV0gl"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「德克斯特，艾琳頭痛得厲害，她上樓去了。」她說。「她原想跟你一道去，但我</span></p>
+
+<p bbtag="BYweyFonU8"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="ETTtuQn9wu"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">要她先上床休息。」</span></p>
+
+<p bbtag="HlEVXRS2PL"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「沒什麼大礙吧，我&hellip;&hellip;」</span></p>
+
+<p bbtag="w8xwhlUUNk"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="UzCUueQxwE"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「噢，不要緊的。她明早還要陪你去打高爾夫球，就先讓她休息一晚吧，好嗎，德</span></p>
+
+<p bbtag="BthUI4fDjE"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="HkUns2EV4Z"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">克斯特？」</span></p>
+
+<p bbtag="BGLwU6Jpdn"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">她笑起來和藹可親，和德克斯特一樣覺得對方都是不錯的人。他們在客廳聊了一會</span></p>
+
+<p bbtag="Nf3hGievDr"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="xB2adu2xws"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">兒後，他便道了聲晚安，獨自離去。</span></p>
+
+<p bbtag="LmBDsCrzia"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">他就住在大學俱樂部裡，回去後他在門口站了一下，看人們跳舞。他倚著門柱，對</span></p>
+
+<p bbtag="xtfDRclfRg"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="zRqLaEIokn"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">一、兩個人點了點頭</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">打起呵欠。</span></p>
+
+<p bbtag="AmP1ZuMxfl"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「哈囉，親愛的。」</span></p>
+
+<p bbtag="Vgmfa02TYK"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="GHRbs3rBd2"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">肘邊傳來的熟悉聲音讓他一驚。茱迪．瓊斯拋下一位男士，穿過舞池來到他的跟前</span></p>
+
+<p bbtag="wy4BgSBVks"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="OP6Dyttjhe"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">真是茱迪．瓊斯，一個苗條的搪瓷娃娃，全身上下穿戴得金光閃閃：她頭上繫了金</span></p>
+
+<p bbtag="DQCJcWtOrJ"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">色飾帶，裙邊露出兩只淺口鞋的金色鞋尖。對他微笑時，她臉上似乎綻放著纖弱的容光，頓時一陣溫煦微風和光芒拂過整間廳堂。他不住地緊握起晚禮服口袋中的雙手，一時間澎湃著滿腔的激動。</span></p>
+
+<p bbtag="Tck7r5JKxT"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「什麼時候回來的？」他若無其事地問。</span></p>
+
+<p bbtag="rn1KZdRGF0"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="1SlNcO9WFo"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「過來，我會一五一十告訴你。」</span></p>
+
+<p bbtag="ChjNy6pVW2"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="AaFViWp1RG"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">她轉身，他跟上。她離開了好長一段時間</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">而今奇蹟式的歸來幾乎將他催出了</span></p>
+
+<p bbtag="KFBpehjSlj"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="VDhFZ0Xdiu"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">淚。她曾穿巡幻惑的街道，行徑有如撩人的靡靡樂音。原本一切神秘的過往、新鮮而強烈的想望皆已隨她遠去，如今又跟著她回來了。</span></p>
+
+<p bbtag="9152GTVPvn"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">到了門口，她轉過身來。</span></p>
+
+<p bbtag="rkL9vMWsll"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="RarJhCujz6"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「你有車嗎？沒有的話，我有。」</span></p>
+
+<p bbtag="JK7hJXs6H2"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="YSRioFIM06"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「我有輛雙門小車。」</span></p>
+
+<p bbtag="twUyVze1S5"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="w9P77owBni"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">於是，金色衣裙一陣沙沙作響後，她進了車。他甩上車門。她曾就這麼坐上許多車，有這種雙門小轎車，也不乏別種車款。上車後，她背就這麼往皮革椅上靠，手肘就這麼擱在車門上，如此等待著。若有任何事物能玷汙她，早就玷汙了。只有她能玷汙自己，而這一切全是她自我的展現。</span></p>
+
+<p bbtag="yaaoFsNzND"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">他費了好一番工夫才強迫自己發動車子，重新駛上街道。這不代表什麼</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">他得千</span></p>
+
+<p bbtag="AoSOuvEQuH"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="8jbkpDj5t6"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">萬記牢了。她只是故技重施，而他早已將她拋到九霄雲外，如同將帳冊中的爛帳一筆勾銷。</span></p>
+
+<p bbtag="76ZbFCwVcR"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">他沿著市區慢慢開，佯作心不在焉的樣子駛過商業區寂寥人稀的街道，偶爾可見電</span></p>
+
+<p bbtag="4BUq9yehr2"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="QR98NwVElK"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">影散場後傾巢而出的觀眾，或一個個不是像肺癆病患，就是像拳擊手的青年在撞球間門口前流連不去。而街邊酒吧傳來觥籌交碰和酒客拍擊吧檯的聲音，那是由玻璃窗隔絕出來的一方昏黃天地。</span></p>
+
+<p bbtag="6waUAOvOC6"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">她凝神注視著他，兩人陷入一片尷尬的沉默，然而在這節骨眼上，他卻苦無輕鬆的</span></p>
+
+<p bbtag="CGpCxGLtRU"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="UxE4GVVoiR"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">詞彙來排遣這時刻。他順著一個拐彎將車調頭，然後曲曲折折地開回大學俱樂部。</span></p>
+
+<p bbtag="yZQqAQzinC"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「你想我嗎？」她突然問。</span></p>
+
+<p bbtag="WySOVV0IzZ"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="Vco8pGxrMz"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「每個人都想你。」</span></p>
+
+<p bbtag="ZSqwNzQVoE"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">他在想，不知道她是否曉得艾琳．胥爾的存在。她才回來一天</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">她在外和他訂婚</span></p>
+
+<p bbtag="uGjhe0ogPy"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="5snKHqNVZA"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">的時間幾乎是重疊的。</span></p>
+
+<p bbtag="K5CTGsewKI"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「真會說話！」茱迪傷感地笑著</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">笑容裡卻不見悲戚。她緊瞅著他，彷彿在探尋</span></p>
+
+<p bbtag="Vuk9cDc6xD"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="FmGt6xOQPF"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">什麼，他則聚精會神地注視著儀表板。</span></p>
+
+<p bbtag="u616cNFTqd"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「你比之前更英俊了。」她若有所思地說。「德克斯特，你有天下間最叫人難忘的</span></p>
+
+<p bbtag="O3FoRebAC9"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="Zga3yQMxmT"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">一雙眼睛。」</span></p>
+
+<p bbtag="A2w5GDQAki"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">他本可一笑置之，但他沒有。這話是說給幼稚的嫩小子聽的，但他的心還是被戳了</span></p>
+
+<p bbtag="gI7aAxi1av"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="IP2WgIhB9N"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">一下。</span></p>
+
+<p bbtag="NeoPPYMtpx"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「我對什麼都感到厭倦透頂了，親愛的。」她稱呼每個人親愛的，自然隨興地添上</span></p>
+
+<p bbtag="GHei5rqgc7"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="rBQuQaGXuJ"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">些許私密親暱。「我們乾脆結婚吧。」</span></p>
+
+<p bbtag="iASsLy0ady"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">她話說得直白，他卻聽得困惑。他現在應該老實地說自己即將要娶另一位女孩了，</span></p>
+
+<p bbtag="mD1FKARjoS"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="ZiFfDECR8q"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">但卻開不了口。他原本還能輕易地發誓說自己從不曾愛過她。</span></p>
+
+<p bbtag="DJ3TigzoCF"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「我覺得我們合得來。」她以相同的語調繼續說著：「除非</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">說不定你早就把我給忘了，還愛上別的女孩。」</span></p>
+
+<p bbtag="sAvyUOxpku"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">她顯然極具自信。事實上，她還說她認為這是不可能發生的，就算真有這回事，也</span></p>
+
+<p bbtag="73ZUNKCuju"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="OwypZ3Vpws"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">不過是他幹了件幼稚的傻事</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">且多半是為了炫耀。她會原諒他，因為這種小事不值得耿耿於懷，大可輕易扔到一旁就算了。</span></p>
+
+<p bbtag="7AhwzjSke2"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「除了我，你還能愛上誰呢？」她繼續說：「我喜歡你愛我的方式。噢，德克斯特，</span></p>
+
+<p bbtag="XnPjQrOeN2"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="TwymT7PPty"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">你難道忘記我們去年發生的事了？」</span></p>
+
+<p bbtag="oIyilOBjt1"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「我沒忘。」</span></p>
+
+<p bbtag="OuPUOsDOqW"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="8OGn08vC02"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「我也沒忘！」</span></p>
+
+<p bbtag="YfwDW79x7h"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="dLb7R8JaqK"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">她是真動了情</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">還是被自己突發的演技帶著走，然後越演越上癮？</span></p>
+
+<p bbtag="Uc8jNZ0HrL"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="WuSrIdX0F6"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「真希望我們還能像那時候一樣。」她說。而他逼著自己回答：</span></p>
+
+<p bbtag="vRutNtSY0V"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="rksZGY9eeu"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「我看恐怕不行。」</span></p>
+
+<p bbtag="rqePCpQrzH"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="O4nKQ3Badx"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「我看也是&hellip;&hellip;聽說你和艾琳．胥爾正打得火熱。」</span></p>
+
+<p bbtag="olPmC3FTTX"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="SyMa7foTvt"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">她語氣上並沒有特別強調這個名字，德克斯特卻突然感到羞愧萬分。</span></p>
+
+<p bbtag="KOtpzFcvVp"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「哎呀，送我回家吧。」茱迪此時高聲說道：「我不想再回那個白癡舞會了</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">裡</span></p>
+
+<p bbtag="72qsiK5U2V"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="K6IGQEPjEO"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">頭盡是些毛頭小子。」</span></p>
+
+<p bbtag="TQVvYdf3Bm"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">接著，當他調頭開上通往住宅區的道路時，茱迪開始自顧自地默默哭了起來。他從</span></p>
+
+<p bbtag="oeDVM2y6fF"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="6BJH8F1LTE"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">沒見她哭過。</span></p>
+
+<p bbtag="blRvHPFs4W"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">街道由暗轉明，四方隱約矗立起富家第宅。他的雙門小轎車就停在莫提瑪．瓊斯一</span></p>
+
+<p bbtag="uqduk6MvMQ"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="4xC2oC5WS3"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">家宏偉龐碩的白色宅邸前。這幢私邸沐浴在如水的月光中，富麗堂皇，如夢似幻。其堅實穩固讓他感到震驚。那高厚的四壁、堅硬的鋼梁，以及其寬綽、雄偉、壯觀，再再都跟他身邊這位年輕佳人形成鮮明對比。其厚實凸顯了她的纖弱</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">彷彿向世人展示著蝴蝶震翅所搧起的風，是多麼微弱。</span></p>
+
+<p bbtag="Yuxn7NrR5o"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">他一言不發地坐著，內心卻是鬧嚷翻騰，生怕一動，就會情不自禁將她擁入懷裡。</span></p>
+
+<p bbtag="FkFcNcf03z"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="H43KdlqIaI"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">兩顆淚珠滾落她原已淚濕的雙頰，在她的上脣打顫。</span></p>
+
+<p bbtag="jv5H53PIEQ"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「我比任何人都漂亮。」她抽抽噎噎地說。「為什麼我就得不到幸福？」她的淚眼撕扯著他的意志</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">她的嘴角掛上強烈的憂傷而緩緩下垂：「德克斯特，如果你要我，我就嫁給你。你大概覺得我配不上你，但我會為了你變得更加美麗，德克斯特。」</span></p>
+
+<p bbtag="cYRB50UA3x"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">所有慍怒、驕傲、熱情、怨恨、溫柔的千言萬語湧至他的嘴邊，在他脣上爭搏。接</span></p>
+
+<p bbtag="jfe5FVc4dW"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="S4RDtAGTFk"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">著，一股強烈的情感浪潮拍擊而來，將他沉積於心的一切理智、禮俗、猶疑、榮譽統統沖走。那說話的女人就是他的女人呀，專屬於他的女人，屬於他的美麗、他的驕傲。</span></p>
+
+<p bbtag="r7tJHt73Jn"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「不進來坐坐嗎？」他聽到她猛吸了口氣。</span></p>
+
+<p bbtag="hkYXieiiZQ"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="TefGITSlGD"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">她等待著。</span></p>
+
+<p bbtag="1tIvQJboYW"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="rWMK1mnPu5"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「好吧。」他的聲音微顫。「我進去。」</span></p>
+
+<p bbtag="KCJCLbALRA"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="SaulsdMTFY"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　　　</span></p>
+
+<p bbtag="KgpDPeojlZ"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">奇怪的是，不管當時結束之後，或者當他日後遙想，他對那一晚都不曾後悔。把眼</span></p>
+
+<p bbtag="cUSlYmq0Xe"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="TWHuB4WkLi"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">光放大到十年來看，茱迪對他復燃的熱情僅僅持續了一個月，不過這似乎也無關緊要了。而他對她的再度臣服，讓他最終陷進了更深的痛苦，還為艾琳．胥爾及視他如友的胥爾夫婦帶來莫大的傷害，他也覺得沒什麼大不了。艾琳的悲痛並未在他心中留下揮之不去的鮮明印象。</span></p>
+
+<p bbtag="H2e8o3Fuc4"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">基本上，德克斯特已心如鐵石。他一點也不在乎城中人對他所作所為的觀感，不是</span></p>
+
+<p bbtag="ozsna3sPTP"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="Dok1kEolXM"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">因為他即將離開這座城市，而是因為外人對此事的看法未免太顯膚淺。他對公眾的意見完全無動於衷。甚至當他看清一切皆是徒然，自己並不擁有能夠從心底打動或牢牢抓住茱迪．瓊斯的力量時，對她也未懷有任何怨尤。他愛她，且只要他還愛得動，便會一直愛著她</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">但他無法擁有她。於是他嚐到了唯有強者能體會的深沉苦痛，正如他也曾品嚐過須臾但深切的幸福。</span></p>
+
+<p bbtag="wI5fQbcIAP"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">就連茱迪</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">那位先前除他之外別無所求的茱迪</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">以不想從艾琳身邊「將他奪</span></p>
+
+<p bbtag="2f6MrCKSPw"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="2kRdsS4pV5"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">走」如此彌天大謊來終止婚約，也沒有令他產生反感。他已經超然於任何厭惡或愉悅的情感之外了。</span></p>
+
+<p bbtag="6M79KRuNRv"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">他於二月前往東岸；本打算賣掉他的洗衣事業，在紐約定居</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">但三月時美國參戰，他的計畫也隨之改變。他回到西部，將事業託由合夥人管理，自己則在四月下旬加入第一期軍官訓練營。他跟當中數以千計的年輕人一樣，帶著些許如釋重負的寬慰感迎向戰爭，藉此從糾纏不清的情網中獲得解放。</span></p>
+
+<p bbtag="nCgWI1Owa1"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　　　</span></p>
+
+<p bbtag="962gPZwg4O"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">還記得嗎，雖然這篇故事難免摻雜了一些事件，與他年輕時的幻夢毫無瓜葛，但這</span></p>
+
+<p bbtag="W6C3t3yO3D"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="tHFcxtDKYl"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">並非記述他一生的傳記。關於他以及他的那些夢，至此已差不多交代完畢了。只有一件插曲尚待補充，而那又是七年之後的事了。</span></p>
+
+<p bbtag="dnTkvsCRNr"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">事情發生在紐約。當時的他在那邊發展得很好</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">好到凡事無往不利。他三十二歲</span></p>
+
+<p bbtag="6G89PVKIwm"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="8mAOLlMNXg"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">了，戰後曾旋即飛回西部一趟，扣除那次經驗以外，七年內不曾回去過。一個來自底特律，名叫戴弗林的男人來到他的辦公室作商務拜訪，插曲就在那時發生了，而這段插曲可以說為他人生某個特定的面向做了總結。</span></p>
+
+<p bbtag="Af2wgsOFEO"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「這麼說，你是中西部人囉。」這位戴弗林隨口好奇地說。「真有趣</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">我還以為像你這樣的人多半都是在華爾街出生長大的。說到這兒，我在底特律一個好友的老婆跟你是同鄉耶。我還是他們婚禮的招待。」</span></p>
+
+<p bbtag="1xNXQR6PI7"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">德克斯特沒有答腔，他完全不知道接下來會聽見什麼。</span></p>
+
+<p bbtag="IvBQuaCpVe"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="4gr79Smbd4"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「茱迪．西姆斯。」戴弗林淡淡地說。「婚前叫茱迪．瓊斯。」</span></p>
+
+<p bbtag="1xgfIDHsDX"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="yjQsuXtoCh"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「我知道這人。」一股隱約的不耐從他心上蔓延開來。他當然早聽說過她結婚了</span></p>
+
+<p bbtag="fpxrV9OP6B"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="DJLHgst4Uw"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">或許還刻意避開更多關於她的消息。</span></p>
+
+<p bbtag="A04g3Bzwvv"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「多好的女孩呀。」戴弗林毫無意義地沉思著。「我有點同情她哩。」</span></p>
+
+<p bbtag="lqg9wwFTfO"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="uFEdB9nDtW"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「怎麼說？」德克斯特即刻豎起耳朵，警醒了起來。</span></p>
+
+<p bbtag="kq1xXoKgIe"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="z4iwkMwJzF"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「哦，從某方面來看，勞德．西姆斯已經失心瘋啦。我不是指他虐待老婆，但他成</span></p>
+
+<p bbtag="dxgGe3MHU8"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="YvZFVLV4a1"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">天酗酒，又在外頭尋歡作樂&hellip;&hellip;」</span></p>
+
+<p bbtag="7KwA5ZXdIC"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「茱迪她就沒有在外頭尋歡作樂？」</span></p>
+
+<p bbtag="ybR7cj0KCo"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="lcOlIkrSBE"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「沒有。都在家裡帶孩子哩。」</span></p>
+
+<p bbtag="EB1bHigvJ5"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「喔。」</span></p>
+
+<p bbtag="geZTnKgCvJ"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「她對勞德來說，是稍嫌老了點。」戴弗林說。</span></p>
+
+<p bbtag="cvl4UNpxLA"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="Oj7y1gvTVq"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「嫌老！」德克斯特高聲道：「怎麼會？老兄，她不過才二十七歲。」</span></p>
+
+<p bbtag="ml7XCu5Bwq"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="UNPllGr0q4"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">他突然有個瘋狂的念頭，恨不得馬上衝到街上，跳上開往底特律的火車。他抽筋似</span></p>
+
+<p bbtag="rWO8n05xuw"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="epUQwBdew2"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">地猛然起身。</span></p>
+
+<p bbtag="iHdF1GU0gP"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「你大概很忙吧。」戴弗林隨即欠身道歉。「我沒注意到&hellip;&hellip;」</span></p>
+
+<p bbtag="LJcWUQQeRJ"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="NWJ1maYYs1"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「不，我不忙。」德克斯特穩住聲音說：「一點都不忙。完全不忙。你剛說她&hellip;&hellip;</span></p>
+
+<p bbtag="YaKLzzL5oo"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="TSckUnLvG3"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">二十七歲？不對，是我說她二十七歲。」</span></p>
+
+<p bbtag="kCvLX761md"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「是啊，你說的。」戴弗林乾巴巴地應和。</span></p>
+
+<p bbtag="91tuoXLbjo"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="Av5bwidPes"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「繼續吧，繼續說下去。」</span></p>
+
+<p bbtag="DBPMf6Cuq5"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="s8J7BSDEn4"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「說什麼？」</span></p>
+
+<p bbtag="SKBQl7oDRD"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="g9ZOMvTxXc"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「茱迪．瓊斯的事。」</span></p>
+
+<p bbtag="beijUnHO8p"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="H1uupalB6Q"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">戴弗林無可奈何地看著他。</span></p>
+
+<p bbtag="1CbBEa2GXA"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="pcFCGWUMgU"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「嗯，就是&hellip;&hellip;我剛才幾乎都說了。勞德待她有如凶神惡煞。喔，但他們倒也不會離婚或什麼的。勞德欺人太甚的時候，她反而會原諒他。其實哦，我想她八成是真的愛勞德。她剛到底特律時可是個俏妞哦。」</span></p>
+
+<p bbtag="CvKnraCwzp"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">俏妞！德克斯特覺得這個詞真是滑稽。</span></p>
+
+<p bbtag="MLV99Rs34s"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="boyW6vQXEw"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「難道她&hellip;&hellip;不再俏麗了？」</span></p>
+
+<p bbtag="pqvBO3z0Fj"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="3zmJr9ytgk"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「喔，還不錯啦。」</span></p>
+
+<p bbtag="rPZWN0hJKU"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="tkwj9073zx"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「聽著</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">」德克斯特突然坐下，說道：「我不明白。你說她之前是個『俏妞』，</span></p>
+
+<p bbtag="MW73Tirt7A"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="IPVg0qmvYK"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">又說現在的她『還不錯』，我不懂你的意思&hellip;&hellip;茱迪．瓊斯可不是什麼俏妞，她是絕世美女。我知道她欸，我認識她，她是</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">」</span></p>
+
+<p bbtag="8m63W8H55v"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">戴弗林聽了哈哈大笑。</span></p>
+
+<p bbtag="aBmLwj2Qvv"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="KYKXJ42fWO"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「我無意跟你爭辯些什麼。」他說。「我覺得茱迪是很好的女孩，我也喜歡她。我</span></p>
+
+<p bbtag="1wmeUN4Pp8"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="iXumo7B9Hb"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">只是想不通像勞德．西姆斯這樣的男人為何會瘋狂愛上她，但就是愛上了。」他又補了一句：「倒是大多數的女人都喜歡她。」</span></p>
+
+<p bbtag="ADuqBJ0eO4"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">德克斯特仔細端詳戴弗林，胡亂猜測這話背後必有一番始末，不是這人感覺遲鈍，就是他私下與她有些嫌隙。</span></p>
+
+<p bbtag="ra5JzSEDpP"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「許多女人啪一下就老了。」戴弗林打了個響指。「你一定見識過吧。或許我已忘</span></p>
+
+<p bbtag="tNQ8fzz1lF"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="Xi8cT5zCbq"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">了她結婚時有多漂亮，畢竟之後我見過她太多次了。她那對眼睛倒挺不錯。」</span></p>
+
+<p bbtag="IGMhmB9peH"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">某種渾渾沌沌的感覺籠罩了德克斯特。他這輩子頭一次想喝個酩酊大醉。他知道自</span></p>
+
+<p bbtag="qaFDz9qsni"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="2DQXmdEC4V"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">己因為戴弗林說的話而放聲大笑，卻不知道他究竟說了什麼或有什麼好笑。不一會兒，當戴弗林離開後，他躺在長沙發椅上，眺向窗外紐約市高樓起伏的天際線，此時夕陽正漸漸沒入朦朧迷人的粉金色霞影中。</span></p>
+
+<p bbtag="iWeCDTYkKg"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">他原以為自己一無所有，再沒什麼可失去的了，於是乎終於刀槍不入</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">但他現在</span></p>
+
+<p bbtag="NNatR3w9th"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="pefEpAoveN"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">才發覺，就在剛才，自己又失去了一些東西，感覺如此明晰，彷彿他真娶了茱迪．瓊斯，親眼看著她年華老去。</span></p>
+
+<p bbtag="5DCdtRwQOC"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">夢幻已成泡影。曾屬於他的，而今也被一一奪走。他感到心慌意亂，於是用雙掌緊</span></p>
+
+<p bbtag="WirNxZRizb"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="msZ6TVYg9g"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">緊捂住眼睛，試圖喚回那種種景象：雪利島上的粼粼水波、月光下的陽台、高爾夫球場上的條紋棉製洋裝、乾燥的烈日、她頸項上金黃色的細軟汗毛。還有親吻時她潤澤的雙脣、她憂鬱多愁的眼眸，和早晨時如嶄新亞麻布般的清新氣息。唉，這些都已不復於世了！它們曾經存在，而如今已不可得。</span></p>
+
+<p bbtag="pYhl1vz5vT"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">多年來頭一次，淚水淌過他的臉頰。但這一次淚是為了他自己而流。他不再留戀柔</span></p>
+
+<p bbtag="SBAmNOYKzn"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="jFBwdlfLLy"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">脣、明眸、款款玉手。他是想留戀，卻已無能為力。因為他已遠走他方，再也回不去了。門已深鎖，夕日西落，美麗已無處可尋，徒留鋼鐵灰白之美在時光洪流中屹立不搖。就連本該承受的悲傷也被遺留在那個滿富幻想、青春與華美生活的鄉鎮之中了。在那兒，他的冬之夢曾經燦爛輝煌。</span></p>
+
+<p bbtag="Oj4VMpmMCo"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">「許久以前</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">──</span><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">」他說：「許久以前，我內心有樣東西，但現在那東西消失了。消</span></p>
+
+<p bbtag="OLSoDiWq0w"><span style="color:rgba(23,23,22,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">　　</span></p>
+
+<p bbtag="JfSEmqaK7B"><span style="color:rgba(35,31,32,1.0);font-size:0.8rem;font-style:normal;font-family:'DFLiSong-Lt-HK-BF';font-weight:normal">逝無蹤，不見了。我哭不出來，也無從在意。那東西已一去不復返。」</span></p>
+
+<div bbtag="sf3X5PIMkQ" style="text-indent:0em"><img alt="" class="bb_dimg" src="images/img-00004.png" style="width:100%" /></div>
+
+<div bbtag="oUSgqyEHxh" style="text-indent:0em"><img alt="" class="bb_dimg" src="images/img-00005.png" style="width:100%" /></div>
+</div>
+			<div class="adapt_preview_panel_viewer_column_pages">
+				<div class="adapt_preview_panel_viewer_column_pages_num"></div>
+			</div>
+		</div>
+		<a href="javascript:void(0);" id="btu_left_page" class="arrow prev" title="上一頁" th:title="${i18n.page.getString('prev')}" th:text="${i18n.page.getString('prev')}">上一頁</a>
+		<a href="javascript:void(0);" id="btu_right_page" class="arrow next" title="下一頁" th:title="${i18n.page.getString('next')}" th:text="${i18n.page.getString('next')}">下一頁</a>
+	</div>
+</div>
+</body>
+</html>

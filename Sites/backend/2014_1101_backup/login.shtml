@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>會員登入 | bestBook</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" type="text/css" href="stylesheets/reset.css">
+<link rel="stylesheet" type="text/css" href="stylesheets/bb.css">
+<link rel="stylesheet" type="text/css" href="stylesheets/panel.css">
+<link rel="stylesheet" type="text/css" href="stylesheets/formUI.css">
+<link rel="stylesheet" type="text/css" href="stylesheets/login.css">
+
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="js/ckeditor/ckeditor.js"></script>
+</head>
+
+<body>
+<div id="page"> 
+	<!-- Header --> 
+	<header></header>
+	<script>$("header").load("header.html");</script>
+	
+	<div class="content w1200 Login-IMG">
+		<div class="wrap-box Login-box">
+			<div class="wrap-inner">
+				<form>
+					<div class="field"><input type="text" class="l" placeholder="請先輸入e-mail"></div>
+					<div class="field"><input type="password" class="l" placeholder="請輸入密碼"></div>
+					<div class="field captchaUI">
+						<input type="text" size="11" maxlength="6" placeholder="請輸入右方文字">
+						<img src="images/captcha.png">
+						<a href="#">重新產生</a>
+					</div>
+					<div class="toolbar"><a href="pwforget-step01.html">忘記密碼</a><input type="submit" class="btn-default btn-accept btn-large" value="登入"></div>
+				</form>
+				<hr class="another">
+				<div class="alignC newID"><a href="#" class="btn-default btn-large">新用戶請註冊</a></div>
+				<form id="newIDfrom" action="certified.shtml">
+				<div class="title">新用戶請註冊</div>
+					<div class="field"><input type="text" class="l error" placeholder="請輸入e-mail"></div>
+					<div class="field"><input type="password" class="l" placeholder="請輸入密碼"></div>
+					<div class="field"><input type="password" class="l" placeholder="請確認密碼"></div>
+					<div class="field captchaUI">
+						<input type="text" size="11" maxlength="6" placeholder="請輸入右方文字">
+						<img src="images/captcha.png">
+						<a href="#">重新產生</a>
+					</div>
+					
+					<div class="field"><label class="qtip"><input type="checkbox"> 我已閱讀並同意 <a href="#">服務條款</a> 和 <a href="#">隱私權政策</a></label></div>
+					<div class="toolbar"><input type="submit" class="btn-default btn-accept btn-large" value="送出"></div>
+				</form>
+<script>
+$(function(){
+	$("#newIDfrom").hide();
+	$(".newID a").click(function(){
+		$(this).hide();
+		$("#newIDfrom").show();
+	})
+})
+</script>
+				<hr class="another">				
+				<div class="alignC"><a href="#" class="btn-default facebook btn-large"><i class="icon-facebook"></i>Facebook 登入</a></div>
+			</div>
+			
+		</div>
+		<div class="clearfix"></div>
+	</div>
+	
+	<!-- Footer --> 
+	<footer></footer>
+	<script>$("footer").load("footer.html");</script>
+	
+</div>
+</body>
+</html>

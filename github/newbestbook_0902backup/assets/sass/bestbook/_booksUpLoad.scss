@@ -1,0 +1,109 @@
+.booksUpLoad_block_top{
+    height: auto;
+    margin: 15px auto;
+}
+.booksUpLoad_block_bottom{
+    height: 100px;
+    margin: 10px auto;
+    text-align: center;
+}
+
+.uploadBtn{
+    position: relative;
+    width: 50%;
+    height: 200px;
+    margin: 15px auto;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    cursor: pointer;
+    @include background-gradient( #fb5c7a, #f2254c );
+    input{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 3;
+    }
+    .uploadBtn_layer_1{
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        visibility: visible;
+        opacity: 1;
+        position: absolute;
+        -webkit-transition: opacity 1s linear;
+        -moz-transition: opacity 1s linear;
+        transition: opacity 1s linear;
+    }
+    .uploadBtn_layer_2{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        visibility: hidden;
+        opacity: 0;
+        -webkit-transition: visibility 0s 1s, opacity 0.3s linear;
+        -moz-transition: visibility 0s 1s, opacity 0.3s linear;
+        transition: visibility 0s 1s, opacity 0.3s linear;
+    }
+    &:hover{
+        @include buttonPressShadow;
+        background: #f2254c;
+        .uploadBtn_layer_1{
+            visibility: hidden;
+            opacity: 0;
+            -webkit-transition: visibility 0s 1s, opacity 0.3s linear;
+            -moz-transition: visibility 0s 1s, opacity 0.3s linear;
+            transition: visibility 0s 1s, opacity 0.3s linear;
+        }
+        .uploadBtn_layer_2{
+            visibility: visible;
+            opacity: 1;
+            -webkit-transition: opacity 1s linear;
+            -moz-transition: opacity 1s linear;
+            transition: opacity 1s linear;
+        }
+        .booksUpLoadFinger{
+            bottom: -10px;
+        }
+    }
+}
+.uploadBtn .booksUpLoadIcon_1{
+    width: 400px;
+    height: 200px;
+    margin: 0 auto;
+    margin-top: 30px;
+    @include cssSprite($booksUpLoadIcon_1);
+}
+.uploadBtn .booksUpLoadIcon_2{
+    width: 400px;
+    height: 200px;
+    margin: 0 auto;
+    margin-top: 30px;
+    @include cssSprite($booksUpLoadIcon_2);
+}
+.uploadBtn .booksUpLoadFinger{
+    position: absolute;
+    bottom: -20px;
+    right: 10px;
+    width: 400px;
+    height: 200px;
+    margin: 0 auto;
+    z-index: 2;
+    -webkit-transition: bottom 0.3s;
+    -moz-transition: bottom 0.3s;
+    transition: bottom 0.3s;
+    @include cssSprite($booksUpLoadFinger);
+}
+.uploadBtn .booksUpLoad_txt1,.uploadBtn .booksUpLoad_txt2{
+    width: 100%;
+    top: 140px;
+    color:#fff;
+    font-size: 14px;
+    margin-top: 50px;
+    text-align: center;
+}

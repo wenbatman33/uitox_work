@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script>
+$(function() {
+    var mediaWidth = Math.max( $(window).width(), window.innerWidth);
+    $(window).resize(function(){
+        mediaWidth = Math.max( $(window).width(), window.innerWidth);
+    });
+    categoryItem();
+    //top category button in header_inn.php
+    function categoryItem(){
+		$( ".myDiv" ).on({
+		  "click": function() {
+			$( this ).toggleClass( "active" );
+		  }, "mouseenter" : function() {
+			console.log("over");
+		  }, "mouseleave": function() {
+			$( this ).removeClass( "inside" );
+		  }
+		});
+    }
+	function observe(){
+		$( ".myDiv" ).off("click");
+		$( ".myDiv" ).off("mouseenter");
+		$( ".myDiv" ).off("mouseleave");
+		
+		if(mediaWidth <= 600){
+			$( ".myDiv" ).off("mouseenter");
+		} else{
+			categoryItem();
+		}
+	}
+    $(window).resize(function(){
+		observe();
+    });
+	observe();
+});
+</script>
+<style>
+.myDiv{
+	width:150px;
+	height:150px;
+	display:block;
+	background:#ff9000;
+	text-align:center;
+	vertical-align:middle;
+	line-height:150px;
+}
+</style>
+</head>
+
+<body>
+<div class="myDiv">test</div>
+</body>
+</html>

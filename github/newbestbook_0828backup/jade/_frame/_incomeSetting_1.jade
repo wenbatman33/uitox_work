@@ -1,0 +1,138 @@
+.mainColumn
+  .container
+    .incomeSetting
+      .tabs
+        ul
+          a(class='linkstyle' href='incomeSetting_1.html')
+            li.col-phone-4.col-pad_v-4.col-pad_h-4.col-pc-4.tab-1.current  銷售報表
+          a(class='linkstyle' href='incomeSetting_2.html') 
+            li.col-phone-4.col-pad_v-4.col-pad_h-4.col-pc-4.tab-2 結帳金額與匯款紀錄
+          a(class='linkstyle' href='incomeSetting_3.html') 
+            li.col-phone-4.col-pad_v-4.col-pad_h-4.col-pc-4.tab-3 銀行帳號設定
+      .tab_container.tabBlock-1.open
+        .notYet.ta_center
+            .pageWorking
+            p.cololr_gray9 銷售報表將於近期上線。
+            p.cololr_gray9 如果您有任何問題，請
+              a(href="https://bestbook1.typeform.com/to/kdMNjk" target="_blank") 與我們聯絡
+              | 。
+        .noData.ta_center.is-hide
+            .dataEmpty
+            h2.cololr_gray9 目前暫無資料
+        .tab_containerInner.is-hide
+          .chart1
+            div#chart1
+            script.
+              var chart1 = c3.generate({
+                bindto: '#chart1',
+                data: {
+                  x : 'x',
+                  columns: [
+                    ['x', '2015-01-01', '2015-02-01', '2015-03-01', '2015-04-01','2015-05-01', '2015-06-01', '2015-07-01', '2015-08-01'],
+                    ['銷售收入', 300, 350, 300, 150, 100,100,200,190],
+                  ],
+                  type: 'area-spline',
+                },
+                  axis: {
+                      x: {
+                          type: 'timeseries',
+                          tick: {
+                              format: '%Y-%m'
+                          }
+                      }
+                  }
+              });
+          div
+            .subDec.col-phone-12.col-pad_v-12.col-pad_h-12.col-pc-12
+              span.cololr_gray3 銷售數量 
+              span.fz_18.cololr_red 20 
+              span |  
+              span.cololr_gray3 銷售收入 
+              span.fz_18.cololr_red  NTD 6,187 
+              span |  
+              span.cololr_gray3  依日期查詢： 
+              input(class='cololr_gray6' type='date', value='YYYY/MM/DD') 
+              span  至  
+              input(class='cololr_gray6 ' type='date', value='YYYY/MM/DD') 
+              a(class='btn dateSearch' href='#') 查詢
+              span.floatRight 幣別：新台幣
+          table.rwd-table.col-phone-12.col-pad_v-12.col-pad_h-12.col-pc-12
+            thead
+              tr
+                th 銷售日期▲
+                th 訂單編號▼
+                th 書名▲
+                th 作者▼
+                th 銷售狀態▼
+                th 銷售平台▼
+                th.table_right 平台售價▼
+                th.table_right  銷售收入▼
+            tbody
+              tr
+                td(data-title="銷售日期") 2015/01/14
+                td(data-title="訂單編號")  20130114E123456
+                td(data-title="書名")  東京自助行
+                td(data-title="作者")  周惠玲
+                td(data-title="銷售平台")  成功
+                td(data-title="銷售平台")  Google Play
+                td(data-title="平台售價").table_right 42.00
+                td(data-title="銷售收入").table_right 16.88
+              tr
+                td(data-title="銷售日期") 2015/01/14
+                td(data-title="訂單編號")  20130114E123456
+                td(data-title="書名")  東京自助行
+                td(data-title="作者")  周惠玲
+                td(data-title="銷售平台")  成功
+                td(data-title="銷售平台")  Google Play
+                td(data-title="平台售價").table_right 42.00
+                td(data-title="銷售收入").table_right 16.88
+              tr
+                td(data-title="銷售日期") 2015/01/14
+                td(data-title="訂單編號")  20130114E123456
+                td(data-title="書名")  東京自助行
+                td(data-title="作者")  周惠玲
+                td(data-title="銷售平台")  成功
+                td(data-title="銷售平台")  Google Play
+                td(data-title="平台售價").table_right 42.00
+                td(data-title="銷售收入").table_right 16.88
+              tr
+                td(data-title="銷售日期") 2015/01/14
+                td(data-title="訂單編號")  20130114E123456
+                td(data-title="書名")  東京自助行
+                td(data-title="作者")  周惠玲
+                td(data-title="銷售平台")  成功
+                td(data-title="銷售平台")  Google Play
+                td(data-title="平台售價").table_right 42.00
+                td(data-title="銷售收入").table_right 16.88
+              tr
+                td(data-title="銷售日期") 2015/01/14
+                td(data-title="訂單編號")  20130114E123456
+                td(data-title="書名")  東京自助行
+                td(data-title="作者")  周惠玲
+                td(data-title="銷售平台")  成功
+                td(data-title="銷售平台")  Google Play
+                td(data-title="平台售價").table_right 42.00
+                td(data-title="銷售收入").table_right 16.88
+              tr
+                td(data-title="銷售日期") 2015/01/14
+                td(data-title="訂單編號")  20130114E123456
+                td(data-title="書名")  東京自助行
+                td(data-title="作者")  周惠玲
+                td(data-title="銷售平台")  成功
+                td(data-title="銷售平台")  Google Play
+                td(data-title="平台售價").table_right 42.00
+                td(data-title="銷售收入").table_right 16.88
+              tr
+                td(data-title="銷售日期") 2015/01/14
+                td(data-title="訂單編號")  20130114E123456
+                td(data-title="書名")  東京自助行
+                td(data-title="作者")  周惠玲
+                td(data-title="銷售平台")  成功
+                td(data-title="銷售平台")  Google Play
+                td(data-title="平台售價").table_right 42.00
+                td(data-title="銷售收入").table_right 16.88
+          .subDec.col-phone-12.col-pad_v-12.col-pad_h-10.col-pc-10
+            p 銷售收入為預估值，
+            p 實際付款金額將依照匯率計算，且會扣除相關政府規費；詳情請見收入與付款說明
+          .subDec.ta_right.col-phone-12.col-pad_v-12.col-pad_h-2.col-pc-2
+            a(class='btn' href='#') 下載明細

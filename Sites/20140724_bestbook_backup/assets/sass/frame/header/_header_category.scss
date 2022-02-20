@@ -1,0 +1,123 @@
+.toggleMenu button {
+    background: #fff;
+    border: none;
+    width: 26px;
+    height: 26px;
+    text-indent: -900em;
+    margin: 18px 0;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    background-image: url(../../../assets/img/frame/bestbook_icon.png);
+    background-repeat: no-repeat;
+}
+.toggleMenu {
+    position: absolute;
+    display:  none;
+    padding: 10px 15px;
+    color: #666;
+}
+.nav {
+    list-style: none;
+    *zoom: 1;
+    background: #00a8ff;
+    position: relative;
+    left: -160px;
+    width: 1024px;
+}
+.nav:before,
+.nav:after {
+    content: " ";
+    display: table;
+}
+.nav:after {
+    clear: both;
+}
+.nav ul {
+    list-style: none;
+    width: 9em;
+}
+.nav a {
+    padding: 20px;
+    color:#fff;
+}
+.nav li {
+    position: relative;
+}
+.nav > li {
+    float: left;
+    border-top: 1px solid #ccc;
+}
+.nav > li > .parent {
+    background-image: url("../../../assets/img/frame/downArrow.png");
+    background-repeat: no-repeat;
+    background-position: 95% 50%;
+}
+
+.nav > li > a {
+    display: block;
+}
+.nav li  ul {
+    position: absolute;
+    left: -9999px;
+}
+.nav > li.hover > ul {
+    left: 0;
+}
+.nav li li.hover ul {
+    left: 100%;
+    top: 0;
+}
+.nav li li a {
+    display: block;
+    background: #666;
+    position: relative;
+    z-index:100;
+    border-top: 1px solid #ccc;
+}
+.nav li li .parent {
+    background-image: url("../../../assets/img/frame/downArrow.png");
+    background-repeat: no-repeat;
+    background-position: 95% 50%;
+}
+.nav li li li a {
+    background:#ccc;
+    color: #333;
+    z-index:200;
+    border-top: 1px solid #eee;
+}
+
+@media screen and (max-width: 768px) {
+    .active {
+        display: block;
+    }
+    .nav {
+        list-style: none;
+        *zoom: 1;
+        background: #00a8ff;
+        position: relative;
+        left: 0px;
+        width: 100%;
+    }
+    .nav > li {
+        width: 300px;
+        float: none;
+    }
+    .nav > li > .parent {
+        background-position: 95% 50%;
+    }
+    .nav li li .parent {
+        background-image: url("../../../assets/img/frame/downArrow.png");
+        background-repeat: no-repeat;
+        background-position: 95% 50%;
+    }
+    .nav ul {
+        display: block;
+        width: 100%;
+    }
+   .nav > li.hover > ul , .nav li li.hover ul {
+        position: static;
+    }
+
+}

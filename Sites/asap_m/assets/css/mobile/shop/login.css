@@ -1,0 +1,111 @@
+body {
+  background-attachment: fixed;
+  background-color: #7f7f7f;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(#cccccc));
+  background-image: -webkit-linear-gradient(top, white, #cccccc);
+  background-image: -moz-linear-gradient(top, white, #cccccc);
+  background-image: -ms-linear-gradient(top, white, #cccccc);
+  background-image: -o-linear-gradient(top, white, #cccccc);
+  background-image: linear-gradient(top bottom, #ffffff, #cccccc);
+}
+
+.branding {
+  text-align: center;
+  margin: 0 auto;
+  padding: 20px 0 0px;
+}
+.branding .logo {
+  width: 70%;
+}
+
+.layout {
+  padding: 10px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.register {
+  margin-top: 10px;
+  display: block;
+}
+
+.sign-select {
+  zoom: 1;
+}
+.sign-select:after {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+.sign-select li {
+  float: left;
+  width: 50%;
+}
+.sign-select li a {
+  color: #777777;
+  padding: 10px 0;
+  display: block;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.sign-select li a.active {
+  background: white;
+  color: black;
+  border-top: 3px solid #be252c;
+  -webkit-box-shadow: 2px 0px 1px -2px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 2px 0px 1px -2px rgba(0, 0, 0, 0.5);
+  box-shadow: 2px 0px 1px -2px rgba(0, 0, 0, 0.5);
+}
+
+form[class^='block'] input[type='email'], form[class^='block'] input[type='password'], form[class^='block'] input[type='text'], form[class*='block'] input[type='email'], form[class*='block'] input[type='password'], form[class*='block'] input[type='text'] {
+  width: 100%;
+  padding: 10px;
+  margin: -1px 0 0 0;
+  border: 1px solid #cccccc;
+  font-size: 1em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+form[class^='block'] .reg-check .reg-pic, form[class^='block'] .reg-check #r-img, form[class*='block'] .reg-check .reg-pic, form[class*='block'] .reg-check #r-img {
+  float: left;
+  margin-top: 5px;
+  border: 1px solid #cccccc;
+}
+form[class^='block'] .reg-check .reg-change, form[class^='block'] .reg-check #reload-img, form[class*='block'] .reg-check .reg-change, form[class*='block'] .reg-check #reload-img {
+  float: left;
+  margin-top: 20px;
+  margin-left: 10px;
+  display: inline-block;
+  color: #00afef;
+}
+form[class^='block'] .button, form[class*='block'] .button {
+  width: 100%;
+  margin: 10px 0;
+  font-size: 1.2em;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+form[class^='block'] .fpwd, form[class*='block'] .fpwd {
+  margin: 10px 0;
+  color: #777777;
+  text-decoration: underline;
+  text-align: center;
+  display: block;
+}
+form[class^='block'].block, form[class*='block'].block {
+  margin: 0;
+}
+form[class^='block'] .icon-logo-uitox-s, form[class*='block'] .icon-logo-uitox-s {
+  float: right;
+}

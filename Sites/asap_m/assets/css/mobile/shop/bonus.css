@@ -1,0 +1,77 @@
+.gold {
+  width: 50%;
+  padding-right: 10px;
+  float: left;
+  border-right: 1px solid #e7e7e7;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.gold h1 {
+  margin-bottom: 10px;
+}
+.gold .point {
+  text-align: right;
+}
+.gold strong {
+  font-size: 3em;
+  margin-right: 5px;
+}
+.gold .available {
+  color: #19d600;
+}
+.gold .future {
+  color: #cccccc;
+}
+.gold:last-child {
+  border: none;
+  padding-left: 10px;
+  padding-right: 0;
+}
+
+.web h2 {
+  margin-bottom: 10px;
+}
+.web p {
+  line-height: 140%;
+  margin: 5px 0;
+  font-size: 0.8em;
+  color: #777777;
+}
+.web .available {
+  color: #19d600;
+}
+.web .expire {
+  padding: 5px;
+  background: #e7e7e7;
+  text-align: center;
+}
+
+.help .list {
+  position: relative;
+  line-height: 140%;
+  position: relative;
+  border-bottom: 1px solid #e7e7e7;
+  padding: 10px;
+}
+.help .list:last-child {
+  border-bottom: 0;
+}
+.help .list .btn-touch {
+  display: block;
+  color: #777777;
+}
+.help .list .icon-arrow-rs {
+  position: absolute;
+  right: 5px;
+  top: 18px;
+}
+.help .list .desc {
+  margin-bottom: 10px;
+  font-size: 0.9em;
+}
+.help .list h1 {
+  color: #1180c2;
+  font-size: 1.1em;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,83 @@
+<h1 id="animate-scss">animate-scss</h1>
+<p><em>Sassy just-add-water CSS animation</em></p>
+<p><code>animate-sass</code> is a Sass version of <a href="https://github.com/daneden">Dan Eden&#39;s</a> <a href="https://daneden.me/animate/">Animate.css</a>.</p>
+<h2 id="features">Features</h2>
+<p>animate-sass has a couple of features to make the most of what Sass has to offer for more effecient development.</p>
+<h3 id="helpers">Helpers</h3>
+<h4 id="mixins">Mixins</h4>
+<p>There are a couple of <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#mixins">Sass mixins</a> that some of the modules use to generate the necessary compiled css.</p>
+<h4 id="settings">Settings</h4>
+<p>The settings file defines a range of default <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#variables_">Sass variables</a> which are used by some of the animation modules. You can override the defaults in your own settings or style sass file(s).</p>
+<h4 id="animation-module-loading">Animation Module loading</h4>
+<p>The settings file also sets all animation modules to false (nothing gets loaded).</p>
+<p>To include an animation module in your project, simply override the $use[moduleName] variable in your own settings file to true.</p>
+<p>By only choosing the animation modules you need, you&#39;re keeping the compiled css at it&#39;s leanest!</p>
+<p>Eg:</p>
+<pre><code>// These will be included
+$use-fadeIn: true;
+$use-fadeOut: true;
+</code></pre><p>Modules are arranged by the following animation types;</p>
+<ul>
+<li>attention-seekers</li>
+<li>bounce-enter</li>
+<li>bounce-exit</li>
+<li>fade-enter</li>
+<li>fade-exit</li>
+<li>flippers</li>
+<li>lightspeed</li>
+<li>rotate-enter</li>
+<li>rotate-exit</li>
+<li>special</li>
+</ul>
+<h4 id="base-styles">Base Styles</h4>
+<p>There is a small section at the bottom of the <code>_animate.scss</code> file that contains the base css rules for animate.sass to work.</p>
+<p>Simply copy it from the <code>_animate.scss</code> file (or from the code block below) into you main sass file or base sass module.</p>
+<pre><code>body {
+    -webkit-backface-visibility: hidden; // Addresses a small issue in webkit: http://bit.ly/NEdoDq
+}
+.animated {
+    @include animate-prefixer(animation-duration, $base-duration);
+    @include animate-prefixer(animation-fill-mode, both);
+
+    &amp;.hinge {
+        @include animate-prefixer(animation-duration, $base-duration * 2);
+    }
+}
+</code></pre><h3 id="animations">Animations</h3>
+<p>All individual animation modules are kept in their own <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#partials">Sass partials</a> so they can be found easily. You shouldn&#39;t need to edit these as they are part of the animate.css library.</p>
+<h3 id="bower-support">Bower Support</h3>
+<p>Add animate-sass to your project using <a href="http://bower.io">Bower</a></p>
+<p>bower.json dependency</p>
+<pre><code>&quot;dependencies&quot;: {
+  &quot;animate-sass&quot;: &quot;0.6.2&quot;
+}
+</code></pre><p>Command line
+<code>bower install animate-sass</code></p>
+<h2 id="usage">Usage</h2>
+<p>To use animate.scss in your project, you will need to have Sass installed. <a href="http://sass-lang.com/">Visit the Sass site</a> to find out how to do this.</p>
+<p>Once Sass has been installed, you can download or clone this repo into your project&#39;s <code>css</code> folder and import <code>animate.scss</code> into your main Sass stylesheet.</p>
+<p>Eg: inside css/style.scss</p>
+<pre><code>@import &quot;animate-sass/animate&quot;
+</code></pre><p>Choose which modules you want to use in you project by overriding the variables set in the <code>helpers/settings.scss</code> file in your own settings file.</p>
+<p>Add the base css styles mentioned in the BASE section above.</p>
+<p>Finally in your markup, simply add the class <code>animated</code> to an element, along with any of the animation class names.</p>
+<pre><code>    &lt;div class=&quot;animated fadeIn&quot;&gt;
+        &lt;p&gt;Watch me fade in!&lt;/p&gt;
+    &lt;/div&gt;
+</code></pre><p>That&#39;s it! You&#39;ve got a CSS animated element. Super!</p>
+<h2 id="license">License</h2>
+<p>Animate.scss is licensed under the MIT license. <a href="http://opensource.org/licenses/MIT">http://opensource.org/licenses/MIT</a></p>
+<h2 id="questions-comments">Questions/Comments</h2>
+<p>You can follow me / ask questions on twitter: <a href="http://www.twitter.com/tom_gillard">@tom_gillard</a></p>
+<h2 id="learn-more">Learn more</h2>
+<p>You can <a href="http://daneden.me/animate">check out the original animate.css here</a>. See working examples as well as how to use with javascript or creating custom css classes</p>
+<h2 id="changelog">Changelog</h2>
+<p>v0.6.3 - Removed Sass deprecation warnings about unquote().</p>
+<p>v0.6.2 - Fixed mixin issue with Firefox and IE adding quotes to the animation-name property.</p>
+<p>v0.6.1 - Merged pull request fixing issue with animate filename</p>
+<p>v0.6.0 - Merged pull request adding new animations. Updating bower version.</p>
+<p>v0.5.0 - Merged various pull requests to fix issues with 3rd party frameworks Bourbon and Libsass.</p>
+<p>v0.4.0 - Added override option of all variables. Made sass file a partial to be imported into projects stylesheet without generating a standalone css file. Removed base helper partial in favour of copying the css into projects sass stylesheet.</p>
+<p>v0.3.0 - Added bower package functionality</p>
+<p>v0.2.0 - Removed css source files and restructured repo for better compatibility with user projects</p>
+<p>v0.1.0 - Initial port of animate.css to Sass</p>

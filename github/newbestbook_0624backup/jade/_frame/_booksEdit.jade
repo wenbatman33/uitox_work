@@ -1,0 +1,126 @@
+.mainColumn
+	.container
+		.editBook
+			.editCover.col-phone-12.col-pad_v-12.col-pad_h-4.col-pc-4
+				.coverBlock__top.col-phone-12.col-pad_v-12.col-pad_h-12.col-pc-12
+					.coverBlock__topInner
+						.deviceIpad
+							svg(viewBox="0,0,420,610")
+								image(xlink:href='../assets/img/device_ipad.svg', src='../assets/img/device_ipad.png', width='420', height='610')
+						.cover
+							img(src="../assets/img/book_default_large.jpg")
+				.coverBlock__bottom.col-phone-12.col-pad_v-12.col-pad_h-12.col-pc-12
+					//- ul
+					//- 	li
+					//- 		h4.title 格雷的五十道陰影I：調教格雷的五十道陰影I
+					//- 	li
+					//- 		span fifty shades of grey
+					//- 	li
+					//- 		span 作者： E L詹姆絲   譯者：朱立雅
+					//- 	li
+					//- 		small 格雷系列 / 第一冊 / 001
+					a(class='btn btn-navReport' href='booksCoverEdit.html') 封面修改
+			.editSetting.col-phone-12.col-pad_v-12.col-pad_h-8.col-pc-8
+				.t
+				.booksEdit__Block.col-phone-12.col-pad_v-12.col-pad_h-6.col-pc-6
+					ul.borderBottom
+						li
+							p
+								label(class='cololr_gray6 textAligLeft') 書名:
+								input(class='cololr_gray6 dashedInput' type='text', value='書名')
+						li
+							p
+								label(class='cololr_gray6 textAligLeft') 作者:
+								input(class='cololr_gray6 dashedInput'  type='text', value='作者')
+								span.btn_s.margin10 載入作者
+						li
+							p.is-hide
+								label(class='cololr_gray6 textAligLeft') 副標:
+								input(class='cololr_gray9 dashedInput'  type='text', value='可不填')
+					ul.borderBottom
+						li
+							p
+								label(class='cololr_gray6 inline') 書籍簡介:
+								textarea(class='cololr_gray6' cols="50" rows="5") 書籍簡介
+					ul.borderBottom.is-hide
+						li
+							p
+								label(class='cololr_gray6') 系列/叢書:
+								input(class='cololr_gray9 dashedInput'  type='text', value='可不填')
+						li
+							p
+								label(class='cololr_gray6') 系列編號:
+								input(class='cololr_gray9 dashedInput'  type='text', value='可不填')
+						li
+							p
+								label(class='cololr_gray6') 系列類型:
+								input(class='cololr_gray9 dashedInput'  type='text', value='可不填')
+					ul.is-hide
+						li
+							p
+								label(class='cololr_gray6') 原文書名:
+								input(class='cololr_gray9 dashedInput'  type='text', value='可不填')
+						li
+							p
+								label(class='cololr_gray6') 原文副標:
+								input(class='cololr_gray9 dashedInput'  type='text', value='可不填')
+					p
+						#moreBooksEdit.btn 更多書名資訊
+				.booksEdit__Block.is-hide.col-phone-12.col-pad_v-12.col-pad_h-6.col-pc-6
+					ul.borderBottom
+						li
+							p.cololr_gray 分類: 
+								span.subDec (希望被瀏覽的分類類別 最多兩個)
+						li
+							a(href='#')
+								span.tag.tagGray 文學類 
+								span.icon_14_cancel
+						li
+							a(href='#')
+								span.tag.tagGray 文學類 
+								span.icon_14_cancel
+						li
+							a(href='#')
+								span.tag.triggerBttn ＋增加分類
+					ul.borderBottom
+						li
+							p.cololr_gray3
+								label(class='cololr_gray6') 語系:
+								input(class='cololr_gray6 dashedInput success'  type='text', value='作者')
+						li
+							p.cololr_gray9
+								label(class='cololr_gray6') 出版日期:
+								input(type="text" class="cololr_gray9 dashedInput error" id="publish_date" name="publish_date" placeholder="YYYY/MM/DD" value="")
+								span.tipsError
+									span.icon_14_Error !
+									span 格式錯誤
+						li
+							p
+								label(class='cololr_gray6') ISBN:
+								input(class='cololr_gray9 dashedInput'  type='text', value='可不填')
+						li
+							p
+								label(class='cololr_gray6') 出版社:
+								input(class='cololr_gray9 dashedInput'  type='text', value='可不填')
+					ul.borderBottom
+						li
+							p.cololr_gray3 關鍵字:
+								span.subDec (希望被搜尋的關鍵字)
+						li
+							p
+								label(class='cololr_gray6') 1.
+								input(class='cololr_gray9 dashedInput'  type='text', value='可不填')
+						li
+							p
+								label(class='cololr_gray6') 2.
+								input(class='cololr_gray9 dashedInput'  type='text', value='可不填')
+						li
+							p
+								label(class='cololr_gray6') 3.
+								input(class='cololr_gray9 dashedInput'  type='text', value='可不填')
+						li
+							a(href='#')
+								span.tag ＋增加關鍵字
+				.booksEdit__bottomBlock.col-phone-12.col-pad_v-12.col-pad_h-12.col-pc-12
+					a(class='btn outLinebtn-navReport col-3' href='#') 取消
+					a(class='btn btn-navReport col-3' href='#') 確認

@@ -1,0 +1,42 @@
+var core_lang = (typeof core_lang == 'undefined')?{}:core_lang;
+core_lang["zh"] = core_lang["zh-TW"] = {
+	  "yes" : "確定"
+	, "cancel" : "取消"
+	, "close" : "關閉"
+	, "delete" : "刪除"
+	, "remove" : "移除"
+	, "save" : "儲存"
+	, "start" : "開始"
+	, "pause" : "暫停"
+	, "wait" : "等待"
+	, "error" : "錯誤"
+	, "download" : "下載"
+	
+	, "preview" : "預覽"
+	, "revise" : "校槁"
+	
+	, "file.trans.new" : "等待轉檔"
+	, "file.trans.failure" : "轉檔失敗"
+	, "file.trans.finish" : "轉檔完成"
+	, "file.trans.process" : "轉檔中"
+	, "file.uploading" : "上傳中"
+	, "file.upload.success" : "上傳完成"
+	, "file.reupload" : "重新上傳"
+	, "file.unsupport_type" : "不支援的檔案格式"
+	
+	, "export" : "匯出"
+	, "export.unStart" : "尚未開始"
+	, "export.progress" : "準備檔案"
+	, "export.progress_desc" : "系統正在準備檔案，請稍等"
+	, "export.success" : "準備完成"
+	, "export.success_desc" : "檔案已準備完成，若5秒後尚未自動下載，請點擊下載按鈕"
+	
+	, "page.prev" : "上一頁"
+	, "page.next" : "下一頁"
+	, "page.first" : "第一頁"
+	, "page.last" : "最後一頁"
+	, "page.limit" : "每頁顯示"
+	, "page.limit_item" : "筆"
+	, "page.page" : "頁"
+	, "page.total" : "共"
+};

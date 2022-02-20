@@ -1,0 +1,162 @@
+.refund-state .head {
+  margin: 10px;
+  line-height: 140%;
+  font-size: 0.9em;
+}
+.refund-state .head h2 {
+  line-height: 140%;
+  margin-bottom: 10px;
+  color: #777777;
+}
+.refund-state .head .price {
+  color: #be252c;
+  margin-right: 5px;
+}
+.refund-state .head .dollar {
+  font-size: 0.7em;
+  margin: 0 5px;
+  color: #be252c;
+}
+.refund-state .head .date {
+  float: right;
+  margin-top: 5px;
+  color: #777777;
+}
+.refund-state .list li {
+  zoom: 1;
+}
+.refund-state .list li:after {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+.refund-state .list li .attr {
+  text-align: right;
+  margin-right: 0px;
+}
+.refund-state .list li .attr {
+  zoom: 1;
+}
+.refund-state .list li .attr:after {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+.refund-state .list li .attr .count {
+  color: gray;
+}
+.refund-state .list li .attr .price {
+  text-align: left;
+  margin-left: 10px;
+  min-width: 80px;
+  display: inline-block;
+}
+.refund-state .list li .attr .dollar {
+  margin-right: 5px;
+  color: #777777;
+}
+.refund-state .list li .name {
+  color: gray;
+  margin-bottom: 10px;
+}
+.refund-state .list .main {
+  font-size: 0.8em;
+  line-height: 140%;
+  padding: 10px 0;
+  border-bottom: 1px solid #e7e7e7;
+}
+.refund-state .list .main:first-child {
+  padding-top: 0;
+}
+.refund-state .list .main:last-child {
+  border-bottom: none;
+}
+.refund-state .list .main .group-prod {
+  color: gray;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.refund-state .list .main .group-prod li {
+  margin-bottom: 7px;
+}
+.refund-state .list .sub {
+  margin-top: -12px;
+  background: white;
+}
+.refund-state .progress li {
+  line-height: 140%;
+  font-size: 0.9em;
+  color: #777777;
+  padding: 6px 0;
+  position: relative;
+}
+.refund-state .progress li {
+  zoom: 1;
+}
+.refund-state .progress li:after {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+.refund-state .progress li .icon-check-red-s:before {
+  position: absolute;
+  top: 3px;
+  left: 0;
+}
+.refund-state .progress li .state {
+  margin-left: 20px;
+}
+.refund-state .progress li .red {
+  float: right;
+  color: #be252c;
+}
+.refund-state .progress li .gray {
+  float: right;
+  color: #cccccc;
+}
+.refund-state .progress li .button {
+  float: right;
+}
+.refund-state .progress .tip {
+  margin: 20px 0 10px;
+  text-align: center;
+  font-size: 0.8em;
+  color: #777777;
+}
+.refund-state .progress .actions {
+  text-align: right;
+}
+.refund-state .explain h2 {
+  line-height: 140%;
+  font-size: 0.8em;
+  margin: 10px 0;
+}
+.refund-state .explain p {
+  color: #777777;
+  line-height: 140%;
+  font-size: 0.8em;
+  padding: 5px 0;
+  margin-left: 10px;
+}
+.refund-state .explain p.tip {
+  margin: 5px 0;
+  color: black;
+}
+.refund-state .explain a {
+  color: #1180c2;
+  text-decoration: underline;
+}
+.refund-state .inv p {
+  color: #777777;
+  line-height: 140%;
+  font-size: 0.8em;
+}

@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>bestbook</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Content-Language" content="zh-TW">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="viewport" content="width=device-width, user-scalable=yes">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="雲書">
+    <meta property="og:title" content="雲書 - 讓出書簡單又愉快！">
+    <meta property="og:description" content="雲書 - 讓出書簡單又愉快！">
+    <meta name="keywords" content="電子書, 出版, epub, 作家, 版稅, 稿費">
+    <meta name="description" content="雲書 - 讓出書簡單又愉快！">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width"><!--[if IE 8]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="../assets/css/girds.css">
+    <link rel="stylesheet" href="../assets/css/bestbook.css">
+    <link rel="stylesheet" href="../assets/css/animate/_animate.css">
+    <script src="../assets/js/jquery/jquery-1.10.2.min.js"></script>
+    <script src="../assets/js/bestbook.js"></script>
+  </head>
+  <body>
+    <header class="globalheader">
+      <div class="container">
+        <div class="logoWrap col-phone-4 col-pad_v-3 col-pad_h-3 col-pc-4"><a href="index.html">
+            <div class="logo"></div></a></div>
+        <div class="function col-phone-8 col-pad_v-9 col-pad_h-9 col-pc-8"><a href="booksList.html" alt="作品列表" title="作品列表">
+            <div class="booksListBtn"><span class="icon_22_bokksList"></span><span>作品列表</span></div></a><a href="#" alt="通知" title="通知">
+            <div class="notices_btu"><span class="icon_notices"></span><span class="notice_tips">20</span></div></a><a href="#" alt="會員中心" title="會員中心">
+            <div class="userlogged"><span class="iconUser"></span></div></a><a href="#" alt="FAQ" title="FAQ">
+            <div class="userFAQ"><span class="icon_22_FAQ"></span></div></a>
+          <div class="notice_rec">
+            <ul>
+              <li>
+                <div class="noticeIcon">
+                  <div class="tag nc-selling">書本上架</div>
+                </div>
+                <div class="noticeStatus">
+                  <p class="title">不拘創作形式，一場融合手繪、攝影</p>
+                  <p class="time">04-14 10:15</p><a style="margin-left: 10px;" href="#" target="_blank" class="nc-selling">預覽</a>
+                </div>
+              </li>
+              <li>
+                <div class="noticeIcon">
+                  <div class="tag nc-unSell">書本下架</div>
+                </div>
+                <div class="noticeStatus">
+                  <p class="title">不拘創作形式，一場融合手繪、攝影</p>
+                  <p class="time">04-14 10:15</p><a style="margin-left: 10px;" href="#" target="_blank" class="nc-unSell">預覽</a>
+                </div>
+              </li>
+              <li>
+                <div class="noticeIcon">
+                  <div class="tag nc-unPublish"> 上傳成功</div>
+                </div>
+                <div class="noticeStatus">
+                  <p class="title">不拘創作形式，一場融合手繪、攝影</p>
+                  <p class="time">04-14 10:15</p><a style="margin-left: 10px;" href="#" target="_blank" class="nc-unPublish">預覽</a>
+                </div>
+              </li>
+              <li>
+                <div class="noticeIcon">
+                  <div class="tag nc-fail"> 轉檔失敗</div>
+                </div>
+                <div class="noticeStatus">
+                  <p class="title">不拘創作形式，一場融合手繪、攝影</p>
+                  <p class="time">04-14 10:15</p><a style="margin-left: 10px;" href="#" target="_blank" class="nc-fail">預覽</a>
+                </div>
+              </li>
+              <li>
+                <div class="noticeIcon">
+                  <div class="tag nc-uplod"> 轉檔中</div>
+                </div>
+                <div class="noticeStatus">
+                  <p class="title">不拘創作形式，一場融合手繪、攝影</p>
+                  <p class="time">04-14 10:15</p><a style="margin-left: 10px;" href="#" target="_blank" class="nc-uplod">預覽</a>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="logMenu">
+            <ul>
+              <li><a href="#">
+                  <p>我的帳戶</p></a></li>
+              <li><a href="#">
+                  <p>登出</p></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="mainColumn">
+      <div class="container">
+        <div class="editBook">
+          <div class="editCover col-phone-12 col-pad_v-12 col-pad_h-2 col-pc-2">
+            <div class="coverBlock col-phone-12 col-pad_v-12 col-pad_h-12 col-pc-12">
+              <h4>書籍介紹設定</h4>
+              <div class="coverBlock__Inner">
+                <div class="deviceIpad">
+                  <svg viewBox="0,0,420,610">
+                    <image xlink:href="../assets/img/device_ipad.svg" src="../assets/img/device_ipad.png" width="420" height="610"></image>
+                  </svg>
+                </div>
+                <div class="cover"><img src="../assets/img/book_default_large.jpg"></div>
+              </div><a href="booksCoverEdit.html" class="btn btn-navReport">封面修改</a>
+            </div>
+          </div>
+          <div class="editBookInfo col-phone-12 col-pad_v-12 col-pad_h-10 col-pc-10">
+            <div class="editBookInfoBlock col-phone-12 col-pad_v-12 col-pad_h-5 col-pc-5">
+              <div class="editBookTextField">
+                <label class="cololr_gray6 textAligLeft">書名:</label><span class="prompt cololr_red">尚未填寫</span>
+                <input type="text" value="" class="cololr_gray6">
+              </div>
+              <div class="editBookTextField">
+                <label class="cololr_gray6 textAligLeft">作者:</label><span class="prompt cololr_red">尚未填寫</span>
+                <input type="text" value="" class="cololr_gray6">
+              </div>
+              <div class="editBookTextField">
+                <label class="cololr_gray6 textAligLeft">書籍語系:</label><span class="prompt cololr_red"></span>
+                <select>
+                  <option value="繁體中文">繁體中文</option>
+                  <option value="簡體中文">簡體中文</option>
+                  <option value="英語">英語</option>
+                  <option value="法語">法語</option>
+                </select>
+              </div>
+            </div>
+            <div class="editBookInfoBlock col-phone-12 col-pad_v-12 col-pad_h-7 col-pc-7">
+              <div class="editBookTextField">
+                <label class="cololr_gray6 fz_12 textAligLeft">書籍簡介:</label><span class="prompt cololr_red"></span>
+                <textarea cols="50" rows="5">書籍簡介</textarea>
+              </div>
+            </div>
+            <div class="editBookInfoBlock col-phone-12 col-pad_v-12 col-pad_h-12 col-pc-12">
+              <div class="editCategory col-phone-12 col-pad_v-12 col-pad_h-7 col-pc-7">
+                <label class="cololr_gray6 fz_12 textAligLeft">分類:(希望被瀏覽的分類，最多兩個)</label><span class="prompt cololr_red fz_12"> <img src="../assets/img/icon-inputWaring.png"> 請選擇分類</span><br><a href="#"><span class="tag tagGray">心靈勵志/天賦/潛能開發</span><span class="icon_14_cancel"></span></a><a href="#"><span class="tag tagGray">心靈勵志/天賦/潛能開發</span><span class="icon_14_cancel"></span></a><a href="#"><span class="tag triggerBttn">＋選擇分類</span></a>
+              </div>
+              <div class="editCategory col-phone-12 col-pad_v-12 col-pad_h-5 col-pc-5">
+                <div id="moreBooksEdit" class="btn">更多書名資訊</div>
+              </div>
+            </div>
+          </div>
+          <div class="editBookInfo hideBg col-phone-12 col-pad_v-12 col-pad_h-12 col-pc-12">
+            <div class="editBookInfoBlock border_right col-phone-12 col-pad_v-12 col-pad_h-4 col-pc-4">
+              <div class="editBookTextField">
+                <label class="cololr_gray6 textAligLeft">副標:(可不填)</label><span class="prompt cololr_red"> </span>
+                <input type="text" value="" class="cololr_gray6">
+              </div>
+              <div class="editBookTextField">
+                <label class="cololr_gray6 textAligLeft">原文書名:(如果是原文書 可不填)</label><span class="prompt cololr_red"></span>
+                <input type="text" value="" class="cololr_gray6">
+              </div>
+              <div class="editBookTextField">
+                <label class="cololr_gray6 textAligLeft">原文副標:(可不填)</label><span class="prompt cololr_red"></span>
+                <input type="text" value="" class="cololr_gray6">
+              </div>
+            </div>
+            <div class="editBookInfoBlock border_right col-phone-12 col-pad_v-12 col-pad_h-4 col-pc-4">
+              <div class="editBookTextField">
+                <label class="cololr_gray6 textAligLeft">系列類型:(可不選)</label><span class="prompt cololr_red">錯誤</span>
+                <select>
+                  <option value="可不填">可不選</option>
+                  <option value="冊">冊</option>
+                  <option value="集">集</option>
+                  <option value="話">話</option>
+                </select>
+              </div>
+              <div class="editBookTextField">
+                <label class="cololr_gray6 textAligLeft">系列/叢書:(可不填)</label><span class="prompt cololr_red"></span>
+                <input type="text" value="" class="cololr_gray6">
+              </div>
+              <div class="editBookTextField">
+                <label class="cololr_gray6 textAligLeft">系列編號:(可不填)</label><span class="prompt cololr_red"></span>
+                <input type="text" value="" class="cololr_gray6">
+              </div>
+            </div>
+            <div class="editBookInfoBlock col-phone-12 col-pad_v-12 col-pad_h-4 col-pc-4">
+              <div class="editBookTextField">
+                <label class="cololr_gray6 textAligLeft">出版日期:(未填寫，預設今日為出版日)</label><span class="prompt cololr_red">格式錯誤</span>
+                <input type="date" value="YYYY/MM/DD" class="cololr_gray6">
+              </div>
+              <div class="editBookTextField">
+                <label class="cololr_gray6 textAligLeft">ISBN:(可不填)</label><span class="prompt cololr_red"></span>
+                <input type="text" value="" class="cololr_gray6">
+              </div>
+              <div class="editBookTextField">
+                <label class="cololr_gray6 textAligLeft">出版社:(可不填)</label><span class="prompt cololr_red"></span>
+                <input type="text" value="" class="cololr_gray6">
+              </div>
+            </div>
+            <div class="editBookInfoBlock border_top col-phone-12 col-pad_v-12 col-pad_h-12 col-pc-12">
+              <div class="editBookTextField">
+                <label class="cololr_gray6 textAligLeft">關鍵字:(希望被搜尋的關鍵字 可不填)</label><span class="prompt cololr_red"></span>
+                <div class="keyword">
+                  <label class="cololr_gray6">1.</label>
+                  <input type="text" value="" class="cololr_gray9 keyword">
+                  <label class="cololr_gray6">2.</label>
+                  <input type="text" value="" class="cololr_gray9 keyword">
+                  <label class="cololr_gray6">3.</label>
+                  <input type="text" value="" class="cololr_gray9 keyword"><a href="#"><span class="cubetag">＋增加關鍵字</span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="editSellSetting col-phone-12 col-pad_v-12 col-pad_h-12 col-pc-12">
+            <h3 class="cololr_red">銷售設定</h3>
+            <div class="editSellSettingBlock col-phone-12 col-pad_v-12 col-pad_h-6 col-pc-6"><span class="priceRed fz_16">自訂售價：</span>
+              <select class="currency">
+                <option value="NTD">NTD</option>
+                <option value="USD">USD</option>
+                <option value="CNY">RMB</option>
+                <option value="JPY">JPY</option>
+              </select>
+              <input type="text" value="" class="bookPrice"><span>（可為0）</span><a href="#" class="fz_12 cololr_gray6"><span class="icon_14_tips"></span><span class="fz_12">關於售價</span></a>
+            </div>
+            <div class="editSellSettingBlock col-phone-12 col-pad_v-12 col-pad_h-6 col-pc-6">
+              <div class="editSellSettingBlockInner col-phone-12 col-pad_v-12 col-pad_h-12 col-pc-12"><span class="priceRed fz_16">銷售平台選擇</span></div>
+              <div class="editSellSettingBlockInner col-phone-6 col-pad_v-6 col-pad_h-6 col-pc-6">
+                <p class="inlineblock"></p>
+                <input id="google" type="checkbox" checked>
+                <label for="google"><img src="../assets/img/shopGooglePlay.jpg" width="100" height="27"></label><a href="#" class="fz_12 cololr_gray6"><span class="icon_14_tips"></span><span class="fz_12"> 上架規則</span></a>
+              </div>
+              <div class="editSellSettingBlockInner col-phone-6 col-pad_v-6 col-pad_h-6 col-pc-6">
+                <p class="inlineblock floatRight"></p>
+                <input id="amazon" type="checkbox" checked>
+                <label for="amazon"><img src="../assets/img/shopiBooks.jpg" width="100" height="27"></label><a href="#" class="fz_12 cololr_gray6"><span class="icon_14_tips"></span><span class="fz_12">上架規則</span></a>
+              </div>
+            </div>
+            <div class="editSellSettingBlock col-phone-12 col-pad_v-12 col-pad_h-12 col-pc-12">
+              <p>
+                <input id="adult" type="checkbox">
+                <label for="adult" class="fz_12 cololr_gray3">是限制級書籍？</label>
+              </p>
+              <p>
+                <input id="bookCopyright" type="checkbox" checked>
+                <label for="bookCopyright" class="fz_12 cololr_gray3">我確認我有權利銷售此本電子書，同時我已閱讀並同意</label><a href="#" class="fz_12 cololr_gray9"> 出版品發行合約書</a>
+              </p>
+            </div>
+          </div>
+          <div class="bookConvert col-phone-12 col-pad_v-12 col-pad_h-12 col-pc-12">
+            <div class="bookConvertInner col-phone-12 col-pad_v-12 col-pad_h-1 col-pc-1"><span class="fz_14">書籍轉檔狀態：</span></div>
+            <div class="bookConvertInner col-phone-12 col-pad_v-12 col-pad_h-10 col-pc-10">
+              <div class="progressBars"><span style="width: 80%"></span>
+                <div class="percentage">轉檔中</div>
+              </div>
+            </div>
+            <div class="bookConvertInner col-phone-12 col-pad_v-12 col-pad_h-1 col-pc-1"><a href="booksPreviewer.html" class="btn convertBtn">電子書預覽</a>
+              <p class="convertStatus"> </p>
+            </div>
+          </div>
+          <div class="bookConvert convertSuccess col-phone-12 col-pad_v-12 col-pad_h-12 col-pc-12">
+            <div class="bookConvertInner col-phone-12 col-pad_v-12 col-pad_h-1 col-pc-1"><span class="fz_14">書籍轉檔狀態：</span></div>
+            <div class="bookConvertInner col-phone-12 col-pad_v-12 col-pad_h-10 col-pc-10">
+              <div class="progressBars"><span style="width: 100%"> </span>
+                <div class="percentage">轉檔完成</div>
+              </div>
+            </div>
+            <div class="bookConvertInner col-phone-12 col-pad_v-12 col-pad_h-1 col-pc-1"><a href="booksPreviewer.html" class="btn convertBtn">電子書預覽</a></div>
+          </div>
+          <div class="bookConvert convertFail col-phone-12 col-pad_v-12 col-pad_h-12 col-pc-12">
+            <div class="bookConvertInner col-phone-12 col-pad_v-12 col-pad_h-1 col-pc-1"><span class="fz_14">書籍轉檔狀態：</span></div>
+            <div class="bookConvertInner col-phone-12 col-pad_v-12 col-pad_h-10 col-pc-10">
+              <div class="progressBars"><span style="width: 80%"> </span>
+                <div class="percentage">轉檔失敗</div>
+              </div>
+            </div>
+            <div class="bookConvertInner col-phone-12 col-pad_v-12 col-pad_h-1 col-pc-1"><a href="booksPreviewer.html" class="btn convertBtn">重新上傳</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="editConfirm">
+      <div class="container">
+        <div class="editConfirmblock is-hide"><a href="booksList.html" class="btn">儲存離開</a><a href="booksList.html" class="btn">電子書預覽</a><a href="booksEdit_Step2.html" class="btn">下一步</a></div>
+        <div class="editConfirmblock"><a href="booksList.html" class="cancelbutton btn">儲存離開</a><a href="booksList.html" class="cancelbutton btn">電子書預覽</a><a href="booksEdit_Step2.html" class="cancelbutton btn">下一步</a></div>
+      </div>
+    </div>
+    <div class="SelectList-inner">
+      <div class="SelectTitle">
+        <div class="tit"><span class="fz_20">新增分類 </span><span>請選擇書籍分類 (最多兩個)</span></div>
+      </div>
+      <div class="pics">
+        <div class="picItem pic-phone-6 pic-pad_v-6 pic-pad_h-3 pic-pc-2">
+          <h4>
+            <label>
+              <input depth="1" type="checkbox" value="100">文學小說
+            </label>
+          </h4>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="101">愛情文藝小說
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="102">輕小說
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="103">科幻小說
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="104">奇幻小說
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="105">懸疑小說
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="106">推理小說
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="107">武俠小說
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="108">歷史小說
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="109">軍事小說
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="110">政治小說
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="111">翻譯文學
+              </label>
+              <ul class="item sub-panel">
+                <li class="no-sub-panel">
+                  <label>
+                    <input depth="3" type="checkbox" value="112">日本
+                  </label>
+                </li>
+                <li class="no-sub-panel">
+                  <label>
+                    <input depth="3" type="checkbox" value="113">美國
+                  </label>
+                </li>
+                <li class="no-sub-panel">
+                  <label>
+                    <input depth="3" type="checkbox" value="114">歐洲
+                  </label>
+                </li>
+                <li class="no-sub-panel">
+                  <label>
+                    <input depth="3" type="checkbox" value="115">東南亞
+                  </label>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="116">電影/電視小說
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="117">散文
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="118">詩
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="119">其他類小說
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="picItem pic-phone-6 pic-pad_v-6 pic-pad_h-3 pic-pc-2">
+          <h4>
+            <label>
+              <input depth="1" type="checkbox" value="200">生活休閒
+            </label>
+          </h4>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="201">塑身
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="202">美妝保養
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="203">居家
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="204">手作
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="205">寵物
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="206">旅遊
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="207">運動休閒
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="208">攝影
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="209">美食
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="210">料理
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="211">親子教育
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="212">兩性
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="213">名人偶像
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="214">命理占星/風水
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="215">性愛指南
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="216">寫真集
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="217">醫療養生
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="218">藝術
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="219">設計
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="220">居家擺飾
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="picItem pic-phone-6 pic-pad_v-6 pic-pad_h-3 pic-pc-2">
+          <h4>
+            <label>
+              <input depth="1" type="checkbox" value="300">圖文漫畫
+            </label>
+          </h4>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="301">動漫畫
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="302">圖文/插畫
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="picItem pic-phone-6 pic-pad_v-6 pic-pad_h-3 pic-pc-2">
+          <h4>
+            <label>
+              <input depth="1" type="checkbox" value="400">心靈勵志
+            </label>
+          </h4>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="401">人生哲學
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="402">心靈療法
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="403">職場人際
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="404">情緒管理
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="405">勵志故事
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="406">天賦/潛能開發
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="picItem pic-phone-6 pic-pad_v-6 pic-pad_h-3 pic-pc-2">
+          <h4>
+            <label>
+              <input depth="1" type="checkbox" value="500">商業理財
+            </label>
+          </h4>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="501">管理
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="502">投資理財
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="503">行銷
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="picItem pic-phone-6 pic-pad_v-6 pic-pad_h-3 pic-pc-2">
+          <h4>
+            <label>
+              <input depth="1" type="checkbox" value="600">電腦資訊
+            </label>
+          </h4>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="601">電腦硬體
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="602">作業系統
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="603">軟體應用
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="604">程式設計
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="605">網頁開發設計
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="606">網路/網站
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="607">影音多媒體
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="608">影像繪圖
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="609">數位生活
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="picItem pic-phone-6 pic-pad_v-6 pic-pad_h-3 pic-pc-2">
+          <h4>
+            <label>
+              <input depth="1" type="checkbox" value="700">社會科學
+            </label>
+          </h4>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="701">史地
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="702">哲學
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="703">心理學
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="704">政治/軍事
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="705">法律
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="picItem pic-phone-6 pic-pad_v-6 pic-pad_h-3 pic-pc-2">
+          <h4>
+            <label>
+              <input depth="1" type="checkbox" value="800">自然科普
+            </label>
+          </h4>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="801">應用科學
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="802">自然科學
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="picItem pic-phone-6 pic-pad_v-6 pic-pad_h-3 pic-pc-2">
+          <h4>
+            <label>
+              <input depth="1" type="checkbox" value="900">語言學習/考試用書
+            </label>
+          </h4>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="901">語言學習
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="902">考試用書
+              </label>
+            </li>
+          </ul>
+        </div>
+        <div class="picItem pic-phone-6 pic-pad_v-6 pic-pad_h-3 pic-pc-2">
+          <h4>
+            <label>
+              <input depth="1" type="checkbox" value="1000">童書
+            </label>
+          </h4>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="1001">0-2歲
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="1002">3-6歲
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="1003">7-10歲
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="1004">11-14歲
+              </label>
+            </li>
+          </ul>
+          <ul class="item sub-panel">
+            <li class="item">
+              <label>
+                <input depth="2" type="checkbox" value="1005">兒童繪本
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="confirmBlock">
+        <div class="confirmBlockInner">
+          <div class="btns">
+            <p class="cololr_red">您已選擇超過2個分類！</p><a href="#" class="btn outLinebtn-navReport cancel">取消</a><a href="#" class="btn btn-navReport send">確認</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

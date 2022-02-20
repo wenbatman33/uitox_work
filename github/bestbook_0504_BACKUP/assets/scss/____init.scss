@@ -1,0 +1,108 @@
+*,
+*:after,
+*:before {
+	margin: 0;
+	padding: 0;
+	@include box-sizing(border-box);
+}
+html, body{
+	height: 100%;
+	font-family: 'Heiti TC', 'Microsoft JhengHei','Arial Unicode MS', Arial, Helvetica, sans-serif;
+	-webkit-overflow-scrolling: touch;
+}
+.inlineblock{
+	display: inline-block;
+}
+.block{
+	display: block;
+}
+
+img {
+	width: auto;
+	max-width: 100%;
+	height: auto;
+	vertical-align: middle
+}
+.container{
+	position: relative;
+	width: 1200px;
+	margin: 0 auto;
+	height: auto;
+	overflow: hidden;
+}
+.mainColumn{
+	position: relative;
+	margin: 15px 0px;
+	height: auto;
+	overflow: hidden;
+}
+.col{
+	height: auto;
+	max-height: 100%;
+	overflow: hidden;
+}
+.col-1 {
+	width: 8.33333%;
+}
+.col-2 {
+	width: 16.66667%;
+}
+.col-3 {
+	width: 25%;
+}
+.col-4 {
+	width: 33.33333%;
+}
+.col-5 {
+	width: 41.66667%;
+}
+.col-6 {
+	width: 50%;
+}
+.col-7 {
+	width: 58.33333%;
+}
+.col-8 {
+	width: 66.66667%;
+}
+.col-9 {
+	width: 75%;
+}
+.col-10 {
+	width: 83.33333%;
+}
+.col-11 {
+	width: 91.66667%;
+}
+.col-12 {
+	width: 100%;
+}
+.row {
+	width: 100%;
+}
+
+.clear{
+	clear: both;
+}
+
+.is-hide{
+	display: none !important;
+}
+.floatLeft{
+	float: left;
+}
+.floatRight{
+	float: right;
+}
+.borderNone{
+	border: none !important;
+}
+.borderRight{
+	border-right: solid 1px #e4e4e4;
+}
+.borderLeft{
+	border-left: solid 1px #e4e4e4;
+}
+.borderBottom{
+	border-bottom: solid 1px #e4e4e4;
+}

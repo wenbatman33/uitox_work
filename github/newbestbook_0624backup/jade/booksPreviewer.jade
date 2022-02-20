@@ -1,0 +1,13 @@
+doctype html
+html
+  include _frame/__htmlHead.jade
+  script(src='../assets/js/bestbookPerviewer.js')
+  body
+    .booksPreviewer
+      include _frame/__globalheader.jade
+      .localNav
+        .container
+          .breadcrumbs
+            a(href='booksList.html') 首頁
+            span=" | 行動裝置預覽"
+      include _frame/_booksPreviewer.jade

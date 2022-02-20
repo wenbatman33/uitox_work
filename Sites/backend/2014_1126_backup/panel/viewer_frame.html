@@ -1,0 +1,61 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta http-equiv="content-language" content="zh-TW">
+<title>線上閱讀 - Connector</title>
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<link rel="stylesheet" type="text/css" media="all" href="http://www.bestbook.com/Viewer/js/jquery-ui/css/ui-lightness/jquery-ui-1.10.3.custom.min.css">
+<link rel="stylesheet" type="text/css" media="all" href="http://www.bestbook.com/Viewer/dev/viewer.css">
+<script type="text/javascript" src="http://www.bestbook.com/Viewer/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="http://www.bestbook.com/Viewer/js/jquery-ui/js/jquery-ui-1.10.3.custom.js"></script>
+<script type="text/javascript" src="http://www.bestbook.com/Viewer/dev/Utils.js"></script>
+<script type="text/javascript" src="http://www.bestbook.com/Viewer/dev/Message.js"></script>
+<script type="text/javascript" src="http://www.bestbook.com/Viewer/dev/Logger.js"></script>
+<script type="text/javascript" src="http://www.bestbook.com/Viewer/dev/InteractiveControl.js"></script>
+<script type="text/javascript" src="http://www.bestbook.com/Viewer/dev/Monitor.js"></script>
+<script type="text/javascript" src="http://www.bestbook.com/Viewer/dev/Setting.js"></script>
+<script type="text/javascript" src="http://www.bestbook.com/Viewer/dev/Event.js"></script>
+<script type="text/javascript" src="http://www.bestbook.com/Viewer/dev/Content.js"></script>
+<script type="text/javascript" src="http://www.bestbook.com/Viewer/dev/Panel.Basic.js"></script>
+<script type="text/javascript" src="http://www.bestbook.com/Viewer/dev/Panel.Loading.js"></script>
+<script type="text/javascript" src="http://www.bestbook.com/Viewer/dev/Panel.MainContentUseTXT.js"></script>
+<script type="text/javascript" src="http://www.bestbook.com/Viewer/dev/Connector.js"></script>
+<script type="text/javascript" src="http://www.bestbook.com/Viewer/dev/ViewerController.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var colum_support = false;
+	try{
+		var div = $('<div style="-webkit-column-count: 2; -moz-column-count: 2; -o-column-count: 2; -ms-column-count: 2; -khtml-column-count: 2; column-count: 2;"></div>');
+		var columns = div.css('-webkit-column-count') || div.css('-moz-column-count') || div.css('-o-column-count') || div.css('-ms-column-count') || div.css('-khtml-column-count') || div.css('column-count') || 'nope';
+		if(columns == "nope"){
+			colum_support = false;
+		}else{
+			colum_support = true;
+		}
+		
+	}catch(e){
+		colum_support = false;
+	}
+	
+	if(!colum_support){
+		message(unSupportTitle, unSupportContent);
+	}else{
+		window['viewer'].initConnector(0, false, "www.bestbook.com", "ref");
+	}
+});
+</script>
+</head>
+<body style="">
+<div id="dialog-message" style="display:none;" title=""></div>
+<div id="message-add-btu" style="display:none;" title=""></div>
+<div id="loadingPanel_block" class="blockDiv" style="display: none;"></div>
+<div id="loadingPanel" class="loading" style="display: none;">資料載入 <span>100</span> %</div>
+<div id="mainContentPanel" class="mainContent">
+	<div id="contents" style="width: 800px; height: 1180px;">
+		<iframe class="chapter_frame" src="javascript:true;"></iframe>
+	</div>
+</div>
+</body>
+</html>

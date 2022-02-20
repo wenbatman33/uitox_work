@@ -1,0 +1,26 @@
+*,
+*:after,
+*:before {
+	margin: 0;
+	padding: 0;
+	@include box-sizing(border-box);
+}
+html, body{
+	width: 100%;
+	height: 100%;
+	font-family: 'Heiti TC', 'Microsoft JhengHei','Arial Unicode MS', Arial, Helvetica, sans-serif;
+	-webkit-overflow-scrolling: touch;
+}
+.inlineblock{
+	display: inline-block;
+}
+.block{
+	display: block;
+}
+.mainColumn{
+	width: 100%;
+	height: auto;
+}
+.bd_b{
+	  border-bottom: solid 1px #e4e4e4;
+}

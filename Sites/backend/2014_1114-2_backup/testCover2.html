@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>Insert title here</title>
+<script src="./js/fabric/fabric.min.js"></script>
+
+<script src="./js/jquery-1.11.0.min.js"></script>
+<script src="./dev/Utils.js"></script>
+
+<link rel="stylesheet" type="text/css" href="./stylesheets/reset.css"/>
+<link rel="stylesheet" type="text/css" href="./stylesheets/bb.css"/>
+<link rel="stylesheet" type="text/css" href="./stylesheets/panel.css"/>
+<link rel="stylesheet" type="text/css" href="./stylesheets/formUI.css"/>
+	
+<script type="text/javascript">
+$(document).ready(function(){
+	coverEditor.initCoverEditor();
+	
+	for(var i=0;i<setting.texts.length;i++){
+		var properties = setting.texts[i].properties;
+		var text = new fabric.Text("", properties);
+		text.id = setting.texts[i].id;
+		
+		text.on('selected', coverEditor.showTextProperties);
+		coverEditor.coverCanvas.add(text);
+		
+		texts.push(text);
+	}
+});
+
+var texts = [];
+
+var setting = {"file": "Cover-15.jpg", "texts": [
+{"id": "bookname", "properties": {"text": "{ 人人都是作家 }", "left": 83.5, "top": 142, "fontFamily": "新細明體", "fontWeight": "bold", "height": 52, "width": 306, "fill": "#000000", "angle": 0, "currentHeight": 62.11111111111111, "currentWidth": 365.5, "originX": "left", "originY": "top", "scaleX": 1.1944444444444444, "scaleY": 1.1944444444444444}}
+, {"id": "subname", "properties": {"text": "這\n是\n假\n字\n不\n需\n細\n心\n閱\n讀", "left": 252.135709353588, "top": 258, "fontFamily": "新細明體", "fontWeight": "normal", "height": 520, "width": 40, "fill": "#000000", "angle": 0, "currentHeight": 187.41488288096886, "currentWidth": 14.416529452382221, "originX": "left", "originY": "top", "scaleX": 0.3604132363095555, "scaleY": 0.3604132363095555}}
+, {"id": "author", "properties": {"text": "雲\n書\n著", "left": 289.28, "top": 261, "fontFamily": "新細明體", "fontWeight": "normal", "height": 156, "width": 40, "fill": "#800000", "angle": 0, "currentHeight": 73.00800000000001, "currentWidth": 18.720000000000002, "originX": "left", "originY": "top", "scaleX": 0.468, "scaleY": 0.468}}
+]};
+
+
+//var bookname = new fabric.Text("書名", {left: 50, top: 50, fontFamily: '新細明體', fill: '#123456', fontWeight: 'bold'});
+
+//var bookname = new fabric.Text("書名", {"id": "bookname", "text": "{ 人人都是作家 }", "left": 83.5, "top": 142, "fontFamily": "新細明體", "fontWeight": "bold", "height": 52, "width": 306, "fill": "#000000", "angle": 0, "currentHeight": 62.11111111111111, "currentWidth": 365.5, "originX": "left", "originY": "top", "scaleX": 1.1944444444444444, "scaleY": 1.1944444444444444});
+
+//var subname = new fabric.Text("副標", {"id": "subname", "text": "這\n是\n假\n字\n不\n需\n細\n心\n閱\n讀", "left": 252.135709353588, "top": 258, "fontFamily": "新細明體", "fontWeight": "normal", "height": 520, "width": 40, "fill": "#000000", "angle": 0, "currentHeight": 187.41488288096886, "currentWidth": 14.416529452382221, "originX": "left", "originY": "top", "scaleX": 0.3604132363095555, "scaleY": 0.3604132363095555});
+//var author = new fabric.Text("作者", {"id": "author", "text": "雲\n書\n著", "left": 289.28, "top": 261, "fontFamily": "新細明體", "fontWeight": "normal", "height": 156, "width": 40, "fill": "#800000", "angle": 0, "currentHeight": 73.00800000000001, "currentWidth": 18.720000000000002, "originX": "left", "originY": "top", "scaleX": 0.468, "scaleY": 0.468});
+
+function output() {
+	/*
+	var out = '{"file": '+setting.file+', "texts": [<br/>'
+		+' {"id": "'+bookname.id+'", "properties": '+getProperties(bookname)+'}<br/>'
+		+' {"id": "'+subname.id+'", "properties": '+getProperties(subname)+'}<br/>'
+		+' {"id": "'+author.id+'", "properties": '+getProperties(author)+'}<br/>'
+	+']}';
+	*/
+	
+	var out = '{"file": '+setting.file+', "texts": [<br/>';
+	for(var i=0;i<texts.length;i++){
+		if(i>0){
+			out += ',';
+		}
+		out += ' {"id": "'+texts[i].id+'", "properties": '+getProperties(texts[i])+'}<br/>';
+	}
+	out += ']}';
+	
+	$("#output_json").html(out);
+}
+
+function getProperties(text) {
+	var str = '{"text": "'+text.text.replace(/\n/g,"\\n")+'"'
+	+', "left": '+text.left
+	+', "top": '+text.top
+	+', "fontFamily": "'+text.fontFamily+'"'
+	+', "fontWeight": "'+text.fontWeight+'"'
+	+', "height": '+text.height
+	+', "width": '+text.width
+	+', "fill": "'+text.fill+'"'
+	+', "angle": '+text.angle
+	+', "currentHeight": '+text.currentHeight
+	+', "currentWidth": '+text.currentWidth
+	+', "originX": "'+text.originX+'"'
+	+', "originY": "'+text.originY+'"'
+	+', "scaleX": '+text.scaleX
+	+', "scaleY": '+text.scaleY
+	+'}';
+	
+	return str;
+}
+
+var coverEditor = new CoverEditor();
+function CoverEditor() {
+	this.selectedObj = null;
+	this.coverCanvas = null;
+	
+	this.initCoverEditor = function() {
+		var tmp = this;
+		
+		tmp.coverCanvas = new fabric.Canvas('coverCanvas');
+		tmp.coverCanvas.setWidth(543);
+		tmp.coverCanvas.setHeight(768);
+		
+		tmp.coverCanvas.on('selection:cleared', function() {//unSelected Text
+			tmp.selectedObj = null;
+			tmp.hideTextProperties();
+		});
+		
+		$("#create_new_text").on('click', function() {
+			tmp.coverCanvas.add(tmp.createText());
+		});
+		
+		$("#output_template").on('click', function() {
+			output();
+		});
+		
+		$(".coverSpace").keydown(function(e){
+			if(e.which == 46){
+				tmp.removeSelected();
+			}
+		});
+		
+		$(".objectProperties .objectText textarea").on('keyup', function() {
+			tmp.selectedObj.setText(this.value);
+			tmp.coverCanvas.renderAll();
+		});
+		
+		$(".objectProperties [name='en_fontList']").on('change', function() {
+			tmp.selectedObj.setFontFamily(this.value);
+			tmp.coverCanvas.renderAll();
+		});
+		
+		$(".objectProperties [name='zh_fontList']").on('change', function() {
+			tmp.selectedObj.setFontFamily(this.value);
+			tmp.coverCanvas.renderAll();
+		});
+		
+		$(".objectProperties [name='objectFontWeight']").on('change', function() {
+			tmp.selectedObj.setFontWeight(this.value);
+			tmp.coverCanvas.renderAll();
+		});
+		
+		$(".objectProperties [name='objectFontColor']").on('change keyup', function() {
+			tmp.selectedObj.setFill(this.value);
+			tmp.coverCanvas.renderAll();
+		});
+		
+		$("input[name='upload_conver_img']").change(tmp.uploadImage);
+	};
+	
+	this.uploadImage = function(e) {
+		var files = e.target.files;
+		for(var i=0; i < files.length; i++) {
+			coverEditor.uploadImageToCanvas(files[i]);
+	    }
+	};
+
+	this.uploadImageToCanvas = function(file) {
+		if(file.type == "image/png" || file.type == "image/jpeg"){
+			setting.file = '"'+file.name+'"';
+			
+			var reader = new FileReader();
+			reader.onload = function(e) {
+				var img = new Image;
+				img.onload = function() {
+					var width = img.width;
+					var height = img.height;
+					
+					var scale_width = (coverEditor.coverCanvas.width / img.width); 
+					var scale_height = (coverEditor.coverCanvas.height / img.height); 
+					  
+					var use_scale = (scale_width > scale_height?scale_height:scale_width);
+					
+					width = parseInt((width * use_scale), 10); 
+					height = parseInt((height * use_scale), 10);
+					
+					coverEditor.coverCanvas.setBackgroundImage(img.src, coverEditor.coverCanvas.renderAll.bind(coverEditor.coverCanvas), {
+						width: width,
+						height: height
+					});
+			    };
+			    
+				img.src = e.target.result;
+			}
+			reader.readAsDataURL(file);
+			
+		}else{
+			window.parent.errorMsg("不支援的檔案格式: "+file.type);
+		}
+	};
+	
+	this.createText = function() {
+		var text = new fabric.Text("輸入文字", {
+			left: 50, top: 50,
+			fontFamily: '新細明體'
+		});
+		text.lockUniScaling = true;
+		
+		text.on('selected', this.showTextProperties);
+		
+		return text;
+	};
+	
+	this.showTextProperties = function() {
+		coverEditor.selectedObj = this;
+		
+		$(".objectProperties").show();
+		
+		$(".objectProperties").find(".objectText textarea").html(coverEditor.selectedObj.getText());
+		
+		var fontFamily = coverEditor.selectedObj.getFontFamily();
+		
+		$(".objectProperties").find("[name='en_fontList']").val(fontFamily);
+		$(".objectProperties").find("[name='zh_fontList']").val(fontFamily);
+		
+		$(".objectProperties").find("[name='objectFontWeight']").val(coverEditor.selectedObj.getFontWeight());
+		
+		$(".objectProperties").find(".objectFontStyle span").html(coverEditor.selectedObj.getFontStyle());
+		
+		var decoration = coverEditor.selectedObj.getTextDecoration();
+		$(".objectProperties").find(".objectTextUnderline span").html(decoration);
+		
+		var fill = new fabric.Color(coverEditor.selectedObj.getFill()).toHex();
+		$(".objectProperties").find("[name='objectFontColor']").val("#"+fill);
+	};
+
+	this.hideTextProperties = function() {
+		$(".objectProperties").hide();
+	};
+	
+	this.removeSelected = function() {
+		var activeObject = coverEditor.coverCanvas.getActiveObject(),
+		activeGroup = coverEditor.coverCanvas.getActiveGroup();
+
+		if (activeGroup) {
+			var objectsInGroup = activeGroup.getObjects();
+			coverEditor.coverCanvas.discardActiveGroup();
+			objectsInGroup.forEach(function(object) {
+				coverEditor.coverCanvas.remove(object);
+			});
+			
+		}else if (activeObject) {
+			coverEditor.coverCanvas.remove(activeObject);
+		}
+	};
+	
+	this.outputSmallImage = function() {
+		var width = coverEditor.coverCanvas.getWidth();
+		var height = coverEditor.coverCanvas.getHeight();
+		
+		var scale_width = (300 / width); 
+		var scale_height = (300 / height); 
+		  
+		var use_scale = (scale_width > scale_height?scale_height:scale_width);
+		
+		var dataURL = coverEditor.coverCanvas.toDataURL({
+		  format: 'png',
+		  multiplier: use_scale
+		});
+		
+		return dataURL;
+	};
+
+	this.outputImage = function() {
+		var width = coverEditor.coverCanvas.getWidth();
+		var height = coverEditor.coverCanvas.getHeight();
+		
+		var scale_width = (2000 / width); 
+		var scale_height = (2400 / height); 
+		  
+		var use_scale = (scale_width > scale_height?scale_height:scale_width);
+		
+		var dataURL = coverEditor.coverCanvas.toDataURL({
+		  format: 'png',
+		  multiplier: use_scale
+		});
+		
+		return dataURL;
+	};
+}
+</script>
+<style>
+.coverSpace{
+	float:left;
+	margin-top: 0px;
+	margin-left: 0px;
+}
+.coverToolbar{
+	float:left;
+	margin-top: 0px;
+	margin-left: 5px;
+	width: 535px;
+}
+#coverCanvas {
+	border-color: #333333;
+	border-width: 1px;
+	border-style: solid;
+	width: 543px;
+	height: 768px;
+}
+</style>
+</head>
+<body>
+<div class="coverEditor">
+	<div class="coverSpace" tabindex="0">
+		<canvas id="coverCanvas"></canvas>
+	</div>
+	<div class="coverToolbar">
+		<div>
+			<button class="btn" id="create_new_text">Add text</button>
+			<input id="upload_conver_img" type="file" name="upload_conver_img"/>
+		</div>
+		<div>
+			<button class="btn" id="output_template">匯出設定</button>
+		</div>
+		<div class="objectProperties">
+			<div class="objectFontFamily">英文字型: 
+				<select name="en_fontList">
+					<option value=""></option>
+					<option value="Antiqua">Antiqua</option>
+					<option value="Arial">Arial</option>
+					<option value="Blackletter">Blackletter</option>
+					<option value="Calibri">Calibri</option>
+					<option value="Comic Sans">Comic Sans</option>
+				</select>
+			</div>
+			<div class="objectFontFamily">中文字型: 
+				<select name="zh_fontList">
+					<option value=""></option>
+					<option value="新細明體">新細明體</option>
+					<option value="微軟正黑體">微軟正黑體</option>
+					<option value="標楷體">標楷體</option>
+					<option value="宋體">宋體</option>
+				</select>
+			</div>
+			<div class="objectFontWeight">Font Weight: <select name="objectFontWeight">
+					<option value="normal">Normal</option>
+					<option value="bold">Bold</option>
+				</select>
+			</div>
+			<div class="objectFontStyle">Font Style: <span></span></div>
+			<div class="objectTextUnderline">Underline: <span></span></div>
+			<div class="objectTextLineThrough">LineThrough: <span></span></div>
+			<div class="objectTextOverline">Overline: <span></span></div>
+			<div class="objectFontColor">Color: <input type="color" name="objectFontColor" value="" /></div>
+			<div class="objectText"><textarea style="width: 100%; height: 200px;"></textarea></div>
+		</div>
+		<div id="output_json"></div>
+	</div>
+</div>
+</body>
+</html>

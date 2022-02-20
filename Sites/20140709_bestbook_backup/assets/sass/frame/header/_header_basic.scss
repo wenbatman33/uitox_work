@@ -1,0 +1,95 @@
+.header-inn{
+    position: relative;
+    border-bottom: 1px solid $light_gray;
+    height: 55px;
+    background: white;
+    z-index: 5;
+    @include clearfix;
+    .logo{
+        float: left;
+        display: block;
+        padding: 8px 0;
+        img{
+            width: 107px;
+        }
+    }
+    .function{
+        position: relative;
+        float: right;
+        >.link{
+            position: relative;
+            display: inline-block;
+            padding: 13px 0;
+        }
+        .icon-cart, .icon-account, .icon-search, .icon-publish{
+            padding: 15px;
+        }
+        .input-search{
+            -webkit-appearance: none;
+            padding: 5px;
+            float: left;
+            border: none;
+            background: $light_gray;
+            margin: 15px 0px;
+            &:focus{
+                outline: none;
+            }
+        }
+        .icon-cart{
+            .count{
+                position: absolute;
+                top: 10px;
+                left: 20px;
+                font-size: 0.7em;
+                padding: 3px 5px;
+                font-weight: bold;
+                color: white;
+                background: $red;
+                font-family: Arial;
+                @include border-radius(50%);
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: $screen-md-min) and (max-width: $screen-md-max){
+    .header-inn{
+        .function{
+            >.link{
+            }
+            .input-search{
+                display: none;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: $screen-sm-max){
+    .header-inn{
+        height: auto;
+        .logo{
+            padding-bottom: 5px;
+            margin-left: 10px;
+
+        }
+        .function{
+            >.link{
+            }
+            .icon-cart, .icon-account, .icon-search, .icon-publish{
+                padding: 15px 8px;
+            }
+            .icon-publish,.icon-cart{
+                display: none;
+            }
+            .input-search{
+                display: none;
+            }
+            .icon-cart{
+                .count{
+                    top: 10px;
+                    left: 13px;
+                }
+            }
+        }
+    }
+}

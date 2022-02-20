@@ -1,0 +1,286 @@
+.incomeSetting{
+	margin: 15px 0 80px 0;
+	.tabs{
+		width: 100%;
+		ul{
+			a{
+				color: #666;
+			}
+			li{
+				text-align: center;
+				background: #ccc;
+				border: solid 1px #dadada;
+				background: #fafafa;
+				border-collapse: collapse;
+				height: 50px;
+				padding: 15px 0 ;
+				vertical-align: middle;
+				font-size: 14px;
+				cursor: pointer;
+
+			}
+			li.current{
+				color: #2D6CA2;
+				border-bottom: solid 2px #2D6CA2;
+			}
+		}
+
+	}
+	.tab_container{
+		width: 100%;
+		height: auto;
+		display: inline-block;
+		border: solid 1px #dadada;
+		padding: 15px;
+	}
+	.open{
+		display: inline-block;
+	}
+	.chart1{
+		width: 100%;
+		margin: 10px auto;
+	}
+	.subDec{
+		min-height: 10px;
+		margin: 5px 0px;
+		padding: 0;
+		font-size: 12px;
+		color: #999;
+		.linkstyle{
+			color: #999;
+			text-decoration: underline;
+		}
+	}
+	input{ height: 28px;}
+	.dateSearch{
+		line-height: 1.2;
+		margin-left: 5px;
+	}
+	table.rwd-table{
+		border:  solid 1px #DADADA;
+		color: #666;
+		text-align: left;
+		margin-bottom: 10px;
+		padding: 0;
+		th{
+			padding: 10px 5px;
+			background:#888;
+			color: #fff;
+			border:  solid 1px #DADADA;
+			font-size: 13px;
+		}
+		td{
+			font-size: 13px;
+			padding: 10px 5px;
+			border:  solid 1px #DADADA;
+			vertical-align: middle;
+		}
+		tr:nth-child(odd) {
+			background: #EBF0F4;
+		}
+		tr:hover {
+			background: #ffffdd;
+		}
+		tr.current {
+			font-weight: bold;
+			color: #2D6CA2;
+			background: #ffffdd;
+			td{
+				font-size: 16px;
+			}
+		}
+	}
+	.accountSetting_2,.accountTips_1,.accountTips_2{
+		display: none;
+	}
+	.accountTips_1,.accountTips_2{
+		span{
+			line-height: 18px;
+		}
+	}
+	.accountInfo{
+		overflow: hidden;
+		color: #666;
+		h4{
+			font-weight: bold;
+			color: #333;
+		}
+		p {
+			margin: 10px 0;
+		}
+		span.title{
+			display: inline-block;
+			width: 40%;
+			padding-right: 10px;
+		}
+		span.data{
+			display: inline-block;
+			width: 60%;
+		}
+		.accountData{
+			width: 100%
+		}
+		.accountDataBtn{
+			text-align: center;
+			border-left:  solid 1px #DADADA;
+		}
+		.accountDataEdit{
+			width: 100%
+		}
+		.nonesSetting{
+			height: 150px;
+			h3{
+				background: #fdfdfd;
+				border:  solid 1px #DADADA;
+				color: #000;
+				line-height: 150px;
+			}
+		}
+		.occupation{
+			width: 100%;
+			display: inline-block;
+			margin: 5px 0;
+			h5{
+				color: #000;
+			}
+		}
+		.occ1-2,.occ2{
+			display: none;
+		}
+
+	}
+	.accountInfo{
+		padding: 10px;
+		.editBookTextField{
+			width: 100%;
+			margin: 8px auto;
+			label{
+				display: inline-block;
+				width: 70%;
+				height: 20px;
+				font-size: 13px;
+				line-height: 20px;
+			}
+			span.prompt{
+				display: inline-block;
+				font-size: 13px;
+				width: 30%;
+				text-align: right;
+				min-height: 20px;
+				height: 20px;
+				line-height: 20px;
+			}
+			input{
+				display: inline-block;
+				width: 100%;
+				height: 32px;
+				color: #000;
+				font-size: 13px;
+				padding: 3px;
+				border: solid 1px #ccc;
+				display: inline-block;
+				&:focus{
+					color: #000;
+				}
+			}
+			.keyword{
+				margin: 6px 0;
+				label{
+					display: inline-block;
+					width: auto;
+					height: 20px;
+					font-size: 14px;
+					line-height: 20px;
+				}
+				input.keyword{
+					display: inline-block;
+					width: 100px;
+					height: 32px;
+					margin-right: 6px;
+				}
+			}
+			textarea{
+				width: 100%;
+				color: #999;
+				font-size: 13px;
+				padding: 3px;
+				background: #fff;
+				border: solid 1px #ccc;
+				&:focus{
+					color: #000;
+				}
+			}
+			select{
+				background: #fff;
+				width: 100%;
+				height: 32px;
+				line-height:32px;
+				color: #000;
+				font-size: 13px;
+				padding: 3px;
+				display: inline-block;
+				border: solid 1px #ccc;
+				appearance: menulist-button;
+				-o-appearance: menulist-button;
+				-webkit-appearance: menulist-button;
+			}
+
+		}
+		.radioField{
+			display: inline-block;
+			margin-right: 20px;
+		}
+	}
+}
+@include setMediaQueries(phone){
+	/* Force table to not be like tables anymore */
+
+	.rwd-table{
+		background-color: transparent !important;
+		border:  solid 0px #DADADA!important;
+	}
+	.rwd-table,
+	.rwd-table thead,
+	.rwd-table tbody,
+	.rwd-table th,
+	.rwd-table td,
+	.rwd-table tr {
+		display: block;
+	}
+	/* Hide table headers (but not display: none;, for accessibility) */
+	.rwd-table thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	table.rwd-table .table_right{
+		text-align: left !important;
+	}
+	.rwd-table tr { border: 1px solid #dadada; margin-bottom: 10px; background-color: #ffffff;}
+
+	.rwd-table td {
+		/* Behave  like a "row" */
+		border: none !important;
+		border-bottom: 1px solid #eee !important;
+		position: relative;
+		padding-left: 35% !important;
+		white-space: normal;
+		text-align:left;
+	}
+
+	.rwd-table td:before {
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 30%;
+		padding-right: 10px;
+		white-space: nowrap;
+		text-align:left;
+		font-weight: bold;
+		color: #1a1a1a;
+	}
+	.rwd-table td:before { content: attr(data-title); }
+}
+

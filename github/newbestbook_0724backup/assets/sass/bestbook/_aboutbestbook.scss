@@ -1,0 +1,91 @@
+.aboutPageTopWrap {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  .aboutPageTopWrapBg {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    z-index: 0;
+    img {
+      width: 100%;
+      height: auto;
+    }
+    .banner {
+      padding: 5px;
+    }
+  }
+}
+
+.aboutInfo {
+  position: relative;
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+  height: auto;
+  line-height: 2;
+  a {
+    color: #0c94d6;
+    text-decoration: underline;
+  }
+  .largeText {
+    font-size: 22px;
+    font-weight: bold;
+  }
+}
+
+.aboutSubInfo {
+  position: relative;
+  display: block;
+  color: #aaa;
+  width: 80%;
+  margin: 30px auto;
+  height: auto;
+  font-size: 14px;
+  line-height: 2;
+  border-top: solid 1px #eee;
+  border-bottom: solid 1px #eee;
+  h2 {
+    color: #888;
+    font-size: 18px;
+    text-align: center;
+  }
+  p {
+    width: 100%;
+  }
+}
+
+.aboutDecoLine {
+  position: relative;
+  display: block;
+  color: #aaa;
+  width: 100%;
+  margin: 30px auto;
+  text-align: center;
+  img {
+    margin: 0px auto;
+  }
+}
+
+.aboutFooter {
+  position: relative;
+  display: block;
+  color: #aaa;
+  width: 90%;
+  margin: 30px auto;
+  height: auto;
+  font-size: 12px;
+  line-height: 2;
+  text-align: center;
+  color: #666;
+  a {
+    color: #0c94d6;
+    text-decoration: underline;
+  }
+  .largeText {
+    font-size: 14px;
+    font-weight: bold;
+    color: #0c94d6;
+  }
+}

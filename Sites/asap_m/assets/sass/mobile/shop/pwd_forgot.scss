@@ -1,0 +1,59 @@
+@import "../define/__init.scss";
+//@import "../frame/_header.scss";
+body{
+	background-attachment: fixed;
+	@include background-gradient(white, $gray);
+}
+.layout-wrapper{
+	padding: 20px;
+	form{
+		margin: 10px 0;
+		h1{
+			margin-bottom: 10px;
+		}
+		input[type='password'], input[type='email'], input[type='text']{
+			width: 100%;
+			padding: 10px;
+			margin: -1px 0 0 0;
+			border: 1px solid $gray;
+			font-size: 1em;
+			@include box-sizing(border-box);
+		}
+		.reg-check{
+			//margin-top: 10px;
+			.reg-pic{
+				float: left;
+				width: 100px;
+				margin-top: 5px;
+				border: 1px solid $gray;
+			}
+			.reg-change{
+				float: left;
+				margin-top: 20px;
+				margin-left: 10px;
+				display: inline-block;
+			}
+		}
+		.button{
+			width: 100%;
+			margin: 10px 0;
+			font-size: 1.2em;
+			padding: 10px;
+			@include box-sizing(border-box);
+		}
+		input[type='checkbox']{
+			height:25px;
+			width: 25px;
+			@include box-sizing(border-box);
+		}
+		a{
+			color: $dark_gray;
+			text-decoration: underline;
+		}
+		.fpwd{
+			margin: 30px;
+			text-align: center;
+			display: block;
+		}
+	}
+}

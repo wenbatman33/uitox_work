@@ -1,0 +1,35 @@
+.layout{
+	margin: 0 auto;
+	position: relative;
+}
+html, body{
+	height: 100%;
+	//font-family: arial,'MS PGothic',Meiryo,sans-serif;
+	font-family: "Helvetica Neue", Helvetica, Arial, "微軟正黑體", sans-serif;
+}
+body{
+	background: $F4;
+}
+.hide{
+	display: none;
+}
+.row, .clearfix{
+	@include clearfix;
+}
+.block{
+	margin: 10px;
+	padding: 10px;
+	background: white;
+	@include clearfix;
+	@include box-shadow( 0 2px 5px -2px rgba( 0, 0, 0, 0.5 ) );
+	.title{
+		border-bottom: 1px solid $gray;
+		padding: 5px 0 10px;
+		margin-bottom: 10px;
+		font-size: 0.9em;
+	}
+	.line{
+		margin: 10px 0;
+		@include clearfix;
+	}
+}

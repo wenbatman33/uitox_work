@@ -1,0 +1,25 @@
+.header-inn {
+    width: 100%;
+    margin-top: 10px;
+    height: 50px;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.header-inn .logo {
+    padding:  0;
+    margin-left: 10px;
+    cursor: pointer;
+    background: url(../images/bestbook.svg) no-repeat;
+    background-position: -20px -116px;
+    width: 108px;
+    height: 40px;
+}
+ .logo2 {
+    padding:  0;
+    margin-left: 10px;
+    cursor: pointer;
+    background: url(../images/bestbook.png) no-repeat;
+    background-position: -20px -116px;
+    width: 108px;
+    height: 40px;
+}

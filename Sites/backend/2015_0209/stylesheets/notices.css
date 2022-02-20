@@ -1,0 +1,71 @@
+.notices_btu {
+    position: relative;
+    display: inline-block;
+    float: left;
+    width: 30px;
+    height: 30px;
+    z-index: 20;
+    padding: 13px 0;
+    background: url(images/icon-NoticeBell.png) no-repeat;
+    text-align: center;
+    line-height: 30px;
+    vertical-align: middle;
+    cursor: pointer;
+    margin: 10px 5px;
+}
+.notices_btu span {
+    display: inline;
+    width: 50px;
+    margin-left: -10px;
+    text-align: center;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    -webkit-transform: scale(0.85);
+    -moz-transform: scale(0.85);
+    transform: scale(0.85)
+}
+.notice_tips{
+    width:30px;
+    height:18px;
+    line-height: 18px;
+    border-radius:99em;
+    background-color:red;
+    padding: 2px;
+    font-size: 11px;
+    color: #fff;
+    margin-left: 15px;
+    -webkit-animation: fadingInOut 3s infinite;
+    -moz-animation: fadingInOut 3s infinite;
+    -o-animation: fadingInOut 3s infinite;
+    animation: fadingInOut 3s infinite;
+}
+
+@keyframes fadingInOut {
+  0%   { opacity:1; }
+  30%   { opacity:1; }
+  50%  { opacity:0; }
+  80% { opacity:1; }
+  100% { opacity:1; }
+}
+@-o-keyframes fadingInOut{
+  0%   { opacity:1; }
+  30%   { opacity:1; }
+  50%  { opacity:0; }
+  80% { opacity:1; }
+  100% { opacity:1; }
+}
+@-moz-keyframes fadingInOut{
+  0%   { opacity:1; }
+  30%   { opacity:1; }
+  50%  { opacity:0; }
+  80% { opacity:1; }
+  100% { opacity:1; }
+}
+@-webkit-keyframes fadingInOut{
+  0%   { opacity:1; }
+  30%   { opacity:1; }
+  50%  { opacity:0; }
+  80% { opacity:1; }
+  100% { opacity:1; }
+}

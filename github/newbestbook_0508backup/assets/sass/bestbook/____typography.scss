@@ -1,0 +1,92 @@
+h1,h2,h3,h4,h5,h6 {
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.4;
+    color: inherit;
+}
+h1,h2,h3,h1,h2,h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+h1 {
+    font-size: 36px;
+}
+h2{
+    font-size: 30px;
+}
+h3 {
+    font-size: 24px;
+}
+h4 {
+    font-size: 18px;
+}
+h5 {
+    font-size: 14px;
+}
+h6 {
+    font-size: 12px;
+}
+.textAlignRight{
+	text-align: right;
+}
+.textAligLeft{
+	text-align: left;
+}
+.textAligCenter{
+	text-align: center;
+}
+.fz_11{
+	@include font-size(11);
+}
+.fz_12{
+	@include font-size(12);
+}
+.fz_14{
+	@include font-size(14);
+}
+.fz_16{
+	@include font-size(16);
+}
+.fz_18{
+	@include font-size(18);
+}
+.fz_20{
+	@include font-size(20);
+}
+.fz_22{
+	@include font-size(22);
+}
+.fz_24{
+	@include font-size(24);
+}
+.fz_26{
+	@include font-size(26);
+}
+.fz_28{
+	@include font-size(28);
+}
+.fz_30{
+	@include font-size(30);
+}
+.fz_32{
+	@include font-size(32);
+}
+.fz_34{
+	@include font-size(34);
+}
+
+.cololr_red{
+	color: #F2254C;
+}
+.cololr_blue{
+	color: #2D6CA2;
+}
+.cololr_gray3{
+	color: #333;
+}
+.cololr_gray6{
+	color: #666;
+}
+.cololr_gray9{
+	color: #999;
+}

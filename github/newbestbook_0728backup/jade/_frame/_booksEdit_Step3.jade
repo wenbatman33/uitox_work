@@ -1,0 +1,31 @@
+.mainColumn
+	.container
+		.booksEditoCmplete
+			.completeBlock_L.col-phone-12.col-pad_v-12.col-pad_h-6.col-pc-6
+				.coverBlock.col-phone-12.col-pad_v-12.col-pad_h-12.col-pc-12
+					.coverBlock__Inner
+							.deviceIpad
+								svg(viewBox="0,0,420,610")
+									image(xlink:href='../assets/img/device_ipad.svg', src='../assets/img/device_ipad.png', width='420', height='610')
+							.cover
+								img(src="../assets/img/book_default_large.jpg")
+			.completeBlock_R.col-phone-12.col-pad_v-12.col-pad_h-6.col-pc-6
+				.completeBlockInner
+					span.icon_40_ok
+					span.tit.fz_28 書籍資料已送出
+					p 新書需等平台驗證後上架
+						br
+						| 95%的書籍異動可於24hr內完成，
+						br
+						| 您可於1-2日後至 
+						a(href='booksList.html') 作品列表 
+						| 確認異動狀態
+				.account_ok
+					a(class='btn accountBtn' href='#') 回作品列表
+				.account_notyet.is-hide
+					span.icon_40_notyet
+					span.tit.fz_28 尚未設定領款帳戶
+					p 雲書將於每月25日將您的稿費匯入指定帳戶。
+					a(class='btn accountBtn' href='#') 我的銀行帳號設定
+					span.accountTips
+						a(href='booksPage.html') 收入與付款說明

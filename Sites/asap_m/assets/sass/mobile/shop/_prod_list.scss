@@ -1,0 +1,70 @@
+.total{
+	.dollar{
+		font-size: 0.7em;
+		margin-right: 5px;
+		color: $red;
+	}
+	.price{
+		color: $red;
+	}
+	&.icon-arrow-rs:before, &.icon-arrow-ds:before{
+		float: right;
+		margin-top: 2px;
+	}
+	.list{
+		margin-top: 10px;
+		border-top: 1px solid $light_gray;
+		li{
+			@include clearfix;
+			.attr{
+				text-align: right;
+				margin-right: 0px;
+				@include clearfix;
+				.count{
+					color: gray;
+				}
+				.price{
+					text-align: left;
+					margin-left: 10px;
+					min-width: 80px;
+					display: inline-block;
+				}
+				.dollar{
+					font-size: 0.7em;
+					margin-right: 5px;
+				}
+			}
+			.name{
+				color: gray;
+				margin-bottom: 10px;
+			}
+			.number{
+				color: black;
+				margin-right: 5px;
+			}
+		}
+		.main{
+			font-size: 0.8em;
+			line-height: 140%;
+			padding: 10px 0;
+			border-bottom: 1px solid $light_gray;
+			&:last-child{
+				border-bottom: none;
+			}
+			.group-prod{
+				color: gray;
+				margin-bottom: 10px;
+				li{
+					margin-bottom: 7px;
+				}
+			}
+		}
+		.sub{
+			margin-top: -12px;
+			background: white;
+			.name{
+				//padding-left: 14px;
+			}
+		}
+	}
+}

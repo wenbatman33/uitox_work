@@ -1,0 +1,80 @@
+@import "../define/__init.scss";
+//@import "../frame/_header.scss";
+.order-list{
+	.block{
+		position: relative;
+		font-size: 0.8em;
+		padding: 10px;
+		line-height: 140%;
+		display: block;
+		&.icon-arrow-rs:before{
+			float: right;
+			margin-top: 26px;
+		}
+		&.cancel{
+			background: $light_gray;
+			.date{
+				color: $dark_gray;
+			}
+			.btn-contact{
+				position: absolute;
+				right: 10px;
+				bottom: 10px;
+				border: 1px solid $dark_gray;
+			}
+		}
+		&.null{
+			text-align: center;
+		}
+		p{
+			padding: 2px 0;
+			color: $dark_gray;
+		}
+		.date{
+			color: black;
+			margin-bottom: 2px;
+			display: inline-block;
+		}
+		.state-refund{
+			background: $light_blue;
+			color: white;
+			padding: 2px;
+			margin-left: 10px;
+			font-size: 0.9em;
+			border-radius: 2px;
+			vertical-align: top;
+		}
+		.state-cancel{
+			background: $dark_gray;
+			color: white;
+			padding: 2px;
+			margin-left: 10px;
+			font-size: 0.9em;
+			border-radius: 2px;
+			vertical-align: top;
+		}
+	}
+	.page{
+		margin: 20px 10px 10px;
+		text-align: center;
+		.page-prev{
+			float: left;
+			color: $dark_gray;
+			display: block;
+			padding: 0 5px;
+			text-decoration: underline;
+		}
+		.page-next{
+			float: right;
+			color: $dark_gray;
+			display: block;
+			padding: 0 5px;
+			text-decoration: underline;
+		}
+	}
+}
+.order_gold {
+	position: relative;
+	padding: 10px 10px 0;
+	display: block;
+}

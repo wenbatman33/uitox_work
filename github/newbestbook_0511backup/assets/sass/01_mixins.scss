@@ -1,0 +1,275 @@
+$bbRed: #F2254C;
+$bbBlue: #2D6CA2;
+$bbGreen: #43A600;
+
+
+$selling: #55BCA2;
+$unPublish: #009DD9;
+$fail: #FB6E52;
+$uplod: #A8B1BB;
+@mixin cssSprite( $spriteVals ) {
+  width: nth( $spriteVals, 1 );
+  height: nth( $spriteVals, 2 );
+  background-repeat: no-repeat;
+  background: url($cssSprite-svg);
+  background: url($cssSprite-png)\0;
+  *background: url($cssSprite-png);
+  background-position: nth( $spriteVals, 4 ) nth( $spriteVals, 5 );
+  vertical-align: baseline;
+}
+$cssSprite-path: '../img/cssSprite.svg';
+$cssSprite-svg: '../img/cssSprite.svg';
+$cssSprite-png: '../img/cssSprite.png';
+//////////////////////////////////////////////////////////////
+//以上不用更改
+//////////////////////////////////////////////////////////////
+$booksUpLoad_1: 45px 63px $cssSprite-path -497px -1060px;
+$booksUpLoad_2: 48px 63px $cssSprite-path -600px -1060px;
+$booksUpLoadFinger: 38px 56px $cssSprite-path -713px -1060px;
+$icon_42_pc: 42px 42px $cssSprite-path -370px -1064px;
+$icon_42_pad_h: 42px 43px $cssSprite-path -278px -1064px;
+$icon_42_pad: 42px 42px $cssSprite-path -186px -1064px;
+$icon_42_phone_h: 42px 42px $cssSprite-path -94px -1064px;
+$icon_42_phone: 42px 42px $cssSprite-path -2px -1064px;
+$icon_14_tips: 14px 14px $cssSprite-path -5px -948px;
+$icon_14_cArrow: 14px 14px $cssSprite-path -5px -924px;
+$icon_22_export: 22px 22px $cssSprite-path -5px -465px;
+$icon_22_delete: 22px 22px $cssSprite-path -35px -465px;
+$icon_22_unsale: 22px 22px $cssSprite-path -65px -465px;
+$icon_22_user: 22px 22px $cssSprite-path -99px -465px;
+$icon_w_prompt: 20px 20px $cssSprite-path -5px -753px;
+$icon_selling: 26px 27px $cssSprite-path -39px -128px;
+$icon_editor: 26px 27px $cssSprite-path -5px -128px;
+$icon_notices: 26px 27px $cssSprite-path -74px -128px;
+$logo: 108px 42px $cssSprite-path -14px -11px;
+
+
+//
+// Box-sizing
+//
+@mixin box-sizing ( $box-sizing ) {
+  -webkit-box-sizing: $box-sizing;
+     -moz-box-sizing: $box-sizing;
+          box-sizing: $box-sizing;
+}
+//
+// clearfix
+//
+@mixin clearfix {
+  & {
+    zoom: 1;
+  }
+  &:after {
+    content: ".";
+    display: block;
+    clear: both;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+  }
+}
+@mixin clearself {
+  overflow: hidden;
+}
+//
+// font-family
+//
+@mixin number-font {
+  font-family: Helvetica, Arial, sans-serif;
+}
+@mixin font-size($sizeValue) {
+  font-size: ($sizeValue) + px;
+  line-height: ($sizeValue * 1.6) + px;
+}
+// border-radius
+//
+@mixin border-radius ( $radius ) {
+  @include background-clip-padding-box;
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+          border-radius: $radius;
+}
+@mixin border-top-radius ( $radius ) {
+  @include background-clip-padding-box;
+  -webkit-border-top-left-radius: $radius;
+     -moz-border-radius-topleft:  $radius;
+          border-top-left-radius: $radius;
+  -webkit-border-top-right-radius: $radius;
+     -moz-border-radius-topright:  $radius;
+          border-top-right-radius: $radius;
+}
+@mixin border-right-radius ( $radius ) {
+  @include background-clip-padding-box;
+  -webkit-border-top-right-radius: $radius;
+     -moz-border-radius-topright:  $radius;
+          border-top-right-radius: $radius;
+  -webkit-border-bottom-right-radius: $radius;
+     -moz-border-radius-bottomright:  $radius;
+          border-bottom-right-radius: $radius;
+}
+@mixin border-bottom-radius ( $radius ) {
+  @include background-clip-padding-box;
+  -webkit-border-bottom-left-radius: $radius;
+     -moz-border-radius-bottomleft:  $radius;
+          border-bottom-left-radius: $radius;
+  -webkit-border-bottom-right-radius: $radius;
+     -moz-border-radius-bottomright:  $radius;
+          border-bottom-right-radius: $radius;
+}
+@mixin border-left-radius ( $radius ) {
+  @include background-clip-padding-box;
+  -webkit-border-top-left-radius: $radius;
+     -moz-border-radius-topleft:  $radius;
+          border-top-left-radius: $radius;
+  -webkit-border-bottom-left-radius: $radius;
+     -moz-border-radius-bottomleft:  $radius;
+          border-bottom-left-radius: $radius;
+}
+@mixin background-clip-padding-box {
+  -webkit-background-clip: padding-box;
+     -moz-background-clip: padding;
+          background-clip: padding-box;
+}
+//
+// box-shadow
+//
+@mixin box-shadow ( $value, $value2: '' ) {
+  @if $value2 == '' {
+  -webkit-box-shadow: $value;
+     -moz-box-shadow: $value;
+          box-shadow: $value;
+  } @else {
+  -webkit-box-shadow: $value, $value2;
+     -moz-box-shadow: $value, $value2;
+          box-shadow: $value, $value2;
+  }
+}
+@mixin transition ( $value ) {
+  -webkit-transition: $value;
+     -moz-transition: $value;
+       -o-transition: $value;
+          transition: $value;
+}
+//
+// background-gradient
+//
+@mixin background-gradient ( $start, $end ) {
+  background-color: ( $start + $end ) / 2;
+  background-image: -webkit-gradient(linear, left top, left bottom, from($start), to($end));
+  background-image: -webkit-linear-gradient(top, $start, $end);
+  background-image:    -moz-linear-gradient(top, $start, $end);
+  background-image:     -ms-linear-gradient(top, $start, $end);
+  background-image:      -o-linear-gradient(top, $start, $end);
+  background-image:         linear-gradient(top bottom, $start, $end);
+  filter: progid:DXImageTransform.Microsoft.Gradient(GradientType=0, startColorstr='#{$start}', endColorstr='#{$end}');
+  -ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$start}', endColorstr='#{$end}')";
+}
+@mixin background-alpha-gradient ( $start, $end, $solid ) {
+  background: $solid;
+  background: -webkit-gradient(linear, left top, left bottom, from($start), to($end));
+  background: -webkit-linear-gradient(top, $start, $end);
+  background:    -moz-linear-gradient(top, $start, $end);
+  background:     -ms-linear-gradient(top, $start, $end);
+  background:      -o-linear-gradient(top, $start, $end);
+  background:         linear-gradient(top bottom, $start, $end);
+}
+@mixin background-alpha-horizontal-gradient ( $start, $end, $solid ) {
+  background: $solid;
+  background: -webkit-gradient(linear, left top, right top, from($start), to($end));
+  background: -webkit-linear-gradient(left, $start, $end);
+  background:    -moz-linear-gradient(left, $start, $end);
+  background:     -ms-linear-gradient(left, $start, $end);
+  background:      -o-linear-gradient(left, $start, $end);
+  background:         linear-gradient(left right, $start, $end);
+}
+//
+// columns
+//
+@mixin column-count ( $columns ) {
+  -webkit-column-count: $columns;
+     -moz-column-count: $columns;
+          column-count: $columns;
+}
+@mixin column-gap ( $value ) {
+  -webkit-column-gap: $value;
+     -moz-column-gap: $value;
+          column-gap: $value;
+}
+//
+// Opacity
+//
+@mixin opacity ( $value ) {
+  opacity: $value;
+  filter: unquote("progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($value * 100)})");
+}
+//
+// other minins by yougi
+//
+@mixin one-line {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+@mixin inline-block {
+  display: inline-block;
+  vertical-align: middle;
+  zoom: 1;
+}
+@mixin font-small($i) {
+  font-size: $i + px;
+  font-size-adjust: none;
+}
+@mixin user-select {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+@mixin align-pic {
+    & {
+        display:table;
+        table-layout:fixed;
+        overflow:hidden;
+    }
+    .align{
+        width:100%;
+        height:100%;
+        display:table-cell;
+        vertical-align:middle;
+        text-align:center;
+        span{
+            *height:100%;
+            *display:inline-block;
+            *vertical-align:middle;
+        }
+        img{
+            vertical-align:middle;
+        }
+    }
+}
+@mixin light-box-setting($width, $height, $position) {
+  top: 50%;
+  left: 50%;
+  width: $width - 30;
+  height: $height - 30;
+  margin-left: ($width - 30)/2 * -1;
+  margin-top: ($height - 30)/2 * -1;
+  position: $position;
+}
+@mixin setMediaQueries($media) {
+  @if $media == pc {
+    @media only screen and (min-width: 1000px) { @content; }
+  }
+  @else if $media == pad {
+    @media only screen and (min-width: 768px) and (max-width: 999px) { @content; }
+  }
+  @else if $media == phone {
+    @media only screen and (max-width: 767px) { @content; }
+  }
+}
+
+@mixin buttonPressShadow  {
+  webkit-box-shadow: inset 3px 3px 2px 0px rgba(0,0,0,0.1);
+  -moz-box-shadow: inset 3px 3px 2px 0px rgba(0,0,0,0.1);
+  box-shadow: inset 3px 3px 2px 0px rgba(0,0,0,0.1);
+}

@@ -1,0 +1,102 @@
+.mainColumn
+	.container
+		.booksCoverEdit.col
+			.booksCoverEdit__block.col-5
+				.coverSpace(tabindex='0')
+					canvas#coverCanvas
+				.marginTB10.alignC
+					a(href='CoverEditor-Step02.html') 重新選擇圖檔
+			.booksCoverEdit__block.padding10.col-5
+				.coverToolbar
+					.tip 在圖上拖拉文字框，可改變字的大小、位置、角度
+					.field
+					.label
+						input(type='checkbox')
+						label 書名
+					.setting
+						span 3.65天的愛情
+						.objectProperties(style='')
+							ul.objectSetUI
+								li.objectFontFamily
+									select(name='en_fontList')
+										option(value='華康細明體') 華康細明體
+										option(value='華康細黑體') 華康細黑體
+										option(value='華康中明體') 華康中明體
+										option(value='華康中黑體') 華康中黑體
+										option(value='華康粗明體') 華康粗明體
+										option(value='華康粗黑體') 華康粗黑體
+										option(value='華康特明體') 華康特明體
+										option(value='華康特黑體') 華康特黑體
+										option(value='華康超明體') 華康超明體
+										option(value='華康超黑體') 華康超黑體
+										option(value='新細明體') 新細明體
+										option(value='微軟正黑體') 微軟正黑體
+										option(value='標楷體') 標楷體
+										option(value='宋體') 宋體
+										option(disabled='disabled') ----------
+										option(value='Arial') Arial
+										option(value='Arial Black') Arial Black
+										option(value='Blackletter') Blackletter
+										option(value='Courier') Courier
+										option(value='Fixedsys') Fixedsys
+										option(value='Comic Sans') Comic Sans
+										option(value='Impact') Impact
+										option(value='Marlett') Marlett
+										option(value='MS Sans Serif') MS Sans Serif
+										option(value='Tahoma') Tahoma
+										option(value='Terminal') Terminal
+										option(value='Times New Roman') Times New Roman
+										option(value='verdana') verdana
+									li.objectFontWeight.current
+									li.objectFontStyle
+									li.objectTextUnderline
+									li.objectFontColor
+										label(for='objectFontColor')
+										input.objFontColor(type='text', name='objectFontColor', value='#333399')
+						.objectText
+							textarea
+					hr
+					.field
+					.label
+						label 副標
+						input(type='checkbox')
+					.setting
+						span 一輩子最刻骨銘心的回憶
+						.objectProperties(style='display:none;')
+							ul.objectSetUI
+								li.objectFontFamily
+									select(name='en_fontList')
+										option(value='華康細明體') 華康細明體
+										option(value='華康細黑體') 華康細黑體
+										option(value='華康中明體') 華康中明體
+										option(value='華康中黑體') 華康中黑體
+										option(value='華康粗明體') 華康粗明體
+										option(value='華康粗黑體') 華康粗黑體
+										option(value='華康特明體') 華康特明體
+										option(value='華康特黑體') 華康特黑體
+										option(value='華康超明體') 華康超明體
+										option(value='華康超黑體') 華康超黑體
+										option(value='新細明體') 新細明體
+										option(value='微軟正黑體') 微軟正黑體
+										option(value='標楷體') 標楷體
+										option(value='宋體') 宋體
+										option(disabled='disabled') ----------
+										option(value='Arial') Arial
+										option(value='Arial Black') Arial Black
+										option(value='Blackletter') Blackletter
+										option(value='Courier') Courier
+										option(value='Fixedsys') Fixedsys
+										option(value='Comic Sans') Comic Sans
+										option(value='Impact') Impact
+										option(value='Marlett') Marlett
+										option(value='MS Sans Serif') MS Sans Serif
+										option(value='Tahoma') Tahoma
+										option(value='Terminal') Terminal
+										option(value='Times New Roman') Times New Roman
+										option(value='verdana') verdana
+								li.objectFontWeight.current
+								li.objectFontStyle
+								li.objectTextUnderline
+								li.objectFontColor
+									label(for='objectFontColor')
+									input.objFontColor(type='text', name='objectFontColor', value='#333399')

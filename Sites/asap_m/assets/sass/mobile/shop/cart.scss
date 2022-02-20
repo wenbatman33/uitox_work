@@ -1,0 +1,148 @@
+@import "../define/__init.scss";
+//@import "../frame/_header.scss";
+.product{
+	position: relative;
+	border-bottom: 1px solid $light_gray;
+	margin-bottom: 10px;
+	padding: 0 5px 10px;
+	//font-size: 0.8em;
+	&:first-child{
+		margin-top: 0;
+	}
+	h1{
+		margin-bottom: 10px;
+		margin-right: 55px;
+		line-height: 140%;
+		a{
+			color: black;
+			font-size: 0.9em;
+			text-decoration: underline;
+		}
+	}
+	.group-prod{
+		color: gray;
+		font-size: 0.9em;
+		margin-bottom: 15px;
+		line-height: 1.4;
+		p{
+			margin-bottom: 5px;
+		}
+		li{
+			margin-bottom: 5px;
+		}
+	}
+	.actions{
+		position: absolute;
+		right: 0;
+		top: 0px;
+		@include clearfix;
+	}
+	.content{
+		@include clearfix;
+		li{
+			text-align: right;
+			width: 33.3%;
+			vertical-align: top;
+			float: left;
+			color: $dark_gray;
+			font-size: 0.8em;
+			@include box-sizing(border-box);
+			&:first-child{
+				text-align: left;
+			}
+			select{
+				margin: -3px 0 0 0;
+				border: 1px solid $gray;
+				background: $light_gray;
+				@include box-sizing(border-box);
+			}
+		}
+	}
+	&.gift{
+		margin-top: -12px;
+		color: $dark_gray;
+		background: white;
+		font-size: 0.8em;
+		.count{
+			margin-left: 10px;
+		}
+	}
+}
+.total{
+	margin: 10px 0;
+	padding: 10px;
+	text-align: left;
+	font-size: 0.95em;
+	line-height: 180%;
+	background: $ad_yellow;
+	p{
+		@include clearfix;
+	}		
+	.head{
+		float: left;
+	}
+	.count{
+		margin-left: 20px;
+		color: $dark_gray;
+	}
+	.price{
+		float: right;
+		margin-left: 20px;
+		min-width: 80px;
+		text-align: right;
+		display: inline-block;
+	}
+	.dollar{
+		font-size: 0.7em;
+		margin-right: 5px;
+	}
+	.subtotal, .red{
+		color: $red;
+	}
+	.tip{
+		font-size: 0.8em;
+		text-align: right;
+		color: $dark_gray;
+		a{
+			color: $sky_blue;
+			text-decoration: underline;
+		}
+	}
+	input[type='checkbox']{
+		height: 20px;
+		width: 20px;
+		margin: 0 5px 2px 0;
+		padding: 0;
+		@include box-sizing(border-box);
+	}
+	.pre-order-tip{
+		color: $light_orange;
+		font-size: 0.8em;
+		text-align: right;
+	}
+	.align-right{
+		text-align: right;
+		font-size: 0.85em;
+	}
+}
+.pay{
+	@include clearfix;
+	.button{
+		width: 49%;
+		float: left;
+		font-size: 0.9em;
+		display: block;
+		margin: 7px 1% 7px 0;
+		padding: 9px 11px 11px;
+		@include box-sizing(border-box);
+	}
+	.link{
+		padding: 20px 3px 10px;
+		font-size: 0.7em;
+		text-align: right;
+		a{
+			color: $sky_blue;
+			text-decoration: underline;
+		}
+	}
+}

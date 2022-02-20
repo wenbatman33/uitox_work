@@ -1,0 +1,149 @@
+@import "../define/__init.scss";
+//@import "../frame/_header.scss";
+.refund-state{
+	.head{
+		margin: 10px;
+		line-height: 140%;
+		font-size: 0.9em;
+		h2{
+			line-height: 140%;
+			margin-bottom: 10px;
+			color: $dark_gray;
+		}
+		.price{
+			color: $red;
+			margin-right: 5px;
+		}
+		.dollar{
+			font-size: 0.7em;
+			margin: 0 5px;
+			color: $red;
+		}
+		.date{
+			float: right;
+			margin-top: 5px;
+			color: $dark_gray;
+		}
+	}
+	.list{
+		li{
+			@include clearfix;
+			.attr{
+				text-align: right;
+				margin-right: 0px;
+				@include clearfix;
+				.count{
+					color: gray;
+					//font-size: 0.8em;
+				}
+				.price{
+					text-align: left;
+					margin-left: 10px;
+					min-width: 80px;
+					display: inline-block;
+				}
+				.dollar{
+					//font-size: 0.7em;
+					margin-right: 5px;
+					color: $dark_gray;
+				}
+			}
+			.name{
+				color: gray;
+				margin-bottom: 10px;
+			}
+		}
+		.main{
+			//list-style: decimal inside;
+			font-size: 0.8em;
+			line-height: 140%;
+			padding: 10px 0;
+			border-bottom: 1px solid $light_gray;
+			&:first-child{
+				padding-top: 0;
+			}
+			&:last-child{
+				border-bottom: none;
+			}
+			.group-prod{
+				color: gray;
+				margin-top: 10px;
+				margin-bottom: 10px;
+				li{
+					margin-bottom: 7px;
+				}
+			}
+		}
+		.sub{
+			margin-top: -12px;
+			background: white;
+		}
+	}
+	.progress{
+		li{
+			line-height: 140%;
+			font-size: 0.9em;
+			color: $dark_gray;
+			padding: 6px 0;
+			position: relative;
+			@include clearfix;
+			.icon-check-red-s:before{
+				position: absolute;
+				top: 3px;
+				left: 0;
+			}
+			.state{
+				margin-left: 20px;
+			}
+			.red{
+				float: right;
+				color: $red;
+			}
+			.gray{
+				float: right;
+				color: $gray;
+			}
+			.button{
+				float: right;
+			}
+		}
+		.tip{
+			margin: 20px 0 10px;
+			text-align: center;
+			font-size: 0.8em;
+			color: $dark_gray;
+		}
+		.actions{
+			text-align: right;
+		}
+	}
+	.explain{
+		h2{
+			line-height: 140%;
+			font-size: 0.8em;	
+			margin: 10px 0;
+		}
+		p{
+			color: $dark_gray;
+			line-height: 140%;
+			font-size: 0.8em;
+			padding: 5px 0;
+			margin-left: 10px;
+			&.tip{
+				margin: 5px 0;
+				color: black;
+			}
+		}
+		a{
+			color: $blue;
+			text-decoration: underline;
+		}
+	}
+	.inv{
+		p{
+			color: $dark_gray;
+			line-height: 140%;
+			font-size: 0.8em;
+		}
+	}
+}

@@ -1,0 +1,197 @@
+.mainColumn
+  .container
+    .incomeSetting
+      .tabs
+        ul
+          a(class='linkstyle' href='incomeSetting_1.html')
+            li.col-phone-4.col-pad_v-4.col-pad_h-4.col-pc-4.tab-1  銷售報表
+          a(class='linkstyle' href='incomeSetting_2.html') 
+            li.col-phone-4.col-pad_v-4.col-pad_h-4.col-pc-4.tab-2 結帳金額與匯款紀錄
+          a(class='linkstyle' href='incomeSetting_3.html') 
+            li.col-phone-4.col-pad_v-4.col-pad_h-4.col-pc-4.tab-3.current 銀行帳號設定
+      .tab_container.tabBlock-3
+        .accountSetting_1
+          .accountInfo.col-phone-12.col-pad_v-6.col-pad_h-6.col-pc-6
+            h4 收款帳戶資料:
+            div.accountData
+              .nonesSetting.ta_center
+                h3 未設定
+              .setted.is-hide
+                p
+                  span.title.ta_right 身分別:
+                  span.data 個人作家
+                p
+                  span.title.ta_right 姓名:
+                  span.data 休豪伊
+                p
+                  span.title.ta_right 地址:
+                  span.data 11008 臺北市信義區市府路1號 
+                p
+                  span.title.ta_right 電話:
+                  span.data 02-27208889
+                p
+                  span.title.ta_right 身分證字號:
+                  span.data A10*****00
+          .accountInfo.col-phone-12.col-pad_v-6.col-pad_h-6.col-pc-6
+            h4 匯款銀行資料:
+            div.accountData
+              .nonesSetting.ta_center
+                h3 未設定
+              .setted.is-hide
+                p
+                  span.title.ta_right 銀行所在地:
+                  span.data 台灣
+                p
+                  span.title.ta_right 銀行:
+                  span.data 國泰世華
+                p
+                  span.title.ta_right 分行:
+                  span.data 景美分行
+                p
+                  span.title.ta_right 匯款帳戶:
+                  span.data 000123*******78290
+                p
+                  span.title.ta_right 銀行代碼:
+                  span.data 013
+                p
+                  span.title.ta_right 分行代碼:
+                  span.data 32
+                p
+                  span.title.ta_right 付款幣別:
+                  span.data 台幣
+          hr
+          div.accountDataBtn.ta_center
+            a(class='btn btn-navReport gototep_2' href='#') 設定
+        .accountSetting_2
+          h4 收款帳戶設定 
+            span.cololr_red 需與匯款帳戶名稱完全相同，才能匯款成功
+          .accountInfo
+            .occupation
+              h5 身分別:
+              .accountType_2.accountInfoDiv.col-phone-12.col-pad_v-12.col-pad_h-12.col-pc-12
+                .radioField
+                  input(type="radio" id="radio_1" name="radio1" value="1" checked)
+                  label(for='radio_1') 個人作家
+                .radioField
+                  input(type="radio" id="radio_2" name="radio1" value="2")
+                  label(for='radio_2') 公司/法人
+              .accountType_2.accountInfoDiv.col-phone-12.col-pad_v-12.col-pad_h-12.col-pc-12
+                .radioField
+                  input(type="radio" id="radio_2-1" name="radio2" value="1" checked)
+                  label(for='radio_2-1') 台灣
+                .radioField
+                  input(type="radio" id="radio_2-2" name="radio2" value="2")
+                  label(for='radio_2-2') 大陸、港、澳地區
+                .radioField
+                  input(type="radio" id="radio_2-3" name="radio2" value="3")
+                  label(for='radio_2-3') 其他地區
+                .subDec.accountTips_1.col-phone-12.col-pad_v-12.col-pad_h-10.col-pc-10
+                  span *非台灣地區之公司戶 Invoice 請於
+                  span.cololr_red 每月10日
+                  span 前mail至 
+                  a(class='linkstyle' href='mailto:payment@bestbook.com') payment@bestbook.com
+                .subDec.accountTips_2.col-phone-12.col-pad_v-12.col-pad_h-10.col-pc-10
+                  span *公司戶請於每月10日前將發票正本掛號郵寄至
+                  span.cololr_red 每月10日
+                  span 前將發票正本掛號郵寄至： 金舷國際文創事業有限公司 110台北市信義區忠孝東路四段563號5F 對帳組收
+            hr
+            .occupation.occ1
+              h5 個人資料:
+              .accountInfoDiv.col-phone-12.col-pad_v-12.col-pad_h-6.col-pc-6
+                .editBookTextField
+                  label(class='cololr_gray6 textAligLeft') 匯款帳戶名稱:
+                  span.prompt.cololr_red 尚未填寫
+                  input(class='cololr_gray6' type='text', value='')
+                .editBookTextField
+                  label(class='cololr_gray6 textAligLeft') 身分證字號:
+                  span.prompt.cololr_red 尚未填寫
+                  input(class='cololr_gray6' type='text', value='')
+              .accountInfoDiv.col-phone-12.col-pad_v-12.col-pad_h-6.col-pc-6
+                .editBookTextField
+                  label(class='cololr_gray6 textAligLeft') 地址:
+                  span.prompt.cololr_red 尚未填寫
+                  input(class='cololr_gray6' type='text', value='')
+                .editBookTextField
+                  label(class='cololr_gray6 textAligLeft') 電話:
+                  span.prompt.cololr_red 尚未填寫
+                  input(class='cololr_gray6'  type='text', value='')
+            .occupation.occ1-2
+              h5 個人資料:
+              .accountInfoDiv.col-phone-12.col-pad_v-12.col-pad_h-6.col-pc-6
+                .editBookTextField
+                  label(class='cololr_gray6 textAligLeft') 姓名:
+                  span.prompt.cololr_red 尚未填寫
+                  input(class='cololr_gray6' type='text', value='')
+                .editBookTextField
+                  label(class='cololr_gray6 textAligLeft') 出生年月日:
+                  span.prompt.cololr_red 尚未填寫
+                  input(class='cololr_gray6' type='date', value='YYYY/MM/DD')
+              .accountInfoDiv.col-phone-12.col-pad_v-12.col-pad_h-6.col-pc-6
+                .editBookTextField
+                  label(class='cololr_gray6 textAligLeft') 地址:
+                  span.prompt.cololr_red 尚未填寫
+                  input(class='cololr_gray6' type='text', value='')
+                .editBookTextField
+                  label(class='cololr_gray6 textAligLeft') 電話:
+                  span.prompt.cololr_red 尚未填寫
+                  input(class='cololr_gray6'  type='text', value='')
+            .occupation.occ2
+              h5 公司/法人資料:
+              .accountInfoDiv.col-phone-12.col-pad_v-12.col-pad_h-6.col-pc-6
+                .editBookTextField
+                  label(class='cololr_gray6 textAligLeft') 公司名稱:
+                  span.prompt.cololr_red 尚未填寫
+                  input(class='cololr_gray6' type='text', value='')
+                .editBookTextField
+                  label(class='cololr_gray6 textAligLeft') 地址:
+                  span.prompt.cololr_red 尚未填寫
+                  input(class='cololr_gray6'  type='text', value='')
+              .accountInfoDiv.col-phone-12.col-pad_v-12.col-pad_h-6.col-pc-6
+                .editBookTextField
+                  label(class='cololr_gray6 textAligLeft') 聯絡人姓名:
+                  span.prompt.cololr_red 尚未填寫
+                  input(class='cololr_gray6' type='text', value='')
+                .editBookTextField
+                  label(class='cololr_gray6 textAligLeft') 聯絡人電話:
+                  span.prompt.cololr_red 尚未填寫
+                  input(class='cololr_gray6'  type='text', value='')
+                .editBookTextField
+                  label(class='cololr_gray6 textAligLeft') 聯絡人Email:
+                  span.prompt.cololr_red 尚未填寫
+                  input(class='cololr_gray6'  type='text', value='')
+            hr
+            .occupation
+              h5 銀行資料:
+              .accountInfoDiv.col-phone-12.col-pad_v-12.col-pad_h-6.col-pc-6
+                .editBookTextField
+                  label(class='cololr_gray6 textAligLeft') 銀行所在國家/地區:
+                  span.prompt.cololr_red 尚未填寫
+                  input(class='cololr_gray6' type='text', value='')
+                .editBookTextField
+                  label(class='cololr_gray6 textAligLeft') 銀行:
+                  span.prompt.cololr_red 尚未填寫
+                  input(class='cololr_gray6'  type='text', value='')
+                .editBookTextField
+                  label(class='cololr_gray6 textAligLeft') 銀行代碼:
+                  span.prompt.cololr_red 尚未填寫
+                  input(class='cololr_gray6'  type='text', value='')
+              .accountInfoDiv.col-phone-12.col-pad_v-12.col-pad_h-6.col-pc-6
+                .editBookTextField
+                  label(class='cololr_gray6 textAligLeft') 匯款帳號分行:
+                  span.prompt.cololr_red 尚未填寫
+                  input(class='cololr_gray6'  type='text', value='')
+                .editBookTextField
+                  label(class='cololr_gray6 textAligLeft') 分行:
+                  span.prompt.cololr_red 尚未填寫
+                  input(class='cololr_gray6'  type='text', value='')
+                .editBookTextField
+                  label(class='cololr_gray6 textAligLeft') 分行代碼:
+                  span.prompt.cololr_red 尚未填寫
+                  input(class='cololr_gray6'  type='text', value='')
+          hr
+          .subDec.col-phone-12.col-pad_v-12.col-pad_h-10.col-pc-6
+            span *不同身份別之政府課稅費率不同，詳情請參閱
+            a(class='linkstyle' href='incomeFaq.html') 收入與付款說明
+          .subDec.ta_right.col-phone-12.col-pad_v-12.col-pad_h-6.col-pc-6
+            a(class='btn outLinebtn-navReport backStep_1' href='#') 取消
+            a(class='btn btn-navReport backStep_1' href='#') 確定

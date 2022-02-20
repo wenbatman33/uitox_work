@@ -1,0 +1,31 @@
+.mainColumn
+  .container
+    .publisherPage
+      .publisheriInfo.col-phone-12.col-pad_v-12.col-pad_h-12.col-pc-12
+        .publisherPhotoWrap.col-phone-12.col-pad_v-3.col-pad_h-3.col-pc-3.ta_center
+          .publisherPhoto
+            img(src="../assets/img/publisherPhoto_default.jpg")
+            p.fz_12.cololr_gray6 (建議圖片尺寸為200x200相素)
+          .publisherUpload.btn.btn-navReport
+            span.ta_center 封面修改
+            input(class="upload" type="file"  style='opacity: 0;')
+        .publisheriData.col-phone-12.col-pad_v-9.col-pad_h-9.col-pc-9
+          .publisheURLField
+            label(class='cololr_gray6 textAligLeft') 書店網址:
+            input(class='cololr_gray6 URL' type='text', value='')
+            span .bestbook.com 
+            span.prompt.cololr_red.ta_right 尚未填寫
+          .publisheFromField
+            label(class='cololr_gray6 textAligLeft') 書店名稱:
+            span.prompt.cololr_red.ta_right  尚未填寫
+            input(class='cololr_gray6' type='text', value='')
+          .publisheFromField
+            label(class='cololr_gray6 textAligLeft') 書店簡介:
+            span.prompt.cololr_red.ta_right 尚未填寫
+            textarea(cols="50" rows="6") 書籍簡介
+      hr
+.editConfirm
+  .container
+    .editConfirmblock
+      a(class='cancelbutton btn' href='#') 返回
+      a(class='setBtn btn' href='publisherPage.html') 確定

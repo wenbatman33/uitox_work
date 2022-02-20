@@ -1,0 +1,48 @@
+.spinner {
+	margin: 20px auto;
+	text-align: center;
+	font-size: 10px;
+	> div{
+		background-color: $red;
+		color: $light_gray;
+		font-family: Arial,Georgia,Serif;
+		font-size: 1.5em;
+		font-weight: bold;
+		padding: 3px 5px;
+		display: inline-block;
+		-webkit-animation: loading-delay 1.2s infinite ease-in-out;
+		animation: loading-delay 1.2s infinite ease-in-out;
+	}
+	.rect1{
+		-webkit-animation-delay: -1.2s;
+		animation-delay: -1.2s;	
+	}
+	.rect2{
+		-webkit-animation-delay: -1.1s;
+		animation-delay: -1.1s;	
+	}
+	.rect3{
+		-webkit-animation-delay: -1s;
+		animation-delay: -1s;	
+	}
+	.rect4{
+		-webkit-animation-delay: -0.9s;
+		animation-delay: -0.9s;	
+	}
+}
+
+@-webkit-keyframes loading-delay {
+	0%, 40%, 100% { -webkit-transform: scaleY(1) }
+	20% { -webkit-transform: scaleY(1.6) }
+}
+
+@keyframes loading-delay {
+	0%, 40%, 100% { 
+		transform: scaleY(1);
+		-webkit-transform: scaleY(1);
+	}
+	20% { 
+		transform: scaleY(1.6);
+		-webkit-transform: scaleY(1.6);
+	}
+}

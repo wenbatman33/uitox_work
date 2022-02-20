@@ -1,0 +1,100 @@
+.restricted{
+    height: auto;
+    margin: 15px 0 80px 0;
+    .restrictedInner{
+       .restrictedTitle {
+            font-size: 28px;
+            line-height: 42px;
+            margin: 10px auto
+        }
+
+        .restrictedInfo {
+            font-size: 16px;
+            margin: 10px auto;
+            line-height: 38px
+        }
+
+        .red {
+            font-size: 28px;
+            line-height: 42px;
+            display: inline;
+            color: #ad0000
+        }
+    }
+    .greenButton {
+        display: inline-block;
+        width: 220px;
+        height: 80px;
+        color: #299100;
+        border: solid 2px #ccc;
+        line-height: 32px;
+        margin: 5px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        text-decoration: none;
+        vertical-align: middle;
+        br{
+            line-height: 0px;
+        }
+    }
+
+    .greenButton:hover {
+        color: #fff;
+        background: #299100;
+        border: solid 2px #299100
+    }
+
+    .redButton {
+        display: inline-block;
+        float: none;
+        width: 220px;
+        height: 80px;
+        color: #ad0000;
+        line-height: 32px;
+        border: solid 2px #ccc;
+        margin: 5px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        text-decoration: none;
+        vertical-align: middle;
+        br{
+            line-height: 0px;
+        }
+    }
+
+    .redButton:hover {
+        color: #fff;
+        background: #ad0000;
+        border: solid 2px #ad0000
+    }
+
+    .largeTxt {
+        font-size: 40px
+    }
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 999px) {
+    .restricted .restrictedInner .restrictedTitle {
+        font-size: 1.5em;
+        text-align: center
+    }
+    .restricted .restrictedInner .restrictedInfo {
+        font-size: 0.8em;
+        text-align: center
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .restricted .restrictedInner .restrictedTitle {
+        font-size: 1.5em;
+        text-align: center
+    }
+
+    .restricted .restrictedInner .restrictedInfo {
+        font-size: 0.8em;
+        text-align: center
+    }
+}

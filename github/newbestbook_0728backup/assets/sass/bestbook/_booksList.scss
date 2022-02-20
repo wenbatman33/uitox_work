@@ -1,0 +1,196 @@
+.booksItem{
+    width: 100%;
+    margin: 10px 0;
+    overflow: hidden;
+    border-bottom: solid 1px #e4e4e4;
+    .booksInfo{
+        position: relative;
+        height: 100%;
+        min-height: 140px;
+        padding: 0;
+        .cover{
+            position: absolute;
+            float: left;
+            width: 84px;
+            background-color: #fff;
+            margin: 5px;
+            height: 115px;
+            z-index: 2;
+            & img{
+                max-width:100%;
+                height:auto;
+            }
+        }
+        .info{
+            margin-left: 100px;
+            .status{
+                color: #A8B1BB;
+            }
+            .name{
+                overflow:hidden;
+                width: 96%;
+                height: 58px;
+                // text-overflow : ellipsis;
+                // white-space : nowrap;
+                a{
+                    color: #333;
+                    font-size: 18px;
+                    line-height: 30px;
+                    font-weight: bold;
+                    text-decoration: underline;
+                }
+            }
+            .p{
+                font-size: 16px;
+                line-height: 20px;
+            }
+            .infoBtns{
+                color: #ccc;
+                margin-top: 10px;
+                padding: 0;
+                .infoBtn{
+                    margin-right: 5px;
+                }
+            }
+            .uploadStatus_1{
+                p{
+                    margin-top: 0px;
+                }
+                display: inline-block;
+                width: 28%;
+            }
+            .uploadStatus_2{
+                p{
+                    margin-top: 0px;
+                    a{
+                        margin-top: 24px;
+                        font-size: 16px;
+                        line-height: 20px;
+                    }
+                }
+                display: inline-block;
+                width: 70%;
+            }
+        }
+    }
+    .booksetting{
+        position: relative;
+        height: 100%;
+        min-height: 140px;
+        padding: 0 15px;
+        .info{
+        }
+        .price{
+            color: #000;
+            height: 58px;
+            font-size: 26px;
+        }
+        .p{
+            height: 20px;
+            font-size: 14px;
+            line-height: 20px;
+        }
+        .infoBtns{
+            color: #ccc;
+            margin-top: 10px;
+            padding: 0;
+            .infoBtn, .btn{
+                margin-right: 5px;
+            }
+        }
+    }
+}
+.bookselling .booksetting .price {
+    color: #F2254C;
+    font-size: 26px;
+}
+// unSell: (class:'unSell',color:#dddddd, bg:##e7e7e7)
+$booksListStatus:(
+    selling:(class:'selling',color:#55BCA2, bg:#8ACFBE),
+    unPublish:(class:'unPublish',color:#009DD9, bg:#7DAED8),
+    unSell: (class:'unSell',color:#009DD9, bg:#7DAED8),
+    fail: (class:'fail',color:#FB6E52, bg:#FB9A89),
+    uplod:(class:'uplod',color:#c2e3ef, bg:#D5EBF3)
+);
+@each $name, $value  in $booksListStatus{
+    $class: map-get($value, class);
+    $color: map-get($value, color);
+    $bg: map-get($value, bg);
+    .book#{$name}{
+        .status .c{
+            color:$color;
+            a{
+                color:$color;
+            }
+        }
+        .name {
+            a{
+                color:$color;
+            }
+        }
+        .p{
+            color: $color;
+            a{
+                color: $color;
+            }
+        }
+        .infoBtns{
+            .uploadStatus_1,.uploadStatus_2{
+                p{
+                    color: $color !important;
+                    a{
+                        color: $color !important;
+                    }
+                }
+            }
+        }
+        .infoBtn {
+            display: inline-block;
+            color: $color;
+            border: solid 1px $color;
+            padding: 5px;
+            &:hover{
+                background: $color;
+                color: #fff;
+            }
+        }
+        .booksetting{
+            .p{
+                color: $color;
+            }
+            .infoBtns {
+                .settingBtn{
+                    color: #fff;
+                    background: $color;;
+                    border: solid 1px $color;
+                    &:hover{
+                        color: #fff;
+                        background: $bg;
+                        border: solid 1px $bg;
+                    }
+                }
+            }
+
+        }
+    }
+}
+@include setMediaQueries(pc){
+}
+@include setMediaQueries(pad_v){
+}
+@include setMediaQueries(pad_h){
+    .booksItem .booksetting{
+        padding: 0 5px;
+    }
+    .booksItem .booksetting .price {
+        height: auto;
+    }
+}
+@include setMediaQueries(phone){
+    .booksItem .booksetting{
+        padding: 0 5px;
+    }
+    .booksItem .booksetting .price {
+        height: auto;
+    }
+}

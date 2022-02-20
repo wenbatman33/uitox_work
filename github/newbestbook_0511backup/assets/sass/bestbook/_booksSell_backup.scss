@@ -1,0 +1,147 @@
+.booksSell{
+	overflow: hidden;
+	display: table-row;
+	width: 100%;
+	&__block{
+		display: inline-block;
+		position: relative;
+		width: 33%;
+		padding: 10px;
+		height: auto;
+		background-color: #fff;
+		vertical-align: top;
+	}
+	&__cover{
+		display: block;
+		vertical-align: top;
+		position: relative;
+		background-color: #fff;
+		width: 500px;
+		&__top{
+			position: relative;
+			@include box-sizing(border-box);
+			width: 100%;
+			height: 370px;
+			.deviceIphone6{
+				position: absolute;
+				top: 90px;
+				left: 30px;
+				width: 130px;
+				height: 269px;
+			}
+			.deviceIphone6 .cover{
+				position: absolute;
+				top: 13.1%;
+			    left: 6.8%;
+				width: 86%;
+				height: 73%;
+				z-index: 3;
+			}
+			.deviceIphone6 .cover img{
+				position: absolute;
+				top: 10%;
+				max-height:100%;
+			}
+			.deviceIphone6 img{
+				width: 100%;
+				height: auto;
+			}
+			.deviceIpad{
+				position: absolute;
+				top: 25px;
+				left: 180px;
+				width: 235px;
+				height: 334px;
+			}
+			.deviceIpad img{
+				width: 100%;
+				height: auto;
+			}
+			.deviceIpad .cover{
+				position: absolute;
+				top: 8.8%;
+				left: 6.3%;
+				width: 87.5%;
+				height: 82.7%;
+				background-color: #666;
+				z-index: 4;
+			}
+			.deviceIpad .cover img{
+				position: absolute;
+				max-height:100%;
+			}
+		}
+		&__bottom{
+			position: relative;
+			vertical-align: top;
+			@include box-sizing(border-box);
+			width: 450px;
+			ul{
+				@include box-sizing(border-box);
+				padding-left: 30px;
+			}
+			ul li{
+				color: #999999;
+				font-size: 13px;
+				line-height: 24px;
+			}
+			ul li.title{
+				color: #2D6CA2;
+				font-size: 14px;
+				line-height: 20px;
+				overflow:hidden;
+				width: 96%;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+		}
+	}
+	&__setting{
+		display: inline-block;
+		position: relative;
+		width: 700px;
+		background-color: #fff;
+		padding: 20px;
+		border: solid 2px #F2254C;
+		z-index: 3;
+		.t{
+			position: absolute;
+			left: -20px;
+			top: 60px;
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 10px 20px 10px 0;
+			border-color: transparent #F2254C transparent transparent;
+		}
+		.priceInfo{
+			@include box-sizing(border-box);
+			h3{
+				font-size: 24px;
+				line-height: 40px;
+				color: #333;
+			}
+
+			&__Block{
+				padding: 20px 0;
+				display: inline-block;
+				height: auto;
+				width: 100%;
+				border-bottom: solid 1px #e4e4e4;
+				span.icon_14_tips{
+					display: inline-block;
+					margin-right: 5px;
+					vertical-align: middle;
+					@include cssSprite($icon_14_tips);
+				}
+			}
+		}
+		.settingButtons{
+			padding-top: 20px;
+			text-align: right;
+			a {
+				margin-right: 10px;
+			}
+		}
+	}
+}

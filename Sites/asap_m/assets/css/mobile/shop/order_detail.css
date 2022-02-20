@@ -1,0 +1,234 @@
+.detail .progress-bar {
+  width: 100%;
+  height: 30px;
+  margin: 5px 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.detail .progress-bar::-webkit-progress-bar {
+  background: #eee;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+.detail .progress-bar::-webkit-progress-value {
+  border-radius: 2px;
+  background: #9e1621;
+  background: -webkit-gradient(linear, left top, right top, from(#ce343f), to(#be252c));
+  background: -webkit-linear-gradient(left, #ce343f, #be252c);
+  background: -moz-linear-gradient(left, #ce343f, #be252c);
+  background: -ms-linear-gradient(left, #ce343f, #be252c);
+  background: -o-linear-gradient(left, #ce343f, #be252c);
+  background: linear-gradient(left right, #ce343f, #be252c);
+}
+.detail .progress-bar-static {
+  background: #eee;
+  width: 100%;
+  margin: 5px 0;
+  height: 30px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+.detail .progress-bar-static .inner-bar {
+  background: #be252c;
+  height: 30px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+.detail .state {
+  zoom: 1;
+}
+.detail .state:after {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+.detail .state li {
+  float: left;
+  width: 20%;
+  padding: 5px 0;
+  color: gray;
+  font-size: 0.8em;
+  text-align: center;
+  line-height: 140%;
+}
+.detail .state li.current {
+  color: #be252c;
+  font-weight: bold;
+}
+.detail .state li.todo {
+  display: none;
+}
+.detail .state li.pass {
+  visibility: hidden;
+}
+.detail .state.six li {
+  width: 16%;
+}
+.detail .state.six li:last-child {
+  width: 20%;
+}
+.detail .actions-order {
+  text-align: right;
+}
+.detail .list li .name {
+  margin-bottom: 10px;
+}
+.detail .list li .name a {
+  color: black;
+  text-decoration: underline;
+}
+.detail .list li .attr {
+  text-align: right;
+}
+.detail .list li .attr {
+  zoom: 1;
+}
+.detail .list li .attr:after {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+.detail .list li .attr .count {
+  color: gray;
+}
+.detail .list li .attr .price {
+  text-align: left;
+  margin-left: 10px;
+  color: black;
+  min-width: 104px;
+  display: inline-block;
+}
+.detail .list li .gray {
+  color: gray;
+}
+.detail .list li .red {
+  color: #be252c;
+}
+.detail .list .main {
+  font-size: 0.8em;
+  line-height: 140%;
+  padding: 10px 0 10px 0;
+  border-bottom: 1px solid #e7e7e7;
+}
+.detail .list .main .group-prod {
+  color: gray;
+  margin-bottom: 10px;
+}
+.detail .list .main .group-prod li {
+  margin-bottom: 7px;
+}
+.detail .list .refund {
+  font-size: 0.8em;
+  line-height: 140%;
+  color: #cccccc;
+  padding: 10px 0 10px 0;
+  border-bottom: 1px solid #e7e7e7;
+}
+.detail .list .refund .refund-name {
+  background: #cccccc;
+  border-radius: 2px;
+  padding: 2px;
+  margin-right: 5px;
+  color: white;
+}
+.detail .list .refund .attr .count, .detail .list .refund .attr .price {
+  color: #cccccc;
+}
+.detail .list .sub {
+  margin-top: -12px;
+  background: white;
+}
+.detail .list .actions-refund {
+  margin-top: 10px;
+  text-align: right;
+}
+.detail .list .actions-refund .count {
+  color: gray;
+}
+.detail .list .actions-refund .button {
+  margin-left: 10px;
+}
+.detail .total {
+  margin: 10px 0;
+  padding: 10px;
+  text-align: left;
+  font-size: 0.95em;
+  line-height: 180%;
+  background: #fff5dd;
+}
+.detail .total p {
+  zoom: 1;
+}
+.detail .total p:after {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+.detail .total .head {
+  float: left;
+}
+.detail .total .count {
+  margin-left: 20px;
+  color: #777777;
+}
+.detail .total .price {
+  float: right;
+  margin-left: 20px;
+  min-width: 70px;
+  text-align: right;
+  display: inline-block;
+}
+.detail .total .dollar {
+  font-size: 0.7em;
+  margin-right: 5px;
+}
+.detail .total .subtotal {
+  color: #be252c;
+}
+.detail .actions {
+  text-align: right;
+}
+.detail .actions .button {
+  margin-bottom: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.addr-info p {
+  padding: 5px 0;
+  color: gray;
+  font-size: 0.8em;
+}
+.addr-info p .type {
+  background: #1180c2;
+  line-height: 200%;
+  padding: 3px;
+  margin: 5px 0;
+  color: white;
+  border-radius: 3px;
+}
+.addr-info p .icon-phone-s {
+  margin-left: 20px;
+}
+.addr-info p .icon-phone-s:before {
+  margin-right: 5px;
+}

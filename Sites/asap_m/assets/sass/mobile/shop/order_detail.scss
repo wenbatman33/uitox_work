@@ -1,0 +1,204 @@
+@import "../define/__init.scss";
+//@import "../frame/_header.scss";
+.detail{
+	.progress-bar{
+		width: 100%;
+		height: 30px;
+		margin: 5px 0;
+		-webkit-appearance: none;
+   		appearance: none;
+   		&::-webkit-progress-bar {
+			background: #eee;
+			border-radius: 2px;
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+		}
+		&::-webkit-progress-value {
+			border-radius: 2px; 
+			@include background-alpha-horizontal-gradient($light_red, $red, $dark_red);
+		}
+	}
+	.progress-bar-static{
+		background: #eee;
+		width: 100%;
+		margin: 5px 0;
+		height: 30px;
+		@include border-radius(2px);
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+		.inner-bar{
+			background: $red;
+			height: 30px;
+			@include border-radius(2px);
+		}
+	}
+	.state{
+		@include clearfix;
+		li{
+			float: left;
+			width: 20%;
+			padding: 5px 0;
+			color: gray;
+			font-size: 0.8em;
+			text-align: center;
+			line-height: 140%;
+			&.current{
+				color: $red;
+				font-weight: bold;
+			}
+			&.todo{
+				display: none;
+			}
+			&.pass{
+				visibility: hidden;
+			}
+		}
+		&.six{
+			li{
+				width: 16%;
+				&:last-child{
+					width: 20%;
+				}
+			}
+		}
+	}
+	.actions-order{
+		text-align: right;
+	}
+	.list{
+		li{
+			.name{
+				margin-bottom: 10px;
+				a{
+					color: black;
+					text-decoration: underline;
+				}
+			}
+			.attr{
+				text-align: right;
+				@include clearfix;
+				.count{
+					color: gray;
+				}
+				.price{
+					text-align: left;
+					margin-left: 10px;
+					color: black;
+					min-width: 104px;
+					display: inline-block;
+				}
+			}
+			.gray{
+				color: gray;
+			}
+			.red{
+				color: $red;
+			}
+		}
+		.main{
+			font-size: 0.8em;
+			line-height: 140%;
+			padding: 10px 0 10px 0;
+			border-bottom: 1px solid $light_gray;
+			.group-prod{
+				color: gray;
+				margin-bottom: 10px;
+				li{
+					margin-bottom: 7px;
+				}
+			}
+		}
+		.refund{
+			font-size: 0.8em;
+			line-height: 140%;
+			color: $gray;
+			padding: 10px 0 10px 0;
+			border-bottom: 1px solid $light_gray;
+			.refund-name{
+				background: $gray;
+				border-radius: 2px;
+				padding: 2px;
+				margin-right: 5px;
+				color: white;
+			}
+			.attr{
+				.count, .price{
+					color: $gray;
+				}
+			}
+		}
+		.sub{
+			margin-top: -12px;
+			background: white;
+		}
+		.actions-refund{
+			margin-top: 10px;
+			text-align: right;
+			.count{
+				color: gray;
+			}
+			.button{
+				margin-left: 10px;
+			}
+		}
+	}
+	.total{
+		margin: 10px 0;
+		padding: 10px;
+		text-align: left;
+		font-size: 0.95em;
+		line-height: 180%;
+		background: $ad_yellow;
+		p{
+			@include clearfix;
+		}		
+		.head{
+			float: left;
+		}
+		.count{
+			margin-left: 20px;
+			color: $dark_gray;
+		}
+		.price{
+			float: right;
+			margin-left: 20px;
+			min-width: 70px;
+			text-align: right;
+			display: inline-block;
+		}
+		.dollar{
+			font-size: 0.7em;
+			margin-right: 5px;
+		}
+		.subtotal{
+			color: $red;
+		}
+	}
+	.actions{
+		text-align: right;
+		.button{
+			margin-bottom: 10px;
+			@include box-sizing(border-box);
+		}
+	}
+}
+
+.addr-info{
+	p{
+		padding: 5px 0;
+		color: gray;
+		font-size: 0.8em;
+		.type{
+			background: $blue;
+			line-height: 200%;
+			padding: 3px;
+			margin: 5px 0;
+			color: white;
+			border-radius: 3px;
+		}
+		.icon-phone-s{
+			margin-left: 20px;
+			&:before{
+				margin-right: 5px;
+			}
+		}
+	}
+}

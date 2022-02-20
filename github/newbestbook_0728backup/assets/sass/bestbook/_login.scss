@@ -1,0 +1,128 @@
+.loginColumn{
+    .loginHeader{
+        padding-top: 10px;
+    }
+    .loginImages{
+        text-align: center;
+        .pic{
+            width: 90%;
+            margin: 0 auto;
+            img{
+                width: 100%
+            }
+        }
+        .logo{
+            margin: 0 auto;
+            float: none;
+            margin-bottom: 30px;
+        }
+        .ttile{
+            margin: 20px 0;
+            color: #666;
+        }
+        .userPassword{
+            margin: 60px auto;
+            @include cssSprite($userPassword);
+        }
+        .userInfo{
+            margin: 60px auto;
+            @include cssSprite($userInfo);
+        }
+    }
+    .loginFormWrap{
+        .loginForm{
+            padding: 20px;
+            min-height: 300px;
+            text-align: center;
+            .ttile{
+                color: #333;
+            }
+            .loginRow{
+                width: 80%;
+                margin: 8px auto;
+            }
+            .error{
+                color: #F2254C;
+            }
+            .success{
+                color: #43A600;
+            }
+            .Prompt{
+                display: inline-block;
+                width: 100%;
+                text-align: right;
+                line-height: 14px;
+            }
+            input{
+                width: 100%;
+            }
+            span{
+                color:#888;
+            }
+            .userId{
+                border: solid 1px #e4e4e4;
+                padding: 10px;
+                background:#f8f8f8;
+            }
+            .forgotPass{
+                font-size: 14px;
+                color: #999;
+                text-decoration: underline;
+            }
+            .qtip{
+                font-size: 12px;
+                input{
+                    width: auto;
+                }
+                a{
+                    color: #999;
+                    text-decoration: underline;
+                }
+            }
+        }
+        .loginRowBtn{
+            margin-top: 10px;
+            padding-top: 10px;
+        }
+    }
+}
+@include setMediaQueries(pc){
+    .loginColumn .loginFormWrap{
+        border-top: none;
+        border-left: solid 1px #e4e4e4;
+    }
+}
+@include setMediaQueries(pad_h){
+    .loginColumn .loginFormWrap{
+        border-top: none;
+        border-left: solid 1px #e4e4e4;
+    }
+}
+
+@include setMediaQueries(pad_v){
+    .loginColumn .loginFormWrap{
+        padding-top: 10px;
+        border-top: solid 1px #e4e4e4;
+        border-left: none;
+    }
+    .loginColumn .loginImages .userPassword{
+        margin: 10px auto;
+    }
+    .loginColumn .loginImages .userInfo{
+        margin: 10px auto;
+    }
+}
+@include setMediaQueries(phone){
+    .loginColumn .loginFormWrap{
+        padding-top: 10px;
+        border-top: solid 1px #e4e4e4;
+        border-left: none;
+    }
+    .loginColumn .loginImages .userPassword{
+        margin: 10px auto;
+    }
+    .loginColumn .loginImages .userInfo{
+        margin: 10px auto;
+    }
+}
+

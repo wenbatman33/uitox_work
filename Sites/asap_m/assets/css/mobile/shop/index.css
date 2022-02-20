@@ -1,0 +1,374 @@
+header.banner {
+  width: 100%;
+  -webkit-box-shadow: 0 2px 5px -2px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 2px 5px -2px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 5px -2px rgba(0, 0, 0, 0.5);
+}
+header.banner .cover {
+  width: 100%;
+}
+header.banner .desc {
+  padding: 5px 10px;
+  line-height: 140%;
+  background: white;
+  font-size: 1em;
+}
+
+body {
+  background: #cccccc;
+}
+
+#products .items figure {
+  position: relative;
+  background: white;
+  margin: 20px 10px 0 10px;
+  -webkit-box-shadow: 0 2px 5px -2px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 2px 5px -2px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 5px -2px rgba(0, 0, 0, 0.5);
+}
+#products .items figure .crop img {
+  width: 100%;
+}
+#products .items figure figcaption {
+  padding: 10px;
+}
+#products .items figure figcaption {
+  zoom: 1;
+}
+#products .items figure figcaption:after {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+#products .items figure figcaption .name {
+  margin-bottom: 10px;
+}
+#products .items figure figcaption .name a {
+  line-height: 120%;
+  color: #777777;
+}
+#products .items figure figcaption .discount {
+  background: #be252c;
+  color: white;
+  padding: 3px;
+}
+#products .items figure figcaption .ptitle {
+  color: #777777;
+}
+#products .items figure figcaption .dollar {
+  color: #be252c;
+  font-size: 0.8em;
+}
+#products .items figure figcaption .price {
+  color: #be252c;
+  font-size: 1.5em;
+  margin-left: -3px;
+}
+#products .items figure figcaption .tag-new, #products .items figure figcaption .tag-limit, #products .items figure figcaption .tag-hot {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#products .items figure .actions-group2 {
+  padding: 10px;
+}
+#products .items figure .actions-group2 {
+  zoom: 1;
+}
+#products .items figure .actions-group2:after {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+#products .items figure .actions-group2 li {
+  float: left;
+  width: 48.5%;
+  text-align: center;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#products .items figure .actions-group2 li .add-cart {
+  background: #be252c;
+  color: white;
+  padding: 10px 0;
+  width: 100%;
+  display: block;
+}
+#products .items figure .actions-group2 li .add-cart.icon-cart-w:before {
+  top: -1px;
+  left: -5px;
+}
+#products .items figure .actions-group2 li .add-cart.orange {
+  background: #ff6443;
+}
+#products .items figure .actions-group2 li .disabled {
+  background: #cccccc;
+  color: white;
+  padding: 14px 0 15px;
+  cursor: default;
+  width: 100%;
+  display: block;
+}
+#products .items figure .actions-group2 li .open {
+  background: #e7e7e7;
+  color: black;
+  padding: 14px 0 15px;
+  width: 100%;
+  display: block;
+}
+#products .items figure .actions-group2 li:last-child {
+  float: right;
+}
+@media screen and (orientation: landscape) {
+  #products .items {
+    width: 50%;
+  }
+  #products .items figure figcaption .name a {
+    font-size: 0.9em;
+  }
+}
+@media screen and (orientation: portrait) {
+  #products .items {
+    width: 100%;
+  }
+}
+#products.product-list .items figure .crop {
+  margin-top: 10px;
+  margin-left: 10px;
+  float: left;
+  position: relative;
+  width: 100px;
+  height: 0;
+  overflow: hidden;
+  padding-top: 100px;
+  background: white;
+}
+#products.product-list .items figure .crop img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+#products.product-list .items figure figcaption {
+  margin-left: 110px;
+}
+#products.product-list .items figure figcaption .ptitle {
+  position: absolute;
+  bottom: 10px;
+  left: 120px;
+}
+
+.product-view {
+  margin: 10px 10px 0 10px;
+  -webkit-box-shadow: 0 2px 5px -2px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 2px 5px -2px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 5px -2px rgba(0, 0, 0, 0.5);
+}
+.product-view {
+  zoom: 1;
+}
+.product-view:after {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+.product-view li {
+  float: left;
+  width: 50%;
+  text-align: center;
+  background: white;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.product-view li a {
+  display: block;
+  color: black;
+  padding: 10px;
+}
+
+.note {
+  margin: 20px 10px 10px 10px;
+  color: #777777;
+  font-size: 0.8em;
+}
+
+.hour {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: black;
+  color: white;
+  z-index: 5;
+}
+.hour h1 {
+  text-align: center;
+  padding: 5px 0;
+}
+.hour h1 .link {
+  color: #00afef;
+  text-decoration: underline;
+}
+
+.lightbox-prod-attr .block .title {
+  margin-bottom: 0px;
+}
+.lightbox-prod-attr .block .line {
+  margin: 0;
+  padding-bottom: 7px;
+  border-bottom: 1px solid #e7e7e7;
+}
+.lightbox-prod-attr .block .line del {
+  font-size: 0.7em;
+  color: #777777;
+}
+.lightbox-prod-attr .block .line .dollar {
+  margin-right: -4px;
+  font-size: 0.8em;
+  color: #be252c;
+}
+.lightbox-prod-attr .block .line .price {
+  font-size: 1.5em;
+  color: #be252c;
+}
+.lightbox-prod-attr .block .line .head {
+  padding-top: 13px;
+  float: left;
+  font-size: 0.8em;
+}
+.lightbox-prod-attr .block .line .price-block {
+  margin-top: 5px;
+  margin-left: 48px;
+}
+.lightbox-prod-attr .block .line .attr {
+  margin-left: 45px;
+}
+.lightbox-prod-attr .block .line .attr {
+  zoom: 1;
+}
+.lightbox-prod-attr .block .line .attr:after {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+.lightbox-prod-attr .block .line .attr li {
+  float: left;
+  border: 1px solid #cccccc;
+  margin-left: 3px;
+  margin-top: 3px;
+  cursor: pointer;
+}
+.lightbox-prod-attr .block .line .attr li img {
+  width: 37px;
+  vertical-align: middle;
+}
+.lightbox-prod-attr .block .line .attr li span {
+  display: none;
+}
+.lightbox-prod-attr .block .line .attr li.selected {
+  border: 3px solid black;
+}
+.lightbox-prod-attr .block .line .attr li.selected img {
+  width: 33px;
+}
+.lightbox-prod-attr .block .line .attr li.selected .type {
+  padding: 7px 3px;
+}
+.lightbox-prod-attr .block .line .attr li.disabled {
+  border: 1px solid #e7e7e7;
+}
+.lightbox-prod-attr .block .line .attr li.disabled img {
+  opacity: 0.5;
+  filter: grayscale(100%);
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+}
+.lightbox-prod-attr .block .line .attr li.disabled .type {
+  color: #e7e7e7;
+}
+.lightbox-prod-attr .block .line .attr .type {
+  min-width: 28px;
+  display: block;
+  padding: 9px 5px;
+  text-align: center;
+}
+.lightbox-prod-attr .block .line .quantity {
+  margin-left: 45px;
+}
+.lightbox-prod-attr .block .line .quantity {
+  zoom: 1;
+}
+.lightbox-prod-attr .block .line .quantity:after {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+.lightbox-prod-attr .block .line .quantity li {
+  float: left;
+  border: 1px solid #cccccc;
+}
+.lightbox-prod-attr .block .line .quantity li:first-child {
+  margin-left: 3px;
+  border-right: none;
+  background: #e7e7e7;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  -webkit-border-top-left-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  border-top-left-radius: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  border-bottom-left-radius: 5px;
+}
+.lightbox-prod-attr .block .line .quantity li:last-child {
+  border-left: none;
+  background: #e7e7e7;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  -webkit-border-top-right-radius: 5px;
+  -moz-border-radius-topright: 5px;
+  border-top-right-radius: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  -moz-border-radius-bottomright: 5px;
+  border-bottom-right-radius: 5px;
+}
+.lightbox-prod-attr .block .line .quantity li .type {
+  min-width: 40px;
+  display: block;
+  color: black;
+  padding: 10px 0;
+  text-align: center;
+}
+.lightbox-prod-attr .block .actions {
+  margin-top: 20px;
+}
+.lightbox-prod-attr .block .msg {
+  color: #be252c;
+  margin: 20px 0 10px;
+  text-align: center;
+}

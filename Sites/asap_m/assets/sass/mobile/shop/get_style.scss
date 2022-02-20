@@ -1,0 +1,241 @@
+@import "../define/__init.scss";
+@import "_prod_list.scss";
+.credit{
+	.name{
+		width: 100%;
+		border: 1px solid $gray;
+		padding: 5px;
+		margin: 0 0 0 0;
+		background: white;
+		font-size: 1em;
+		line-height: 1.35em;
+		@include box-sizing(border-box);
+	}
+	.mobile{
+		width: 49%;
+		float: left;
+		border: 1px solid $gray;
+		padding: 5px;
+		margin: 0 0 0 0;
+		background: white;
+		font-size: 1em;
+		line-height: 1.35em;
+		@include box-sizing(border-box);
+	}
+	.tel{
+		width: 49%;
+		float: right;
+		border: 1px solid $gray;
+		padding: 5px;
+		margin: 0 0 0 0;
+		background: white;
+		font-size: 1em;
+		line-height: 1.35em;
+		@include box-sizing(border-box);
+	}
+	.type{
+		width: 31%;
+		float: left;
+		border: 1px solid $gray;
+		padding: 6px 2px;
+		margin: 0 0 0 0;
+		background: white;
+		font-size: 0.8em;
+		line-height: 1.35em;
+		@include box-sizing(border-box);	
+	}
+	.credit{
+		float: right;
+		width: 67%;
+		border: 1px solid $gray;
+		padding: 5px;
+		margin: 0 0 10px 0;
+		background: white;
+		font-size: 1em;
+		line-height: 1.35em;
+		@include box-sizing(border-box);
+	}
+	.month{
+		border: 1px solid $gray;
+		background: white;
+		height: 34px;
+		width: 25%;
+		padding: 0;
+		margin: 0 0 10px 0;
+		@include box-sizing(border-box);
+	}
+	.year{
+		border: 1px solid $gray;
+		background: white;
+		height: 34px;
+		width: 33%;
+		padding: 0;
+		margin: 0 0 10px 0;
+		@include box-sizing(border-box);
+	}
+	.code{
+		width: 38%;
+		float: right;
+		border: 1px solid $gray;
+		padding: 5px;
+		margin: 0 0 10px 0;
+		background: white;
+		font-size: 1em;
+		line-height: 1.35em;
+		@include box-sizing(border-box);
+	}
+	input[type='checkbox']{
+		height: 20px;
+		width: 20px;
+		margin: 0 5px 0 0;
+		padding: 0;
+		@include box-sizing(border-box);
+	}
+}
+.receive{
+	position: relative;
+	.name{
+		width: 100%;
+		border: 1px solid $gray;
+		padding: 5px;
+		margin: 0 0 10px 0;
+		background: white;
+		font-size: 1em;
+		line-height: 1.35em;
+		@include box-sizing(border-box);
+	}
+	.mobile-100{
+		width: 100%;
+		float: right;
+		border: 1px solid $gray;
+		padding: 5px;
+		margin: 0 0 10px 0;
+		background: white;
+		font-size: 1em;
+		line-height: 1.35em;
+		@include box-sizing(border-box);
+	}
+	.city-1{
+		float: left;
+		border: 1px solid $gray;
+		background: white;
+		height: 34px;
+		width: 49%;
+		padding: 0;
+		margin: 0 0 10px 0;
+		@include box-sizing(border-box);
+	}
+	.city-2{
+		float: right;
+		border: 1px solid $gray;
+		background: white;
+		height: 34px;
+		width: 49%;
+		padding: 0;
+		margin: 0 0 10px 0;
+		@include box-sizing(border-box);
+	}
+	.tel{
+		width: 100%;
+		border: 1px solid $gray;
+		padding: 5px;
+		margin: 0 0 10px 0;
+		background: white;
+		font-size: 1em;
+		line-height: 1.35em;
+		@include box-sizing(border-box);
+	}
+	.address, .input-vat{
+		width: 100%;
+		border: 1px solid $gray;
+		padding: 5px;
+		margin: 0 0 10px 0;
+		background: white;
+		font-size: 1em;
+		line-height: 1.35em;
+		@include box-sizing(border-box);
+	}
+	input[type='checkbox']{
+		height: 20px;
+		width: 20px;
+		margin: 0 5px 0 0;
+		padding: 0;
+		@include box-sizing(border-box);
+	}
+	.actions{
+		margin-top: 20px;
+		.btn-submit{
+			width: 100%;
+		}
+	}
+	.btn-reset{
+		margin-left: 10px;
+	}
+}
+//second input
+.select-list{
+	position: relative;
+	line-height: 180%;
+	padding: 5px 0 5px 40px;
+	font-size: 0.9em;
+	border-radius: 3px;
+	border: 1px solid $gray;
+	margin-bottom: 10px;
+	background: white;
+	color: $dark_gray;
+	display: block;
+	@include background-gradient(white, $light_gray);
+	.icon-edit{
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding: 17px 5px;
+		border-left: 1px solid rgba(119, 119, 119, .2);
+		@include box-sizing(border-box);
+	}
+	.btn-installment{
+		position: absolute;
+		top: 0;
+		right: 0;
+		padding: 17px 10px;
+		border-left: 1px solid rgba(119, 119, 119, .2);
+		color: $dark_gray;
+		font-size: 0.8em;
+		text-align: center;
+		text-decoration: underline;
+	}
+	span{
+		margin-right: 10px;
+		display: inline-block;
+	}
+	.icon-person-s:before, .icon-phone-s:before, .icon-mobile-s:before{
+		margin-right: 5px;
+		margin-bottom: 3px;
+	}
+	input[type='radio']{
+		position: absolute;
+		top:37%;
+		left: 10px;
+	}
+	.addr{
+		@include one-line;
+	}
+	label{
+		display: block;
+		margin-right: 60px;
+		min-height: 50px;
+		.desc{
+			font-size: 0.8em;
+		}
+	}
+	&.btn-add{
+		text-align: center;
+		padding: 5px;
+	}
+}
+.red{
+	color: $red;
+}
+.gray{
+	color: $dark_gray;
+}

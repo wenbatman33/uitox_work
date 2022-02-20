@@ -1,0 +1,529 @@
+.member-page{
+	.member_searchInput{ width: 90%;}
+	.member_textInput{ width: 100%;}
+	.floatRight{float: right;}
+	.memberWrap{
+		float: left;
+		width: 80%;
+		padding: 0 5px 5px 5px;
+		display: block;
+		height: auto;
+		@include box-sizing(border-box);
+		.readList_col{
+			display: block;
+			width: 50%;
+			padding: 0 5px 10px 5px;
+			float: left;
+			@include box-sizing(border-box);
+		}
+		.nextTimeList_col{
+			display: block;
+			width: 50%;
+			padding: 0 5px 10px 5px;
+			float: left;
+			@include box-sizing(border-box);
+		}
+		.orderList_col{
+			display: block;
+			width: 100%;
+			padding: 0 5px 10px 5px;
+			float: left;
+			@include box-sizing(border-box);
+			&:nth-child(odd) {
+				.listInner{
+					background:#eee;
+				}
+			}
+		}
+		.listInner{
+			position: relative;
+			display: inline-block;
+			width: 100%;
+			height: 100%;
+			border: solid 1px #ccc;
+			padding: 10px;
+			float: left;
+			@include box-sizing(border-box);
+			&:hover{
+				border: solid 1px #1176bc;
+			}
+			.photo{
+				display: block;
+				width: 150px;
+				float: left;
+				@include box-sizing(border-box);
+				img{
+					width: 100%;
+				}
+			}
+			.msg{
+				position: absolute;
+				display: block;
+				width: 100%;
+				height: 100%;
+				padding: 0 10px 0 160px;
+				float: left;
+				@include box-sizing(border-box);
+				.title{
+					display: block;
+					word-wrap: break-word;
+					word-break: normal;
+					height: 36px;
+					font-size: 16px;
+					line-height: 18px;
+					overflow: hidden;
+					color: #333;
+				}
+				.info{
+					display: block;
+					min-height: 14px;
+					font-size: 14px;
+					margin-top: 10px;
+					color: #666;
+				}
+				.Price{
+					display: block;
+					word-break: break-all;
+					height: 24px;
+					min-height: 24px;
+					font-size: 1.5em;
+					line-height: 24px;
+					margin-top: 84px;
+					overflow: hidden;
+					color: #dc0002;
+				}
+				.btns{
+					display: block;
+					width: 100%;
+					min-height: 40px;
+					margin-top: 80px;
+				}
+				.PriceBtns{
+					position: relative;
+					display: block;
+					.memberBuy{
+						font-size: 13px;
+						padding: 0 20px;
+					}
+					.memberCancel{
+						font-size: 13px;
+						padding: 0 3px;
+					}
+				}
+			}
+			.orderListInfo{
+				display: inline-block;
+				width: 100%;
+				height: auto;
+				.orderListInfo_l{
+					float: left;
+					line-height: 24px;
+				}
+				.orderListInfo_r{
+					float: right;
+					line-height: 24px;
+				}
+				a{
+					color: #1176bc;
+					&:hover{
+						text-decoration: underline;
+					}
+				}
+			}
+			.orderListbBooks{
+				display: inline-block;
+				width: 100%;
+				margin-top: 10px;
+				@include box-sizing(border-box);
+				.orderListbBooksItem{
+					display: inline-block;
+					width: 32.8%;
+					border: solid 1px #ccc;
+					margin: 5px 0;
+					background: #fff;
+					@include box-sizing(border-box);
+					.BooksPhoto{
+						width: 20%;
+						float: left;
+						margin: 5px;
+						@include box-sizing(border-box);
+						img{
+							width: 100%;
+						}
+					}
+					.BooksName{
+						width: 75%;
+						float: left;
+						white-space: nowrap;
+						overflow: hidden;
+						text-overflow: ellipsis;
+						line-height: 90px;
+						@include box-sizing(border-box);
+					}
+				}
+			}
+		}
+		.userInfoBtn{
+			display: block;
+			width: 50%;
+			padding: 0 5px 10px 5px;
+			float: left;
+			@include box-sizing(border-box);
+		}
+		.userInfoBtn_100{
+			display: block;
+			width: 100%;
+			padding: 0 5px 10px 5px;
+			float: left;
+			@include box-sizing(border-box);
+		}
+		.userInfoInner_bacsic{
+			position: relative;
+			display: inline-block;
+			width: 100%;
+			height: 100%;
+			border: solid 1px #ccc;
+			padding: 10px;
+			float: left;
+			@include box-sizing(border-box);
+		}
+		.userInfoInner_blue{
+			position: relative;
+			display: inline-block;
+			width: 100%;
+			height: 100%;
+			border: solid 1px #0c94d6;
+			padding: 10px;
+			float: left;
+			background:#0c94d6;
+			@include box-sizing(border-box);
+		}
+		.userInfoInner_left{
+			position: absolute;
+			width: 40%;
+			max-width: 180px;
+			float: left;
+			z-index: 1;
+			@include box-sizing(border-box);
+			img{
+				width: 100%;
+			}
+		}
+		.txtwhite{
+			color: $white;
+		}
+		.txtError {
+			clear: both;
+			margin: 0;
+			margin-top: -14px;
+			height: 30px;
+			color: #fff000;
+			font-size: 14px;
+			text-align: right;
+			font-weight: bold;
+		}
+		.userInfoInner_right{
+			position: relative;
+			padding-top: 30px;
+			padding-left: 130px;
+			height: 200px;
+			min-height: 200px;
+			width: 100%;
+			left: 0%;
+			z-index: 1;
+			float: left;
+			@include box-sizing(border-box);
+			.title{
+				font-size: 1.4em;
+			}
+			p{
+				line-height: 2em;
+			}
+		}
+		.userInfoInner_right_100{
+			position: relative;
+			padding-top: 30px;
+			padding-left: 130px;
+			padding-right: 130px;
+			width: 100%;
+			left: 0%;
+			z-index: 1;
+			float: left;
+			@include box-sizing(border-box);
+			.title{
+				font-size: 1.4em;
+			}
+			p{
+				line-height: 2em;
+			}
+		}
+
+		.userInfoInnerBtn{
+			position: relative;
+			text-align: right;
+			float: right;
+			right: 10px;
+			bottom: 10px;
+			z-index: 2;
+		}
+	}
+}
+@media only screen and (max-width: $screen-md-max){
+	.member-page{
+		.memberWrap{
+			float: left;
+			width: 100%;
+			height: auto;
+			margin: 0 ;
+			padding: 0;
+			.nextTimeList_col{
+				width: 50%;
+				.msg{
+					.Price{
+						margin-top: 88px;
+					}
+				}
+			}
+			.readList_col{
+				width: 50%;
+			}
+			.listInner{
+				.orderListbBooks{
+					display: inline-block;
+					width: 100%;
+					margin-top: 10px;
+					@include box-sizing(border-box);
+					.orderListbBooksItem{
+						display: inline-block;
+						width: 49%;
+						border: solid 1px #ccc;
+						margin: 0;
+						background: #fff;
+						@include box-sizing(border-box);
+						.BooksPhoto{
+							width: 20%;
+							float: left;
+							margin: 5px;
+							@include box-sizing(border-box);
+							img{
+								width: 100%;
+							}
+						}
+						.BooksName{
+							width: 75%;
+							float: left;
+							white-space: nowrap;
+							overflow: hidden;
+							text-overflow: ellipsis;
+							line-height: 90px;
+							@include box-sizing(border-box);
+						}
+					}
+				}
+			}
+			.userInfoInner_right_100{
+				position: relative;
+				padding-top: 30px;
+				padding-left: 130px;
+				padding-right: 30px;
+				width: 100%;
+				left: 0%;
+				z-index: 1;
+				float: left;
+				@include box-sizing(border-box);
+				.title{
+					font-size: 1.4em;
+				}
+				p{
+					line-height: 2em;
+				}
+			}
+			.userInfoInner_right{
+				position: relative;
+				padding-top: 10px;
+				padding-left: 200px;
+				width: 100%;
+				height: 100%;
+				min-height: 150px;
+				float: left;
+				@include box-sizing(border-box);
+				.title{
+					font-size: 1.2em;
+				}
+				p{
+					font-size: 0.8em;
+					line-height: 2em;
+				}
+				.userInfoInnerBtn{
+					text-align: right;
+					float: right;
+				}
+			}
+			.userInfoInner_blue{
+				height: 100%;
+			}
+			.userInfoInner_left{
+				width: 25%;
+				float: left;
+				@include box-sizing(border-box);
+				img{
+					width: 100%;
+				}
+			}
+			.userInfoBtn{
+				width: 100%;
+				min-height: 150px;
+				.userInfoInner_bacsic{
+				}
+				.white{
+					color: $white;
+				}
+			}
+		}
+	}
+}
+@include setMediaQueries(pad){
+	.member-page{
+		.memberWrap{
+			float: left;
+			.readList_col{
+			}
+		}
+	}
+}
+@include setMediaQueries(phone){
+	.member-page{
+		.memberWrap{
+			float: left;
+			.nextTimeList_col,.readList_col{
+				display: block;
+				width: 100%;
+			}
+			.orderListInfo{
+				.orderListInfo_l{
+					width: 100%;
+					float: left;
+					line-height: 32px;
+				}
+				.orderListInfo_r{
+					width: 100%;
+					float: left;
+					line-height: 32px;
+				}
+			}
+			.listInner{
+				.photo{
+					width: 100px;
+				}
+				.msg{
+					padding: 0 10px 0 110px;
+					.title{
+					}
+					.info{
+						font-size: .8em;
+					}
+					.Price{
+						margin-top: 22px;
+					}
+					.btns{
+						margin-top: 12px;
+					}
+					.PriceBtns{
+						.memberBuy{
+						}
+						.memberCancel{
+						}
+					}
+				}
+				.orderListbBooks{
+					display: inline-block;
+					width: 100%;
+					margin-top: 10px;
+					@include box-sizing(border-box);
+					.orderListbBooksItem{
+						display: inline-block;
+						width: 100%;
+						border: solid 1px #ccc;
+						margin: 0;
+						background: #fff;
+						@include box-sizing(border-box);
+						.BooksPhoto{
+							width: 60px;
+							float: left;
+							margin: 5px;
+							@include box-sizing(border-box);
+							img{
+								width: 100%;
+							}
+						}
+						.BooksName{
+							width: 70%;
+							float: left;
+							white-space: nowrap;
+							overflow: hidden;
+							text-overflow: ellipsis;
+							line-height: 80px;
+							@include box-sizing(border-box);
+						}
+					}
+				}
+			}
+
+			.userInfoInner_right_100{
+				position: relative;
+				padding-top: 30px;
+				padding-left: 60px;
+				padding-right: 0px;
+				width: 100%;
+				left: 0%;
+				z-index: 1;
+				float: left;
+				@include box-sizing(border-box);
+				.title{
+					font-size: 1.4em;
+				}
+				p{
+					line-height: 2em;
+				}
+			}
+			.userInfoInner_left{
+				width: 100px;
+				float: left;
+				@include box-sizing(border-box);
+				img{
+					width: 100%;
+				}
+			}
+			.userInfoBtn{
+				width: 100%;
+				.userInfoInner_bacsic{
+				}
+				.userInfoInner_blue{
+				}
+
+				.white{
+					color: $white;
+				}
+				.userInfoInner_right{
+					position: relative;
+					padding-top: 10px;
+					padding-left: 100px;
+					width: 100%;
+					float: left;
+					@include box-sizing(border-box);
+					.title{
+						font-size: 1.2em;
+					}
+					p{
+						font-size: 0.8em;
+						line-height: 2em;
+					}
+					.userInfoInnerBtn{
+						text-align: right;
+						float: right;
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>書的總表 > 書名與檔案上傳 | bestBook</title>
+<link rel="shortcut icon" href="../favicon.ico" />
+<link rel="stylesheet" type="text/css" href="../stylesheets/reset.css">
+<link rel="stylesheet" type="text/css" href="../stylesheets/bb.css">
+<link rel="stylesheet" type="text/css" href="../stylesheets/panel.css">
+<link rel="stylesheet" type="text/css" href="../stylesheets/formUI.css">
+<link rel="stylesheet" type="text/css" href="../stylesheets/notices.css">
+<link rel="stylesheet" type="text/css" href="../stylesheets/cd_points.css"> <!-- Resource style -->
+<link rel="stylesheet" type="text/css" href="../stylesheets/jquery-ui-1.10.4.custom.min.css">
+<!--link rel="stylesheet" type="text/css" href="../stylesheets/jquery-ui-1.10.4.custom.fix.css"-->
+
+<script src="../js/jquery-1.11.0.min.js"></script>
+<script src="../js/jquery-ui-1.10.4.custom.min.js"></script>
+<script src="../js/ckeditor/ckeditor.js"></script>
+</head>
+
+<body>
+<div id="page"> 
+	<!-- Header -->
+	<header class="header-inn" data-tr-l="h">
+		<div class="container">
+		<a href="http://w.bestbook.com/" class="logo"></a>
+		<nav id="function" class="function">
+			<a href="#" class="feedback"><i class="icon-feedback"></i><span>問題回報與建議</span></a>
+		    <div  class="link link-account">
+		        <a id="link" href="#" class="icon-account"></a>
+		        <ul class="account-item hide">
+		            <li><a href="#">會員中心</a></li>
+		            <li><a href="#">登出</a></li>
+		        </ul>
+		    </div>
+		    <div class="notices_btu"><div class="notice_tips">99+</div></div>
+		</nav>
+		</div>
+	</header>
+	<!-- Header -->
+	<div class="content w800">
+		<div class="breadcrumb"><a href="#">首頁</a> > <a href="#">書的總表</a> > <span>書籍介紹編輯</span></div>
+		<div class="headtitle">
+			<ul class="subtab">
+				<li class="current"><a href="#">書的總表</a></li>
+				<li><a href="#">業績報表</a></li>
+				<li><a href="#">收款管理中心</a></li>
+			</ul>
+			<span class="fs-12 col-999 disboc" style="margin:30px 0 15px 0;">清楚介紹，能讓更多人閱讀您的書</span>
+		</div>
+		<div class="wrap-box">
+			<form action="AuthorBook-List.shtml" class="formUI">
+				<div class="wrap-inner">
+					
+					<div id="otherInfo">
+						<div class="moreInfo">書籍介紹、作者介紹、關鍵字、書的封面編輯<br><span class="fs-12">可隨時修改，重新發佈！</span><br>
+							<b class="caret"></b></div>
+						<div class="inner">
+							<hr>
+							<div class="field">
+								<div class="label"><b>書名</b></div>
+								<div class="setting"><input type="text" maxlength="25" class="m error" value="" tabindex="1"> <a href="javascript:void(0);" class="btn-default moresubinfo alignC">更多書名資訊</a></div>
+							</div>
+							<div class="subinfo">
+								<div class="field">
+									<div class="label"><b>語系</b></div>
+									<div class="setting">
+										<select>
+											<option>繁體中文</option>
+											<option>簡體中文</option>
+											<option>英語</option>
+											<option>法語</option>
+										</select>
+									</div>
+								</div>
+								<div class="field">
+									<div class="label"><b>副標</b></div>
+									<div class="setting">
+										<label>
+											<input type="text" class="m" placeholder="可不填">
+										</label>
+									</div>
+								</div>
+								<div class="field">
+									<div class="label"><b>系列/叢書</b></div>
+									<div class="setting">
+										<label>
+											<input type="text" class="m" placeholder="可不填">
+										</label>
+									</div>
+								</div>
+								<div class="field">
+									<div class="label"><b>集數</b></div>
+									<div class="setting">
+										<select>
+											<option>可不填</option>
+											<option>1</option>
+											<option>2</option>
+											<option>3</option>
+											<option>4</option>
+										</select>
+									</div>
+								</div>
+								<div class="field">
+									<div class="label"><b>原文書名</b></div>
+									<div class="setting">
+										<label>
+											<input type="text" class="m" placeholder="可不填">
+										</label>
+									</div>
+								</div>
+							</div>
+							<hr>
+							<div class="field">
+								<div class="label"><b>分類</b></div>
+								<div class="setting">
+								<div><a href="javascript:void(0);" class="addCates"><span>其他</span> > <span>自然科普</span> > <span>應用科學</span></a><a href="#" class="delet" title="刪除此作者">刪除</a></div>
+								<div><a href="javascript:void(0);" class="addCates"><span>其他</span> > <span>自然科普</span></a><a href="#" class="delet" title="刪除此作者">刪除</a></div>
+								<a href="javascript:void(0);" class="btn-default addCates">增加分類</a></div>
+							</div>
+							<div class="field">
+								<div class="label"><b>關鍵字</b></div>
+								<div class="setting">
+									<ol class="num">
+										<li>
+											<label>
+												<input type="text" size="15">
+											</label>
+										</li>
+										<li>
+											<label>
+												<input type="text" size="15">
+											</label>
+										</li>
+										<li>
+											<label>
+												<input type="text" size="15">
+											</label>
+										</li>
+										<li>
+											<label>
+												<input type="text" size="15">
+											</label>
+										</li>
+										<li class="KeywordItem">
+											<label>
+												<input type="text" size="15">
+											</label>
+										</li>
+										<li class="non" id="addKeyword"><a>+增加關鍵字</a></li>
+									</ol>
+								</div>
+							</div>
+							<div class="field">
+								<div class="label"><b>行銷介紹</b><div class="fs-12" style="padding-right:15px;">限100字</div></div>
+								<div class="setting"><textarea rows="3" class="l"></textarea><div>剩<b>55</b>字</div></div>
+							</div>
+							<div class="field">
+								<div class="label"><b>內容介紹</b></div>
+								<div class="setting"><textarea name="editor1"></textarea></div>
+							</div>
+							<div class="field">
+								<div class="label"><b>ISBN</b></div>
+								<div class="setting">
+									<label>
+										<input type="text" class="m" placeholder="可不填">
+									</label>
+								</div>
+							</div>
+							<div class="field">
+								<div class="label"><b>出版社</b></div>
+								<div class="setting">
+									<label>
+										<input type="text" class="m" placeholder="可不填">
+									</label>
+								</div>
+							</div>
+							<div class="field">
+								<div class="label"><b>出版日期</b></div>
+								<div class="setting">
+									<label>
+										<input type="text" placeholder="未填預設為上架日">
+										日期範例：2014/01/01</label>
+								</div>
+							</div>
+							<hr>
+							<div class="field">
+								<div class="label"><b>作者(共同創作)</b></div>
+								<div class="setting"> <a href="javascript:void(0);" class="addAuthorNew">插畫/Angela Liu</a><a href="#" class="delet" title="刪除此作者">刪除</a>、<a href="javascript:void(0);" class="addAuthorNew">攝影/賴打</a><a href="#" class="delet" title="刪除此作者">刪除</a>、<a href="javascript:void(0);" class="btn-default btn-light addAuthorNew">新增</a> 　<a href="javascript:void(0);" class="btn-default addAuthor">帶入現有資料</a> </div>
+							</div>
+							<hr>
+							<div class="field" id="coverEdit">
+								<div class="label"><b>編輯封面</b></div>
+								<div class="setting imguploadUI bookcover"> <img src="../images/bookcover-default.jpg">
+									<ul>
+										<li>
+											<label>
+											<div>上傳已編輯好的封面<br>
+												<input type="file">
+												<br>
+												<span style="line-height: 30px;" >jpg, png / 2000 x 2400　pixel</span>
+												<div class="cd-single-point">
+													<a class="cd-img-replace" href="#0"></a>
+													<div class="cd-more-info  cd-top">
+														<p>
+														• 確認圖檔尺⼨寸(限windows)</br>
+														　1.在圖⽚片上按右鍵</br>
+														　2.選『內容』</br>
+														　3.選『詳細資料』</br>
+														　4.看影像『尺⼨寸』，<a id="showImgLink" href="javascript:void(0);">看圖⽚範例</a>
+														</p>
+														<p><img id="showImg" src="../stylesheets/images/cover_dec.jpg" height="250" width="220"></p></br></br>
+														<p>• 如何⾃自⾏行繪製封⾯面圖檔？</br>
+														　可參考<a href="http://docs.google.com/drawings/create?hl=zh-TW" target="_blank">google繪圖</a><i>（建議在Chrome使⽤）</i></br>
+														</p>
+													</div>
+													</div>
+												</div>
+											</label>
+										</li>
+										
+										<li><a href="CoverEditor-Step01.html" class="btn-default btn-light" id="CoverEditor">選擇系統範本</a> 共108種範本</li>
+									</ul>
+
+								</div>
+							</div>
+						</div>
+
+<div id="dialog" title="說明">
+  <ol class="num">
+		<li>上傳 <label><a href="javascript:void(0);" class="btn_addPic"><span>PDF直接顯示</span><input type="file" name="pic" class="filePrew"></a></label> <span>(<a href="#" class="tip-text">範例</a>)</span></li>
+		<li>上傳 <label><a href="javascript:void(0);" class="btn_addPic"><span>PDF轉為電子書檔(ePub)</span><input type="file" name="pic" class="filePrew"></a></label> <span>(<a href="#" class="tip-text">範例</a>)</span></li>
+	</ol>
+	<div class="text tip">註：PDF為非結構文件，轉檔後務必校稿</div>
+</div>
+
+<!-- Add Author -->	
+<div id="addAuthor">
+	<div class="imguploadUI">
+		<label><img src="../images/userIMG.jpg"><input type="file" name="pic" class="filePrew" size="3"></label>
+		<select>
+			<option>作者</option>
+			<option>第二作者</option>
+			<option>翻譯</option>
+			<option>編輯</option>
+			<option>攝影</option>
+			<option>插畫</option>
+			<option>推薦</option>
+		</select>
+		<input type="text" class="m" placeholder="作者名">
+	</div>
+	<div><textarea name="editor2"></textarea></div>
+</div>
+
+<!-- Select Author -->	
+<div id="selectAuthor" class="SelectList">
+	<div class="SelectList-box">
+		<div class="SelectList-inner">
+			<ul class="item panel">
+				<li><label><input type="checkbox">作者 / Angela Liu</label></li>
+				<li><label><input type="checkbox">第二作者 / dA</label></li>
+				<li><label><input type="checkbox">攝影 / dA</label></li>
+				<li><label><input type="checkbox">翻譯 / Naomi</label></li>
+				<li><label><input type="checkbox">協助 / Marco</label></li>
+				<li><label><input type="checkbox">插畫 / Neo</label></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<!-- Select Book Cates -->				
+<div id="cates-select" class="SelectList">
+						<div class="text"><b>請選擇書籍分類 (最多兩個)</b></div>
+						<div class="SelectList-box">
+						<div class="SelectList-inner">
+						<ul class="item panel">
+							<li>
+								<label><input type="checkbox">文學小說</label>
+								<ul class="item">
+									<li>
+										<label><input type="checkbox">翻譯文學</label>
+										<ul class="item">
+											<li><label><input type="checkbox">日本</label></li>
+											<li><label><input type="checkbox">美國</label></li>
+											<li><label><input type="checkbox">歐洲</label></li>
+											<li><label><input type="checkbox">東南亞</label></li>
+										</ul>
+									</li>
+									<li><label><input type="checkbox">電影/電視小說</label></li>
+									<li><label><input type="checkbox">散文詩歌</label></li>
+									<li><label><input type="checkbox">其他類小說</label></li>
+								</ul>
+							</li>
+							
+							<li><label><input type="checkbox">愛情文藝小說</label></li>
+							
+							<li>
+								<label><input type="checkbox">幻俠推理小說</label>
+								<ul class="item">
+									<li><label><input type="checkbox">科幻/奇幻小說</label></li>
+									<li><label><input type="checkbox">懸疑/推理小說</label></li>
+									<li><label><input type="checkbox">武俠小說</label></li>
+									<li><label><input type="checkbox">歷史/軍事小說</label></li>
+								</ul>
+							</li>
+							
+							<li>
+								<label><input type="checkbox">生活休閒</label>
+								<ul class="item">
+									<li><label><input type="checkbox">寵物</label></li>
+									<li><label><input type="checkbox">旅遊</label></li>
+									<li><label><input type="checkbox">攝影</label></li>
+									<li><label><input type="checkbox">美食</label></li>
+								</ul>
+							</li>
+							
+							<li>
+								<label><input type="checkbox">圖文漫畫</label>
+								<ul class="item">
+									<li><label><input type="checkbox">動漫畫</label></li>
+									<li><label><input type="checkbox">圖文/插畫</label></li>
+								</ul>
+							</li>
+							
+							<li>
+								<label><input type="checkbox">商業理財</label>
+								<ul class="item">
+									<li><label><input type="checkbox">管理</label></li>
+									<li><label><input type="checkbox">投資理財</label></li>
+									<li><label><input type="checkbox">行銷</label></li>
+								</ul>
+							</li>
+							
+							<li>
+								<label><input type="checkbox">親子家庭</label>
+								<ul class="item">
+									<li>
+										<label><input type="checkbox">童書</label>
+										<ul class="item">
+											<li><label><input type="checkbox">0-2歲</label></li>
+											<li><label><input type="checkbox">3-6歲</label></li>
+											<li><label><input type="checkbox">7-10歲</label></li>
+											<li><label><input type="checkbox">11-14歲</label></li>
+											<li><label><input type="checkbox">兒童繪本</label></li>
+										</ul>
+									</li>
+									<li><label><input type="checkbox">家庭教育</label></li>
+								</ul>
+							</li>
+							
+							<li>
+								<label><input type="checkbox">醫療/心靈</label>
+								<ul class="item">
+									<li><label><input type="checkbox">醫療保健</label></li>
+									<li><label><input type="checkbox">心靈養生</label></li>
+								</ul>
+							</li>
+							
+							<li>
+								<label><input type="checkbox">其他</label>
+								<ul class="item">
+									<li>
+										<label><input type="checkbox">人文史地</label>
+										<ul class="item">
+											<li><label><input type="checkbox">史地</label></li>
+											<li><label><input type="checkbox">哲學</label></li>
+										</ul>
+									</li>
+									<li>
+										<label><input type="checkbox">社會科學</label>
+										<ul class="item">
+											<li><label><input type="checkbox">心理學</label></li>
+											<li><label><input type="checkbox">政治/軍事</label></li>
+											<li><label><input type="checkbox">法律</label></li>
+										</ul>
+									</li>
+									<li>
+										<label><input type="checkbox">自然科普</label>
+										<ul class="item">
+											<li><label><input type="checkbox">應用科學</label></li>
+											<li><label><input type="checkbox">自然科學</label></li>
+										</ul>
+									</li>
+									<li>
+										<label><input type="checkbox">藝術設計</label>
+										<ul class="item">
+											<li><label><input type="checkbox">藝術</label></li>
+											<li><label><input type="checkbox">設計</label></li>
+										</ul>
+									</li>
+									<li><label><input type="checkbox">語言學習</label></li>
+									<li><label><input type="checkbox">考試用書</label></li>
+								</ul>
+							</li>
+							
+						</ul>
+						</div>
+						</div>
+						
+						<div class="text">
+						<b>已選擇分類:</b>
+						<div class="cates-select-item"><a href="#" class="delet" title="刪除此分類">刪除</a><span>其他</span> > <span>自然科普</span> > <span>應用科學</span></div>
+						<div class="cates-select-item"><a href="#" class="delet" title="刪除此分類">刪除</a><span>醫療/心靈</span> > <span>心靈養生</span></div>
+						</div>
+						</div>
+
+<script>
+$('#pod').hide();
+$('#isAgeSelected').bind('change', function () {
+   if ($(this).is(':checked'))
+     $("#pod").show();
+   else
+     $("#pod").hide();
+});
+
+
+// Add More Book Info
+$("#otherInfo .subinfo").hide();
+$(".moresubinfo").click( function () {
+     $("#otherInfo .subinfo").show();
+		 $(this).hide();
+});
+
+
+// Add New Keyword
+$(function(){
+	$("#addKeyword").click(function(){
+		$("ol.num li:nth-last-child(2)").clone().insertBefore(this);
+		if( $("ol.num li").length > 9 ){
+			$("#addKeyword").hide();
+			}
+	});
+});
+
+
+// Tree Menu Select
+$(function(){
+	$('.SelectList input[type=checkbox]').click(function() {
+    if(this.checked == true) {
+        $(this).parent().addClass('selected');
+        $(this).parent().next().slideDown();
+        $(this).parent().parent("li").addClass('selected');
+    } else {
+        $(this).parent().next().slideUp();
+        $(this).parent().parent("li").removeClass('selected');
+        $(this).parent().removeClass('selected');
+    }
+	});
+	
+	$(".SelectList li:not(:has(>.item))").addClass('no-sub-panel');
+	$(".SelectList li:has(>.item)").children("ul").addClass('sub-panel');
+})
+
+// Add New Author Info
+$(function(){	
+	$('#addAuthor, #selectAuthor, #cates-select').hide();
+	
+	var confirmJDom = null;
+		
+	function confirmMsg(title, content, callback) {
+		if(confirmJDom == null){
+			confirmJDom = $('<div title=""></div>');
+			confirmJDom.appendTo( "body" );
+		}
+	
+	//hideLoading();
+	
+	confirmJDom.html(content);
+	confirmJDom.dialog({
+		show: 'fade',
+    hide: 'fade',
+		minWidth: 565,
+		draggable: false,
+		"modal" : true,
+		"title" : title,
+		buttons: [
+		{
+			text: "取消",
+			//"class": "btn-default",
+			click: function() { $(this).dialog("close"); }
+    },
+    {
+			text: '確定',
+			"class": "btn-default btn-accept",
+			click: function() { $(this).dialog("close"); }
+    }
+  	]
+  });
+}
+	
+	addAuthorNew = $('#addAuthor');
+	addAuthor = $('#selectAuthor');
+	addCates = $('#cates-select');
+	
+	
+	$(".addAuthorNew").click(function(){
+		addAuthorNew.show();
+		confirmMsg('作者(共同創作)',addAuthorNew);
+		CKEDITOR.replace('editor2');
+	});
+	$(".addAuthor").click(function(){
+		addAuthor.show();
+		confirmMsg('帶入現有資料',addAuthor);
+	});
+	$(".addCates").click(function(){
+		addCates.show();
+		confirmMsg('新增分類',addCates);
+	});
+});
+
+$(function() {
+    $("#dialog").dialog({
+			autoOpen: false,
+			modal: true,
+			//minWidth: 450,
+			draggable: false,
+		});
+		$(".upload").click(function() {
+      $("#dialog").dialog( "open" );
+    });
+});
+$(".link-account").hover(function(){
+        $('.account-item').removeClass('hide');
+    },function(){
+        $('.account-item').addClass('hide');
+    });
+
+// Book Cover Current
+$("div.temple li").click(function () {
+	$('div.temple li.current').removeClass('current');
+	$(this).addClass("current");
+});
+$("#self").click(function () {
+	$('div.temple li.current').removeClass('current');
+});
+
+// CKeditor
+CKEDITOR.replace('editor1');
+
+</script> 
+					</div>
+				</div>
+				<div class="toolbar alignC style2">
+					<a href="#" class="btn-default">取消</a>
+					<a href="#" class="btn-default btn-accept">下一步<span>預覽結果</span></a>
+				</div>
+			</form>
+		</div>
+	</div>
+	
+	<!-- Footer -->
+	<footer class="footer-copyright"></footer>
+	<script>$("footer").load("../footer.html");</script> 
+	<script>
+		jQuery(document).ready(function($){
+			//open interest point description
+			$('.cd-single-point').children('a').on('click', function(){
+				var selectedPoint = $(this).parent('div');
+				if( selectedPoint.hasClass('is-open') ) {
+					selectedPoint.removeClass('is-open').addClass('visited');
+				} else {
+					selectedPoint.addClass('is-open').siblings('.cd-single-point.is-open').removeClass('is-open').addClass('visited');
+				}
+			});
+			//close interest point description
+			$('.cd-close-info').on('click', function(event){
+				event.preventDefault();
+				$(this).parents('.cd-single-point').eq(0).removeClass('is-open').addClass('visited');
+			});
+
+			$('#showImgLink').on('click', function(event){
+				$('#showImg').toggle();
+			});
+		});
+	</script>
+</div>
+</body>
+</html>

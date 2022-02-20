@@ -1,0 +1,886 @@
+$bestBookColor-1: #0c94d6
+$bestBookColor-2: #f52a4e
+
+@import compass/css3
+@import compass/typography
+@font-face
+  font-family: bestBookFont
+  src: local("Heiti TC"), local("Microsoft JhengHei")
+  font-weight: 600
+  font-style: normal
+
+
+@font-face
+  font-family: bestBookFont
+  unicode-range: U+00-024F
+  src: local(Helvetica), local(Arial)
+
+
+@font-face
+  font-family: bestBookFont
+  unicode-range: U+3100-312F
+  src: local(LiHei Pro), local("Microsoft JhengHei")
+
+
+@font-face
+  font-family: bestBookFont
+  unicode-range: U+3040-30FF
+  src: local(Hiragino Kaku Gothic Pro), local(Meiryo)
+
+
+html
+  font-family: bestBookFont,'huhui','Hiragino Sans GB','Heiti TC','AR PL UMing CN','PMingLiU','新細明體',sans-serif,Verdana,Geneva,sans-serif
+  line-height: 19px
+  color: #333
+  font-size: 13px
+  scrollbar-face-color: #009999
+  overflow: hidden
+  -webkit-text-size-adjust: 100%
+  -moz-text-size-adjust: 100%
+  -ms-text-size-adjust: 100%
+  margin: 0px
+  padding: 0px
+  height: 100%
+  border: none
+
+body
+  margin: 0px
+  padding: 0px
+  height: 100%
+  border: none
+  background-color: #eeeeee
+  font-size: 13px
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0)
+
+
+.blackGroundFontWhite
+  color: white
+  background-color: black
+
+.dialog-format
+  ul
+    cursor: hand
+    cursor: pointer
+    list-style-type: none
+    line-height: 30px
+    font-size: 15px
+    margin-left: -52px
+  li
+    padding-bottom: 2px
+  a
+    text-decoration: none
+    display: block
+    border: 1px #ADCCFF solid
+    background-color: #E0EEFF
+    height: 100%
+    padding: 5px
+    width: 100%
+    &:hover
+      background-color: #9CCAFF
+  .select
+    background-color: #9CCAFF
+
+.blockDiv
+  display: none
+  height: 100%
+  width: 100%
+  position: absolute !important
+  left: 0
+  top: 0
+  z-index: 900
+  opacity: .5
+  background-color: #333333
+
+.initloading
+  color: #fff
+  background: $bestBookColor-1
+  position: absolute !important
+  left: 45%
+  top: 47%
+  border-radius: 10px
+  -webkit-border-radius: 10px
+  -moz-border-radius: 10px
+  -ms-border-radius: 10px
+  -o-border-radius: 10px
+  padding: 15px
+  z-index: 1000
+  -webkit-transform: transale3d(0, 0, 0)
+  -moz-transform: transale3d(0, 0, 0)
+  -o-transform: transale3d(0, 0, 0)
+  transform: transale3d(0, 0, 0)
+
+.loading
+  position: absolute !important
+  left: 50%
+  top: 50%
+  width: 50px
+  height: 30px
+  text-align: center
+  font-size: 10px
+  z-index: 1000
+  margin-left: 25px
+  margin-top: -15px
+  -webkit-transform: transale3d(0, 0, 0)
+  -moz-transform: transale3d(0, 0, 0)
+  -o-transform: transale3d(0, 0, 0)
+  transform: transale3d(0, 0, 0)
+  > div
+    background-color: #fff
+    height: 100%
+    width: 6px
+    display: inline-block
+    margin-left: 2px
+    -webkit-animation: stretchdelay 1.2s infinite ease-in-out
+    -moz-animation: stretchdelay 1.2s infinite ease-in-out
+    -o-animation: stretchdelay 1.2s infinite ease-in-out
+    animation: stretchdelay 1.2s infinite ease-in-out
+  .rect2
+    -webkit-animation-delay: -1.1s
+    -moz-animation-delay: -1.1s
+    -o-animation-delay: -1.1s
+    animation-delay: -1.1s
+  .rect3
+    -webkit-animation-delay: -1s
+    -moz-animation-delay: -1s
+    -o-animation-delay: -1s
+    animation-delay: -1s
+  .rect4
+    -webkit-animation-delay: -0.9s
+    -moz-animation-delay: -0.9s
+    -o-animation-delay: -0.9s
+    animation-delay: -0.9s
+  .rect5
+    -webkit-animation-delay: -0.8s
+    -moz-animation-delay: -0.8s
+    -o-animation-delay: -0.8s
+    animation-delay: -0.8s
+
+@-webkit-keyframes stretchdelay
+  0%,40%,100%
+    -webkit-transform: scaleY(0.4)
+  20%
+    -webkit-transform: scaleY(1)
+
+
+@keyframes stretchdelay
+  0%,40%,100%
+    transform: scaleY(0.4)
+    -webkit-transform: scaleY(0.4)
+    -moz-transform: scaleY(0.4)
+    -o-transform: scaleY(0.4)
+  20%
+    transform: scaleY(1)
+    -webkit-transform: scaleY(1)
+    -moz-transform: scaleY(1)
+    -o-transform: scaleY(1)
+
+
+.mainContent
+  width: 100%
+  height: 100%
+  margin: 0
+  margin-left: auto
+  margin-right: auto
+  padding: 0
+  overflow: hidden
+  border-width: 0px
+  border: none
+  background: #fff
+  -webkit-transform: transale3d(0, 0, 0)
+  -moz-transform: transale3d(0, 0, 0)
+  -o-transform: transale3d(0, 0, 0)
+  transform: transale3d(0, 0, 0)
+  #contents
+    width: 100%
+    height: 100%
+    margin: 0
+    padding: 0
+    overflow: hidden
+    border-width: 0px
+    border: none
+    -webkit-overflow-scrolling: touch
+.book_name
+  display: block
+  overflow: hidden
+  text-overflow: ellipsis
+  white-space : nowrap
+  font-size: 14px
+  color: #999
+  line-height: 50px
+  text-align: center
+
+.chapter_frame
+  width: 100%
+  height: 100%
+  margin: 0px
+  padding: 0px
+  overflow: visible
+  border-width: 0px
+  border: none
+  -webkit-transform: transale3d(0, 0, 0)
+  -moz-transform: transale3d(0, 0, 0)
+  -o-transform: transale3d(0, 0, 0)
+  transform: transale3d(0, 0, 0)
+
+#rangePanel
+  height: 50px
+  width: 100%
+  position: absolute !important
+  left: 0
+  bottom: 0
+  z-index: 10
+  background: #fff
+  border-top: solid 1px rgb( 200, 200, 200 )
+  -webkit-transition-duration: 0.5s
+  -moz-transition-duration: 0.5s
+  -o-transition-duration: 0.5s
+  transition-duration: 0.5s
+
+.rangeBar
+  height: 8px
+  width: 95%
+  margin: 20px auto
+  background: #333
+  background: -moz-linear-gradient(top, #e2e2e2 0%, #ccc 100%)
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #666666), color-stop(100%, #999999))
+  background: -webkit-linear-gradient(top, #e2e2e2 0%, #ccc 100%)
+  background: -o-linear-gradient(top, #e2e2e2 0%, #ccc 100%)
+  background: -ms-linear-gradient(top, #e2e2e2 0%, #ccc 100%)
+  background: linear-gradient(to bottom, #e2e2e2 0%, #ccc 100%)
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ededed',endColorstr='#cccccc',GradientType=0 )
+  +box-shadow( inset 1px 1px 1px rgba( 20, 20, 20, 0.3 ), 1px 1px 0 #ccc)
+  border: solid 1px #bbb
+
+
+.rangePoint
+  display: block
+  position: relative
+  top: -6px
+  z-index: 100
+  margin-left: -12px
+  box-sizing: border-box
+  cursor: move
+  border-radius: 4px
+  border: solid 1px #9C9C9C
+  background-image: -moz-linear-gradient( 90deg, rgb(238,238,238) 0%, rgb(255,255,255) 100%)
+  background-image: -webkit-linear-gradient( 90deg, rgb(238,238,238) 0%, rgb(255,255,255) 100%)
+  background-image: -ms-linear-gradient( 90deg, rgb(238,238,238) 0%, rgb(255,255,255) 100%)
+  box-shadow: (2.5px 4.33px 5px 0px rgba( 0, 0, 0 ,.3))
+  width: 40px
+  height: 22px
+  opacity: .5
+
+.rangeDragPoint
+  display: block
+  position: relative
+  top: -6px
+  left: 0px
+  width: 20px
+  height: 20px
+  margin-left: -12px
+  z-index: 100
+  border: solid 1px #9C9C9C
+  box-sizing: border-box
+  cursor: move
+  background: #f6f6f6
+  border-radius: 4px
+  background-image: -moz-linear-gradient( 90deg, rgb(238,238,238) 0%, rgb(255,255,255) 100%)
+  background-image: -webkit-linear-gradient( 90deg, rgb(238,238,238) 0%, rgb(255,255,255) 100%)
+  background-image: -ms-linear-gradient( 90deg, rgb(238,238,238) 0%, rgb(255,255,255) 100%)
+  box-shadow: (2.5px 4.33px 5px 0px rgba( 0, 0, 0 ,.3))
+  width: 40px
+  height: 22px
+  -webkit-touch-callout: none
+  -webkit-user-select: none
+  -khtml-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+  top: -28px
+  float: left
+
+.range_tooltip
+  -webkit-touch-callout: none
+  -webkit-user-select: none
+  -khtml-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+  position: relative
+  padding: 5px 10px
+  color: #fff
+  background: $bestBookColor-2
+  text-align: center
+  vertical-align: middle
+  margin-left: -35px
+  top: -80px
+  left: 0px
+  z-index: 100
+  -moz-border-radius: 3px
+  -webkit-border-radius: 3px
+  border-radius: 3px
+
+#toolsPanel
+  height: 50px
+  width: 100%
+  position: absolute !important
+  left: 0
+  top: 0
+  z-index: 10
+  text-align: center
+  background: rgba( 255, 255, 255 ,1)
+  border-bottom: solid 1px rgb( 200, 200, 200 )
+  -webkit-transition-duration: 0.5s
+  -moz-transition-duration: 0.5s
+  -o-transition-duration: 0.5s
+  transition-duration: 0.5s
+
+
+.css3_tooltip
+  &:after
+    content: attr(title)
+    display: none
+    position: absolute
+    padding: 5px 6px
+    top: -10px
+    margin: 1em 0 3em
+    color: #fff
+    background: $bestBookColor-1
+    left: 30px
+    text-align: center
+    vertical-align: middle
+    -moz-border-radius: 3px
+    -webkit-border-radius: 3px
+    border-radius: 3px
+    text-indent: 0px
+  &:hover
+    &::before
+      display: block
+    z-index: 1001
+    position: relative
+    &::after
+      display: block
+      margin: 70px 0 0 -25px
+
+.btu_logo
+  position: absolute
+  height: 50px
+  width: 152px
+  display: block
+  float: left
+  margin: 0px 10px
+  cursor: hand
+  cursor: pointer
+  text-indent: -99999px
+  background: #fff url(../images/Logo.png) no-repeat
+  z-index: 3
+
+.btu_name
+  position: absolute
+  width: 100%
+  text-overflow: ellipsis
+  white-space : nowrap
+  font-size: 16px
+  color: #666
+  line-height: 50px
+  text-align: center
+  overflow: hidden
+  z-index: 1
+
+.btu_div
+  position: absolute
+  right: 0px
+  width: 208px
+  z-index: 2
+  div
+    background-color: #fff
+    height: 50px
+    width: 50px
+    display: block
+    float: left
+    margin: 0px 0px
+    text-indent: -99999px
+    cursor: hand
+    cursor: pointer
+    background: url(../images/icon-ReaderTools.png) no-repeat
+  .btu_catalog
+    background-position: 0 0
+    border-right: 1px solid rgba(255, 255, 255, 0) 
+    border-left: 1px solid rgba(255, 255, 255, 0) 
+    &:hover
+      background-position: 0 -200px
+      border-right: 1px solid #e0e0e0
+      border-left: 1px solid #e0e0e0
+
+  .btu_font
+    background-position: 0 -50px
+    border-right: 1px solid rgba(255, 255, 255, 0) 
+    border-left: 1px solid rgba(255, 255, 255, 0) 
+    &:hover
+      background-position: 0 -250px
+      border-right: 1px solid #e0e0e0
+      border-left: 1px solid #e0e0e0
+  .btu_setting
+    background-position: 0 -100px
+    border-right: 1px solid rgba(255, 255, 255, 0) 
+    border-left: 1px solid rgba(255, 255, 255, 0) 
+    &:hover
+      background-position: 0 -300px
+      border-right: 1px solid #e0e0e0
+      border-left: 1px solid #e0e0e0
+  .btu_Recommend
+    background-position: 0 -150px
+    border-right: 1px solid rgba(255, 255, 255, 0) 
+    border-left: 1px solid rgba(255, 255, 255, 0) 
+    &:hover
+      background-position: 0 -350px
+      border-right: 1px solid #e0e0e0
+      border-left: 1px solid #e0e0e0
+
+#fontPanel
+  height: 350px
+  width: 280px
+  text-align: center
+  div
+    margin-top: 10px
+    font-weight: bold
+    color: #000
+  input[type=radio]
+    display: none
+    + label
+      display: inline-block
+      margin-left: -6px
+      padding: 4px 0px
+      margin-bottom: 0
+      font-size: 13px
+      line-height: 20px
+      font-weight: normal
+      color: #333
+      text-align: center
+      vertical-align: middle
+      text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75)
+      border: 1px solid #ccc
+      cursor: pointer
+      box-sizing: border-box
+      background-color: #f5f5f5
+      background-image: -moz-linear-gradient(top, white, #e6e6e6)
+      background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#e6e6e6))
+      background-image: -webkit-linear-gradient(top, white, #e6e6e6)
+      background-image: -o-linear-gradient(top, white, #e6e6e6)
+      background-image: linear-gradient(to bottom, white, #e6e6e6)
+      -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05)
+      -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05)
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05)
+    &:checked + label
+      color: #fff
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5)
+      outline: 0
+      background: $bestBookColor-1
+      -webkit-box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5), 1px 1px 0 white
+      -moz-box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5), 1px 1px 0 white
+      box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5), 1px 1px 0 white
+
+.showImage
+  display: none
+  position: absolute !important
+  left: 0%
+  top: 0%
+  width: 100%
+  height: 100%
+  text-align: center
+  z-index: 1000
+  overflow: hidden
+  cursor: move
+  margin-top: 5px
+  margin-left: 5px
+  -webkit-touch-callout: none
+  -webkit-user-select: none
+  -khtml-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+
+.showAside
+  display: none
+  position: absolute !important
+  left: 0%
+  top: 0%
+  max-width: 450px
+  min-height: 100px
+  text-align: left
+  color: #342500
+  z-index: 1000
+  overflow: hidden
+  cursor: move
+  margin: 0px
+  padding: 5px
+  font-size: medium
+  -webkit-touch-callout: none
+  -webkit-user-select: none
+  -khtml-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+  border: solid 1px #cfb154
+  background: #f9f591
+  +box-shadow(0 1px 3px rgba(0, 0, 0, 0.3), inset 0 1px 0 white)
+  -webkit-transition-duration: 0.2s
+  -moz-transition-duration: 0.2s
+  -o-transition-duration: 0.2s
+  transition-duration: 0.2s
+
+#catalogPanel
+  display: none
+  position: absolute !important
+  top: 0%
+  width: 330px
+  height: 100%
+  text-align: center
+  z-index: 1000
+  overflow: hidden
+  cursor: move
+  margin: 0px
+  padding: 0px
+  -webkit-touch-callout: none
+  -webkit-user-select: none
+  -khtml-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+  border: solid 1px #999
+  background: #f9f9f9
+  +box-shadow(0 1px 3px rgba(0, 0, 0, 0.3), inset 0 1px 0 white)
+  -webkit-transition-duration: 0.5s
+  -moz-transition-duration: 0.5s
+  -o-transition-duration: 0.5s
+  transition-duration: 0.5s
+
+.scrollbar-x
+  width: 50px
+  height: 5px
+  cursor: move
+  background: #555
+  -webkit-touch-callout: none
+  -webkit-user-select: none
+  -khtml-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+  position: absolute
+  /* please don't change 'position'*/
+  bottom: 3px
+  /* there must be 'bottom' for ps-scrollbar-x-rail*/
+  left: 0px
+  -webkit-border-radius: 4px
+  -moz-border-radius: 4px
+  border-radius: 4px
+  opacity: 0.6
+  -o-transition: background-color .2s linear,opacity .2s linear
+  -webkit-transition: background-color .2s linear,opacity .2s linear
+  -moz-transition: background-color .2s linear,opacity .2s linear
+  transition: background-color .2s linear,opacity .2s linear
+
+.scrollbar-y
+  width: 5px
+  height: 50px
+  cursor: move
+  background: #555
+  -webkit-touch-callout: none
+  -webkit-user-select: none
+  -khtml-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+  position: absolute
+  /* please don't change 'position'*/
+  right: 3px
+  /* there must be 'bottom' for ps-scrollbar-x-rail*/
+  top: 0px
+  -webkit-border-radius: 4px
+  -moz-border-radius: 4px
+  border-radius: 4px
+  opacity: 0.6
+  -o-transition: background-color .2s linear,opacity .2s linear
+  -webkit-transition: background-color .2s linear,opacity .2s linear
+  -moz-transition: background-color .2s linear,opacity .2s linear
+  transition: background-color .2s linear,opacity .2s linear
+
+#catalogPanel > ol
+  list-style-type: upper-roman
+  list-style-position: inside
+  margin: 0px
+  padding: 3px
+  > li
+    text-overflow: ellipsis
+    white-space: nowrap
+    text-align: left
+    margin-top: 2px
+    padding: 4px 0px
+    padding-left: 6px
+    margin-bottom: 0
+    font-size: 15px
+    line-height: 30px
+    font-weight: normal
+    color: #333
+    vertical-align: middle
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75)
+    border: 1px solid #ccc
+    cursor: pointer
+    box-sizing: border-box
+    background-color: #f9f9f9
+    background-image: -moz-linear-gradient(top, white, #e6e6e6)
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(white), to(#e6e6e6))
+    background-image: -webkit-linear-gradient(top, white, #e6e6e6)
+    background-image: -o-linear-gradient(top, white, #e6e6e6)
+    background-image: linear-gradient(to bottom, white, #e6e6e6)
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05)
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05)
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05)
+    &:hover, &.current
+      color: #fff
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5)
+      outline: 0
+      background: $bestBookColor-1
+      background-image: none
+      -webkit-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.5), 1px 1px 0 white
+      -moz-box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.5), 1px 1px 0 white
+      box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.5), 1px 1px 0 white
+
+.arrow_pnael
+  display: none
+  position: absolute !important
+  top: 0%
+  width: 100px
+  height: 100%
+  text-align: center
+  vertical-align: middle
+  z-index: 9
+  overflow: hidden
+  cursor: pointer
+  margin: 0px
+  padding: 0px
+  -webkit-touch-callout: none
+  -webkit-user-select: none
+  -khtml-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+
+.arrow_right
+  width: 55px
+  height: 55px
+  position: absolute
+  left: 25px
+  top: 50%
+  margin-left: 0px
+  margin-top: -25px
+  font-size: 72px
+  color: #ccc
+  font-family: arial,sans-serif
+  &:hover
+    color: #999
+
+
+.arrow_left
+  width: 55px
+  height: 55px
+  position: absolute
+  right: 25px
+  top: 50%
+  margin-left: -25px
+  margin-top: -25px
+  font-size: 72px
+  color: #ccc
+  font-family: arial,sans-serif
+  &:hover
+    color: #999
+
+.BuyNowBtn
+  display: block
+  width: 100px
+  height: 100px
+  position: absolute
+  top: 0
+  left: 0
+  cursor: pointer
+  z-index: 30000
+  .Triangle
+    display: block
+    border-top: 88px solid $bestBookColor-1
+    border-right: 88px solid transparent
+    position: absolute
+    width: 0px
+    height: 0px
+    top: 0
+    left: 0
+  .v1
+    position: absolute
+    display: block
+    z-index: 8000
+    color: #fcff00
+    margin: 5px
+    font-size: 18px
+  &:hover .v1
+    color: #fff
+  &:hover .Triangle
+    border-top: 88px solid #66ccff
+
+.BuyNowBtnWrap
+  background-color: rgb( 53, 152, 204 )
+  +box-shadow(5px 0px 5px 0px rgba( 0, 0, 0,.1))
+  position: absolute
+  left: 0px
+  top: 50px
+  width: 174px
+  height: 100%
+  z-index: 2
+  .inner
+    width: 160px
+    height: 500px
+    display: block
+    position: absolute
+    top: 50px
+    left: 6px
+  .BuyNowBookTitle
+    color: #fff
+    margin: 10px 0px
+    font-size: 1.5em
+    line-height: 1.2
+    font-weight: 600
+  .BuyNowBookInfo
+    color: #66ccff
+    font-size: 14px
+    line-height: 1
+  .BuyNowBookPrice
+    color: #fcff00
+    font-size: 24px
+    line-height: 8px
+    font-family: Myriad Pro
+    font-weight: 0
+  .btn
+    display: block
+    width: 100%
+    height: 40px
+    background: #fff
+    color: $bestBookColor-1
+    text-align: center
+    line-height: 40px
+    border-radius: 4px
+    text-decoration: none
+    font-size: 18px
+    &:hover
+      background: #66ccff
+      color: #fff
+
+
+
+
+.RecommendTitle
+  color: $bestBookColor-1
+  font-size: 20px
+  font-weight: 800
+  margin: 0
+  .icon
+    display: inline-block
+    height: 50px
+    width: 50px
+    vertical-align: middle
+    background: url(../images/icon-ReaderTools.png) no-repeat
+    background-position: 0px -150px
+
+.RecommendWrap
+  background-color: #fff
+  +box-shadow(-5px 0px 5px 0px rgba( 0, 0, 0,.08 ))
+  position: absolute
+  right: 0px
+  top: 50px
+  width: 174px
+  height: 100%
+  z-index: 2
+  .inner
+    width: 160px
+    height: auto
+    display: block
+    position: absolute
+    top: 20px
+    left: 10px
+    ul
+      display: block
+      padding: 0
+      margin: 0
+      width: 100%
+      height: 80%
+      list-style: none
+      overflow: hidden
+      li
+        display: block
+        list-style: none
+        height: auto
+        width: 100%
+        margin: 0px 0px 15px 0px
+        border-bottom: 1px solid #ccc
+
+        .BuyNowBookTitle
+          padding: 0
+          margin: 10px 0px
+          color: #333
+          font-size: 1.5em
+          line-height: 1.2
+          font-weight: 600
+        .BuyNowBookInfo
+          color: #999
+          padding: 0
+          margin-top: 3px
+          font-size: 14px
+          line-height: 1
+        .BuyNowBookPrice
+          color: #d54040
+          font-size: 24px
+          line-height: 8px
+          font-family: Myriad Pro
+          font-weight: 0
+        .btn
+          display: inline-block
+          margin: 0px auto 8px 0px
+          width: 45%
+          height: 40px
+          margin-right: 5px
+          background: $bestBookColor-1
+          color: #fff
+          text-align: center
+          line-height: 40px
+          border-radius: 4px
+          text-decoration: none
+          font-size: 14px
+          &:hover
+            background: #fff
+            color: $bestBookColor-1
+
+@media screen and (min-width: 320px) and (max-width: 480px)
+  .btu_name
+    display: none
+  .btu_logo
+    display: none
+  .BuyNowBtnWrap
+    display: none
+@media screen and (min-width: 481px) and (max-width: 768px)
+  .btu_name
+    width: 46%
+    margin-left: 100px
+  .btu_logo
+    display: none
+  .BuyNowBtnWrap
+    display: none
+@media screen and (min-width: 769px) and (max-width: 960px)
+  .btu_name
+    width: 50%
+    margin-left: 160px
+  .BuyNowBtn
+    display: none
+@media screen and (min-width: 961px) and (max-width: 1024px)
+  .btu_name
+    width: 60%
+    margin-left: 160px
+@media screen and (min-width: 960px)
+  .BuyNowBtn
+    display: none

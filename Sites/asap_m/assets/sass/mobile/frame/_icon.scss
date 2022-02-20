@@ -1,0 +1,121 @@
+.icon-message{
+	@include background2(25px, 25px, 0px, 0px, 0px, 0px);
+}
+.icon-eleven{
+	@include background2(25px, 25px, -25px, 0px, -3px, -2px);
+}
+.icon-location{
+	@include background2(25px, 25px, -50px, 0px, 0px, 0px);
+}
+.icon-person-w{
+	@include background2(25px, 25px, -75px, 0px, 0px, 0px);
+}
+.icon-person{
+	@include background2(25px, 25px, -375px, 0px, 0px, 0px);
+}
+.icon-phone{
+	@include background2(25px, 25px, -100px, 0px, 0px, 0px);
+}
+.icon-close{
+	@include background2(25px, 25px, -125px, 0px, 0px, 0px);
+}
+.icon-config{
+	@include background2(25px, 25px, -150px, 0px, 0px, 0px);
+}
+.icon-arrow-r{
+	@include background2(25px, 25px, -175px, 0px, 0px, 0px);
+}
+.icon-arrow-rs{
+	@include background2(12px, 12px, -175px, -25px, 0px, 0px);
+}
+.icon-arrow-ds{
+	@include background2(12px, 12px, -187px, -25px, 0px, 0px);
+}
+.icon-phone-s{
+	@include background2(12px, 12px, -200px, -25px, 0px, 0px);
+}
+.icon-person-s{
+	@include background2(12px, 12px, -213px, -25px, 0px, 0px);
+}
+.icon-eleven-s{
+	@include background2(12px, 12px, -225px, -25px, -3px, -2px);
+}
+.icon-menu{
+	@include background2(25px, 25px, -200px, 0px, 0px, 0px);
+}
+.icon-prev-w{
+	@include background2(25px, 25px, -225px, 0px, 0px, 0px);
+}
+.icon-cart-w{
+	@include background2(25px, 25px, -250px, 0px, 0px, 0px);
+}
+.icon-cart{
+	@include background2(25px, 25px, -350px, 0px, 0px, 0px);
+}
+.icon-order-w{
+	@include background2(25px, 25px, -375px, -25px, 0px, 0px);
+}
+.icon-edit{
+	@include background2(25px, 25px, -300px, 0px, 0px, 0px);
+}
+.icon-logo{
+	@include background2(150px, 25px, 0px, -25px, 0px, 0px);
+}
+.icon-logo-asap{
+	@include background2(108px, 25px, 0px, -25px, 0px, 0px);
+}
+.icon-logo-uitox{
+	@include background2(85px, 25px, -32px, -100px, 0px, 0px);
+}
+.icon-logo-uitox-s{
+	@include background2(42px, 12px, -237px, -25px, 0px, 0px);
+}
+.icon-logo-inn{
+	@include background2(30px, 25px, 0px, -100px, 0px, 0px);
+}
+.tag-new{
+	@include background2(50px, 50px, 0px, -50px, 0px, 0px);
+}
+.tag-limit{
+	@include background2(50px, 50px, -50px, -50px, 0px, 0px);
+}
+.tag-hot{
+	@include background2(50px, 50px, -100px, -50px, 0px, 0px);
+}
+.icon-success{
+	@include background2(50px, 50px, -150px, -50px, 0px, 0px);
+}
+.icon-fail{
+	@include background2(50px, 50px, -200px, -50px, 0px, 0px);
+}
+.icon-alert{
+	@include background2(50px, 50px, -250px, -50px, 0px, 0px);
+}
+.icon-check{
+	@include background2(25px, 25px, -125px, -100px, 0px, 0px);
+}
+.icon-check-s{
+	@include background2(12px, 12px, -287px, -25px, 0px, 0px);
+}
+.icon-check-red-s{
+	@include background2(12px, 12px, -300px, -25px, 0px, 0px);
+}
+.icon-cart-s{
+	@include background2(20px, 13px, -313px, -25px, 0px, -1px);
+}
+[class^="icon-"]:before,
+[class*="icon-"]:before{
+	content: "";
+	@include inline-block;
+	vertical-align: middle;
+	position: relative;
+}
+.tag-big{
+	background: $blue;
+	color: white;
+	font-size: 0.8em;
+	padding: 3px;
+	border-radius: 3px;
+	margin-right: 5px;
+	text-decoration: none;
+}

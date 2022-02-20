@@ -1,0 +1,209 @@
+.slogan{
+	color: #BB8755;
+	margin: 15px 0 0 5px;
+	float: left;
+	display: inline-block;
+	font-size: 30px;
+}
+.indexBanner{
+	width: 100%;
+	height: 618px;
+	background-color: #fbfbfb;
+}
+.indexBanner .inside{
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 618px;
+	background: url("../img/indexBannerBg.jpg");
+}
+.indexSection{
+	position: relative;
+	width: 100%;
+	min-width: 1200px;
+	height: 420px;
+	margin: 3px 0 3px 0;
+}
+.indexSection h2{
+	font-size: 26px;
+	color: #333;
+}
+.indexSection h4{
+	font-size: 14px;
+	margin-top: 10px;
+	line-height: 24px;
+	color: #666;
+}
+.indexSection .info_l{
+	position: absolute;
+	right: 20px;
+	top: 200px;
+	width: 510px;
+	display: block;
+}
+.indexSection .info_r{
+	position: absolute;
+	left: 20px;
+	top: 200px;
+	width: 510px;
+	display: block;
+}
+.sectionImg{
+	display: block;
+	position: absolute;
+}
+.img1{
+	left: -100px;
+	top: 36px;
+}
+.img2{
+	top:116px;
+	right: 20px;
+}
+.img3{
+	top: 36px;
+}
+.img4{
+	right: 20px;
+	top: 36px;
+}
+.grad1 {
+	@include background-gradient(#e9f0f4,#d3dbde);
+}
+.grad2 {
+	@include background-gradient(#f3f1e8,#dddbd3);
+}
+.grad3 {
+	@include background-gradient(#f3e7eb,#ded3d7);
+}
+.grad4 {
+	@include background-gradient(#eaede8,#d6d9d4);
+}
+
+.indexTitle{
+	position: absolute;
+	top: 111px;
+	left: 445px;
+	color: #666;
+	font-size: 26px;
+	width: 300px;
+	text-align: center;
+}
+.indexInfoTitle{
+	position: absolute;
+	top: 460px;
+	left: 445px;
+	color: #999;
+	font-size: 12px;
+	line-height: 18px;
+	width: 300px;
+	text-align: center;
+}
+
+button::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner,
+input[type="file"] > input[type="button"]::-moz-focus-inner {
+    border: none;
+}
+
+.btn{
+	outline: 0; 
+	box-shadow: none;
+	-webkit-transition-property: background;
+	transition-property: background;
+	-webkit-transition-duration: .3s;
+	transition-duration: .3s;
+	background: #00A1CB;
+	color: #FFF;
+	text-shadow: none;
+	border: none;
+}
+.indexInnerRight{
+	position: absolute;
+	top: 140px;
+	left: 144px;
+	.subDes{
+		width: 240px;
+		height: 20px;
+		font-size: 12px;
+		color: #999;
+		margin: 5px 0;
+		text-align: center;
+	}
+}
+.indexInnerLeft{
+	position: absolute;
+	top: 140px;
+	left: 770px;
+	.subDes{
+		width: 240px;
+		height: 20px;
+		font-size: 16px;
+		color: #999;
+		margin: 5px 0;
+		text-align: center;
+	}
+}
+.indexInnerLeftDes{
+	position: absolute;
+	top: 260px;
+	left: 970px;
+	font-size: 16px;
+	line-height: 32px;
+	color: #999;
+}
+.indexBannerImg1{
+	position: absolute;
+	top: 280px;
+	left: 150px;
+}
+.indexBannerImg2{
+	position: absolute;
+	top: 260px;
+	left: 830px;
+}
+.indexBannerImg2Des{
+	position: absolute;
+	width: 160px;
+	height: 100px;
+	top: 400px;
+	left: 808px;
+	font-size: 12px;
+	line-height: 18px;
+	color: #999;
+	text-align: center;
+	.black{
+		color: #333;
+		font-weight: bold;
+	}
+}
+.redBtn{
+	width: 240px;
+	height: 60px;
+	background-color:#f22e52;
+	color: #fff;
+	font-size: 18px;
+	&:hover{
+		background-color:#fe5271;
+	}
+}
+.blueBtn{
+	width: 240px;
+	height: 60px;
+	background-color:#95b3cd;
+	color: #fff;
+	font-size: 18px;
+	&:hover{
+		background-color:#abceed;
+	}
+}
+.progressDiv{
+	position: absolute;
+	display: block;
+	width: 280px;
+	height: 100px;
+	top: 183px;
+	left: 454px;
+}

@@ -1,0 +1,207 @@
+.sellBook{
+	height: auto;
+	.sellCover{
+		height: auto;
+		.sellCoverInner{
+			position: relative;
+			min-height: 350px;
+			//////////////////////
+			.deviceIphone6{
+				position: absolute;
+				top: 90px;
+				left: 30px;
+				width: 130px;
+				height: 269px;
+				z-index: 1;
+			}
+			.deviceIpad{
+				position: absolute;
+				top: 25px;
+				left: 180px;
+				width: 235px;
+				height: 334px;
+				z-index: 2;
+			}
+			//////////////////////
+			.deviceIphone6 .cover{
+				position: absolute;
+				top: 13.1%;
+			    left: 6.8%;
+				width: 86%;
+				height: 73%;
+				z-index: 3;
+			}
+			.deviceIphone6 .cover img{
+				position: absolute;
+				top: 10%;
+				max-height:100%;
+			}
+			.deviceIphone6 img{
+				width: 100%;
+				height: auto;
+			}
+			.deviceIpad img{
+				width: 100%;
+				height: auto;
+			}
+			.deviceIpad .cover{
+				position: absolute;
+				top: 10%;
+				left: 6.1%;
+				width: 87.5%;
+				height: 82.7%;
+				z-index: 4;
+			}
+			.deviceIpad .cover img{
+				position: absolute;
+				max-height:100%;
+			}
+		}
+	}
+    .sellInfo{
+		height: auto;
+		padding: 20px;
+		color: #666;
+		ul li h4.title{
+			color: #2D6CA2
+		}
+    }
+}
+.sellSetting{
+	position: relative;
+	height: auto;
+	padding: 20px;
+	border: solid 2px #F2254C;
+	margin-top: 20px;
+	.t{
+		display: block;
+		position: absolute;
+		left: -20px;
+		top: 60px;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 10px 20px 10px 0;
+		border-color: transparent #F2254C transparent transparent;
+	}
+	.priceInfo{
+		h3{
+			font-size: 24px;
+			line-height: 40px;
+			color: #333;
+		}
+		&__Block{
+			padding: 20px 0;
+			display: inline-block;
+			height: auto;
+			width: 100%;
+			border-bottom: solid 1px #e4e4e4;
+			span.icon_14_tips{
+				display: inline-block;
+				margin-right: 5px;
+				vertical-align: middle;
+				@include cssSprite($icon_14_tips);
+			}
+		}
+	}
+	.settingButtons{
+		margin-top: 20px;
+		padding-top: 20px;
+		text-align: left;
+		border-top: solid 1px #e4e4e4;
+		padding-top: 20px;
+		a {
+			margin-right: 10px;
+		}
+	}
+}
+
+
+@include setMediaQueries(pc){
+	.sellBook .sellCover .sellCoverInner{
+		position: relative;
+		min-height: 380px;
+		.deviceIphone6{
+			position: absolute;
+			display: block;
+			top: 90px;
+			left: 30px;
+		}
+		.deviceIpad{
+			position: absolute;
+			display: block;
+			top: 25px;
+			left: 180px;
+		}
+	}
+}
+
+
+@include setMediaQueries(pad_v){
+	.sellBook .sellCover .sellCoverInner{
+		height: auto;
+		padding: 10px;
+		.deviceIphone6{
+			position: absolute;
+			display: none;
+			top: 90px;
+			left: 30px;
+		}
+		.deviceIpad{
+			position: relative;
+			display: block;
+			top: 0px;
+			left: 0px;
+			margin: 0px auto;
+		}
+	}
+	.sellSetting{
+		.t{
+			display: none;
+		}
+	}
+}
+@include setMediaQueries(pad_h){
+	.sellBook .sellCover .sellCoverInner{
+		height: auto;
+		padding: 10px;
+		.deviceIphone6{
+			position: absolute;
+			display: none;
+			top: 90px;
+			left: 30px;
+		}
+		.deviceIpad{
+			position: relative;
+			display: block;
+			top: 0px;
+			left: 0px;
+			margin: 0px auto;
+		}
+	}
+}
+@include setMediaQueries(phone){
+	.sellBook .sellCover .sellCoverInner{
+		height: 300px;
+		min-height: 300px;
+
+		padding: 20px;
+		.deviceIphone6{
+			position: relative;
+			display: block;
+			top: 0px;
+			left: 0px;
+			margin: 0 auto;
+		}
+		.deviceIpad{
+			display: none;
+			top: 25px;
+			left: 180px;
+		}
+	}
+	.sellSetting{
+		.t{
+			display: none;
+		}
+	}
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>會員登入 | bestBook</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" type="text/css" href="stylesheets/reset.css">
+<link rel="stylesheet" href="http://w.bestbook.com/css/min/www.min.css" type="text/css" />
+<link rel="stylesheet" type="text/css" href="stylesheets/bb.css">
+<link rel="stylesheet" type="text/css" href="stylesheets/panel.css">
+<link rel="stylesheet" type="text/css" href="stylesheets/formUI.css">
+<link rel="stylesheet" type="text/css" href="stylesheets/login.css">
+
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="js/ckeditor/ckeditor.js"></script>
+</head>
+
+<body>
+<div id="page"> 
+	<!-- Header --> 
+	<header class="header-inn" data-tr-l="h"></header>
+	<script>$("header").load("header.html");</script>
+	
+	<div class="content w1200">
+				<div class="MsgTitle">Email認證成功。</div>
+				<div class="MsgText">請進行<b>手機認證</b>。<br>
+				系統將傳送一組認證碼至您的手機。<br>
+				請輸入認證碼，完成註冊流程。</div>
+		<div class="wrap-box Middle-box">
+			<div class="wrap-inner">
+					<div class="field">
+						<div class="label"><b>國家 / 地區</b></div>
+						<div class="setting">台灣</div>
+					</div>
+					<div class="field">
+						<div class="label"><b>您的手機號碼是</b></div>
+						<div class="setting"><b>+886</b> 987654321<br>
+							<a href="#">修改手機號碼</a></div>
+					</div>
+					<hr>
+				<form>
+					<div class="field cen">
+						<div class="label"><b>認證碼1小時內輸入有效</b></div>
+						<div class="setting">
+							<input type="text" placeholder="請輸入認證碼" size="10" maxlength="10"><br>
+							<a href="#">1分鐘內沒收到，重傳一次</a>
+						</div>
+					</div>
+					
+					<div class="toolbar alignC"><input type="submit" class="btn-default btn-accept btn-large" value="送出"></div>
+				</form>
+			</div>
+			
+		</div>
+	</div>
+	
+	<!-- Footer --> 
+	<footer class="footer-copyright"></footer>
+	<script>$("footer").load("footer.html");</script>
+</div>
+</body>
+</html>

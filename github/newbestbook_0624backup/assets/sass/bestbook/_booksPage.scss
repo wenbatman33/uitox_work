@@ -1,0 +1,326 @@
+.booksPage{
+	overflow: hidden;
+	display: block;
+	width: 100%;
+	.booksCover{
+		padding: 10px;
+		vertical-align: top;
+		.booksCoverInner{
+			display: block;
+			position: relative;
+			height: 300px;
+			background-color: #fff;
+			vertical-align: top;
+			.deviceIphone6{
+				position: relative;
+				top: 20px;
+				left: 00px;
+				width: 130px;
+				height: 269px;
+				margin: 0 auto;
+			}
+			.deviceIphone6 .cover{
+				position: absolute;
+				top: 13.5%;
+				left: 6.8%;
+				width: 86%;
+				height: 73%;
+				z-index: 3;
+			}
+			.deviceIphone6 .cover img{
+				position: absolute;
+				top: 10%;
+				max-height:100%;
+			}
+
+			.deviceIphone6 img{
+				width: 100%;
+				height: auto;
+			}
+			.deviceIpad{
+				display: none;
+				position: absolute;
+				top: 50px;
+				left: 140px;
+				width: 235px;
+				height: 334px;
+			}
+			.deviceIpad img{
+				width: 100%;
+				height: auto;
+			}
+			.deviceIpad .cover{
+				position: absolute;
+				top: 9.8%;
+				left: 6.3%;
+				width: 87.5%;
+				height: 82.7%;
+				z-index: 4;
+			}
+			.deviceIpad .cover img{
+				position: absolute;
+				max-height:100%;
+			}
+		}
+	}
+	.booksInfo{
+		position: relative;
+		padding: 10px 15px;
+		height: auto;
+		min-height: 500px;
+		vertical-align: top;
+		margin-top: 15px;
+		border-left: solid 1px #e4e4e4;
+		ul{
+			margin-top: 10px;
+		}
+		ul li{
+			width: 100%;
+			color: #666666;
+		}
+		ul li h4.title{
+			color: #2D6CA2
+		}
+		ul.at_bottom{
+			position: absolute;
+			bottom: 10px;
+		}
+	}
+	.booksSaleLink{
+		position: relative;
+		padding: 30px 15px 10px 15px;
+		height: auto;
+		vertical-align: top;
+		margin: 15px 0px;
+		border: solid 2px #F2254C;
+		.booksSaleLinkInner{
+			margin: 8px;
+			.t{
+				position: absolute;
+				left: -20px;
+				top: 8px;
+				width: 0;
+				height: 0;
+				border-style: solid;
+				border-width: 10px 20px 10px 0;
+				border-color: transparent #F2254C transparent transparent;
+			}
+			span{
+				color: #F52A4E;
+			}
+			span.price{
+				font-size: 28px;
+			}
+			a.saleBtn{
+				display: inline-block;
+				height: 32px;
+				line-height:32px;
+				border-radius: 99em;
+				font-size: 14px;
+				color: #fff;
+				background-color: #ccc;
+				text-align: center;
+				padding: 0px 10px;
+				margin-right: 5px;
+				float: right;
+			}
+			a.saleBtn-selling{
+				background-color: #F2254C;
+			}
+			a.saleBtn-unSell{
+				background-color: #c2e3ef;
+			}
+			.icon_14_cArrow{
+				display: inline-block;
+				width: 14px;
+				height: 14px;
+				vertical-align: baseline;
+				@include cssSprite($icon_14_cArrow);
+			}
+			.priceInfo ul{
+				margin-top: 10px;
+			}
+			.priceInfo ul li{
+				width: 100%;
+			}
+			.priceInfo ul li{
+				display: inline-block;
+				height: 40px;
+				margin: 15px 0px;
+				line-height: 40px;
+				vertical-align: middle;
+			}
+			.priceInfo ul li span{
+				color:#fff;
+				vertical-align: middle;
+			}
+			.priceInfo ul li a{
+				display: inline-block;
+				vertical-align: middle;
+				float: left;
+			}
+			.priceInfo ul li a.saleBtn{
+				display: inline-block;
+				float: right;
+				span{
+					font-size: 14px;
+				}
+			}
+			.settingButtons{
+				padding-top: 10px;
+				.setBtn{
+					width: 50%;
+					border: 2px solid #fff;
+					@include box-sizing(border-box);
+				}
+			}
+			.shareUrl{
+				margin: 5px 0;
+				height: 30px;
+				width: 100%;
+				padding: 3px;
+				border: 1px solid #dadada;
+			}
+		}
+	}
+}
+.booksPageIntro{
+	height: auto;
+	background: #999;
+	color: #666;
+	font-size: 14px;
+	background-color: #F8F8F8;
+	border-top: solid 1px #e4e4e4;
+	border-bottom: solid 1px #e4e4e4;
+	padding: 20px;
+}
+
+@include setMediaQueries(pc){
+	.booksPage{
+		.booksCover{
+			.booksCoverInner{
+				.deviceIphone6{
+					display: none;
+				}
+				.deviceIpad{
+					display: block;
+					position: absolute;
+					top: 50px;
+					left: 50px;
+					width: 235px;
+					height: 334px;
+				}
+			}
+		}
+		.booksInfo{
+			border-left: solid 1px #e4e4e4;
+		}
+	}
+}
+@media only screen and (min-width: 1200px) {
+	.booksPage{
+		.booksCover{
+			.booksCoverInner{
+				.deviceIpad{
+					display: block;
+					position: absolute;
+					top: 50px;
+					left: 140px;
+					width: 235px;
+					height: 334px;
+				}
+				.deviceIphone6{
+					display: block;
+					position: absolute;
+					top: 118px;
+					left: 0px;
+					width: 130px;
+					height: 269px;
+				}
+			}
+		}
+		.booksInfo{
+			border-left: solid 1px #e4e4e4;
+		}
+	}
+}
+@include setMediaQueries(pad_h){
+	.booksPage{
+		.booksCover{
+			.booksCoverInner{
+				.deviceIphone6{
+					display: none;
+				}
+				.deviceIpad{
+					display: block;
+					position: absolute;
+					top: 50px;
+					left: 50px;
+					width: 235px;
+					height: 334px;
+				}
+			}
+		}
+		.booksSaleLink{
+			.booksSaleLinkInner{
+				.settingButtons {
+					padding-top: 100px;
+				}
+			}
+		}
+		.booksInfo{
+			border-left: solid 1px #e4e4e4;
+		}
+	}
+}
+@include setMediaQueries(pad_v){
+	.booksPage{
+		.booksCover{
+			.booksCoverInner{
+				height: 420px;
+				.deviceIphone6{
+					display: none;
+				}
+				.deviceIpad{
+					display: block;
+					position: absolute;
+					top: 50px;
+					left: 80px;
+					width: 235px;
+					height: 334px;
+				}
+			}
+		}
+		.booksInfo{
+			border-left: solid 1px #e4e4e4;
+		}
+	}
+}
+@include setMediaQueries(phone){
+	.booksPage{
+		.container{
+			width: 1024px;
+		}
+		.booksCover{
+			height: 300px;
+			.booksCoverInner{
+				height: 420px;
+				.deviceIphone6{
+					display: block;
+				}
+				.deviceIpad{
+					display: none;
+					position: absolute;
+					top: 50px;
+					left: 80px;
+					width: 235px;
+					height: 334px;
+				}
+			}
+		}
+		.booksInfo{
+			border-left: none;
+		}
+	}
+}
+

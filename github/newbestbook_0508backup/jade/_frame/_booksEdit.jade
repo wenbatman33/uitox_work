@@ -1,0 +1,100 @@
+.mainColumn
+  .container
+    .booksEdit.col
+      .booksEdit__block.coverBlock
+        .coverBlock__top
+          .deviceIpad
+            svg(width='420', height='610')
+              image(xlink:href='../assets/img/device_ipad.svg', src='../assets/img/device_ipad.png', width='420', height='610')
+            .cover
+              img(src="../assets/img/book_1.jpg")
+        .coverBlock__bottom
+          a(class='btn btn-navReport col-5' href='booksCoverEdit.html') 封面修改
+      .booksEdit__block.booksetting
+        .t
+        .booksEditData
+          .booksEdit__Block
+            ul.borderBottom
+              li
+                p
+                  label(class='cololr_gray6 textAligLeft') 書名:
+                  input(class='cololr_gray6 dashedInput' type='text', value='書名')
+              li
+                p
+                  label(class='cololr_gray6 textAligLeft') 作者:
+                  input(class='cololr_gray6 dashedInput'  type='text', value='作者')
+              li
+                p.is-hide 
+                  label(class='cololr_gray6 textAligLeft') 副標:
+                  input(class='cololr_gray9 dashedInput'  type='text', value='可不填')
+            ul.borderBottom
+              li
+                p
+                  label(class='cololr_gray6 inline') 書籍簡介:
+                  textarea(class='cololr_gray6' cols="50" rows="5") 書籍簡介
+            ul.borderBottom.is-hide
+              li
+                p
+                  label(class='cololr_gray6') 系列/叢書:
+                  input(class='cololr_gray9 dashedInput'  type='text', value='可不填')
+              li
+                p
+                  label(class='cololr_gray6') 系列編號:
+                  input(class='cololr_gray9 dashedInput'  type='text', value='可不填')
+              li
+                p
+                  label(class='cololr_gray6') 系列類型:
+                  input(class='cololr_gray9 dashedInput'  type='text', value='可不填')
+            ul.is-hide
+              li
+                p
+                  label(class='cololr_gray6') 原文書名:
+                  input(class='cololr_gray9 dashedInput'  type='text', value='可不填')
+              li
+                p
+                  label(class='cololr_gray6') 原文副標:
+                  input(class='cololr_gray9 dashedInput'  type='text', value='可不填')
+            p
+              #moreBooksEdit.btn 更多書名資訊
+          .booksEdit__Block.is-hide
+            ul.borderBottom
+              li
+                p.cololr_gray 分類: 
+                  span.subDec (希望被瀏覽的分類類別 最多兩個)
+            ul.borderBottom
+              li
+                p.cololr_gray3
+                  label(class='cololr_gray6') 語系:
+                  input(class='cololr_gray6 dashedInput success'  type='text', value='作者')
+              li
+                p.cololr_gray9
+                  label(class='cololr_gray6') 出版日期:
+                  input(class='cololr_gray9 dashedInput'  type='text', value='可不填')
+              li
+                p
+                  label(class='cololr_gray6') ISBN:
+                  input(class='cololr_gray9 dashedInput'  type='text', value='可不填')
+              li
+                p
+                  label(class='cololr_gray6') 出版社:
+                  input(class='cololr_gray9 dashedInput'  type='text', value='可不填')
+            ul.borderBottom
+              li
+                p.cololr_gray3 關鍵字:
+                  span.subDec (希望被搜尋的關鍵字)
+              li
+                p
+                  label(class='cololr_gray6') 1.
+                  input(class='cololr_gray9 dashedInput'  type='text', value='可不填')
+              li
+                p
+                  label(class='cololr_gray6') 2.
+                  input(class='cololr_gray9 dashedInput'  type='text', value='可不填')
+              li
+                p
+                  label(class='cololr_gray6') 3.
+                  input(class='cololr_gray9 dashedInput'  type='text', value='可不填')
+          .booksEdit__bottomBlock
+            a(class='btn outLinebtn-navReport col-3' href='#') 取消
+            a(class='btn btn-navReport col-3' href='#') 確認
+        

@@ -1,0 +1,17 @@
+doctype html
+html
+  
+  include _frame/__htmlHead.jade
+  body
+    link(href="../assets/css/c3.css" rel="stylesheet" type="text/css")
+    script(src="../assets/js/d3.v3.min.js" charset="utf-8")
+    script(src="../assets/js/c3.js")
+
+    include _frame/__globalheader.jade
+    //- .localNav
+    //-   .container
+    //-     .breadcrumbs
+    //-       a(href='booksList.html') 首頁
+    //-       span="｜書籍介紹編輯"
+    include _frame/_incomeSetting_1.jade
+    include _frame/__footer.jade

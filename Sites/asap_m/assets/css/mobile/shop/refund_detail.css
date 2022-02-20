@@ -1,0 +1,234 @@
+.layout {
+  margin: 0 auto;
+  position: relative;
+}
+
+html, body {
+  height: 100%;
+  font-family: "Helvetica Neue", Helvetica, Arial, "微軟正黑體", sans-serif;
+}
+
+body {
+  background: #f4f4f4;
+}
+
+.hide {
+  display: none;
+}
+
+.row, .clearfix {
+  zoom: 1;
+}
+.row:after, .clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+.block {
+  margin: 10px;
+  padding: 10px;
+  background: white;
+  -webkit-box-shadow: 0 2px 5px -2px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 2px 5px -2px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 5px -2px rgba(0, 0, 0, 0.5);
+}
+.block {
+  zoom: 1;
+}
+.block:after {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+.block .title {
+  border-bottom: 1px solid #cccccc;
+  padding: 5px 0 10px;
+  margin-bottom: 10px;
+  font-size: 0.9em;
+}
+
+[class^='header-'], [class*="header-"] {
+  height: 45px;
+  z-index: 10;
+}
+[class^='header-'] .layout, [class*="header-"] .layout {
+  height: 45px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  z-index: 10;
+  -webkit-box-shadow: 0 2px 5px -2px rgba(0, 0, 0, 0.52);
+  -moz-box-shadow: 0 2px 5px -2px rgba(0, 0, 0, 0.52);
+  box-shadow: 0 2px 5px -2px rgba(0, 0, 0, 0.52);
+}
+[class^='header-'] .layout h3, [class*="header-"] .layout h3 {
+  padding: 12px 0;
+  font-size: 1.3em;
+  text-align: center;
+}
+[class^='header-'] .layout .icon-logo, [class*="header-"] .layout .icon-logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+}
+[class^='header-'] .layout .icon-logo-inn, [class*="header-"] .layout .icon-logo-inn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
+}
+[class^='header-'] .layout .icon-logo-uitox, [class*="header-"] .layout .icon-logo-uitox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 7px 10px;
+}
+[class^='header-'] .layout .cart-count, [class*="header-"] .layout .cart-count {
+  position: absolute;
+  top: 3px;
+  right: 6px;
+  background: #be252c;
+  color: white;
+  padding: 0px 5px;
+  font-style: 0.8em;
+  text-align: center;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+}
+[class^='header-'] .layout .top-actions, [class*="header-"] .layout .top-actions {
+  position: absolute;
+  right: 5px;
+  top: 0;
+}
+[class^='header-'] .layout .top-actions, [class*="header-"] .layout .top-actions {
+  zoom: 1;
+}
+[class^='header-'] .layout .top-actions:after, [class*="header-"] .layout .top-actions:after {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+[class^='header-'] .layout .top-actions li, [class*="header-"] .layout .top-actions li {
+  float: left;
+}
+[class^='header-'] .layout .top-actions li a, [class*="header-"] .layout .top-actions li a {
+  padding: 10px;
+  display: block;
+}
+[class^='header-'] .layout .top-actions li .return-index, [class*="header-"] .layout .top-actions li .return-index {
+  padding: 15px 10px;
+}
+[class^='header-'] .layout.uitox .return-index, [class*="header-"] .layout.uitox .return-index {
+  color: #1180c2;
+}
+[class^='header-'] .layout.uitox h3, [class*="header-"] .layout.uitox h3 {
+  text-align: left;
+  margin-left: 95px;
+  font-size: 1.2em;
+  padding-top: 13px;
+}
+
+.refund-detail .head {
+  margin: 10px;
+  line-height: 140%;
+  font-size: 0.9em;
+}
+.refund-detail .head h2 {
+  line-height: 140%;
+  margin-bottom: 10px;
+  color: #777777;
+}
+.refund-detail .head .price {
+  color: #be252c;
+  margin-right: 5px;
+}
+.refund-detail .head .dollar {
+  font-size: 0.7em;
+  margin: 0 5px;
+  color: #be252c;
+}
+.refund-detail .head .date {
+  float: right;
+  margin-top: 5px;
+  color: #777777;
+}
+.refund-detail .list li {
+  zoom: 1;
+}
+.refund-detail .list li:after {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+.refund-detail .list li .attr {
+  text-align: right;
+  margin-right: 0px;
+}
+.refund-detail .list li .attr {
+  zoom: 1;
+}
+.refund-detail .list li .attr:after {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+.refund-detail .list li .attr .count {
+  color: gray;
+}
+.refund-detail .list li .attr .price {
+  text-align: left;
+  margin-left: 10px;
+  min-width: 80px;
+  display: inline-block;
+}
+.refund-detail .list li .attr .dollar {
+  font-size: 0.7em;
+  margin-right: 5px;
+}
+.refund-detail .list li .name {
+  color: gray;
+  margin-bottom: 10px;
+}
+.refund-detail .list .main {
+  list-style: decimal inside;
+  font-size: 0.8em;
+  line-height: 140%;
+  padding: 10px 0;
+  border-bottom: 1px solid #e7e7e7;
+}
+.refund-detail .list .main:first-child {
+  padding-top: 0;
+}
+.refund-detail .list .main:last-child {
+  border-bottom: none;
+}
+.refund-detail .list .sub .name {
+  padding-left: 14px;
+}
+.refund-detail .progress li {
+  line-height: 140%;
+  font-size: 0.9em;
+}

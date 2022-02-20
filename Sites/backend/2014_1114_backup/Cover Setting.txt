@@ -1,0 +1,135 @@
+{"file": "Cover-01.jpg", "texts": [
+{"id": "bookname", "properties": {"text": "人人都是作家", "left": 70, "top":100, "fontFamily": "微軟正黑體", "fontWeight": "normal", "height": 52, "width": 240, "fill": "#ffffff", "angle": 0, "currentHeight": 87.4247477954145, "currentWidth": 403.49883597883615, "originX": "left", "originY": "top", "scaleX": 1.68, "scaleY": 1.68}},
+{"id": "subname", "properties": {"text": "      這是假字不需細心閱讀，這是假字不需\n           細心閱讀這是假字不需細心閱讀\n這是假字不需細心閱讀這是假字不需細心閱讀", "left": 128, "top": 267, "fontFamily": "新細明體", "fontWeight": "normal", "height": 156, "width": 800, "fill": "#ffffff", "angle": 0, "currentHeight": 56.22446486429066, "currentWidth": 288.3305890476444, "originX": "left", "originY": "top", "scaleX": 0.36, "scaleY": 0.36}},
+{"id": "author", "properties": {"text": "By. Bestbook", "left": 212, "top": 191, "fontFamily": "微軟正黑體", "fontWeight": "normal", "height": 52, "width": 242, "fill": "#ffffff", "angle": 0, "currentHeight": 24.336000000000002, "currentWidth": 113.256, "originX": "left", "originY": "top", "scaleX": 0.468, "scaleY": 0.468}}
+]}
+
+{"file": "Cover-02.jpg", "texts": [
+{"id": "bookname", "properties": {"text": "人 人 都 是 作 家", "left": 81, "top": 484, "fontFamily": "微軟正黑體", "fontWeight": "normal", "height": 52, "width": 290, "fill": "#ffffff", "angle": 0, "currentHeight": 66.36257888168187, "currentWidth": 370.09899760937964, "originX": "left", "originY": "top", "scaleX": 1.27, "scaleY": 1.27}}
+, {"id": "subname", "properties": {"text": "       這 是 假 字 不 需 細 心 閱 讀 ， 這 是 假 字 不 需\n                 細 心 閱 讀 這 是 假 字 不 需 細 心 閱\n這 是 假 字 不 需 細 心 閱 讀 這 是 假 字 不 需 細 心 閱 讀", "left": 115, "top": 667, "fontFamily": "新細明體", "fontWeight": "normal", "height": 156, "width": 990, "fill": "#ffffff", "angle": 0, "currentHeight": 48.74832599282591, "currentWidth": 309.3643764929337, "originX": "left", "originY": "top", "scaleX": 0.3, "scaleY": 0.3}}
+, {"id": "author", "properties": {"text": "B y . b e s t B o o k", "left": 205, "top": 612, "fontFamily": "Comic Sans", "fontWeight": "normal", "height": 52, "width": 302, "fill": "#ffffff", "angle": 0, "currentHeight": 24.336000000000002, "currentWidth": 141.336, "originX": "left", "originY": "top", "scaleX": 0.468, "scaleY": 0.468}}
+]}
+
+
+{"file": "Cover-03.jpg", "texts": [
+{"id": "bookname", "properties": {"text": "    人人\n都是作家", "left": 172, "top": 117, "fontFamily": "微軟正黑體", "fontWeight": "normal", "height": 104, "width": 160, "fill": "#ffffff", "angle": 0, "currentHeight": 132.72515776336374, "currentWidth": 204.19255040517498, "originX": "left", "originY": "top", "scaleX": 1.27, "scaleY": 1.27}}
+, {"id": "subname", "properties": {"text": "       這 是 假 字 不 需 細 心 閱 讀 ， 這 是 假 字 不 需\n                 細 心 閱 讀 這 是 假 字 不 需 細 心 閱\n這 是 假 字 不 需 細 心 閱 讀 這 是 假 字 不 需 細 心 閱 讀", "left": 117, "top": 346, "fontFamily": "新細明體", "fontWeight": "normal", "height": 156, "width": 990, "fill": "#ffffff", "angle": 0, "currentHeight": 48.74832599282591, "currentWidth": 309.3643764929337, "originX": "left", "originY": "top", "scaleX": 0.3, "scaleY": 0.3}}
+, {"id": "author", "properties": {"text": "B y . b e s t B o o k", "left": 200, "top": 308, "fontFamily": "Comic Sans", "fontWeight": "normal", "height": 52, "width": 312, "fill": "#ffffff", "angle": 0, "currentHeight": 24.336000000000002, "currentWidth": 146.01600000000002, "originX": "left", "originY": "top", "scaleX": 0.468, "scaleY": 0.468}}
+]}
+
+
+{"file": "Cover-04.jpg", "texts": [
+{"id": "bookname", "properties": {"text": "    人人\n都是作家", "left": 175, "top": 435, "fontFamily": "微軟正黑體", "fontWeight": "normal", "height": 104, "width": 160, "fill": "#ffffff", "angle": 0, "currentHeight": 132.72515776336374, "currentWidth": 204.19255040517498, "originX": "left", "originY": "top", "scaleX": 1.27, "scaleY": 1.27}}
+, {"id": "subname", "properties": {"text": "       這 是 假 字 不 需 細 心 閱 讀 ， 這 是 假 字 不 需\n                 細 心 閱 讀 這 是 假 字 不 需 細 心 閱\n這 是 假 字 不 需 細 心 閱 讀 這 是 假 字 不 需 細 心 閱 讀", "left": 116, "top": 671, "fontFamily": "微軟正黑體", "fontWeight": "normal", "height": 156, "width": 990, "fill": "#ffffff", "angle": 0, "currentHeight": 48.74832599282591, "currentWidth": 309.3643764929337, "originX": "left", "originY": "top", "scaleX": 0.3, "scaleY": 0.3}}
+, {"id": "author", "properties": {"text": "B y . b e s t B o o k", "left": 202, "top": 627, "fontFamily": "Comic Sans", "fontWeight": "normal", "height": 52, "width": 312, "fill": "#ffffff", "angle": 0, "currentHeight": 24.336000000000002, "currentWidth": 146.01600000000002, "originX": "left", "originY": "top", "scaleX": 0.468, "scaleY": 0.468}}
+]}
+
+
+{"file": "Cover-05.jpg", "texts": [
+{"id": "bookname", "properties": {"text": "人\n人", "left": 240, "top": 54, "fontFamily": "微軟正黑體", "fontWeight": "bold", "height": 104, "width": 40, "fill": "#000000", "angle": 0, "currentHeight": 137.1948025771157, "currentWidth": 59.02439024390227, "originX": "left", "originY": "top", "scaleX": 1.4756097560975567, "scaleY": 1.3191807940107279}}
+, {"id": "subname", "properties": {"text": "這是假字不需細心閱讀，這是假字不需\n細心閱讀這是假字不需細心閱\n這是假字不需細心閱讀這是假字不需細心閱讀", "left": 303, "top": 271, "fontFamily": "微軟正黑體", "fontWeight": "normal", "height": 156, "width": 800, "fill": "#ffffff", "angle": 0, "currentHeight": 41.8275880384554, "currentWidth": 214.50045147925846, "originX": "left", "originY": "top", "scaleX": 0.2681255643490731, "scaleY": 0.2681255643490731}}
+, {"id": "author", "properties": {"text": "B y . b e s t B o o k", "left": 45, "top": 32, "fontFamily": "Comic Sans", "fontWeight": "normal", "height": 52, "width": 312, "fill": "#ffffff", "angle": 90.23973599501586, "currentHeight": 24.336000000000002, "currentWidth": 146.01600000000002, "originX": "left", "originY": "top", "scaleX": 0.468, "scaleY": 0.468}}
+, {"id": "newitem", "properties": {"text": "都\n是\n作\n家", "left": 240, "top": 180, "fontFamily": "微軟正黑體", "fontWeight": "bold", "height": 208, "width": 40, "fill": "#866436", "angle": 0, "currentHeight": 274.3896051542314, "currentWidth": 59.02439024390227, "originX": "left", "originY": "top", "scaleX": 1.4756097560975567, "scaleY": 1.3191807940107279}}
+]}
+
+
+{"file": "Cover-06.jpg", "texts": [
+{"id": "bookname", "properties": {"text": "人\n人\n都\n是\n作\n家", "left": 245, "top": 155, "fontFamily": "新細明體", "fontWeight": "bold", "height": 312, "width": 41, "fill": "#ffffff", "angle": 0, "currentHeight": 370.0989600615058, "currentWidth": 50.273809523809106, "originX": "left", "originY": "top", "scaleX": 1.2, "scaleY": 1.2}}
+, {"id": "subname", "properties": {"text": "      這是假字不需細心閱讀，這是假字不需\n              細心閱讀這是假字不需細心閱\n這是假字不需細心閱讀這是假字不需細心閱讀", "left": 150, "top": 592, "fontFamily": "微軟正黑體", "fontWeight": "normal", "height": 156, "width": 800, "fill": "#ffffff", "angle": 0, "currentHeight": 46.712765491482564, "currentWidth": 239.55264354606442, "originX": "left", "originY": "top", "scaleX": 0.3, "scaleY": 0.3}}
+, {"id": "author", "properties": {"text": "B e s t b o o k / 著", "left": 200, "top": 550, "fontFamily": "Times New Roman", "fontWeight": "normal", "height": 52, "width": 299, "fill": "#ffffff", "angle": 359.8986666764158, "currentHeight": 24.336000000000002, "currentWidth": 139.93200000000002, "originX": "left", "originY": "top", "scaleX": 0.468, "scaleY": 0.468}}
+]}
+
+
+{"file": "Cover-07.jpg", "texts": [
+{"id": "bookname", "properties": {"text": "人\n人", "left": 455, "top": 485, "fontFamily": "新細明體", "fontWeight": "bold", "height": 104, "width": 41, "fill": "#ffffff", "angle": 0, "currentHeight": 123.36632002050195, "currentWidth": 50.273809523809106, "originX": "left", "originY": "top", "scaleX": 1.2, "scaleY": 1.2}}
+, {"id": "subname", "properties": {"text": "這\n是\n假\n字\n不\n需\n細\n心\n閱\n讀\n，\n這\n是\n假\n字\n不\n需", "left": 26, "top": 407, "fontFamily": "微軟正黑體", "fontWeight": "normal", "height": 884, "width": 40, "fill": "#ffffff", "angle": 0, "currentHeight": 264.7056711184012, "currentWidth": 11.97763217730322, "originX": "left", "originY": "top", "scaleX": 0.3, "scaleY": 0.3}}
+, {"id": "author", "properties": {"text": "雲書 / 著", "left": 430, "top": 30, "fontFamily": "Times New Roman", "fontWeight": "bold", "height": 52, "width": 174, "fill": "#ffffff", "angle": 359.8986666764158, "currentHeight": 24.336000000000002, "currentWidth": 81.432, "originX": "left", "originY": "top", "scaleX": 0.468, "scaleY": 0.468}}
+, {"id": "newitem", "properties": {"text": "都\n是\n作\n家", "left": 400, "top": 485, "fontFamily": "新細明體", "fontWeight": "bold", "height": 208, "width": 41, "fill": "#ffffff", "angle": 0, "currentHeight": 246.7326400410039, "currentWidth": 50.273809523809106, "originX": "left", "originY": "top", "scaleX": 1.2, "scaleY": 1.2}}
+]}
+
+
+{"file": "Cover-08.jpg", "texts": [
+{"id": "bookname", "properties": {"text": "人\n人", "left": 465, "top": 490, "fontFamily": "新細明體", "fontWeight": "bold", "height": 104, "width": 41, "fill": "#000000", "angle": 0, "currentHeight": 123.36632002050195, "currentWidth": 50.273809523809106, "originX": "left", "originY": "top", "scaleX": 1.2, "scaleY": 1.2}}
+, {"id": "subname", "properties": {"text": "這\n是\n假\n字\n不\n需\n細\n心\n閱\n讀\n，\n這\n是\n假\n字\n不\n需", "left": 26, "top": 407, "fontFamily": "微軟正黑體", "fontWeight": "normal", "height": 884, "width": 40, "fill": "#000000", "angle": 0, "currentHeight": 264.7056711184012, "currentWidth": 11.97763217730322, "originX": "left", "originY": "top", "scaleX": 0.3, "scaleY": 0.3}}
+, {"id": "author", "properties": {"text": "雲書 / 著", "left": 433, "top": 368, "fontFamily": "Times New Roman", "fontWeight": "bold", "height": 52, "width": 174, "fill": "#000000", "angle": 359.8986666764158, "currentHeight": 24.336000000000002, "currentWidth": 81.432, "originX": "left", "originY": "top", "scaleX": 0.468, "scaleY": 0.468}}
+, {"id": "newitem", "properties": {"text": "都\n是\n作\n家", "left": 416, "top": 490, "fontFamily": "新細明體", "fontWeight": "bold", "height": 208, "width": 41, "fill": "#000000", "angle": 0, "currentHeight": 246.7326400410039, "currentWidth": 50.273809523809106, "originX": "left", "originY": "top", "scaleX": 1.2, "scaleY": 1.2}}
+]}
+
+
+{"file": "Cover-09.jpg", "texts": [
+{"id": "bookname", "properties": {"text": "人\n人\n都\n是\n作\n家", "left": 260, "top": 155, "fontFamily": "新細明體", "fontWeight": "bold", "height": 312, "width": 41, "fill": "#000000", "angle": 0, "currentHeight": 370.0989600615058, "currentWidth": 50.273809523809106, "originX": "left", "originY": "top", "scaleX": 1.2, "scaleY": 1.2}}
+, {"id": "subname", "properties": {"text": "這\n是\n假\n字\n不\n需\n細\n心\n閱\n讀\n，\n這\n是\n假\n字\n不\n需", "left": 505, "top": 50, "fontFamily": "微軟正黑體", "fontWeight": "normal", "height": 884, "width": 40, "fill": "#000000", "angle": 0, "currentHeight": 264.7056711184012, "currentWidth": 11.97763217730322, "originX": "left", "originY": "top", "scaleX": 0.3, "scaleY": 0.3}}
+, {"id": "author", "properties": {"text": "雲\n書\n |\n著", "left": 203, "top": 247, "fontFamily": "Times New Roman", "fontWeight": "bold", "height": 208, "width": 41, "fill": "#000000", "angle": 359.8986666764158, "currentHeight": 97.34400000000001, "currentWidth": 19.188000000000002, "originX": "left", "originY": "top", "scaleX": 0.468, "scaleY": 0.468}}
+]}
+
+
+{"file": "Cover-10.jpg", "texts": [
+{"id": "bookname", "properties": {"text": "人\n人", "left": 197, "top": 268, "fontFamily": "微軟正黑體", "fontWeight": "bold", "height": 104, "width": 40, "fill": "#ffffff", "angle": 314.8348934036245, "currentHeight": 133.88402906678175, "currentWidth": 52.793599965781226, "originX": "left", "originY": "top", "scaleX": 1.3, "scaleY": 1.3}}
+, {"id": "subname", "properties": {"text": "這\n是\n假\n字\n不\n需\n細\n心\n閱\n讀\n，\n這\n是\n假\n字\n不\n需", "left": 290, "top": 509, "fontFamily": "微軟正黑體", "fontWeight": "normal", "height": 884, "width": 40, "fill": "#000000", "angle": 47.39121437432108, "currentHeight": 264.7056711184012, "currentWidth": 11.97763217730322, "originX": "left", "originY": "top", "scaleX": 0.3, "scaleY": 0.3}}
+, {"id": "author", "properties": {"text": "雲\n書\n\n著", "left": 240, "top": 13, "fontFamily": "微軟正黑體", "fontWeight": "bold", "height": 208, "width": 40, "fill": "#ffffff", "angle": 405.30250726533694, "currentHeight": 97.34400000000001, "currentWidth": 18.720000000000002, "originX": "left", "originY": "top", "scaleX": 0.468, "scaleY": 0.468}}
+, {"id": "newitem", "properties": {"text": "都\n是\n作\n家", "left": 150, "top": 312, "fontFamily": "微軟正黑體", "fontWeight": "bold", "height": 208, "width": 40, "fill": "#000000", "angle": 314.8348934036245, "currentHeight": 267.7680581335635, "currentWidth": 52.793599965781226, "originX": "left", "originY": "top", "scaleX": 1.3, "scaleY": 1.3}}
+]}
+
+
+{"file": "Cover-11.jpg", "texts": [
+{"id": "bookname", "properties": {"text": "人人", "left": 27, "top": 360, "fontFamily": "微軟正黑體", "fontWeight": "bold", "height": 52, "width": 80, "fill": "#ffffff", "angle": 0, "currentHeight": 74.08919123204856, "currentWidth": 119.01234567901193, "originX": "left", "originY": "top", "scaleX": 1.42, "scaleY": 1.42}}
+, {"id": "subname", "properties": {"text": "這 是 假 字 不 需 細 心 閱 讀 ， 這 是 假 字 不 需\n細 心 閱 讀 這 是 假 字 不 需 細 心 閱\n這 是 假 字 不 需 細 心 閱 讀 這 是 假 字 不 需 細 心 閱 讀", "left": 27, "top": 660, "fontFamily": "微軟正黑體", "fontWeight": "bold", "height": 156, "width": 990, "fill": "#000000", "angle": 359.97937024661053, "currentHeight": 46.712765491482564, "currentWidth": 296.44639638825475, "originX": "left", "originY": "top", "scaleX": 0.3, "scaleY": 0.3}}
+, {"id": "author", "properties": {"text": "雲\n書\n\n著", "left": 506, "top": 24, "fontFamily": "微軟正黑體", "fontWeight": "bold", "height": 208, "width": 40, "fill": "#ffffff", "angle": 359.7126896094433, "currentHeight": 97.34400000000001, "currentWidth": 18.720000000000002, "originX": "left", "originY": "top", "scaleX": 0.468, "scaleY": 0.468}}
+, {"id": "newitem", "properties": {"text": "都是作家", "left": 27, "top": 420, "fontFamily": "微軟正黑體", "fontWeight": "bold", "height": 52, "width": 160, "fill": "#000000", "angle": 0, "currentHeight": 74.08919123204856, "currentWidth": 234.09846060051822, "originX": "left", "originY": "top", "scaleX": 1.42, "scaleY": 1.42}}
+]}
+
+
+{"file": "Cover-12.jpg", "texts": [
+{"id": "bookname", "properties": {"text": "    人人\n都是作家", "left": 140, "top": 400, "fontFamily": "微軟正黑體", "fontWeight": "bold", "height": 104, "width": 160, "fill": "#d3a689", "angle": 0, "currentHeight": 175.82337400568713, "currentWidth": 278.7577639751548, "originX": "left", "originY": "top", "scaleX": 1.7, "scaleY": 1.7}}
+, {"id": "subname", "properties": {"text": "      這是假字不需細心閱讀，這是假字不需\n           細心閱讀這是假字不需細心閱讀\n這是假字不需細心閱讀這是假字不需細心閱讀", "left": 128, "top": 660, "fontFamily": "新細明體", "fontWeight": "normal", "height": 156, "width": 800, "fill": "#ffffff", "angle": 0, "currentHeight": 56.22446486429066, "currentWidth": 288.3305890476444, "originX": "left", "originY": "top", "scaleX": 0.36, "scaleY": 0.36}}
+, {"id": "author", "properties": {"text": "雲書 著", "left": 250, "top": 370, "fontFamily": "微軟正黑體", "fontWeight": "bold", "height": 52, "width": 130, "fill": "#ffffff", "angle": 359.7126896094433, "currentHeight": 24.336000000000002, "currentWidth": 60.84, "originX": "left", "originY": "top", "scaleX": 0.468, "scaleY": 0.468}}
+]}
+
+
+{"file": "Cover-13.jpg", "texts": [
+{"id": "bookname", "properties": {"text": "人人都是作家", "left": 12.5, "top": 544, "fontFamily": "新細明體", "fontWeight": "bold", "height": 52, "width": 246, "fill": "#000000", "angle": 0, "currentHeight": 62.11111111111111, "currentWidth": 293.8333333333333, "originX": "left", "originY": "top", "scaleX": 1.20, "scaleY": 1.20}}
+, {"id": "subname", "properties": {"text": "這是假字不需細心閱讀，這是假字不需細\n心閱讀這是假字不需細心閱這是", "left": 15, "top": 613, "fontFamily": "微軟正黑體", "fontWeight": "normal", "height": 104, "width": 720, "fill": "#000000", "angle": 0, "currentHeight": 37.48297657619377, "currentWidth": 259.49753014287995, "originX": "left", "originY": "top", "scaleX": 0.36, "scaleY": 0.36}}
+, {"id": "author", "properties": {"text": "雲書 著", "left": 450, "top": 709, "fontFamily": "新細明體", "fontWeight": "bold", "height": 52, "width": 145, "fill": "#000000", "angle": 0, "currentHeight": 24.336000000000002, "currentWidth": 67.86, "originX": "left", "originY": "top", "scaleX": 0.468, "scaleY": 0.468}}
+]}
+
+
+{"file": "Cover-14.jpg", "texts": [
+{"id": "bookname", "properties": {"text": "都人\n是人\n作\n家", "left": 83.5, "top": 103, "fontFamily": "新細明體", "fontWeight": "bold", "height": 208, "width": 82, "fill": "#ffffff", "angle": 0, "currentHeight": 248.44444444444443, "currentWidth": 97.94444444444444, "originX": "left", "originY": "top", "scaleX": 1.20, "scaleY": 1.20}}
+, {"id": "subname", "properties": {"text": "這\n是\n假\n字\n不\n需\n細\n心\n閱\n讀\n，\n這\n是\n假\n字\n不\n需\n細", "left": 480, "top": 54, "fontFamily": "微軟正黑體", "fontWeight": "normal", "height": 936, "width": 40, "fill": "#000000", "angle": 0, "currentHeight": 337.34678918574394, "currentWidth": 14.416529452382221, "originX": "left", "originY": "top", "scaleX": 0.36, "scaleY": 0.36}}
+, {"id": "author", "properties": {"text": "雲\n書\n\n著", "left": 37, "top": 103, "fontFamily": "新細明體", "fontWeight": "bold", "height": 208, "width": 41, "fill": "#ffffff", "angle": 0, "currentHeight": 97.34400000000001, "currentWidth": 19.188000000000002, "originX": "left", "originY": "top", "scaleX": 0.468, "scaleY": 0.468}}
+]}
+
+
+{"file": "Cover-15.jpg", "texts": [
+{"id": "bookname", "properties": {"text": "{ 人人都是作家 }", "left": 83.5, "top": 142, "fontFamily": "新細明體", "fontWeight": "bold", "height": 52, "width": 306, "fill": "#000000", "angle": 0, "currentHeight": 62.11111111111111, "currentWidth": 365.5, "originX": "left", "originY": "top", "scaleX": 1.2, "scaleY": 1.2}}
+, {"id": "subname", "properties": {"text": "這\n是\n假\n字\n不\n需\n細\n心\n閱\n讀", "left": 261, "top": 261, "fontFamily": "新細明體", "fontWeight": "normal", "height": 520, "width": 40, "fill": "#000000", "angle": 0, "currentHeight": 187.41488288096886, "currentWidth": 14.416529452382221, "originX": "left", "originY": "top", "scaleX": 0.3604132363095555, "scaleY": 0.3604132363095555}}
+, {"id": "author", "properties": {"text": "雲\n書\n著", "left": 289, "top": 261, "fontFamily": "新細明體", "fontWeight": "bold", "height": 156, "width": 40, "fill": "#9C5132", "angle": 0, "currentHeight": 73.00800000000001, "currentWidth": 18.720000000000002, "originX": "left", "originY": "top", "scaleX": 0.468, "scaleY": 0.468}}
+]}
+
+
+{"file": "Cover-16.jpg", "texts": [
+{"id": "bookname", "properties": {"text": "人人都是作家", "left": 70, "top":100, "fontFamily": "微軟正黑體", "fontWeight": "normal", "height": 52, "width": 240, "fill": "#ffffff", "angle": 0, "currentHeight": 87.4247477954145, "currentWidth": 403.49883597883615, "originX": "left", "originY": "top", "scaleX": 1.68, "scaleY": 1.68}},
+{"id": "subname", "properties": {"text": "      這是假字不需細心閱讀，這是假字不需\n           細心閱讀這是假字不需細心閱讀\n這是假字不需細心閱讀這是假字不需細心閱讀", "left": 128, "top": 631, "fontFamily": "新細明體", "fontWeight": "normal", "height": 156, "width": 800, "fill": "#ffffff", "angle": 0, "currentHeight": 56.22446486429066, "currentWidth": 288.3305890476444, "originX": "left", "originY": "top", "scaleX": 0.36, "scaleY": 0.36}},
+{"id": "author", "properties": {"text": "雲書 著", "left": 250, "top": 571, "fontFamily": "微軟正黑體", "fontWeight": "normal", "height": 52, "width": 242, "fill": "#ffffff", "angle": 0, "currentHeight": 24.336000000000002, "currentWidth": 113.256, "originX": "left", "originY": "top", "scaleX": 0.47, "scaleY": 0.47}}
+]}
+
+
+{"file": "Cover-17.jpg", "texts": [
+{"id": "bookname", "properties": {"text": "人\n人\n都\n是\n作\n家", "left": 41, "top": 57, "fontFamily": "新細明體", "fontWeight": "bold", "height": 312, "width": 41, "fill": "#000000", "angle": 0, "currentHeight": 399.88732394366167, "currentWidth": 52.549295774647845, "originX": "left", "originY": "top", "scaleX": 1.28, "scaleY": 1.28}}
+, {"id": "subname", "properties": {"text": "這\n是\n假\n字\n不\n需\n細\n心\n閱\n讀\n，\n這\n是\n假\n字\n不\n需", "left": 146, "top": 99, "fontFamily": "新細明體", "fontWeight": "normal", "height": 884, "width": 40, "fill": "#000000", "angle": 0, "currentHeight": 318.60530089764706, "currentWidth": 14.416529452382221, "originX": "left", "originY": "top", "scaleX": 0.36, "scaleY": 0.36}}
+, {"id": "author", "properties": {"text": "雲書 著", "left": 39, "top": 693, "fontFamily": "微軟正黑體", "fontWeight": "normal", "height": 52, "width": 130, "fill": "#000000", "angle": 0, "currentHeight": 24.336000000000002, "currentWidth": 60.84, "originX": "left", "originY": "top", "scaleX": 0.47, "scaleY": 0.47}}
+]}
+
+
+{"file": "Cover-18.jpg", "texts": [
+{"id": "bookname", "properties": {"text": "人\n人\n都\n是\n作\n家", "left": 285, "top": 214, "fontFamily": "新細明體", "fontWeight": "bold", "height": 312, "width": 41, "fill": "#ffffff", "angle": 0, "currentHeight": 399.36, "currentWidth": 52.480000000000004, "originX": "left", "originY": "top", "scaleX": 1.28, "scaleY": 1.28}}
+, {"id": "subname", "properties": {"text": "這\n是\n假\n字\n不\n需\n細\n心\n閱\n讀\n，\n這\n是\n假\n字\n不\n需", "left": 28, "top": 176, "fontFamily": "新細明體", "fontWeight": "normal", "height": 884, "width": 40, "fill": "#ffffff", "angle": 0, "currentHeight": 318.24, "currentWidth": 14.399999999999999, "originX": "left", "originY": "top", "scaleX": 0.36, "scaleY": 0.36}}
+, {"id": "author", "properties": {"text": "雲書 著", "left": 451, "top": 713, "fontFamily": "微軟正黑體", "fontWeight": "normal", "height": 52, "width": 130, "fill": "#ffffff", "angle": 0, "currentHeight": 24.439999999999998, "currentWidth": 61.099999999999994, "originX": "left", "originY": "top", "scaleX": 0.47, "scaleY": 0.47}}
+]}
+
+
+{"file": "Cover-19.jpg", "texts": [
+{"id": "bookname", "properties": {"text": "人\n人\n都\n是\n作\n家", "left": 243, "top": 105, "fontFamily": "新細明體", "fontWeight": "bold", "height": 312, "width": 41, "fill": "#ffffff", "angle": 0, "currentHeight": 399.36, "currentWidth": 52.480000000000004, "originX": "left", "originY": "top", "scaleX": 1.28, "scaleY": 1.28}}
+, {"id": "subname", "properties": {"text": "這\n是\n假\n字\n不\n需\n細\n心\n閱\n讀\n，\n這\n是\n假\n字\n不\n需", "left": 496, "top": 61, "fontFamily": "新細明體", "fontWeight": "normal", "height": 884, "width": 40, "fill": "#ffffff", "angle": 0, "currentHeight": 318.24, "currentWidth": 14.399999999999999, "originX": "left", "originY": "top", "scaleX": 0.36, "scaleY": 0.36}}
+, {"id": "author", "properties": {"text": "雲\n書\n\n著", "left": 256, "top": 567, "fontFamily": "微軟正黑體", "fontWeight": "normal", "height": 208, "width": 40, "fill": "#ffffff", "angle": 0, "currentHeight": 97.75999999999999, "currentWidth": 18.799999999999997, "originX": "left", "originY": "top", "scaleX": 0.47, "scaleY": 0.47}}
+]}

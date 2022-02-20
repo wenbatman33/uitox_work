@@ -1,0 +1,271 @@
+.booksPreviewer{
+	display: block;
+	.container{
+		width: 100%;
+	}
+	.breadcrumbs{
+		padding-left: 10px;
+	}
+	.mainColumn{
+		margin-top: 0;
+	}
+	&__selector{
+		display: block;
+		height: 60px;
+		border-bottom: solid 1px #e4e4e4;
+		ul{
+			display: block;
+			padding-left: 10px;
+			li{
+				float: left;
+				width: 160px;
+				height: 60px;
+				font-size: 14px;
+				border-right: solid 1px #e4e4e4;
+				a{
+					display: block;
+					width: 100%;
+					height: 100%;
+					color: #ccc;
+					line-height: 60px;
+					&:hover{
+						@include buttonPressShadow;
+					}
+				}
+				.icon_42_phone{
+					display: inline-block;
+					margin: 10px;
+					@include cssSprite($icon_42_phone);
+				}
+				.icon_42_phone_h{
+					display: inline-block;
+					margin: 10px;
+					@include cssSprite($icon_42_phone_h);
+				}
+				.icon_42_pad{
+					display: inline-block;
+					margin: 10px;
+					@include cssSprite($icon_42_pad);
+				}
+				.icon_42_pad_h{
+					display: inline-block;
+					margin: 10px;
+					@include cssSprite($icon_42_pad_h);
+				}
+				.icon_42_pc{
+					display: inline-block;
+					margin: 10px;
+					@include cssSprite($icon_42_pc);
+				}
+			}
+			li.active a{
+				color: #666;
+			}
+		}
+	}
+	&__simulator{
+		position:relative;
+		display: block;
+		padding: 20px 0;
+		background: #f8f8f8;
+		height: auto;
+		.editBtn{
+			position: absolute;
+			display: block;
+			top: 15%;
+			left: 65%;
+			width: 80px;
+			height: 80px;
+			border-radius: 3px 120px 120px 120px;
+			background: #BADA55;
+			color: #fff;
+			text-align: center;
+			line-height: 80px;
+			z-index: 5;
+			&:hover{
+				background: #ccc;
+				@include buttonPressShadow;
+			}
+		}
+		.deviceIphone6{
+			position:relative;
+			top: 0px;
+			left: 0px;
+			margin: 0px auto;
+			width: 436px;
+			height: 879px;
+			.editBtn{
+				top: 12%;
+				left: 95%;
+			}
+		}
+		.deviceIphone6 .cover{
+			position: absolute;
+			top: 13.5%;
+			left: 6.8%;
+			width: 86%;
+			height: 73%;
+			z-index: 3;
+			background-color: #fff;
+			line-height: 2;
+			padding: 15px;
+			overflow: hidden;
+		}
+
+		.deviceIphone6_h{
+			position:relative;
+			margin: 0px auto;
+			width: 879px;
+			height: 436px;
+			.editBtn{
+				top: 7%;
+				left: 89%;
+			}
+		}
+		.deviceIphone6_h .cover{
+			position: absolute;
+			top: 6.5%;
+			left: 11.6%;
+			width: 76.3%;
+			height: 87%;
+			z-index: 3;
+			background-color: #fff;
+			line-height: 2;
+			padding: 15px;
+			overflow: hidden;
+		}
+		.deviceIphone6_h img{
+			width: 100%;
+			height: auto;
+		}
+
+
+		.deviceIpad{
+			position: relative;
+			top: 0px;
+			left: 0px;
+			margin: 0px auto;
+			width: 865px;
+			height: 1280px;
+			.editBtn{
+				top: 10%;
+				left: 95%;
+			}
+		}
+		.deviceIpad img{
+			width: 100%;
+			height: auto;
+		}
+		.deviceIpad .cover{
+			position: absolute;
+			top: 10%;
+			left: 5.8%;
+			width: 88%;
+			height: 80%;
+			z-index: 4;
+			background-color: #fff;
+			line-height: 2;
+			padding: 15px;
+			overflow: hidden;
+
+
+		}
+		.deviceIpad .cover img{
+			position: absolute;
+			max-height:100%;
+		}
+
+		.deviceIpad_h{
+			position: relative;
+			top: 0px;
+			left: 0px;
+			margin: 0px auto;
+			width: 1280px;
+			height: 865px;
+			.editBtn{
+				top: 6%;
+				left: 91%;
+			}
+		}
+		.deviceIpad_h img{
+			width: 100%;
+			height: auto;
+		}
+		.deviceIpad_h .cover{
+			position: absolute;
+			top: 5.4%;
+			left: 10.1%;
+			width: 80%;
+			height: 88.8%;
+			z-index: 4;
+			background-color: #fff;
+			line-height: 2;
+			padding: 15px;
+			overflow: hidden;
+		}
+
+
+		.devicePc{
+			position: relative;
+			top: 0px;
+			left: 0px;
+			margin: 0px auto;
+			width: 1024px;
+			height: 1280px;
+			.editBtn{
+				top: 2%;
+				left: 101%;
+			}
+		}
+		.devicePc .cover{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			z-index: 4;
+			background-color: #fff;
+			line-height: 2;
+			padding: 15px;
+			overflow: hidden;
+		}
+		.devicePc .cover img{
+			width: 100%;
+			height: auto;
+		}
+		.line-arrow.left{
+			position: absolute;
+			display: block;
+			width: 40px;
+			height: 40px;
+			border-top: 10px solid #a9a9a9;
+			border-left: 10px solid #a9a9a9;
+			transform: rotate(-54deg) skew(-20deg);
+			top: 25%;
+			left: 20px;
+			z-index: 5;
+			&:hover{
+				left: 16px;
+			}
+		}
+		.line-arrow.right {
+			position: absolute;
+			display: block;
+			width: 40px;
+			height: 40px;
+			border-top: 10px solid #a9a9a9;
+			border-right: 10px solid #a9a9a9;
+			transform: rotate(54deg) skew(20deg);
+			top: 25%;
+			right: 20px;
+			z-index: 5;
+			&:hover{
+				right: 16px;
+			}
+		}
+		.square.left{
+			transform: rotate(-45deg);
+		}
+		.square.right{
+			transform: rotate(45deg);
+		}
+	}
+}

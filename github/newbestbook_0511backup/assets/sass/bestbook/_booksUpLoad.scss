@@ -1,0 +1,123 @@
+.booksUpLoad{
+    width: 500px;
+    height: 280px;
+    margin: 0 auto;
+}
+.booksUpLoad_2{
+    width: 500px;
+    height: 100px;
+    margin: 10px auto;
+}
+
+.uploadBtn{
+    position: relative;
+    width: 500px;
+    height: 200px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    @include background-gradient( #fb5c7a, #f2254c );
+    .booksUpLoad_1{
+        visibility: visible;
+        opacity: 1;
+        -webkit-transition: opacity 1s linear;
+        -moz-transition: opacity 1s linear;
+        transition: opacity 1s linear;
+    }
+    .booksUpLoad_2{
+        visibility: hidden;
+        opacity: 0;
+        -webkit-transition: visibility 0s 1s, opacity 0.3s linear;
+        -moz-transition: visibility 0s 1s, opacity 0.3s linear;
+        transition: visibility 0s 1s, opacity 0.3s linear;
+    }
+
+    .booksUpLoad_txt1{
+        visibility: visible;
+        opacity: 1;
+        -webkit-transition: opacity 1s linear;
+        -moz-transition: opacity 1s linear;
+        transition: opacity 1s linear;
+    }
+    .booksUpLoad_txt2{
+        visibility: hidden;
+        opacity: 0;
+        -webkit-transition: visibility 0s 1s, opacity 0.3s linear;
+        -moz-transition: visibility 0s 1s, opacity 0.3s linear;
+        transition: visibility 0s 1s, opacity 0.3s linear;
+    }
+    &:hover{
+        @include buttonPressShadow;
+        background: #f2254c;
+        .booksUpLoad_txt1,.booksUpLoad_1{
+            visibility: hidden;
+            opacity: 0;
+            -webkit-transition: visibility 0s 1s, opacity 0.3s linear;
+            -moz-transition: visibility 0s 1s, opacity 0.3s linear;
+            transition: visibility 0s 1s, opacity 0.3s linear;
+        }
+        .booksUpLoad_txt2,.booksUpLoad_2{
+            visibility: visible;
+            opacity: 1;
+            -webkit-transition: opacity 1s linear;
+            -moz-transition: opacity 1s linear;
+            transition: opacity 1s linear;
+        }
+        .booksUpLoadFinger{
+            bottom: 0px;
+        }
+    }
+}
+.uploadBtn .booksUpLoad_1{
+    position: absolute;
+    top: 50px;
+    left: 225px;
+    width: 400px;
+    height: 200px;
+    margin: 0 auto;
+    z-index: 1;
+    @include cssSprite($booksUpLoad_1);
+}
+.uploadBtn .booksUpLoad_2{
+    position: absolute;
+    top: 50px;
+    left: 225px;
+    width: 400px;
+    height: 200px;
+    margin: 0 auto;
+    z-index: 2;
+    @include cssSprite($booksUpLoad_2);
+}
+.uploadBtn .booksUpLoadFinger{
+    position: absolute;
+    bottom: -10px;
+    right: 10px;
+    width: 400px;
+    height: 200px;
+    margin: 0 auto;
+    z-index: 2;
+    -webkit-transition: bottom 0.3s;
+    -moz-transition: bottom 0.3s;
+    transition: bottom 0.3s;
+    @include cssSprite($booksUpLoadFinger);
+}
+.uploadBtn .booksUpLoad_txt1{
+    position: absolute;
+    width: 100%;
+    top: 140px;
+    color:#fff;
+    font-size: 14px;
+    text-align: center;
+}
+.uploadBtn .booksUpLoad_txt2{
+    position: absolute;
+    width: 100%;
+    top: 140px;
+    color:#fff;
+    font-size: 14px;
+    text-align: center;
+}
+.uploadBtn input{
+    width: 100%;
+    height: 100%;
+}

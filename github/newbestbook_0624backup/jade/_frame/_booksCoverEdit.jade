@@ -1,0 +1,87 @@
+.mainColumn
+	.container_rwdNone
+		.booksCoverEdit
+			.booksCover.col-pc-6
+				.coverSpace(tabindex='0')
+					canvas.coverCanvas
+			.booksCoverEdit__block.col-pc-6
+				.borderBlock
+					.borderBlockTitle.ta_center 上傳封面
+					div.ta_center
+						a(class='btn btn-navReport fileUpLoad' href='#')
+							input(class='btn btn-navReport', type="file" name="pic" accept=".jpg,.jpeg,.png", style='' ,value='從電腦檔案選擇')
+							p 選擇檔案
+				div.ta_center.margin10.cololr_gray9  或
+				.borderBlock
+					.borderBlockTitle.ta_center 系統圖庫
+					ul.template_list
+						li(pid='0')
+							span
+								img(src='http://static.bestbook.com/cover_template/thumbnail/books1.jpg')
+						li(pid='1')
+							span
+								img(src='http://static.bestbook.com/cover_template/thumbnail/books2.jpg')
+						li(pid='2')
+							span
+								img(src='http://static.bestbook.com/cover_template/thumbnail/books3.jpg')
+						li(pid='3')
+							span
+								img(src='http://static.bestbook.com/cover_template/thumbnail/books4.jpg')
+						li(pid='4')
+							span
+								img(src='http://static.bestbook.com/cover_template/thumbnail/books5.jpg')
+						li(pid='5')
+							span
+								img(src='http://static.bestbook.com/cover_template/thumbnail/books6.jpg')
+						li(pid='6')
+							span
+								img(src='http://static.bestbook.com/cover_template/thumbnail/books7.jpg')
+						li(pid='7')
+							span
+								img(src='http://static.bestbook.com/cover_template/thumbnail/books8.jpg')
+						li(pid='8')
+							span
+								img(src='http://static.bestbook.com/cover_template/thumbnail/books9.jpg')
+						li(pid='9')
+							span
+								img(src='http://static.bestbook.com/cover_template/thumbnail/books10.jpg')
+						li(pid='10')
+							span
+								img(src='http://static.bestbook.com/cover_template/thumbnail/books11.jpg')
+						li(pid='11')
+							span
+								img(src='http://static.bestbook.com/cover_template/thumbnail/books12.jpg')
+						li(pid='12')
+							span
+								img(src='http://static.bestbook.com/cover_template/thumbnail/books13.jpg')
+						li(pid='13')
+							span
+								img(src='http://static.bestbook.com/cover_template/thumbnail/books14.jpg')
+						li(pid='14')
+							span
+								img(src='http://static.bestbook.com/cover_template/thumbnail/books15.jpg')
+						li(pid='15')
+							span
+								img(src='http://static.bestbook.com/cover_template/thumbnail/books17.jpg')
+					.paginationBlock.ta_center
+						nav
+							ul.pagination
+								li
+									a(href='#', aria-label='Previous')
+										span(aria-hidden='true') 上一頁
+								li.active
+									a(href='#') 1
+								li
+									a(href='#') 2
+								li
+									a(href='#') 3
+								li
+									a(href='#') 4
+								li
+									a(href='#') 5
+								li
+									a(href='#', aria-label='Next')
+										span(aria-hidden='true') 下一頁
+				.booksEdit__bottomBlock.ta_right
+					a(class='btn outLinebtn-navReport' href='#') 取消
+					a(class='btn btn-navReport' href='#') 確認

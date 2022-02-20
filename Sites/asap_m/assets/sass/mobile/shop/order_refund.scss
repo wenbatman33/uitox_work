@@ -1,0 +1,78 @@
+@import "../define/__init.scss";
+//@import "../frame/_header.scss";
+.block{
+	.list{
+		margin-top: 10px;
+		li{
+			position: relative;
+			padding: 5px 0;
+			@include clearfix;
+			.attr{
+				text-align: right;
+				@include clearfix;
+				.count{
+					text-align: right;
+					min-width: 100px;
+					color: gray;
+					display: inline-block;
+				}
+				.price{
+					text-align: left;
+					color: gray;
+					min-width: 80px;
+					display: inline-block;
+				}
+			}
+			.reason{
+				border-top: 1px solid $gray;
+				text-align: right;
+				margin-top: 10px;
+				padding-top: 10px;
+			}
+			.name{
+				margin-bottom: 10px;
+				margin-left: 30px;
+				display: block;
+			}
+			input[type='checkbox']{
+				height: 20px;
+				width: 20px;
+				float: left;
+				margin: 0;
+				padding: 0;
+				@include box-sizing(border-box);
+			}
+			select{
+				margin: 0;
+				padding: 3px;
+				@include box-sizing(border-box);
+			}
+		}
+		.main{
+			font-size: 0.8em;
+			line-height: 140%;
+			padding: 10px;
+			margin-bottom: 10px;
+			border-radius: 3px;
+			border: 1px solid $gray;
+			@include background-gradient(white, $light_gray);
+			.group-prod{				
+				margin-left: 30px;
+				margin-bottom: 10px;
+				li{
+					padding: 3px 0;
+				}
+			}
+		}
+	}
+	.total{
+		margin: 10px 0;
+		padding: 10px 0;
+		line-height: 140%;
+		border-top: 1px solid $gray;
+		@include clearfix;
+	}
+	.btn-next{
+		width: 100%;
+	}
+}

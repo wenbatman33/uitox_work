@@ -1,0 +1,88 @@
+@import "compass";
+@import "compass/reset";
+@import "compass/css3";
+@import "susy";
+@import "breakpoint";
+///預設susy
+$susy:(
+  columns:12,
+  gutters: 0,
+  gutter-position: inside,
+);
+/////////////////////////////////////
+$phone-device:(12);
+$pad-device:(12);
+$pc-device:(12 (70px 30px));
+/////////////////////////////////////
+$break-phone-device: 768px;
+$break-pad-device: 992px;
+$break-pc-device: 1200px;
+/////////////////////////////////////
+///預設
+@for $i from 1 through 12 {
+  .col-phone-#{$i}{
+    @include span($i)
+  }
+}
+///手機每一隔padding
+[class^=col-phone]{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+///直向平板padding
+[class^=col-pad_v]{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+///橫向平板padding
+[class^=col-pad_h]{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+///電腦 padding
+[class^=col-pc]{
+  padding-left: 15px;
+  padding-right: 15px;
+}
+///設定電腦container寬度
+.container{
+  height: auto;
+  @include container;
+  @include susy-breakpoint($break-phone-device,$phone-device){
+    @include container;
+  }
+  @include susy-breakpoint($break-pad-device,$pad-device){
+    @include container;
+  }
+  @include susy-breakpoint($break-pc-device,$pc-device){
+    @include container;
+  }
+}
+////批次設定classes名稱欄寬
+@include breakpoint($break-phone-device){
+  @for $i from 1 through 12 {
+    @include with-layout($phone-device){
+      .col-pad_v-#{$i}{
+        @include span($i);
+      }
+    }
+  }
+}
+@include breakpoint($break-pad-device){
+  @for $i from 1 through 12 {
+    @include with-layout($pad-device){
+      .col-pad_h-#{$i}{
+        @include span($i);
+      }
+    }
+  }
+}
+@include breakpoint($break-pc-device){
+  @for $i from 1 through 12 {
+    @include with-layout($pc-device){
+      .col-pc-#{$i}{
+        @include span($i);
+      }
+    }
+  }
+}

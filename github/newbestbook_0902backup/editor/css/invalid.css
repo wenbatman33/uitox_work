@@ -1,0 +1,32 @@
+input:invalid {
+	border-color:#ed1c24 !important;
+	background:url(images/icon-inputWaring.png) no-repeat right 10px center #fff !important;
+}
+input:invalid:hover, input:invalid:focus {
+	-webkit-box-shadow:none !important;
+	-moz-box-shadow:none !important;
+	box-shadow:none !important;
+}
+
+input::-webkit-validation-bubble-message {
+	color: green !important;
+	background: white;
+	border: 1px solid black;
+	padding: 18px;
+	
+}
+input::-webkit-validation-bubble-icon {
+	display: none;
+}
+input::-webkit-validation-bubble-arrow {
+    background: white;
+    border: solid black 1px;
+}
+
+.invalidMsg { clear: both; margin: 0; height: 14px; color: #ed1c24; font-size: 14px; text-align: left; font-weight: bold; line-height: 14px; }
+.invalidMark { 
+	outline-style: dashed;
+	outline-width: 2px;
+	outline-color: #CB000F;
+	background:url(images/icon-inputWaring.png) no-repeat right 5px top 2px !important;
+}

@@ -1,0 +1,42 @@
+@mixin cssSprite( $spriteVals ) {
+  width: nth( $spriteVals, 1 );
+  height: nth( $spriteVals, 2 );
+  background-repeat: no-repeat;
+  background: url($cssSprite-svg);
+  background: url($cssSprite-png)\0;
+  *background: url($cssSprite-png);
+  background-position: nth( $spriteVals, 4 ) nth( $spriteVals, 5 );
+  vertical-align: middle;
+}
+$cssSprite-path: '../img/cssSprite.svg';
+$cssSprite-svg: '../img/cssSprite.svg';
+$cssSprite-png: '../img/cssSprite.png';
+//////////////////////////////////////////////////////////////
+//以上不用更改
+//////////////////////////////////////////////////////////////
+
+$userInfo: 174px 153px $cssSprite-path -211px -1191px;
+$userPassword: 116px 155px $cssSprite-path -16px -1190px;
+$booksUpLoadIcon_1: 45px 63px $cssSprite-path -497px -1060px;
+$booksUpLoadIcon_2: 48px 63px $cssSprite-path -600px -1060px;
+$booksUpLoadFinger: 38px 56px $cssSprite-path -713px -1060px;
+$icon_42_pc: 42px 42px $cssSprite-path -370px -1064px;
+$icon_42_pad_h: 42px 43px $cssSprite-path -278px -1064px;
+$icon_42_pad: 42px 42px $cssSprite-path -186px -1064px;
+$icon_42_phone_h: 42px 42px $cssSprite-path -94px -1064px;
+$icon_42_phone: 42px 42px $cssSprite-path -2px -1064px;
+$icon_14_close: 14px 14px $cssSprite-path -50px -948px;
+$icon_14_cancel: 14px 14px $cssSprite-path -29px -948px;
+$icon_14_tips: 14px 14px $cssSprite-path -5px -948px;
+$icon_14_cArrow: 14px 14px $cssSprite-path -5px -924px;
+$icon_22_export: 22px 22px $cssSprite-path -5px -465px;
+$icon_22_delete: 22px 22px $cssSprite-path -35px -465px;
+$icon_22_unsale: 22px 22px $cssSprite-path -65px -465px;
+$icon_22_user: 22px 22px $cssSprite-path -99px -465px;
+$icon_w_prompt: 20px 20px $cssSprite-path -5px -753px;
+$icon_selling: 26px 27px $cssSprite-path -39px -128px;
+$icon_editor: 26px 27px $cssSprite-path -5px -128px;
+$icon_22_FAQ: 26px 27px $cssSprite-path -151px -128px;
+$icon_22_bokksList: 26px 27px $cssSprite-path -110px -128px;
+$icon_notices: 26px 27px $cssSprite-path -74px -128px;
+$logo: 108px 42px $cssSprite-path -14px -11px;

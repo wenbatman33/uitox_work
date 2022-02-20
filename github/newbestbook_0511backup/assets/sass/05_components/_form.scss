@@ -1,0 +1,32 @@
+input{
+}
+textarea{
+	resize:none;
+	outline:none;
+	background:#F8F8F8;
+	border: 1px solid #F2F2F2;
+	font-size: 14px;
+	padding: 5px;
+	line-height: 2;
+	&:focus,&:hover{
+		color: #000;
+		border:  1px solid #c8c8c8;
+	}
+}
+.dashedInput{
+	border: none;
+	font-size: 14px;
+	border-bottom:  1px dashed #C9C9C9;
+	&:focus,&:hover{
+		color: #000;
+		border-bottom:  1px dashed #000;
+	}
+}
+.dashedInput.error,textarea.success{
+	color: #F2254C;
+	border-bottom:  1px dashed #F2254C;
+}
+.dashedInput.success,textarea.success{
+	color: #43A600;
+	border-bottom:  1px dashed #43A600;
+}

@@ -1,0 +1,171 @@
+.finish .head {
+  margin: 10px;
+  line-height: 140%;
+  font-size: 0.9em;
+}
+.finish .head .head-main {
+  zoom: 1;
+}
+.finish .head .head-main:after {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+.finish .head .icon-success:before, .finish .head .icon-fail:before, .finish .head .icon-alert:before {
+  float: left;
+}
+.finish .head h1 {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+  margin-left: 60px;
+  line-height: 140%;
+  color: #777777;
+}
+.finish .head h1 .name {
+  color: black;
+  margin-right: 5px;
+}
+.finish .head h2 {
+  margin-left: 60px;
+  font-size: 0.9em;
+  line-height: 140%;
+  margin-top: 10px;
+}
+.finish .head h2 .order-link {
+  color: #1180c2;
+  text-decoration: underline;
+}
+.finish .head h2.gray {
+  color: #777777;
+}
+.finish .head h3 {
+  margin-top: 10px;
+}
+.finish .head p {
+  margin-left: 60px;
+  line-height: 140%;
+  font-size: 0.8em;
+}
+.finish .head p.order {
+  color: #777777;
+}
+.finish .head .price {
+  color: #be252c;
+  font-size: 1.2em;
+  margin: 0 5px;
+}
+.finish .head .button {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.finish .head .red {
+  color: #be252c;
+}
+.finish .list li {
+  zoom: 1;
+}
+.finish .list li:after {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+.finish .list li .attr {
+  text-align: right;
+  margin-right: 0px;
+}
+.finish .list li .attr {
+  zoom: 1;
+}
+.finish .list li .attr:after {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+.finish .list li .attr .count {
+  color: gray;
+}
+.finish .list li .attr .price {
+  text-align: left;
+  margin-left: 10px;
+  min-width: 80px;
+  display: inline-block;
+}
+.finish .list li .attr .dollar {
+  font-size: 0.7em;
+  margin-right: 5px;
+}
+.finish .list li .name {
+  color: gray;
+  margin-bottom: 10px;
+}
+.finish .list .main {
+  font-size: 0.8em;
+  line-height: 140%;
+  padding: 10px 0;
+  border-bottom: 1px solid #e7e7e7;
+}
+.finish .list .main:first-child {
+  padding-top: 0;
+}
+.finish .list .main:last-child {
+  border-bottom: none;
+}
+.finish .list .main .group-prod {
+  color: gray;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.finish .list .main .group-prod li {
+  margin-bottom: 7px;
+}
+.finish .list .sub {
+  margin-top: -12px;
+  background: white;
+}
+.finish .list.lack li {
+  margin-left: 60px;
+  padding: 10px 0;
+}
+.finish .list.lack li .name {
+  color: black;
+  font-size: 1.2em;
+}
+.finish .subtotal {
+  border-top: 1px solid #e7e7e7;
+  padding-top: 10px;
+  margin-top: 5px;
+  text-align: right;
+  color: #be252c;
+}
+.finish .invoice .line {
+  padding: 5px 5px 10px 5px;
+}
+.finish .invoice input[type="radio"] {
+  margin: 0 5px 2px 0;
+}
+.finish .invoice label {
+  color: #777777;
+}
+.finish .invoice .actions-invoice {
+  margin-top: 5px;
+  text-align: center;
+}
+.finish .actions {
+  margin: 10px 0 20px;
+  text-align: center;
+}
+.finish .actions a {
+  margin: 0 5px;
+  vertical-align: bottom;
+  font-size: 1.1em;
+}

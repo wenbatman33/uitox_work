@@ -1,0 +1,207 @@
+.booksPDInfo{
+	float: left;
+	width: 100%;
+	min-height: 600px;
+}
+.booksPDCover{
+	float: left;
+	width: 35%;
+	min-height: 480px;
+	background-color: #fff;
+	border-right: solid 1px #e4e4e4;
+}
+.booksPDData{
+	position: relative;
+	display: block;
+	float: left;
+	width: 64%;
+	min-height: 480px;
+	background-color: #fff;
+	@include box-sizing(border-box);
+}
+.booksPDData ul{
+	@include box-sizing(border-box);
+	display: block;
+	border-bottom: solid 1px #e4e4e4;
+	padding: 10px 10px;
+	margin-left: 10px;
+	@include box-sizing(border-box);
+}
+.booksPDData ul:last-child{
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	border-bottom: none;
+}
+.booksPDData li{
+	color: #999999;
+	font-size: 13px;
+	line-height: 24px;
+}
+.booksPDData li.title{
+	color: #2D6CA2;
+	font-size: 18px;
+	line-height: 24px;
+	overflow:hidden;
+	width: 300px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+
+.booksPDData li span.tag{
+  display: inline-block;
+  height: 24px;
+  line-height: 24px;
+  border-radius: 99em;
+  font-size: 12px;
+  color: #2D6CA2;
+  text-align: center;
+  border: solid 1px #2D6CA2;
+  padding: 0px 10px;
+  margin-right: 5px;
+}
+.booksPDData li.subData{
+	margin-top: 10px;
+}
+.booksPDIntroduction{
+	float: left;
+	width: 100%;
+	min-height: 200px;
+	background-color: #F8F8F8;
+	border-top: solid 1px #e4e4e4;
+	border-bottom: solid 1px #e4e4e4;
+}
+.booksPDIntroductionInner{
+	width: 65%;
+	line-height: 24px;
+	margin: 20px;
+	color: #999;
+	font-size: 14px;
+	@include box-sizing(border-box);
+}
+.booksPDIntroductionInner h3{
+	color: #666;
+	font-size: 16px;
+}
+.booksPDSaleLink{
+	position: absolute;
+	right: 0;
+	display: block;
+	background-color: #fff;
+	width: 370px;
+	padding: 20px;
+	border: solid 2px #F2254C;
+	z-index: 3
+}
+.booksPDSaleLink .t{
+	position: absolute;
+	left: -20px;
+	top: 20px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 10px 20px 10px 0;
+	border-color: transparent #F2254C transparent transparent;
+}
+.booksPDSaleLink .priceInfo ,.booksPDSaleLink .shareButtons{
+	padding: 10px 0px 20px 0;
+	border-bottom: solid 1px #e4e4e4;
+	@include box-sizing(border-box);
+}
+.booksPDSaleLink .priceInfo span{
+	font-size: 18px;
+	color: #F52A4E;
+}
+.booksPDSaleLink .priceInfo span.price{
+	font-size: 28px;
+}
+.priceInfo ul{
+}
+.priceInfo ul li{
+	display: block;
+	height: 40px;
+	margin: 40px 0px;
+}
+.priceInfo ul li img{
+	display: inline-block;
+}
+
+.priceInfo ul li a.saleBtn{
+	display: inline-block;
+	height: 24px;
+	line-height: 24px;
+	border-radius: 99em;
+	font-size: 12px;
+	color: #fff;
+	background-color: #F2254C;
+	text-align: center;
+	padding: 0px 10px;
+	margin-right: 5px;
+	float: right;
+}
+.settingButtons{
+	padding-top: 60px;
+}
+.settingButtons a.button{
+	float: left;
+	width: 43%;
+	height: 40px;
+	@include box-sizing(border-box);
+	margin: 10px;
+}
+.booksPDCover .deviceIpad{
+	position: absolute;
+	display: inline-block;
+	top: 50px;
+	left: 150px;
+	width: 235px;
+	height: 334px;
+}
+.booksPDCover .deviceIpad img{
+	width: 100%;
+	height: auto;
+}
+.booksPDCover .deviceIpad .cover{
+	position: absolute;
+	display: inline-block;
+	top: 8.8%;
+	left: 6.3%;
+	width: 87.5%;
+	height: 82.7%;
+	background-color: #666;
+	z-index: 3;
+}
+.booksPDCover .deviceIpad .cover img{
+	max-height:100%;
+}
+
+
+.booksPDCover .deviceIphone6{
+	position: absolute;
+	display: inline-block;
+	top: 115px;
+	left: 10px;
+	width: 130px;
+	height: 269px;
+}
+
+.booksPDCover .deviceIphone6 .cover{
+	position: absolute;
+	display: inline-block;
+	top: 12.6%;
+	left: 6.4%;
+	width: 86.1%;
+	height: 74.2%;
+	z-index: 3;
+}
+.booksPDCover .deviceIphone6 .cover img{
+	position: absolute;
+	top: 10%;
+	max-height:100%;
+}
+
+.booksPDCover .deviceIphone6 img{
+	width: 100%;
+	height: auto;
+}

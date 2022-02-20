@@ -1,0 +1,99 @@
+.loginColumn
+  .container
+    .loginImages.col-phone-12.col-pad_v-12.col-pad_h-8.col-pc-8
+      h3.ttile 自主出版  讓全世界都看見你的書
+      .pic
+        img(src="../assets/img/loginImg.jpg", alt="")
+    .loginFormWrap.col-phone-12.col-pad_v-12.col-pad_h-4.col-pc-4
+      .loginForm.is-hide
+        .loginRow
+          h4.ttile 會員登入
+        .loginRow
+          p
+            input(type="email" name="username" class="borderInput" placeholder="請先輸入E-Mail")
+          small.Prompt.error.is-hide 信箱格式錯誤
+        .loginRow
+          p
+            input(type="password" name="password" class="borderInput" placeholder="請輸入密碼")
+          small.Prompt.success.is-hide 正確
+        .loginRow.ta_right
+            a(class='forgotPass' href='#') 忘記密碼
+        .loginRowBtn
+          a(class='btn outLinebtn-navReport' href='#') 新用戶請註冊
+          a(class='btn btn-navReport' href='#') 登入
+        .loginRow
+      .loginForm
+        .loginRow
+          h4.ttile 新用戶請註冊
+        .loginRow
+          p
+            input(type="email" name="username" class="borderInput" placeholder="請先輸入E-Mail")
+          small.Prompt.error.is-hide 信箱格式錯誤
+        .loginRow
+          p
+            input(type="email" name="username" class="borderInput" placeholder="確認E-Mail")
+          small.Prompt.error.is-hide 信箱格式錯誤
+        .loginRow
+          p
+            input(type="password" name="password" class="borderInput" placeholder="請設定密碼")
+          small.Prompt.success.is-hide 正確
+        .loginRow
+          p
+            input(type="password" name="password" class="borderInput" placeholder="確認密碼")
+          small.Prompt.success.is-hide 正確
+        .loginRow
+          p
+            input(type="password" name="password" class="borderInput" placeholder="請輸入認證碼")
+          small.Prompt.success.is-hide 正確
+        .loginRow.ta_left
+          img(height='50' id="CaptchaImage" src="https://login.bestbook.com/CaptchaImage.jpg?t=1432794497417")
+          | 
+          a(id="reCaptcha" class="reCaptcha forgotPass" href="#") 重新產生
+        .loginRow.ta_left
+          label.qtip
+            input(type="checkbox" name="accept") 
+            | 我已閱讀並同意 
+          a(class="openPublishContract" href="#") 服務條款及隱私權政策
+        .loginRowBtn
+          a(class='btn outLinebtn-navReport' href='#') 取消
+          a(class='btn btn-navReport' href='#') 送出
+        .loginRow
+      .loginForm.is-hide
+        .loginRow
+          h4.ttile 忘記密碼
+        .loginRow
+          span 請輸入您註冊時的的E-Mail以重設密碼。
+          br
+          span 您可能需要查看垃圾郵件資料夾，
+          br
+          span 或解除封鎖 noreply@bestbook.com。
+          p
+            input(type="email" name="username" class="borderInput error" placeholder="請先輸入E-Mail")
+          small.Prompt.error 信箱格式錯誤
+        .loginRowBtn.ta_left
+          a(class='btn outLinebtn-navReport' href='#') 取消
+          a(class='btn btn-navReport ' href='#') 確認送出
+      .loginForm.is-hide
+        .loginRow
+          h4.ttile 請設定新密碼
+        .loginRow
+          p
+            input(type="password" name="password" class="borderInput success" placeholder="請輸入新密碼")
+          small.Prompt.success 正確
+        .loginRow
+          p
+            input(type="password" name="password" class="borderInput error" placeholder="請確認新密碼")
+          small.Prompt.error 密碼錯誤
+        .loginRowBtn
+          a(class='btn outLinebtn-navReport ' href='#') 取消
+          a(class='btn btn-navReport ' href='#') 確認送出
+      .loginForm.is-hide
+        .loginRow
+          h4.ttile 認證信已寄出，請確認
+        .loginRow
+          p
+            input(type="number" name="number" class="borderInput" placeholder="請輸入認證碼")
+          small.Prompt.error 認證碼錯誤
+        .loginRowBtn
+          a(class='btn outLinebtn-navReport ' href='#') 取消
+          a(class='btn btn-navReport ' href='#') 下一步

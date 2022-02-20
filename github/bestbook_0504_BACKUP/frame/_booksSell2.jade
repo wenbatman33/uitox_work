@@ -1,0 +1,60 @@
+.mainColumn
+  .container
+    .booksSell.col
+      .booksSell__cover.column-4
+        .deviceIphone6
+          svg(width='130', height='269')
+            image(xlink:href='../assets/img/device_iphone6.svg', src='../assets/img/device_iphone6.png', width='130', height='269')
+          .cover
+            img(src="../assets/img/book_1.jpg")
+        .deviceIpad
+          svg(width='235', height='334')
+            image(xlink:href='../assets/img/device_ipad.svg', src='../assets/img/device_ipad.png', width='235', height='334')
+          .cover
+            img(src="../assets/img/book_1.jpg")
+        ul
+          li.title 格雷的五十道陰影I：調教格雷的五十道陰影I：調教格雷的五十道陰影I：調教
+          li fifty shades of grey
+          li 作者： E L詹姆絲   譯者：朱立雅 
+          li 格雷系列 / 第一冊 / 001
+      .bbPageSaleLink.column-7.floatLeft
+        .t
+        .priceInfo
+          h3.fz_24 銷售設定
+          ul
+            li
+              span.priceRed.fz_16.cololr_red 自訂售價： NTD
+              input(class='cololr_red' type='text', value='')
+              span.priceRed.cololr_red（可為0）
+              a(class='fz_12 cololr_gray6' href='#')
+                span.icon_14_tips
+                如何訂售價
+          ul
+            li
+              input(id='allStore' type='checkbox', checked=true)
+              label(for='allStore' class='fz_16 cololr_gray3') 全部平台銷售
+            li.floatLeft
+              input(id='google' type='checkbox', checked=true)
+              label(for='google')
+                img(src='../assets/img/shopGooglePlay.jpg', width='100', height='27')
+              a(class='fz_12 cololr_gray6' href='#')
+                span.icon_14_tips
+                上架規則
+            li.floatRight
+              input(id='amazon' type='checkbox', checked=true)
+              label(for='amazon')
+                img(src='../assets/img/shopAmazone.jpg', width='100', height='27')
+              a(class='fz_12 cololr_gray6' href='#')
+                span.icon_14_tips
+                上架規則
+          ul
+            li.floatLeft
+              input(id='adult' type='checkbox', checked=false)
+              label(for='adult' class='fz_12 cololr_gray9') 是限制級書籍？
+            li.floatRight
+              input(id='bookCopyright' type='checkbox', checked=true)
+              label(for='bookCopyright' class='fz_12 cololr_gray3') 我確認我有權利銷售此本電子書，同時我已閱讀並同意
+              a(class='fz_12 cololr_gray9' href='#') 出版品發行合約書
+        .settingButtons.column-12
+          a(class='cancelbutton button' href='google.com') 取消
+          a(class='setBtn button' href='google.com') 確認

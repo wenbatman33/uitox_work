@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>書的總表 | bestBook</title>
+<link rel="shortcut icon" href="../favicon.ico" />
+<link rel="stylesheet" type="text/css" href="../stylesheets/reset.css">
+<link rel="stylesheet" type="text/css" href="../stylesheets/bb.css">
+<link rel="stylesheet" type="text/css" href="../stylesheets/panel.css">
+<link rel="stylesheet" type="text/css" href="../stylesheets/formUI.css">
+<link rel="stylesheet" type="text/css" href="../stylesheets/jquery-ui-1.10.4.custom.min.css">
+
+<script src="../js/jquery-1.11.0.min.js"></script>
+<script src="../js/jquery-ui-1.10.4.custom.min.js"></script>
+</head>
+
+<body>
+
+<div id="page"> 
+	<!-- Header --> 
+	<header class="header-inn" data-tr-l="h"></header>
+	<script>$("header").load("../header.html");</script>
+	<div class="content w1200">
+		<div class="breadcrumb"><a href="#">首頁</a> > <span>書的總表</span></div>
+		<div class="headtitle">
+			<h1>書的總表</h1>
+			<ul class="subtab">
+				<li class="current"><a href="#">書的總表</a></li>
+				<li><a href="#">業績報表</a></li>
+				<li><a href="#">收款管理中心</a></li>
+			</ul>
+		</div>
+		<div>
+			<div class="toolbar">
+				<a href="AuthorBook-add.shtml" class="btn-default btn-accept btn-large">新增書本</a>
+				<div class="right">
+				<form>
+				<label class="searchUI">
+				<input type="text" placeholder="搜尋 作者及書名"><button></button>
+				</label>
+				</form>
+				</div>
+			</div>
+			<table>
+				<thead>
+					<tr>
+						<th>銷售</th>
+						<th>預覽 / 校稿</th>
+						<th class="p120px">封面</th>
+						<th class="p150px">書名</th>
+						<th>售價</th>
+						<th>銷售網頁</th>
+						<th class="p2">更多功能</th>
+					</tr>
+				</thead>
+			</table>
+<div id="dialog" title="發佈至其他電子書平台">
+	<div class="marginTB10">
+		<label><input type="checkbox"> 我同意將此書發佈至其他電子書平台 <a href="javascript:void(0);" class="ebookweblist">電子書平台清單</a></label>
+	</div>
+	<div id="web">
+		<ol class="num">
+			<li><label><input type="checkbox" checked> 中華電信Hami書城</label></li>
+			<li><label><input type="checkbox" checked> 台哥大mybook書城</label></li>
+			<li><label><input type="checkbox" checked> 遠傳電子書城</label></li>
+			<li><label><input type="checkbox" checked> 春水堂Kollect</label></li>
+		</ol>
+		<div class="text marginTB10">說明：各平台上架時間不同，以平台規定為準</div>
+	</div>
+</div>
+<div class="toolbar">
+	<a href="AuthorBook-add.shtml" class="btn-default btn-accept btn-large">新增書本</a>
+</div>
+
+<script>
+$(function() {
+	$('#dialog #web').hide();
+	$('.ebookweblist').click(function(){
+		$('#web').slideDown();
+	})
+	$("#dialog").dialog({
+		autoOpen: false,
+		modal: true,
+		minWidth: 400,
+		draggable: false,
+	});
+	$(".weblist").click(function() {
+		$("#dialog").dialog( "open" );
+	});
+});
+
+$(function(){
+	$('.moreTools').next().hide();
+	$('.moreTools').click(function(){
+		$(this).hide().next().show();
+	})
+})
+</script>
+			<div class="stepsBanner">
+				<a href="#" target="_self"><img src="../images/stepBanner_800.jpg" alt=""></a>
+			</div>
+		</div>
+	</div>
+<script>
+$('.upload_panel .open').hide();
+$('.upload_panel a.close').click( function () {
+	$(this).hide();
+	$('.upload_panel .inner').hide();
+	$('.upload_panel .open').show();
+})
+$('.upload_panel a.open').click( function () {
+	$(this).hide();
+	$('.upload_panel .inner').show();
+	$('.upload_panel .close').show();
+})
+</script>
+	
+	
+	<!-- Footer --> 
+	<footer class="footer-copyright"></footer>
+	<!-- <script>$("footer").load("../footer.html");</script>--> 
+	
+</div>
+</body>
+</html>

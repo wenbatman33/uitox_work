@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>會員登入 | bestBook</title>
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="stylesheet" type="text/css" href="stylesheets/reset.css">
+<link rel="stylesheet" type="text/css" href="stylesheets/bb.css">
+<link rel="stylesheet" type="text/css" href="stylesheets/panel.css">
+<link rel="stylesheet" type="text/css" href="stylesheets/formUI.css">
+<link rel="stylesheet" type="text/css" href="stylesheets/login.css">
+
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="js/ckeditor/ckeditor.js"></script>
+</head>
+
+<body>
+<div id="page"> 
+	<!-- Header --> 
+	<header></header>
+	<script>$("header").load("header.html");</script>
+	
+	<div class="content w1200">
+				<div class="MsgTitle">忘記密碼</div>
+				<div class="MsgText">請輸入您註冊時的E-mail，我們將會協助您取回密碼！</div>
+		<div class="wrap-box Middle-box">
+			<div class="wrap-inner">
+				<form action="pwforget-step02.html">
+					<div class="field alignC"><input type="email" class="l" placeholder="請輸入E-mail"></div>
+					<div class="toolbar alignC"><a href="index.html" class="btn-default btn-large">取消</a> <input type="submit" class="btn-default btn-accept btn-large" value="確認送出"></div>
+				</form>
+			</div>
+			
+		</div>
+	</div>
+	
+	<!-- Footer --> 
+	<footer></footer>
+	<script>$("footer").load("footer.html");</script>
+<script>
+$(function () {
+	var $target = $('.countryNum');
+	$target.text($(this).find(':selected').val());
+	
+	$('.countrySelect').change(function () {
+		$target.text($(this).find(':selected').val());
+	});
+});
+</script>
+</div>
+</body>
+</html>

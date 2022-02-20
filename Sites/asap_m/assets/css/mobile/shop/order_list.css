@@ -1,0 +1,77 @@
+.order-list .block {
+  position: relative;
+  font-size: 0.8em;
+  padding: 10px;
+  line-height: 140%;
+  display: block;
+}
+.order-list .block.icon-arrow-rs:before {
+  float: right;
+  margin-top: 26px;
+}
+.order-list .block.cancel {
+  background: #e7e7e7;
+}
+.order-list .block.cancel .date {
+  color: #777777;
+}
+.order-list .block.cancel .btn-contact {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  border: 1px solid #777777;
+}
+.order-list .block.null {
+  text-align: center;
+}
+.order-list .block p {
+  padding: 2px 0;
+  color: #777777;
+}
+.order-list .block .date {
+  color: black;
+  margin-bottom: 2px;
+  display: inline-block;
+}
+.order-list .block .state-refund {
+  background: #2290c6;
+  color: white;
+  padding: 2px;
+  margin-left: 10px;
+  font-size: 0.9em;
+  border-radius: 2px;
+  vertical-align: top;
+}
+.order-list .block .state-cancel {
+  background: #777777;
+  color: white;
+  padding: 2px;
+  margin-left: 10px;
+  font-size: 0.9em;
+  border-radius: 2px;
+  vertical-align: top;
+}
+.order-list .page {
+  margin: 20px 10px 10px;
+  text-align: center;
+}
+.order-list .page .page-prev {
+  float: left;
+  color: #777777;
+  display: block;
+  padding: 0 5px;
+  text-decoration: underline;
+}
+.order-list .page .page-next {
+  float: right;
+  color: #777777;
+  display: block;
+  padding: 0 5px;
+  text-decoration: underline;
+}
+
+.order_gold {
+  position: relative;
+  padding: 10px 10px 0;
+  display: block;
+}

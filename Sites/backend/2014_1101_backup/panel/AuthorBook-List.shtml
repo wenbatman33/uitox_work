@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>書的總表 | bestBook</title>
+<link rel="shortcut icon" href="../favicon.ico" />
+<link rel="stylesheet" type="text/css" href="../stylesheets/reset.css">
+<link rel="stylesheet" type="text/css" href="../stylesheets/bb.css">
+<link rel="stylesheet" type="text/css" href="../stylesheets/panel.css">
+<link rel="stylesheet" type="text/css" href="../stylesheets/formUI.css">
+<link rel="stylesheet" type="text/css" href="../stylesheets/jquery-ui-1.10.4.custom.min.css">
+
+<script src="../js/jquery-1.11.0.min.js"></script>
+<script src="../js/jquery-ui-1.10.4.custom.min.js"></script>
+</head>
+
+<body>
+<div id="page"> 
+	<!-- Header --> 
+	<header></header>
+	<script>$("header").load("../header.html");</script>
+	
+	<div class="notice_stickie"><span>黃金傳說創作挑戰賽之當生命只剩下七天【十五天組】.pdf</span> 上傳成功</div>
+
+	<div class="content w1200">
+		<div class="breadcrumb"><a href="#">首頁</a> > <span>書的總表</span></div>
+		<div class="headtitle">
+			<h1>書的總表</h1>
+			<ul class="subtab">
+				<li class="current"><a href="#">書的總表</a></li>
+				<li><a href="#">業績報表</a></li>
+				<li><a href="#">收款管理中心</a></li>
+			</ul>
+		</div>
+		<div>
+			<div class="toolbar">
+				<a href="AuthorBook-add.shtml" class="btn-default btn-accept btn-large">新增書本</a>
+				<div class="right">
+				<form>
+				<label class="searchUI">
+				<input type="text" placeholder="搜尋 作者及書名"><button></button>
+				</label>
+				</form>
+				</div>
+			</div>
+			<div class="tip">點選任一欄位均可進入修改</div>
+			<table>
+				<thead>
+					<tr>
+						<th>檔案上傳<span>上架 / 下架</span></th>
+						<th>電子書編輯 / 校稿<span>檔案狀態</span></th>
+						<th class="p120px">封面</th>
+						<th class="p150px">書名</th>
+						<th>售價<span>NT / 元</span></th>
+						<th>書籍介紹頁<span>作者 / 內容介紹</span></th>
+						<th class="p2">更多功能</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<div class="posit">
+								<div class="top"><span class="state s2">待上架</span></div>
+								<div class="bottom"><a href="#" class="btn-default">立即上架</a></div>
+							</div>
+						</td>
+						<td>
+							<div class="posit">
+								<div class="cen"><a href="#">電子書預覽</a></div>
+								<div class="bottom">檔案更新<div class="time">14-08-27 13:25</div></div>
+							</div>
+						</td>
+						<td><a href="#"><img src="../images/Cover-06.jpg" class="bookcover"></a></td>
+						<td><a href="AuthorBook-add.shtml">育兒日記育兒日記育兒</a></td>
+						<td><a href="BookSet-onsell.shtml" class="money">99,999</a> <span>元</span></td>
+						<td><a href="AuthorBook-add.shtml">預覽</a></td>
+						<td>
+								<a class="moreTools">more</a>
+							<div class="posit">
+								<div class="moreToolUI"><a href="AuthorBook-add.shtml">編輯書籍介紹</a><a href="javascript:void(0);" class="weblist">發佈到其他平台</a><a href="#">刪除本書</a><a href="#">匯出ePub</a></div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="posit">
+								<div class="top"><span class="state s3">已上架</span></div>
+								<div class="bottom"><a href="#">我要下架</a></div>
+							</div>
+						</td>
+						<td>
+							<div class="posit">
+								<div class="cen"><a href="#">電子書預覽</a></div>
+								<div class="bottom">檔案更新<div class="time">14-08-27 13:25</div></div>
+							</div>
+						</td>
+						<td><a href="#"><img src="../images/Cover-07.jpg" class="bookcover"></a></td>
+						<td><a href="AuthorBook-add.shtml">育兒日記</a></td>
+						<td><a href="BookSet-onsell.shtml" class="money">99</a> <span>元</span></td>
+						<td><a href="AuthorBook-add.shtml">預覽</a></td>
+						<td>
+							<a class="moreTools">more</a>
+							<div class="moreToolUI"><a href="AuthorBook-add.shtml">編輯書籍介紹</a><a href="javascript:void(0);" class="weblist">發佈到其他平台</a><a href="#">刪除本書</a><a href="#">匯出ePub</a></div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="posit">
+								<div class="top"><span class="state s3">已下架</span></div>
+								<div class="bottom"><a href="#" class="btn-default">立即上架</a></div>
+							</div>
+						</td>
+						<td>
+							<div class="posit">
+								<div class="cen"><a href="#">電子書預覽</a></div>
+								<div class="bottom">檔案更新<div class="time">14-08-27 13:25</div></div>
+							</div>
+						</td>
+						<td><a href="#"><img src="../images/Cover-08.jpg" class="bookcover"></a></td>
+						<td><a href="AuthorBook-add.shtml">育兒日記</a></td>
+						<td><a href="BookSet-onsell.shtml" class="money">59</a> <span>元</span></td>
+						<td><a href="AuthorBook-add.shtml">預覽</a></td>
+						<td>
+							<a class="moreTools">more</a>
+							<div class="moreToolUI"><a href="AuthorBook-add.shtml">編輯書籍介紹</a><a href="javascript:void(0);" class="weblist">發佈到其他平台</a><a href="#">刪除本書</a><a href="#">匯出ePub</a></div>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<div class="posit">
+								<div class="cen"><a class="nonlink">電子書預覽</a></div>
+								<div class="bottom"><a href="AuthorBook-upload.shtml" class="btn-default btn-accept">檔案上傳</a></div>
+							</div>
+						</td>
+						<td><a href="#"><img src="../images/Cover-09.jpg" class="bookcover"></a></td>
+						<td><a href="AuthorBook-add.shtml">新增</a></td>
+						<td><a href="BookSet-onsell.shtml" class="money">設定</a></td>
+						<td><a href="AuthorBook-add.shtml">預覽</a></td>
+						<td>
+							<a class="moreTools">more</a>
+							<div class="moreToolUI"><a href="AuthorBook-add.shtml">編輯書籍介紹</a><a href="javascript:void(0);" class="weblist">發佈到其他平台</a><a href="#">刪除本書</a><a href="#">匯出ePub</a></div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="posit">
+								<div class="top"><span class="state s3">檢舉下架</span></div>
+								<div class="bottom"><a href="#">聯絡客服</a></div>
+							</div>
+						</td>
+						<td>
+							<div class="posit">
+								<div class="cen"><a href="#">電子書預覽</a></div>
+								<div class="bottom">檔案更新<div class="time">14-08-27 13:25</div></div>
+							</div>
+						</td>
+						<td><a href="#"><img src="../images/Cover-10.jpg" class="bookcover"></a></td>
+						<td><a href="AuthorBook-add.shtml">多拉A夢的冒險</a></td>
+						<td><a href="BookSet-onsell.shtml" class="money">100</a> <span>元</span></td>
+						<td><a href="AuthorBook-add.shtml">預覽</a></td>
+						<td>
+							<a class="moreTools">more</a>
+							<div class="moreToolUI"><a href="AuthorBook-add.shtml">編輯書籍介紹</a><a href="javascript:void(0);" class="weblist">發佈到其他平台</a><a href="#">刪除本書</a><a href="#">匯出ePub</a></div>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							<div class="posit">
+								<div class="cen"><a class="nonlink">電子書預覽</a></div>
+								<div class="bottom"><a href="AuthorBook-upload.shtml" class="btn-default btn-accept">檔案上傳</a></div>
+							</div>
+						</td>
+						<td><a href="AuthorBook-add.shtml#coverEdit"><img src="../images/bookcover-default.jpg" class="bookcover default hoverZoomLink"></a></td>						
+						<td><a href="AuthorBook-add.shtml">新書1</a></td>
+						<td><a href="BookSet-onsell.shtml" class="money">設定</a></td>
+						<td><a href="AuthorBook-add.shtml">預覽</a></td>
+						<td>
+							<a class="moreTools">more</a>
+							<div><a href="#" class="nonlink">編輯書籍介紹</a><a href="#" class="nonlink">發佈到其他平台</a><a href="#" class="nonlink">刪除本書</a><a href="#" class="nonlink">匯出ePub</a></div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+<div id="dialog" title="發佈至其他電子書平台">
+	<div class="marginTB10">
+		<label><input type="checkbox"> 我同意將此書發佈至其他電子書平台 <a href="javascript:void(0);" class="ebookweblist">電子書平台清單</a></label>
+	</div>
+	<div id="web">
+		<ol class="num">
+			<li><label><input type="checkbox" checked> 中華電信Hami書城</label></li>
+			<li><label><input type="checkbox" checked> 台哥大mybook書城</label></li>
+			<li><label><input type="checkbox" checked> 遠傳電子書城</label></li>
+			<li><label><input type="checkbox" checked> 春水堂Kollect</label></li>
+		</ol>
+		<div class="text marginTB10">說明：各平台上架時間不同，以平台規定為準</div>
+	</div>
+</div>
+
+<script>
+$(function() {
+	$('#dialog #web').hide();
+	$('.ebookweblist').click(function(){
+		$('#web').slideDown();
+	})
+	
+	$("#dialog").dialog({
+		autoOpen: false,
+		modal: true,
+		minWidth: 400,
+		draggable: false,
+	});
+	$(".weblist").click(function() {
+		$("#dialog").dialog( "open" );
+	});
+});
+
+$(function(){
+	$('.moreTools').next().hide();
+	$('.moreTools').click(function(){
+		$(this).hide().next().show();
+	})
+})
+</script>
+			<div class="toolbar">
+				<div class="page_num"> <a href="#" class="prev_page">第一頁</a><a href="#">上一頁</a><a href="#">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a href="#" class="current">6</a><a href="#">7</a><a href="#">8</a><a href="#">9</a><a href="#">10</a><a href="#">11</a><a href="#">下一頁</a><a href="#" class="next_page">最後一頁</a></div>
+				<div class="right">每頁顯示
+					<select>
+						<option>10筆</option>
+						<option>20筆</option>
+						<option>50筆</option>
+						<option>100筆</option>
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="upload_panel">
+		<div class="header"><a href="#" class="close">▼</a><a href="#" class="open">▲</a></div>
+		<div class="inner">
+			<ul>
+				<li>
+					<div class="meter yellow"><span style="width:30%"></span></div>
+					<div class="moreUI"><span class="state s5">暫停</span> 黃金傳說創作挑戰賽之當生命只剩下七天.pdf</div>
+					<div class="control"><a href="#" class="pause" title="暫停"></a><a href="#" class="delet" title="刪除"></a></div>
+				</li>
+				<li>
+					<div class="meter green"><span style="width:15%"></span></div>
+					<div class="moreUI"><span class="state s1">上傳中</span> 童話無限好，只是近惡搞.pdf</div>
+					<div class="control"><a href="#" class="play" title="開始"></a><a href="#" class="delet" title="刪除"></a></div>
+				</li>
+				<li>
+					<div class="meter green"><span style="width:60%"></span></div>
+					<div class="moreUI"><span class="state s1">上傳中</span> 育兒日記.pdf</div>
+					<div class="control"><a href="#" class="pause" title="暫停"></a><a href="#" class="delet" title="刪除"></a></div>
+				</li>
+				<li>
+					<div class="meter green"><span style="width:60%"></span></div>
+					<div class="moreUI"><span class="state s1">上傳中</span> 育兒日記.pdf</div>
+					<div class="control"><a href="#" class="pause" title="暫停"></a><a href="#" class="delet" title="刪除"></a></div>
+				</li>
+				<li>
+					<div class="meter green"><span style="width:60%"></span></div>
+					<div class="moreUI"><span class="state s1">上傳中</span> 育兒日記.pdf</div>
+					<div class="control"><a href="#" class="pause" title="暫停"></a><a href="#" class="delet" title="刪除"></a></div>
+				</li>
+				<li>
+					<div class="meter green"><span style="width:60%"></span></div>
+					<div class="moreUI"><span class="state s1">上傳中</span> 育兒日記.pdf</div>
+					<div class="control"><a href="#" class="pause" title="暫停"></a><a href="#" class="delet" title="刪除"></a></div>
+				</li>
+			</ul>
+		</div>
+	</div>
+
+<script>
+$('.upload_panel .open').hide();
+$('.upload_panel a.close').click( function () {
+	$(this).hide();
+	$('.upload_panel .inner').hide();
+	$('.upload_panel .open').show();
+})
+$('.upload_panel a.open').click( function () {
+	$(this).hide();
+	$('.upload_panel .inner').show();
+	$('.upload_panel .close').show();
+})
+</script>
+	
+	
+	<!-- Footer --> 
+	<footer></footer>
+	<script>$("footer").load("../footer.html");</script>
+	
+</div>
+</body>
+</html>

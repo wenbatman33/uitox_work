@@ -1,0 +1,33 @@
+.publish{
+	width: 50%;
+	float: left;
+	border-right: 1px solid $light_gray;
+	padding: 0 30px;
+	margin: 30px 0; 
+	img{
+		width: 100%;
+	}
+}
+
+@media only screen and (min-width: $screen-lg-min) and (max-width: $screen-lg-max){
+	.publish{
+	}
+}
+
+@media only screen and (min-width: $screen-md-min) and (max-width: $screen-md-max){
+	.publish{
+		width: 100%;
+		padding: 0;
+		margin: 0;
+		border-right: none;
+	}
+}
+
+@media only screen and (max-width: $screen-sm-max){
+	.publish{
+		width: 100%;
+		padding: 0;
+		margin: 0;
+		border-right: none;
+	}
+}

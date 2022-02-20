@@ -1,0 +1,114 @@
+.block .list {
+  margin-top: 10px;
+}
+.block .list li {
+  position: relative;
+  padding: 5px 0;
+}
+.block .list li {
+  zoom: 1;
+}
+.block .list li:after {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+.block .list li .attr {
+  text-align: right;
+}
+.block .list li .attr {
+  zoom: 1;
+}
+.block .list li .attr:after {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+.block .list li .attr .count {
+  text-align: right;
+  min-width: 100px;
+  color: gray;
+  display: inline-block;
+}
+.block .list li .attr .price {
+  text-align: left;
+  color: gray;
+  min-width: 80px;
+  display: inline-block;
+}
+.block .list li .reason {
+  border-top: 1px solid #cccccc;
+  text-align: right;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.block .list li .name {
+  margin-bottom: 10px;
+  margin-left: 30px;
+  display: block;
+}
+.block .list li input[type='checkbox'] {
+  height: 20px;
+  width: 20px;
+  float: left;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.block .list li select {
+  margin: 0;
+  padding: 3px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.block .list .main {
+  font-size: 0.8em;
+  line-height: 140%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  border: 1px solid #cccccc;
+  background-color: #7f7f7f;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(#e7e7e7));
+  background-image: -webkit-linear-gradient(top, white, #e7e7e7);
+  background-image: -moz-linear-gradient(top, white, #e7e7e7);
+  background-image: -ms-linear-gradient(top, white, #e7e7e7);
+  background-image: -o-linear-gradient(top, white, #e7e7e7);
+  background-image: linear-gradient(top bottom, #ffffff, #e7e7e7);
+}
+.block .list .main .group-prod {
+  margin-left: 30px;
+  margin-bottom: 10px;
+}
+.block .list .main .group-prod li {
+  padding: 3px 0;
+}
+.block .total {
+  margin: 10px 0;
+  padding: 10px 0;
+  line-height: 140%;
+  border-top: 1px solid #cccccc;
+}
+.block .total {
+  zoom: 1;
+}
+.block .total:after {
+  content: ".";
+  display: block;
+  clear: both;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+.block .btn-next {
+  width: 100%;
+}

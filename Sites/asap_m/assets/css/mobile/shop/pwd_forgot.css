@@ -1,0 +1,67 @@
+body {
+  background-attachment: fixed;
+  background-color: #7f7f7f;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(white), to(#cccccc));
+  background-image: -webkit-linear-gradient(top, white, #cccccc);
+  background-image: -moz-linear-gradient(top, white, #cccccc);
+  background-image: -ms-linear-gradient(top, white, #cccccc);
+  background-image: -o-linear-gradient(top, white, #cccccc);
+  background-image: linear-gradient(top bottom, #ffffff, #cccccc);
+}
+
+.layout-wrapper {
+  padding: 20px;
+}
+.layout-wrapper form {
+  margin: 10px 0;
+}
+.layout-wrapper form h1 {
+  margin-bottom: 10px;
+}
+.layout-wrapper form input[type='password'], .layout-wrapper form input[type='email'], .layout-wrapper form input[type='text'] {
+  width: 100%;
+  padding: 10px;
+  margin: -1px 0 0 0;
+  border: 1px solid #cccccc;
+  font-size: 1em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.layout-wrapper form .reg-check .reg-pic {
+  float: left;
+  width: 100px;
+  margin-top: 5px;
+  border: 1px solid #cccccc;
+}
+.layout-wrapper form .reg-check .reg-change {
+  float: left;
+  margin-top: 20px;
+  margin-left: 10px;
+  display: inline-block;
+}
+.layout-wrapper form .button {
+  width: 100%;
+  margin: 10px 0;
+  font-size: 1.2em;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.layout-wrapper form input[type='checkbox'] {
+  height: 25px;
+  width: 25px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.layout-wrapper form a {
+  color: #777777;
+  text-decoration: underline;
+}
+.layout-wrapper form .fpwd {
+  margin: 30px;
+  text-align: center;
+  display: block;
+}

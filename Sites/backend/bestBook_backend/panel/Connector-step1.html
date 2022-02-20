@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>螢幕模擬器 | bestBook</title>
+<link rel="shortcut icon" href="../favicon.gif" />
+<link rel="stylesheet" type="text/css" href="../stylesheets/reset.css">
+<link rel="stylesheet" type="text/css" href="../stylesheets/bb.css">
+<link rel="stylesheet" type="text/css" href="../stylesheets/panel.css">
+<link rel="stylesheet" type="text/css" href="../stylesheets/formUI.css">
+<link rel="stylesheet" type="text/css" href="../stylesheets/viewerUI.css">
+
+<script src="../js/jquery-1.11.0.min.js"></script>
+<script src="../js/jquery-ui-1.10.4.custom.min.js"></script>
+<script src="../dev/Utils.js"></script>
+
+<script src="../js/jquery-migrate-1.2.1.min.js"></script>
+
+<script src="../js/revise.js"></script>
+<script src="../js/reviseOriginal.js"></script>
+<script src="../js/reviseViewer.js"></script>
+
+<script src="../js/splitter.js"></script>
+
+</head>
+<body>
+<div id="page" class="viewUI">
+	<!-- Header
+	<header></header>
+	<script>$("header").load("../header.html");</script>
+	-->
+	<div class="content">
+		<div class="breadcrumb"><a href="#">首頁</a> > <a href="#">書的總表</a> > <span>螢幕模擬器</span></div>
+		<div class="headtitle extraMargin">
+			<h1>書名：過盡千帆皆不是，風花雪月寄此生</h1>
+			<div class="right">
+				<a href="#" class="btn-default btn-large">離開</a>　
+			</div>
+			<div class="right">
+				<a href="Connector-step2.html" class="btn-default btn-accept btn-large ">內容編輯</a>
+				<p class="tipDes">檢查錯字、排版等</p>
+			</div>
+		</div>
+		<div class="wrap-column" id="splitterContainer">
+			<div class="column PreviewColumn_left">
+				<div class="column-inner">
+					<div class="connector top wrapper-dropdown"><span class="redTitle">行動裝置預覽</span>
+		
+					</div>
+					<div id="viewer_panel">
+						<div class="viewer iPhone-5s">
+							<iframe class="viewer_frame" src="http://demo.bestbook.com/Viewer/connector.do?write=1&bookid=3a5EIh"></iframe>
+						</div>
+					</div>
+					<a href="#" class="arrow prev" title="上一頁">上一頁</a> <a href="#" class="arrow next" title="下一頁">下一頁</a>
+					
+					<div class="connector bottom">
+						<div class="RangeSlider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false">
+							<a href="#" class="ui-slider-handle ui-state-default ui-corner-all">
+							<div id="range_tooltip"></div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="column PreviewColumn_right">
+				<div class="PreviewColumn_rightTitile"><span class="redTitle">請選擇裝置</span></div>
+				<ul class="deviceselector">
+					<li class="h">編輯模式</li>
+					<li><a href="#" class="resize" id="full-screen">滿版</a></li>
+					<li class="h">手機</li>
+					<li><a href="#" class="resize" id="iPhone-6-Plus">iPhone 6 Plus</a></li>
+					<li><a href="#" class="resize" id="iPhone-6">iPhone 6</a></li>
+					<li class="current"><a href="#" class="resize" id="iPhone-5s">iPhone 5s</a></li>
+					<li><a href="#" class="resize" id="Galaxy-Note-3">Galaxy Note 3</a></li>
+					<li><a href="#" class="resize" id="Zenfone-5">Zenfone 5</a></li>
+					<!--
+					<li><a href="#" class="resize" id="HTC-One">HTC One</a></li>
+					<li><a href="#" class="resize" id="Sony-Xperia">Sony Xperia</a></li>
+					-->
+					<li class="h">平板</li>
+					<li><a href="#" class="resize" id="iPad-Air">iPad Air</a></li>
+					<li><a href="#" class="resize" id="iPad-Mini">iPad Mini</a></li>
+					<li><a href="#" class="resize" id="Galaxy-Note-10">Galaxy Note 10</a></li>
+					<li><a href="#" class="resize" id="Nexus-ASUS">Nexus(ASUS)</a></li>
+				</ul>
+				</div>
+
+			<script>
+$(function(){
+	//放大
+	$(".zoom-in").click(function(){
+		$(".original img").animate({"width" : "+=50px",}, "fast");
+     return false; 
+	});
+	//縮小
+	$(".zoom-out").click(function(){
+		$(".original img").animate({"width" : "-=50px",}, "fast");
+     return false; 
+	});
+	//1:1
+	$(".zoom-original").click(function(){
+		$(".original img").animate({"width" : "100%",}, "fast");
+     return false; 
+	});
+})
+
+$(function(){	
+	
+	function last() {
+		var lastClass =  $(".viewer").attr('class').split(' ').pop();
+		$(".viewer").removeClass(lastClass);
+	}
+	$('.view-size a.resize').click(function(){
+		last();
+		var cid = $(this).attr('id');
+		$("#viewer_panel .viewer").addClass(cid);
+	})
+
+})
+
+
+//Initial load of page
+$(document).ready(sizeContent);
+
+//Every resize of window
+$(window).resize(sizeContent);
+
+//Dynamically assign height
+function sizeContent() {
+    var newHeight = $("html").height() - $("header").height() - $("footer").height() - 10 + "px";
+    $(".wrap-column").css("height", newHeight);
+}
+
+// Header Show/Hide
+$(function(){
+	$("header").css({
+		"position": "fixed",
+		"z-index": "99999"
+		}).delay(1000).animate({top : "-63",},500);
+		return;
+})
+$(function(){
+	$("header").hover(function(){
+		$(this).animate({top : "0",},500);
+	});
+	$("header").mouseleave(function(){
+		$(this).animate({top : "-63",},500);
+		});
+	return;
+})
+
+
+// Panel Resizeble
+$(document).ready(function() {
+	/*
+	$("#splitterContainer").splitter({
+		minAsize:400,
+		maxAsize:660,
+		splitVertical:true,
+		A:$('#leftPane'),
+		B:$('#rightPane'),
+		slave:$("#rightSplitterContainer"),
+		closeableto:0
+	});
+*/
+});
+</script> 
+		</div>
+	</div>
+	
+	<!-- Footer
+	<footer></footer>
+	<script>$("footer").load("../footer.html");</script>
+	 -->
+</div>
+</body>
+</html>

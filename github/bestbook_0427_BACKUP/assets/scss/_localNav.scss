@@ -1,0 +1,56 @@
+.localNav{
+	width: 100%;
+	min-width: 1200px;
+	height: 40px;
+	line-height: 40px;
+	vertical-align: middle;
+	border-bottom: solid 1px #e4e4e4;
+}
+.localNav .breadcrumbs{
+	position: relative;
+	float: left;
+	left: 0;
+	font-size: 13px;
+}
+.localNav .breadcrumbs a{
+	color: #2D6CA2;
+	text-decoration: underline;
+}
+.localNav .navButton{
+	position: relative;
+	float: right;
+	right: 0;
+}
+.btnReport{
+	display: inline-block;
+	width: 150px;
+	height: 40px;
+	background-color: #4277A8;
+	color: #fff;
+	text-align: center;
+	line-height: 40px;
+	vertical-align: middle;
+	font-size: 14px;
+	margin: -2px 0px 0 2px;
+}
+.btnReport:hover{
+	background-color: #3498DB;
+	@include buttonPressShadow;
+}
+.btnAddBook{
+	display: inline-block;
+	width: 150px;
+	height: 40px;
+	background-color: #F2254C;
+	color: #fff;
+	text-align: center;
+	line-height: 40px;
+	vertical-align: middle;
+	font-size: 14px;
+	margin: -2px 0px 0 2px;
+
+}
+.btnAddBook:hover{
+	background-color: #F01E62;
+	@include buttonPressShadow;
+}

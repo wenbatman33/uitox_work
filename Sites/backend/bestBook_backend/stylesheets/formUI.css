@@ -1,0 +1,90 @@
+/* input set *//*form-------------------------------------------------*/
+input[type="radio"], input[type="checkbox"] { margin:0 5px 0 0; vertical-align:middle; }
+input.first[type="radio"], input.first[type="checkbox"] { margin-left:0; }
+input[type=text], textarea, input[type="password"], input[type="file"], input[type="email"], input[type="date"] {
+padding:7px;
+background-color:#fff;
+-webkit-box-sizing:border-box;
+-moz-box-sizing:border-box;
+box-sizing:border-box;
+-webkit-box-shadow:inset 1px 1px 4px rgba(0,0,0,0.4);
+-moz-box-shadow:inset 1px 1px 4px rgba(0,0,0,0.4);
+box-shadow:inset 1px 1px 4px rgba(0,0,0,0.4);
+}
+select, input[type=text], input[type="password"], input[type="file"], input[type="email"], input[type="date"], textarea {
+display:inline-block;
+vertical-align:middle;
+color:#000;
+font-size:15px;
+font-family:Verdana;
+border:solid 1px #c2c2c2;
+-webkit-box-sizing:border-box;
+-moz-box-sizing:border-box;
+box-sizing:border-box;
+-webkit-border-radius:5px;
+-moz-border-radius:5px;
+border-radius:5px;
+-webkit-box-shadow:inset 1px 1px 4px rgba(0,0,0,0.2);
+-moz-box-shadow:inset 1px 1px 4px rgba(0,0,0,0.2);
+box-shadow:inset 1px 1px 4px rgba(0,0,0,0.2);
+}
+select:focus, input[type=text]:focus, input[type="password"]:focus, input[type="file"]:focus, textarea:focus, input[type="email"]:focus, input[type="date"]:focus {
+	background:#fff;
+	background-image:none;
+	border-color:#3399FF;
+	-webkit-box-shadow:0 0 2px rgba(51,153,255,1);
+	-moz-box-shadow:0 0 2px rgba(51,153,255,1);
+	box-shadow:0 0 2px rgba(51,153,255,1);
+}
+textarea { overflow-y:auto; letter-spacing:0.5px; font-size:13px; line-height:150%; }
+select { padding:3px 4px; }
+.left select { padding:5px 4px; }
+
+input.s[type="text"], input.s[type="password"], input.s[type="email"], input.s[type="date"] { width:200px; }
+input.m[type="text"], textarea.m, input.m[type="password"], input.m[type="email"], input.m[type="date"] { width:350px; }
+input.l[type="text"], textarea.l, input.l[type="password"], input.l[type="email"], input.l[type="date"] { width:100%; }
+
+.error {
+	border-color:#ed1c24 !important;
+	background:url(images/icon-tip.png) no-repeat right 10px center #fff !important;
+}
+.error:hover, .error:focus {
+	-webkit-box-shadow:none !important;
+	-moz-box-shadow:none !important;
+	box-shadow:none !important;
+}
+
+form { font-size:13px; }
+form input[type="file"] { margin:3px 3px 8px 0; }
+form select { margin:0 3px 0 0; padding:6px; }
+form span.notice { clear:both; display:block; padding-left:4px; margin-top:5px; }
+form span.notice.info { color:#3173C5; }
+form span.notice.attention { color:#D73624; }
+form span.notice img { margin-right:5px; vertical-align:middle; }
+form a.btn-default, form a.btn-light { margin-left:3px }
+form a.btn-default:first-child { margin:0; }
+span.required { font-size:120%; color:#C83424; margin-right:2px; }
+form .wrap-tip { margin:0 0 10px 25px; }
+form .wrap-tip .wrap-inner { display:inline-block; padding:5px; margin:0 !important; background:#666; color:#FFF; }
+
+.field { margin:10px 0; width:100%; overflow:visible; }
+.field:last-child { margin:0; }
+.field .label, .field .setting { display:inline-block; padding:5px 0; line-height:30px; }
+.field .label { width:25%; color:#000; margin-right:-5px; font-size:15px; text-align:right; height:30px; vertical-align:top; }
+.field .setting { width:75%; color:#666; }
+.field .setting div { line-height:20px; }
+.field .label b { padding-right:15px; }
+.field .setting li, .field .setting div { line-height:normal; margin-top:5px; }
+.field .setting ol.num { padding-bottom:10px; }
+.field .setting ol.num li { float:left; margin:0 10px 5px 0; line-height:30px; }
+.field .setting ol.num li.non { list-style:none; }
+.field .label_w40 { width:40%;}
+.field .setting_w60 { width:60%;}
+
+.formUI .toolbar { overflow:visible; }
+.formUI .btn-default { height:32px; line-height:30px; font-size:15px; font-family:"微軟正黑體"; }
+.formUI .toolbar.style2 .btn-default { line-height:inherit; padding:5px 20px !important; margin:0 10px; height:47px; vertical-align:middle; }
+.formUI .toolbar.style2 .btn-default.btn-accept { line-height:normal; padding:5px 20px !important; height:inherit; }
+.formUI .toolbar.style2 .btn-default.btn-accept.btn-l { line-height:inherit; padding:5px 20px !important; margin:0 10px; height:47px; vertical-align:middle; }
+.formUI .toolbar.style2 .btn-default span { display:block; line-height:normal; font-size:12px; }
+

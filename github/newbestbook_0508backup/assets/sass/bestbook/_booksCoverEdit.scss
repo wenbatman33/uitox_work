@@ -1,0 +1,46 @@
+ul.template_list {
+    display: block;
+    height: auto;
+    padding: 0;
+    margin: 0 auto;
+    background-color: #fff;
+    overflow: hidden;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box
+}
+ul.template_list li {
+    position: relative;
+    float: left;
+    margin: 7px 0 0 21px;
+    width: 75px;
+    height: 105px;
+    border: solid 1px #ccc;
+    cursor: pointer;
+    overflow: hidden
+}
+
+ul.template_list li:hover:after,ul.template_list li.current:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3)
+}
+
+ul.template_list li.current {
+    border: solid 1px #09F;
+    -webkit-box-shadow: 0 0 5px #09F;
+    -box-shadow: 0 0 5px #09F;
+    box-shadow: 0 0 5px #09F
+}
+
+ul.template_list li img {
+    width: 75px;
+    height: 105px
+}
+.paginationBlock{
+    margin: 20px 0;
+}

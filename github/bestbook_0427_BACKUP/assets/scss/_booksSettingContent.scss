@@ -1,0 +1,21 @@
+.booksSetting{
+	position: relative;
+	float: left;
+	width: 100%;
+	height: auto;
+}
+.booksSetting .booksPDCover{
+	position: relative;
+	float: left;
+	width: 40%;
+	height: auto;
+}
+
+.booksSetting .booksPDCover .deviceIpad{
+	position: relative;
+	display: inline-block;
+	top: 10px;
+	left: 20px;
+	width: 426px;
+	height: 619px;
+}

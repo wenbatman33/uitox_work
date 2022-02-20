@@ -1,0 +1,35 @@
+.footer{
+	text-align: center;
+	padding: 20px 0 40px;
+	font-size: 0.8em;
+	color: $dark_gray;
+	z-index: 10;
+	.service{
+		margin-bottom: 15px;
+		display: block;
+		@include clearfix;
+		li{
+			float: right;
+			a{
+				padding: 10px 0;
+				margin: 0 15px;
+				color: $blue;
+				text-decoration: underline;
+				&:hover{
+					color: black;
+				}
+			}
+		}
+	}
+	p{
+		line-height: 140%;
+		padding: 5px 10px;
+		a{
+			color: $dark_gray;
+			text-decoration: underline;
+			&:hover{
+				color: black;
+			}
+		}
+	}
+}

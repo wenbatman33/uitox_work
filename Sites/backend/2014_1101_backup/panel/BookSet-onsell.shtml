@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>書籍上架 > 定價及發行 | bestBook</title>
+<link rel="shortcut icon" href="../favicon.ico" />
+<link rel="stylesheet" type="text/css" href="../stylesheets/reset.css">
+<link rel="stylesheet" type="text/css" href="../stylesheets/bb.css">
+<link rel="stylesheet" type="text/css" href="../stylesheets/panel.css">
+<link rel="stylesheet" type="text/css" href="../stylesheets/formUI.css">
+<link rel="stylesheet" type="text/css" href="../stylesheets/jquery-ui-1.10.4.custom.min.css">
+<!--link rel="stylesheet" type="text/css" href="../stylesheets/jquery-ui-1.10.4.custom.fix.css"-->
+
+<script src="../js/jquery-1.11.0.min.js"></script>
+<script src="../js/jquery-ui-1.10.4.custom.min.js"></script>
+<script src="../js/ckeditor/ckeditor.js"></script>
+</head>
+
+<body>
+<div id="page"> 
+	<!-- Header -->
+	<header></header>
+	<script>$("header").load("../header.html");</script>
+	<div class="content w800">
+		<div class="headtitle">
+			<h1>書籍上架</h1>定價及發行
+		</div>
+		<div class="wrap-box onSellUI">
+			<form action="BookSet-publish-step1.shtml" class="formUI">
+				<div class="wrap-inner">
+				<div class="column l"><img src="../images/bb-9.jpg"></div>
+				<div class="column r">
+					<div class="fs-18">您的書：<b class="fs-24 col-green">東京自助行2014</b> 可以上架！</div>
+					<div class="field">
+						<div class="label"><b>電子書售價</b></div>
+						<div class="setting">
+							<input type="text" value="" size="6" maxlength="6" tabindex="2"> 元 (可為0)
+							<div>
+								<label><input type="checkbox" id="isAgeSelected">同意也賣紙本書</label>
+							</div>
+							<ul id="pod">
+								<li>
+									<label class="qtip"><input name="pod" type="radio">雲書bestbook代為印刷、配送</label>
+									<div class="wrap-tip">
+										<div class="wrap-inner"><b>(紙本書售價 = 電子書售價 + 180元)</b><br>
+											<span>180元為印刷+運送成本，成本變動以網頁顯示為準</span></div>
+									</div>
+								</li>
+								<li>
+									<label><input name="pod" type="radio">紙本書自行提供，由ASAP出貨 （需先簽約）</label>
+								</li>
+								<li>
+									<input type="text" class="l" placeholder="ASAP書籍商品頁連結">
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="field">
+						<div class="label"><b>請問是否為限制級？</b></div>
+						<div class="setting">
+							<label><input type="radio" name="restricted">否</label>
+							<label><input type="radio" name="restricted">是</label>
+						</div>
+					</div>
+					<div class="field">
+						<div class="label"><b>版權與發行同意</b></div>
+						<div class="setting">
+							<div><label><input type="radio">我是作者，我確認文章、圖片絕無抄襲或已取得授權</label></div>
+							<div><label><input type="radio">我是出版社，已得到本書作者授權可發行此書</label></div>
+							<div><label><input type="radio">我是代理商，已得到本書作者/出版授權可以發行此書</label></div>
+							<div style="margin-top:20px;">
+								<label><input type="checkbox" checked>我已閱讀並同意 <a href="#">出版品發行合約書</a></label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+				</div>
+				<div class="toolbar alignC style2">
+					<a href="#" class="btn-default">取消</a>
+					<div style="display:inline-block; vertical-align:top;">
+						<a href="#" class="btn-default btn-accept btn-l">確認修改</a>
+						<div>資料將與網頁同步更新</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+<script>
+$('#pod').hide();
+$('#isAgeSelected').bind('change', function () {
+   if ($(this).is(':checked'))
+     $("#pod").show();
+   else
+     $("#pod").hide();
+});
+</script> 
+	<!-- Footer -->
+	<footer></footer>
+	<script>$("footer").load("../footer.html");</script> 
+</div>
+</body>
+</html>

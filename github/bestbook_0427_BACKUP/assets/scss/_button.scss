@@ -1,0 +1,13 @@
+.setBtn{
+	display: inline-block;
+	background-color: #F2254C;
+	color: #fff;
+	text-align: center;
+	line-height: 40px;
+	vertical-align: middle;
+	font-size: 14px;
+}
+.setBtn:hover{
+	background-color: #F01E62;
+	@include buttonPressShadow;
+}

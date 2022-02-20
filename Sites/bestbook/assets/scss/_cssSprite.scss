@@ -1,0 +1,24 @@
+@mixin cssSprite( $spriteVals ) {
+	width: nth( $spriteVals, 1 );
+	height: nth( $spriteVals, 2 );
+	background-repeat: no-repeat;
+	background: url($cssSprite-svg);
+	background: url($cssSprite-png)\0;
+	*background: url($cssSprite-png);
+	background-position: nth( $spriteVals, 4 ) nth( $spriteVals, 5 );
+}
+$cssSprite-path: '../img/cssSprite.svg';
+$cssSprite-svg: '../img/cssSprite.svg';
+$cssSprite-png: '../img/cssSprite.png';
+//////////////////////////////////////////////////////////////
+//以上不用更改
+//////////////////////////////////////////////////////////////
+$icon_22_export: 22px 22px $cssSprite-path -5px -465px;
+$icon_22_delete: 22px 22px $cssSprite-path -35px -465px;
+$icon_22_unsale: 22px 22px $cssSprite-path -65px -465px;
+$icon_22_user: 22px 22px $cssSprite-path -99px -465px;
+$icon_w_prompt: 20px 20px $cssSprite-path -5px -753px;
+$icon_selling: 26px 27px $cssSprite-path -39px -128px;
+$icon_editor: 26px 27px $cssSprite-path -5px -128px;
+$icon_notices: 26px 27px $cssSprite-path -74px -128px;
+$logo: 108px 42px $cssSprite-path -14px -11px;

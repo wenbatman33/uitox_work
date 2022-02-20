@@ -1,0 +1,41 @@
+doctype html
+html
+  include _frame/__htmlHead.jade
+  body
+    include _frame/__globalheader.jade
+    .localNav
+      .container
+        .breadcrumbs.col-phone-4.col-pad_v-3.col-pad_h-3.col-pc-3
+          //- a(href='booksList.html') 首頁
+          //- span="｜作品列表"
+        .navButton.col-phone-8.col-pad_v-9.col-pad_h-9.col-pc-9
+          a(class='btn' href='#') 業績報表
+          a(class='btn' href='booksUpLoad.html') 新增書本
+    .mainColumn
+      .container
+        include _frame/_booksList.jade
+    .MODAL
+      .inner
+        h3 匯出 ePub 3.0
+        .progressBar
+          span(style='width:5%') 5%
+        small 系統正在準備檔案，請稍等
+        hr
+        div.ta_right
+          a(class='btn outLinebtn-navReport cancel' href='#') 關閉
+          a(class='btn btn-navReport send' href='#') 下載
+    .Dialog
+      .inner
+        .icon_14_close
+        h3.ta_left 刪除書籍？
+        p.ta_left 書名: 沖繩手冊
+          br
+          | 您確定要刪除書籍資料？
+          br
+          small.cololr_red.ta_left 此書籍的資訊、檔案都會一併刪除！
+        hr
+        div.ta_right
+          a(class='btn outLinebtn-navReport cancel' href='#') 取消
+          a(class='btn outLinebtn-navReport send' href='#') 確定
+    //-底下footer
+    include _frame/__footer.jade

@@ -1,0 +1,48 @@
+.block p {
+  font-size: 0.8em;
+  line-height: 140%;
+  padding: 5px 0;
+}
+.block p.center {
+  text-align: center;
+  padding-top: 10px;
+}
+.block strong {
+  font-size: 1.2em;
+  color: black;
+}
+.block .rule li {
+  list-style: disc;
+  margin: 15px 0 15px 20px;
+  font-size: 0.8em;
+  line-height: 140%;
+  color: #777777;
+}
+.block .rule ul li {
+  list-style: circle;
+}
+.block .rule .head {
+  list-style: none;
+  margin-left: 0;
+}
+.block .rule .red {
+  color: #be252c;
+}
+
+.check a {
+  color: #00afef;
+  text-decoration: underline;
+}
+
+@media only screen and (min-width: 960px) {
+  .block {
+    width: 960px;
+    margin: 10px auto;
+  }
+  .block p {
+    font-size: 1em;
+  }
+  .block .rule li {
+    font-size: 1em;
+  }
+}

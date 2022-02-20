@@ -1,0 +1,189 @@
+.toggleMenu {
+    position: relative;
+    padding: 10px 15px;
+    color: #666;
+    width: 330px;
+    height: 78px;
+    float: left;
+    left: 160px;
+    z-index: 2;
+}
+.toggleMenuBtn {
+    position: relative;
+    background: #fff;
+    border: none;
+    width: 26px;
+    height: 26px;
+    //text-indent: -900em;
+    margin: 18px 0;
+    overflow: hidden;
+    cursor: pointer;
+    outline: none;  
+    background-image: url("../img/frame/bestbook_icon.png");
+    background-repeat: no-repeat;
+    float: left;
+}
+.toggleMenuBtnText{
+    float: left;
+    margin: 18px 10px;
+    line-height: 26px;
+}
+.nav {
+    position: absolute;
+    clear: both;
+    list-style: none;
+    display: none;
+    *zoom: 1;
+    background: #3ca3e2;
+    left: 0px;
+    top: 80px;
+    width: 200px;
+}
+.nav:before,
+.nav:after {
+    content: " ";
+    display: table;
+}
+.nav:after {
+    clear: both;
+}
+.nav ul {
+    list-style: none;
+    width: 9em;
+}
+.nav a {
+    padding: 20px;
+    color:#fff;
+}
+.nav li {
+    position: relative;
+    border-top: none;
+}
+.nav > li {
+    //float: left;
+}
+.nav > li > .parent {
+    background-image: url("../img/frame/downArrow.png");
+    background-repeat: no-repeat;
+    background-position: 95% 50%;
+}
+
+.nav > li > a {
+    display: block;
+}
+.nav li a {
+    border-top: 1px solid #fff;
+}
+
+.nav li  ul {
+    position: absolute;
+    left: -9999px;
+    width: 200px;
+}
+.nav > li.hover > ul {
+    left: 0;
+}
+.nav li li.hover ul {
+    left: 100%;
+    top: 0;
+}
+.nav li:last-child li.hover  ul  {
+    left: -100%;
+    top: 0;
+}
+
+.nav li li a {
+    display: block;
+    background: #59bfe3;
+    position: relative;
+    color: #fff;
+    z-index:100;
+    border-top: 1px solid #fff;
+}
+.nav li li .parent {
+    background-image: url("../img/frame/downArrow.png");
+    background-repeat: no-repeat;
+    background-position: 95% 50%;
+}
+.nav li li li a {
+    background:#c3ecfa;
+    color: #666;
+    z-index:200;
+    border-top: 1px solid #efefef;
+}
+
+@media screen and (max-width: 999px) {
+    .toggleMenu{
+        position: absolute;
+        left: 0px;
+    }
+    .toggleMenuBtn {
+        left: 180px;
+    }
+    .active {
+        display: block;
+    }
+    .nav {
+        list-style: none;
+        *zoom: 1;
+        position: relative;
+        left: -20px;
+        top: 6px;
+        width: 100%;
+        max-width: 100%;
+        min-width: 100%;
+    }
+    .nav > li {
+        width: 100%;
+        float: none;
+    }
+    .nav > li > .parent {
+        background-position: 95% 50%;
+    }
+    .nav li li .parent {
+        background-image: url("../img/frame/downArrow.png");
+        background-repeat: no-repeat;
+        background-position: 95% 50%;
+    }
+    .nav ul {
+        display: block;
+        width: 100%;
+    }
+    .nav li  ul {
+    position: absolute;
+        width: 100%;
+    }
+
+    .nav > li > {
+        width: 100%;
+        float: none;
+    }
+   .nav > li.hover > ul , .nav li li.hover ul {
+        position: static;
+    }
+
+}
+
+@include setMediaQueries(phone){
+    .toggleMenu{
+        position: absolute;
+        left: 0px;
+        width: 100%;
+    }
+    .toggleMenuBtn {
+        left: 130px;
+    }
+    .toggleMenuBtnText{
+        display: none;
+    }
+    .nav {
+        list-style: none;
+        *zoom: 1;
+        position: relative;
+        left: -20px;
+        top: 6px;
+        width: 100%;
+        max-width: 100%;
+        min-width: 100%;
+    }
+}

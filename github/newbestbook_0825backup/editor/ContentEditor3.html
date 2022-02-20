@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title th:text="${i18n.editor.getString('name') +' | '+ i18n.site.getString('name')}">編輯內容 | 雲書</title>
+
+<link rel="stylesheet" type="text/css" href="./css/201505/bestbook.css"/>
+<link rel="stylesheet" type="text/css" href="./css/201505/girds.css"/>
+<link rel="stylesheet" type="text/css" href="./css/201505/_animate.css"/>
+
+<link rel="stylesheet" type="text/css" href="./css/message.css"/>
+
+<script src="./ckeditor/ckeditor.js"></script>
+<link rel="stylesheet" href="./ckeditor/skins/moono/editor.css"/>
+
+<link rel="stylesheet" href="./css/bookEditor.css"/>
+<link rel="stylesheet" type="text/css" href="./js/ImageCropper/cropper.min.css"/>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+
+<script src="./dev/lang/en.js"></script>
+<script src="./dev/lang/zh-TW.js"></script>
+<script src="./dev/i18n.js"></script>
+
+<script src="./dev/logout.js"></script>
+<script src="./dev/message.js"></script>
+<script src="./dev/Utils.js"></script>
+<script src="./dev/Notices.js"></script>
+
+<script src="./js/perfect-scrollbar/perfect-scrollbar-0.4.9.min.js"></script>
+<script src="./js/jquery.scrollstop.js"></script>
+		
+<script src="./dev/bookEditor/lang/en.js"></script>
+<script src="./dev/bookEditor/lang/zh-TW.js"></script>
+
+<script src="./dev/bookEditor/MetaData.js"></script>
+<script src="./dev/bookEditor/Monitor.js"></script>
+
+<script src="./dev/bookEditor/Panel.Basic.js"></script>
+<script src="./dev/bookEditor/Panel.Loading.js"></script>
+<script src="./dev/bookEditor/Panel.Tools.js"></script>
+<script src="./dev/bookEditor/Panel.ChapterList.js"></script>
+<script src="./dev/bookEditor/Panel.Original.js"></script>
+<script src="./dev/bookEditor/Panel.Coordination.js"></script>
+<script src="./dev/bookEditor/Panel.Cropper.js"></script>
+
+<script src="./dev/bookEditor/Panel.AdaptPreView.js"></script>
+<script src="./dev/bookEditor/Panel.ContentSlice.js"></script>
+<script src="./dev/bookEditor/Panel.SettingsOver.js"></script>
+
+<script src="./dev/bookEditor/Panel.AdaptEditor.js"></script>
+<script src="./dev/bookEditor/Panel.MainEditor.js"></script>
+
+<script src="./dev/bookEditor/Converter.js"></script>
+
+<script src="./dev/bookEditor/EditorController.js"></script>
+
+<script src="./js/ImageCropper/cropper.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="./js/splitter/splitter.css"/>
+
+<script src="./js/jquery-migrate-1.2.1.min.js"></script>
+<script src="./js/splitter/splitter.js"></script>
+
+<script src="./js/marked/marked.min.js"></script>
+
+<script th:inline="javascript" type="text/javascript">
+/*<![CDATA[*/
+	var local = "zh-TW";
+	
+	$(document).ready(function(){
+		core.i18n.push(local, core_lang);
+		
+		$(".userlogged").on( "click", function(event) {
+			$(".logMenu").toggle();
+			event.preventDefault();
+			return false;
+		});
+		
+		$(document).on( "click", function(event) {
+			if ($(".logMenu").is(":visible") ) {
+				$(".logMenu").hide();
+			}
+		});
+		
+		//var notices = new Notices();
+		//notices.init(base_url);
+	});
+/*]]>*/
+</script>
+<script th:inline="javascript" type="text/javascript">
+var book_id = "book_id";
+
+$(document).ready(function(){
+	$("#splitterContainer").height($(window).height() - ($("#toolsPanel").height() + 1));
+	
+	$("#splitterContainer").splitter({
+			minAsize: 310,
+			maxAsize: 800,
+			splitVertical:true,
+			A: $('#coordinationPanel'),
+			B: $('#mainEditorPanel'),
+			closeableto: 0.45
+		});
+	$('.main_editor_panel').width($(window).width() - ($("#coordinationPanel").width() + 1) - 8);
+	
+	var config = {
+		resize_enabled: false
+		,language: local
+		,height: $('.main_editor_panel').height()
+		,allowedContent: true
+		,autoParagraph: false
+		,format_tags: 'p;h1;h2;h3;h4;h5;h6;pre;div'
+		,fontSize_sizes: '1/1rem;1.1/1.1rem;1.2/1.2rem;1.3/1.3rem;1.4/1.4rem;1.5/1.5rem;1.6/1.6rem;1.7/1.7rem;1.8/1.8rem;2/2rem;3/3rem'
+		,font_names: "新細明體;標楷體;微軟正黑體;宋體;Arial;Arial Black;Blackletter;Courier;Fixedsys;Comic Sans;Impact;Marlett;Tahoma;Terminal;Times New Roman;Verdana;"
+		,extraPlugins: 'widget,image2,lineutils,custimage,codesnippet,contentslice,settingsover'
+		,toolbar: [
+		    [ 'Source' ]
+		    ,[ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ]
+		    ,[ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock', '-', 'BidiLtr', 'BidiRtl' ]
+		    ,[ 'Link', 'Unlink', 'Anchor' ]
+		    , '/'
+		    
+		    ,[ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat' ]
+		    
+		    ,[ 'Format', 'Font', 'FontSize' ]//'Styles', 
+		    ,[ 'TextColor', 'ShowBlocks' ]
+		    ,['custimage', 'Table', 'CodeSnippet', 'contentslice', 'settingsover']
+		]
+	};
+	
+	CKEDITOR.on('dialogDefinition', function (ev) {
+		var dialogName = ev.data.name;
+		var dialogDefinition = ev.data.definition;
+
+		if (dialogName == 'image2') {        
+			var infoTab = dialogDefinition.getContents('info');
+			infoTab.remove('hasCaption'); //Removing the "add caption" functionality
+			infoTab.remove('alt'); //Removing the "alternative text" functionality
+			infoTab.remove('src'); //Removing the "change URL" functionality
+		}
+	});
+	
+	var editor = new CKEDITOR.appendTo("editor_id", config);
+});
+</script>
+<style>
+/* Splitbar styles; these are the default class names and required styles */
+#splitterContainer {
+	height:100%;
+	width:100%;
+	margin:0;
+	padding:0;
+}
+</style>
+</head>
+<body>
+
+<div id="toolsPanel" class="tools_panel">
+	<a id="preview_btu" th:text="${i18n.site.getString('preview')}">預覽</a>
+	<a id="save_btu" th:text="${i18n.site.getString('save')}">儲存</a>
+	<a id="btu_publish" th:text="${i18n.site.getString('publish')}">內容發佈</a>
+	<a id="leave_btu" th:text="${i18n.site.getString('leave')}">離開</a>
+</div>
+<div id="splitterContainer">
+	<div id="coordinationPanel" class="coordination_panel">
+		<div class="coordination_panel_nav">
+			<ul class="panel_nav">
+				<li id="chapter_add_btu"><a th:text="${i18n.editor.getString('add')}">新章節</a></li>
+				<li id="chapter_list_btu"><a th:text="${i18n.editor.getString('list')}">章節列表</a></li>
+				<li id="compare_btu" class="current"><a th:text="${i18n.editor.getString('compare')}">轉檔比對</a></li>
+			</ul>
+		</div>
+		<div id="chapterListPanel" class="chapter_panel" style="display: block;">
+			<ul class="handles_chapter_list">
+				<li>
+					<span class="move_chapter_btu">::</span><span class="chapter_list_name">第一章</span><span class="opt_chapter_btu">
+					<ul class="chapter_opt_list">
+						<li><span class="chapter_opt_action_rename"></span>重新命名</li>
+						<li><span class="chapter_opt_action_merger"></span>合併章節</li>
+						<li><span class="chapter_opt_action_delete"></span>刪除</li>
+					</ul></span><input type="hidden" name="name" value="第一章" />
+					
+				</li>
+				<li><span class="move_chapter_btu">::</span><span class="chapter_list_name">第二章</span><span class="opt_chapter_btu">
+					<ul class="chapter_opt_list">
+						<li><span class="chapter_opt_action_rename"></span>重新命名</li>
+						<li><span class="chapter_opt_action_merger"></span>合併章節</li>
+						<li><span class="chapter_opt_action_delete"></span>刪除</li>
+					</ul></span><input type="hidden" name="name" value="第二章" /></li>
+				<li class="current"><span class="move_chapter_btu">::</span><span class="chapter_list_name">第三章</span><span class="opt_chapter_btu">
+					<ul class="chapter_opt_list">
+						<li><span class="chapter_opt_action_rename"></span>重新命名</li>
+						<li><span class="chapter_opt_action_merger"></span>合併章節</li>
+						<li><span class="chapter_opt_action_delete"></span>刪除</li>
+					</ul></span><input type="hidden" name="name" value="第三章" /></li>
+				<li><span class="move_chapter_btu">::</span><span class="chapter_list_name">第四章</span><span class="opt_chapter_btu">
+					<ul class="chapter_opt_list">
+						<li><span class="chapter_opt_action_rename"></span>重新命名</li>
+						<li><span class="chapter_opt_action_merger"></span>合併章節</li>
+						<li><span class="chapter_opt_action_delete"></span>刪除</li>
+					</ul></span><input type="hidden" name="name" value="第四章" /></li>
+				<li><span class="move_chapter_btu">::</span><span class="chapter_list_name">第五章</span><span class="opt_chapter_btu">
+					<ul class="chapter_opt_list">
+						<li><span class="chapter_opt_action_rename"></span>重新命名</li>
+						<li><span class="chapter_opt_action_merger"></span>合併章節</li>
+						<li><span class="chapter_opt_action_delete"></span>刪除</li>
+					</ul></span><input type="hidden" name="name" value="第五章" /></li>
+				<li><span class="move_chapter_btu">::</span><span class="chapter_list_name">第六章</span><span class="opt_chapter_btu">
+					<ul class="chapter_opt_list">
+						<li><span class="chapter_opt_action_rename"></span>重新命名</li>
+						<li><span class="chapter_opt_action_merger"></span>合併章節</li>
+						<li><span class="chapter_opt_action_delete"></span>刪除</li>
+					</ul></span><input type="hidden" name="name" value="第六章" /></li>
+				
+			</ul>
+			<div class="handles_chapter_add"><div id="chapter_add_btu"><span class="chapter_opt_action_add"></span>新章節</div></div>
+		</div>
+		<div id="originalPanel" class="original_panel" style="display: none;">
+			<div class="original_panel_tools wrapper-dropdown">
+				<ul class="view-zoom style_connector">
+					<li id="btu_original_confirm" class="has-sub"><span><th:block th:text="${i18n.editor.getString('original.confirm.total')}">共</th:block> <b class="col-red">2</b> <th:block th:text="${i18n.editor.getString('original.confirm.desc')}">處建議微調</th:block></span>
+						<ul class="maxHeight">
+							<li th:if="false"><a href="#" idx="0">第 1 個位置</a></li>
+							<li th:if="false"><a href="#" idx="1">第 2 個位置</a></li>
+						</ul>
+					</li>
+					<li><a id="btu_original_zoomin" href="#" class="icon-toolbar zoom-in" title="放大" th:title="${i18n.editor.getString('zoom.in')}" th:text="${i18n.editor.getString('zoom.in')}">放大</a></li>
+					<li><a id="btu_original" href="#" class="icon-toolbar zoom-original" title="正常" th:title="${i18n.editor.getString('zoom.original')}" th:text="${i18n.editor.getString('zoom.original')}">正常</a></li>
+					<li><a id="btu_original_zoomout" href="#" class="icon-toolbar zoom-out" title="縮小" th:title="${i18n.editor.getString('zoom.out')}" th:text="${i18n.editor.getString('zoom.out')}">縮小</a></li>
+				</ul>
+			</div>
+			<div class="original_panel_imgs">
+				<div class="original">
+					<div th:if="false" class="item" style="height:595px; width:419px;">
+						<img src="./images/bookcover-default.jpg"/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="mainEditorPanel" class="main_editor_panel"><div class="frame_mask"></div><div id="editor_id" class="adapt_editor"></div></div>
+</div>
+
+<div class="image_cropper_panel">
+	<div class="img-container-control">
+		<div class="img-container"></div>
+		<div class="toolbar alignC style2">
+			<a id="cropper_btu" href="#" class="btn btn-navReport send" th:title="${i18n.editor.getString('cropper.insert')}" th:text="${i18n.editor.getString('cropper.insert')}">插入</a>
+			<a id="close_btu" href="#" class="btn outLinebtn-navReport cancel" th:title="${i18n.site.getString('close')}" th:text="${i18n.site.getString('close')}">關閉</a>
+		</div>
+	</div>
+</div>
+<div class="blockDiv" style="z-index:200; opacity: 0.3;display: block;"></div>
+<div class="content_slice_panel" style="display: block;">
+	<div class="content_slice_range">
+		<div class="content_slice_range_before">
+			<p th:text="${i18n.editor.getString('slice.content.begin')}">內文開頭</p>
+			<p>... ... ... ...</p>
+			<p>... ... ... ...</p>
+			<p>... ... ... ...</p>
+			<span th:text="${i18n.editor.getString('slice.content.begin.new')}">設為新章節</span>
+		</div>
+		<div class="content_slice_range_after">
+			<p>Selected of Line</p>
+			<p>... ... ... ...</p>
+			<p>... ... ... ...</p>
+			<p th:text="${i18n.editor.getString('slice.content.end')}">內文結尾</p>
+			<span th:text="${i18n.editor.getString('slice.content.end.new')}">設為新章節</span>
+		</div>
+	</div>
+	<div class="toolbar alignC style2" style="text-align: center;">
+		<a id="close_btu" href="#" class="btn outLinebtn-navReport cancel" th:title="${i18n.site.getString('close')}" th:text="${i18n.site.getString('close')}">關閉</a>
+	</div>
+</div>
+
+<div class="settings_over_panel">
+	<div class="settings_over_preview">
+		<fieldset>
+	    	<legend th:text="${i18n.editor.getString('settings.preview')}">預覽</legend>
+	    	<h1 th:text="${i18n.editor.getString('toolbar.h1')}">標題1</h1>
+	    	<h2 th:text="${i18n.editor.getString('toolbar.h2')}">標題2</h2>
+	    	<h3 th:text="${i18n.editor.getString('toolbar.h3')}">標題3</h3>
+	    	<h4 th:text="${i18n.editor.getString('toolbar.h4')}">標題4</h4>
+	    	<h5 th:text="${i18n.editor.getString('toolbar.h5')}">標題5</h5>
+	    	<h6 th:text="${i18n.editor.getString('toolbar.h6')}">標題6</h6>
+	    	<p th:text="${i18n.editor.getString('settings.preview.p')}">內文斷落開頭，一二三四五六七八九十，ABCDEFGHIJKLMOPQRSTUVWXYZ</p>
+	  </fieldset>
+	</div>
+	<div class="settings_over_opt">
+		<div class="wrapper-overopt-info wrapper-dropdown">
+			<ul>
+				<li>
+					<span class="settings_over_opt_name" th:text="${i18n.editor.getString('toolbar.p')}">內文</span> 
+					<ul id="settings_over_opt_list" class="wrapper-overopt-list">
+						<li class="current"><a data-v="p" th:text="${i18n.editor.getString('toolbar.p')}">內文</a></li>
+						<li><a data-v="h1" th:text="${i18n.editor.getString('toolbar.h1')}">標題1</a></li>
+						<li><a data-v="h2" th:text="${i18n.editor.getString('toolbar.h2')}">標題2</a></li>
+						<li><a data-v="h3" th:text="${i18n.editor.getString('toolbar.h3')}">標題3</a></li>
+						<li><a data-v="h4" th:text="${i18n.editor.getString('toolbar.h4')}">標題4</a></li>
+						<li><a data-v="h5" th:text="${i18n.editor.getString('toolbar.h5')}">標題5</a></li>
+						<li><a data-v="h6" th:text="${i18n.editor.getString('toolbar.h6')}">標題6</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<div class="settings_over_opt_info">
+			<div class="settings_over_opt_info_p">
+				<span class="settings_over_opt_info_n" th:text="${i18n.editor.getString('toolbar.font.size')}">字型大小</span>
+				<span class="settings_over_opt_info_v">
+					<span class="wrapper-overopt-info wrapper-dropdown">
+						<ul>
+							<li>
+								<span class="settings_opt_font_size">1</span> 
+								<ul id="settings_over_font_size_list" class="wrapper-overopt-list">
+									<li class="current"><a data-v="1rem">1</a></li>
+									<li><a data-v="1.1rem">1.1</a></li>
+									<li><a data-v="1.2rem">1.2</a></li>
+									<li><a data-v="1.3rem">1.3</a></li>
+									<li><a data-v="1.4rem">1.4</a></li>
+									<li><a data-v="1.5rem">1.5</a></li>
+									<li><a data-v="1.6rem">1.6</a></li>
+									<li><a data-v="1.7rem">1.7</a></li>
+									<li><a data-v="1.8rem">1.8</a></li>
+									<li><a data-v="2rem">2</a></li>
+									<li><a data-v="3rem">3</a></li>
+								</ul>
+							</li>
+						</ul>
+					</span>
+				</span>
+			</div>
+			<div class="settings_over_opt_info_p">
+				<span class="settings_over_opt_info_n" th:text="${i18n.editor.getString('toolbar.font.align')}">對齊方式</span>
+				<span class="settings_over_opt_info_v" id="settings_opt_align">
+					<a class="settings_over_opt_info_btu settings_opt_align_left" title="靠左對齊" th:title="${i18n.editor.getString('toolbar.font.align.left')}"></a>
+					<a class="settings_over_opt_info_btu settings_opt_align_center" title="置中" th:title="${i18n.editor.getString('toolbar.font.align.center')}"></a>
+					<a class="settings_over_opt_info_btu settings_opt_align_right" title="靠右對齊" th:title="${i18n.editor.getString('toolbar.font.align.right')}"></a>
+					<a class="settings_over_opt_info_btu settings_opt_align_justify" title="左右對齊" th:title="${i18n.editor.getString('toolbar.font.align.justify')}"></a>
+				</span>
+			</div>
+			<div class="settings_over_opt_info_p">
+				<span class="settings_over_opt_info_n" th:text="${i18n.editor.getString('toolbar.font.style')}">字型樣式</span>
+				<span class="settings_over_opt_info_v">
+					<a class="settings_over_opt_info_btu settings_opt_font_bold" title="粗體" th:title="${i18n.editor.getString('toolbar.font.style.bold')}"></a>
+					<a class="settings_over_opt_info_btu settings_opt_font_italic" title="斜體" th:title="${i18n.editor.getString('toolbar.font.style.italic')}"></a>
+					<a class="settings_over_opt_info_btu settings_opt_font_underline" title="底線" th:title="${i18n.editor.getString('toolbar.font.style.underline')}"></a>
+				</span>
+			</div>
+			<div class="settings_over_opt_info_p">
+				<span class="settings_over_opt_info_n" th:text="${i18n.editor.getString('toolbar.first.line.indent')}">首行縮排</span>
+				<span class="settings_over_opt_info_v">
+					<a class="settings_over_opt_info_btu settings_opt_indent_increase" title="增加縮排" th:title="${i18n.editor.getString('toolbar.indent.increase')}"></a>
+					<a class="settings_over_opt_info_btu settings_opt_indent_decrease" title="減少縮排" th:title="${i18n.editor.getString('toolbar.indent.decrease')}"></a>
+					<span class="settings_opt_indent_tips" th:text="${'2 '+i18n.editor.getString('toolbar.indent.unit')}">2 字元 </span>
+				</span>
+			</div>
+		</div>
+	</div>
+	<div class="toolbar alignC style2">
+		<a id="accept_btu" class="btn btn-navReport send" th:title="${i18n.site.getString('apply')}" th:text="${i18n.site.getString('apply')}">套用</a>
+		<a id="close_btu" class="btn outLinebtn-navReport cancel" th:title="${i18n.site.getString('close')}" th:text="${i18n.site.getString('close')}">關閉</a>
+	</div>
+</div>
+
+<div class="adapt_preview_panel">
+	<div class="adapt_preview_panel_tools">
+		<div class="adapt_preview_panel_btus">
+			<ul class="panel_nav">
+				<!-- <li id="preview_catalog_btu"><a>Catalog</a></li> -->
+				<li id="preview_close_btu"><a th:title="${i18n.site.getString('close')}" th:text="${i18n.site.getString('close')}">關閉</a></li>
+			</ul>
+		</div>
+		<div class="adapt_preview_panel_option">
+			<ul class="panel_nav">
+				<li id="Phone"><a>Phone</a></li>
+				<li id="Note"><a>Note</a></li>
+				<li id="Kindle"><a>Kindle</a></li>
+				<li id="Pad"><a>Pad</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="adapt_preview_panel_main">
+		<div class="adapt_preview_chapter_info">
+			<div class="wrapper-chapter-info wrapper-dropdown">
+				<ul>
+					<li>
+						<span class="adapt_preview_chapter_info_name">First Chapter Name</span> 
+						<ul th:if="false" class="wrapper-chapter-list">
+							<li class="current"><a href="#" data-idx="0">第一章 序幕</a></li>
+							<li><a href="#" data-idx="1">第二章 前奏曲</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div> － <th:block th:text="${i18n.page.getString('total')}">共</th:block> <span class="adapt_preview_chapter_info_pages">100</span> <th:block th:text="${i18n.page.getString('page')}">頁</th:block>
+		</div>
+		<div class="adapt_preview_panel_viewer">
+			<iframe class="adapt_preview_panel_viewer_frame" src="javascript:true;"></iframe>
+			<div class="adapt_preview_panel_viewer_column_pages">
+				<div class="adapt_preview_panel_viewer_column_pages_num"></div>
+			</div>
+		</div>
+		<a href="javascript:void(0);" id="btu_left_page" class="arrow prev" title="上一頁" th:title="${i18n.page.getString('prev')}" th:text="${i18n.page.getString('prev')}">上一頁</a>
+		<a href="javascript:void(0);" id="btu_right_page" class="arrow next" title="下一頁" th:title="${i18n.page.getString('next')}" th:text="${i18n.page.getString('next')}">下一頁</a>
+	</div>
+</div>
+</body>
+</html>

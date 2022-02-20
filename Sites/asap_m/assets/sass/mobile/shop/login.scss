@@ -1,0 +1,89 @@
+@import "../define/__init.scss";
+body{
+	background-attachment: fixed;
+	@include background-gradient(white, $gray);
+}
+.branding{
+	text-align: center;
+	margin: 0 auto;
+	padding: 20px 0 0px;
+	.logo{
+		width: 70%;
+	}
+}
+.layout{
+	padding: 10px;
+}
+h1{
+	text-align: center;
+	margin-bottom: 30px;
+}
+.register{
+	margin-top: 10px;
+	display: block;
+}
+.sign-select{
+	@include clearfix;
+	li{
+		float: left;
+		width: 50%;
+		a{
+			color: $dark_gray;
+			padding: 10px 0;
+			display: block;
+			text-align: center;
+			@include box-sizing(border-box);
+			&.active{
+				background: white;
+				color: black;
+				border-top: 3px solid $red;
+				@include box-shadow( 2px 0px 1px -2px rgba( 0, 0, 0, 0.5 ) );
+			}
+		}
+	}
+}
+form[class^='block'], form[class*='block']{
+	input[type='email'], input[type='password'], input[type='text']{
+		width: 100%;
+		padding: 10px;
+		margin: -1px 0 0 0;
+		border: 1px solid $gray;
+		font-size: 1em;
+		@include box-sizing(border-box);
+	}
+	.reg-check{
+		//margin-top: 10px;
+		.reg-pic, #r-img{
+			float: left;
+			margin-top: 5px;
+			border: 1px solid $gray;
+		}
+		.reg-change, #reload-img{
+			float: left;
+			margin-top: 20px;
+			margin-left: 10px;
+			display: inline-block;
+			color: $sky_blue;
+		}
+	}
+	.button{
+		width: 100%;
+		margin: 10px 0;
+		font-size: 1.2em;
+		padding: 10px;
+		@include box-sizing(border-box);
+	}
+	.fpwd{
+		margin: 10px 0;
+		color: $dark_gray;
+		text-decoration: underline;
+		text-align: center;
+		display: block;
+	}
+	&.block{
+		margin: 0;
+	}
+	.icon-logo-uitox-s{
+		float: right;
+	}
+}

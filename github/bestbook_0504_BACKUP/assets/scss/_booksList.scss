@@ -1,0 +1,193 @@
+.booksItem{
+	width: 100%;
+	height: 130px;
+	margin: 10px 0;
+	border: solid 1px #e4e4e4;
+	&__cover{
+		float: left;
+		width: 84px;
+		background-color: #fff;
+		margin: 5px;
+		height: 115px;
+		border: solid 1px #e4e4e4;
+		& img{
+			max-width:100%;
+			height:auto;
+		}
+	}
+	&__info{
+		float: left;
+		width: 678px;
+		margin: 5px;
+		height: auto;
+		&__status{
+			font-size: 13px;
+			height: 46px;
+			line-height: 46px;
+			vertical-align: middle;
+			border-bottom: solid 1px #e4e4e4;
+			color: #A8B1BB;
+		}
+		&__name{
+			margin-top: 10px;
+			a{
+				display: inline-block;
+				font-size: 14px;
+				line-height: 30px;
+				color: #A8B1BB;
+				overflow:hidden;
+				width: 96%;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+				text-decoration: underline;
+			}
+			p{
+				font-size: 18px;
+				line-height: 20px;
+				color: #A8B1BB;
+			}
+		}
+	}
+	&__preview,&__setting{
+		position: relative;
+		display: block;
+		float: left;
+		width: 188px;
+		height: 100%;
+		background-color: #fff;
+		border: solid 1px #e4e4e4;
+		border-top: none;
+		border-bottom: none;
+		margin-left: -1px;
+		color: #A8B1BB;
+		cursor: pointer;
+		overflow: hidden;
+		.icon_editor{
+			@include cssSprite($icon_editor);
+			margin: 10px;
+		}
+		.icon_selling{
+			@include cssSprite($icon_selling);
+			margin: 10px;
+		}
+		.n{
+			font-size: 14px;
+			margin: 10px;
+		}
+		.t{
+			font-size: 12px;
+			position: absolute;
+			bottom: 0;
+			margin: 10px;
+		}
+		.tips{
+			position: absolute;
+			width: 100%;
+			bottom: 0;
+			height: 50px;
+			overflow: hidden;
+			background-color: $selling;
+			-webkit-box-shadow: inset 0px 5px 5px -4px rgba(0,0,0,1);
+			-moz-box-shadow: inset 0px 5px 5px -4px rgba(0,0,0,1);
+			box-shadow: inset 0px 5px 5px -4px rgba(0,0,0,1);
+			.icon_w_prompt{
+				@include cssSprite($icon_w_prompt);
+				margin: 10px 10px 0 10px;
+			}
+			.tipsInner{
+				margin-top: 10px;
+				font-size: 12px;
+				color: #fff;
+				line-height: 16px;
+			}
+		}
+		&:hover{
+			@include buttonPressShadow;
+		}
+	}
+	&__fnc{
+		float: right;
+		width: 42px;
+		height: 100%;
+		overflow: hidden;
+		font-size: 12px;
+		.export , .delete{
+			width: 100%;
+			height: 65px;
+			color: #A8B1BB;
+			border-bottom: solid 1px #e4e4e4;
+			cursor: pointer;
+			.icon_22_export{
+				position: relative;
+				display: block;
+				@include cssSprite($icon_22_export);
+				top: 10px;
+				left: 10px;
+			}
+			.icon_22_delete{
+				position: relative;
+				display: block;
+				@include cssSprite($icon_22_delete);
+				top: 10px;
+				left: 10px;
+			}
+			.icon_22_unsale{
+				position: relative;
+				display: block;
+				@include cssSprite($icon_22_unsale);
+				top: 10px;
+				left: 10px;
+			}
+			&:hover{
+				@include buttonPressShadow;
+			}
+			p{
+				position: relative;
+				margin-top: 15px;
+				margin-left: 8px;
+			}
+		}
+	}
+}
+.booksSellSetting .tips{
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+	height: 50px;
+	overflow: hidden;
+	background-color: $selling;
+	-webkit-box-shadow: inset 0px 5px 5px -4px rgba(0,0,0,1);
+	-moz-box-shadow: inset 0px 5px 5px -4px rgba(0,0,0,1);
+	box-shadow: inset 0px 5px 5px -4px rgba(0,0,0,1);
+}
+.booksItem.unPublish .booksSellSetting .tips{
+	background-color: $unPublish;
+}
+.booksItemEnd{
+	width: 100%;
+	height: 60px;
+	line-height: 40px;
+	vertical-align: middle;
+	margin-bottom: 10px;
+	border-bottom: solid 1px #e4e4e4;
+}
+.booksItemEnd span{
+	font-size: 13px;
+	color: #333;
+}
+$booksStatus:(
+	selling : $selling,
+	unPublish: $unPublish,
+	fail: $fail,
+	uplod: $uplod,
+) !default;
+@each $name, $color in $booksStatus{
+	.book#{$name}{
+		.booksItem__info__name a,.booksItem__info__status .c{
+			color:$color;
+		}
+		.booksItem__setting .tips{
+			background-color: $color;
+		}
+	}
+}

@@ -1,0 +1,248 @@
+.booksItem{
+	width: 100%;
+	margin: 10px 0;
+	overflow: hidden;
+	border: solid 1px #e4e4e4;
+	.booksInfo{
+		position: relative;
+		height: 100%;
+		min-height: 130px;
+		padding: 0;
+		.cover{
+			position: absolute;
+			float: left;
+			width: 84px;
+			background-color: #fff;
+			margin: 5px;
+			height: 115px;
+			border: solid 1px #e4e4e4;
+			z-index: 2;
+			& img{
+				max-width:100%;
+				height:auto;
+			}
+		}
+		.info{
+			margin-left: 100px;
+			.status{
+				height: 46px;
+				line-height: 46px;
+				border-bottom: solid 1px #e4e4e4;
+				color: #A8B1BB;
+			}
+			.name{
+				a{
+					display: inline-block;
+					font-size: 14px;
+					line-height: 30px;
+					margin-top: 10px;
+					overflow:hidden;
+					width: 90%;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					text-decoration: underline;
+				}
+				p{
+					font-size: 18px;
+					line-height: 20px;
+					margin-top: 10px;
+					color: #A8B1BB;
+				}
+			}
+		}
+	}
+	.functions_pc{
+		height: 130px;
+		padding: 0;
+		.preview,.setting{
+			position: relative;
+			display: block;
+			float: left;
+			height: 130px;
+			background-color: #fff;
+			border: solid 1px #e4e4e4;
+			border-top: none;
+			border-bottom: none;
+			margin-left: -1px;
+			cursor: pointer;
+			overflow: hidden;
+			padding: 0;
+			a{
+				color: #A8B1BB;
+				height: 100%;
+			}
+			.icon_editor{
+				@include cssSprite($icon_editor);
+				margin: 10px;
+			}
+			.icon_selling{
+				@include cssSprite($icon_selling);
+				margin: 10px;
+			}
+			.n{
+				font-size: 14px;
+				margin: 10px;
+			}
+			.t{
+				font-size: 12px;
+				position: absolute;
+				bottom: 0;
+				margin: 10px;
+			}
+			.tips{
+				position: absolute;
+				width: 100%;
+				bottom: 0;
+				height: 50px;
+				overflow: hidden;
+				background-color: $selling;
+				-webkit-box-shadow: inset 0px 5px 5px -4px rgba(0,0,0,1);
+				-moz-box-shadow: inset 0px 5px 5px -4px rgba(0,0,0,1);
+				box-shadow: inset 0px 5px 5px -4px rgba(0,0,0,1);
+				.icon_w_prompt{
+					@include cssSprite($icon_w_prompt);
+					margin: 8px 5px 0 5px;
+				}
+				.tipsInner{
+					color: #fff;
+					margin-top: 8px;
+					p{
+						font-size: 12px;
+						line-height: 16px;
+					}
+				}
+			}
+			&:hover{
+				@include buttonPressShadow;
+			}
+		}
+		.fnc{
+			padding: 0;
+			height: 100%;
+			overflow: hidden;
+			font-size: 12px;
+			p{
+				font-size: 12px;
+			}
+			.export , .delete{
+				width: 100%;
+				height: 65px;
+				color: #A8B1BB;
+				border-bottom: solid 1px #e4e4e4;
+				cursor: pointer;
+				text-align: center;
+				.icon_22_export{
+					display: inline-block;
+					margin-top: 8px;
+					@include cssSprite($icon_22_export);
+				}
+				.icon_22_delete{
+					display: inline-block;
+					margin-top: 8px;
+					@include cssSprite($icon_22_delete);
+
+				}
+				.icon_22_unsale{
+					display: inline-block;
+					margin-top: 8px;
+					@include cssSprite($icon_22_unsale);
+
+				}
+				&:hover{
+					@include buttonPressShadow;
+				}
+				p{
+					text-align: center;
+				}
+			}
+		}
+	}
+	.functions_mobile{
+		display: none;
+		text-align: right;
+		ul{
+			display: inline-block;
+			margin: 6px 0;
+			li{
+				float: left;
+				display: inline-block;
+				margin-right: 10px;
+				a{
+					color: #A8B1BB;
+					text-decoration: underline;
+				}
+			}
+		}
+	}
+}
+$booksStatus:(
+	selling : $selling,
+	unSell : $unSell,
+	unPublish: $unPublish,
+	fail: $fail,
+	uplod: $uplod,
+) !default;
+
+@each $name, $color in $booksStatus{
+	.book#{$name}{
+		.name a , .status .c{
+			color:$color;
+		}
+		.name {
+			a{
+				color:$color;
+			}
+		}
+	 	.functions_pc{
+			.tips{
+				background-color: $color !important;
+			}
+		}
+		.t {
+			display: inline-block;
+			height: 24px;
+			line-height: 24px;
+			border-radius: 99em;
+			font-size: 12px;
+			color: $color;
+			text-align: center;
+			border: solid 1px $color;
+			padding: 0px 10px;
+			margin-right: 5px;
+		}
+
+	}
+}
+
+@include setMediaQueries(pc){
+	.booksItem .functions_mobile{
+		display: none;
+	}
+	.booksItem .functions_pc{
+		display: block;
+	}
+}
+@include setMediaQueries(pad_v){
+	.booksItem .functions_mobile{
+		display: block;
+	}
+	.booksItem .functions_pc{
+		display: none;
+	}
+}
+@include setMediaQueries(pad_h){
+	.booksItem .functions_mobile{
+		display: block;
+	}
+	.booksItem .functions_pc{
+		display: none;
+	}
+}
+@include setMediaQueries(phone){
+	.booksItem .functions_mobile{
+		display: block;
+	}
+	.booksItem .functions_pc{
+		display: none;
+	}
+}

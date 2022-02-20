@@ -1,0 +1,120 @@
+@import "../define/__init.scss";
+//@import "../frame/_header.scss";
+.finish{
+	.head{
+		margin: 10px;
+		line-height: 140%;
+		font-size: 0.9em;
+		.head-main{
+			@include clearfix;
+		}
+		.icon-success:before{
+			float: left;
+		}
+		h1{
+			font-size: 1.3em;
+			margin-bottom: 10px;
+			margin-left: 60px;
+			line-height: 140%;
+			color: $dark_gray;
+		}
+		h2{
+			line-height: 140%;;
+			margin-bottom: 5px;
+			font-size: 0.8em;
+			color: $dark_gray;
+		}
+		.point{
+			font-size: 1.2em;
+			color: $red;
+		}
+		.price{
+			color: $red;
+			font-size: 1.2em;
+			margin: 0 5px;
+		}
+		.button{
+			@include box-sizing(border-box);
+		}
+	}
+	.debitnote{
+		.debitnote-pic{
+			width: 100%;
+		}
+		.input{
+			width: 100%;
+			@include box-sizing(border-box);
+		}
+	}
+	.list{
+		li{
+			@include clearfix;
+			.attr{
+				text-align: right;
+				margin-right: 0px;
+				@include clearfix;
+				.count{
+					color: gray;
+				}
+				.price{
+					text-align: left;
+					margin-left: 10px;
+					min-width: 80px;
+					display: inline-block;
+				}
+				.dollar{
+					font-size: 0.7em;
+					margin-right: 5px;
+				}
+			}
+			.name{
+				color: gray;
+			}
+		}
+		.main{
+			font-size: 0.8em;
+			line-height: 140%;
+			padding: 10px 0;
+			border-bottom: 1px solid $light_gray;
+			&:first-child{
+				padding-top: 0;
+			}
+			&:last-child{
+				border-bottom: none;
+			}
+			.group-prod{
+				color: gray;
+				margin-top: 10px;
+				li{
+					margin-bottom: 7px;
+				}
+			}
+		}
+		.sub{
+			margin-top: -12px;
+			background: white;
+		}
+	}
+	.explain{
+		h2{
+			line-height: 140%;
+			font-size: 0.8em;	
+			margin: 10px 0;
+		}
+		p{
+			color: $dark_gray;
+			line-height: 140%;
+			font-size: 0.8em;
+			padding: 5px 0;
+			margin-left: 10px;
+			&.tip{
+				margin: 5px 0;
+				color: black;
+			}
+		}
+		a{
+			color: $blue;
+			text-decoration: underline;
+		}
+	}
+}

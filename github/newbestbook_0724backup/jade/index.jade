@@ -1,0 +1,66 @@
+doctype html
+html
+  include _frame/__htmlHead.jade
+  body
+    include _frame/__globalheader.jade
+    .indexBanner
+      .container
+        .layer2
+          h1.indexTitle
+            |自主出版 
+            img(src="../assets/img/h1_triangle.png")
+            | 
+            |讓全世界都看見你的書
+          h5.indexSubTitle
+            |免費上傳檔案 
+            img(src="../assets/img/h5_triangle.png")
+            | 
+            |免費轉檔成ePub 
+            img(src="../assets/img/h5_triangle.png")
+            | 
+            |銷售到 Google、iBooks
+          h4
+            .indexButton.hoverBtn 免費上傳
+              input(class='btn btn-navReport', type="file" name="pic" accept=".jpg,.jpeg,.png",value='免費上傳')
+          p
+            a(href='#' class="promptLink")
+              small 出書流程說明
+          .pic
+            img(src="../assets/img/indexBannerImg2.png")
+    .indexSection.gridBg
+      .container
+        .imgblock.col-phone-12.col-pad_v-12.col-pad_h-7.col-pc-7
+          img(src="../assets/img/indexSection_1.png")
+        .textblock.col-phone-12.col-pad_v-12.col-pad_h-5.col-pc-5
+          img(src="../assets/img/h2_icon.gif" height="16" width="30")
+          h2 預覽電子書效果，模擬多種尺寸Phone/Pad
+          h4 有專利的『螢幕模擬器』，可先在網頁上預覽多種尺寸行動裝置閱讀電子書的效果，充分掌握讀者閱讀感受
+          //- a(class='btn outLinebtn-navReport' href='#') 立即體驗
+    .indexSection.gridBg
+      .container
+        .textblock.col-phone-12.col-pad_v-12.col-pad_h-5.col-pc-5
+          img(src="../assets/img/h2_icon.gif" height="16" width="30")
+          h2 封面設計自己動手，輕鬆搞定！
+          h4 雲書提供多種底圖選擇，也可以自行上傳圖片，編排設計標題文字，為自己的書設計一張獨一無二的封面吧！
+          //- a(class='btn outLinebtn-navReport' href='#') 立即體驗
+        .imgblock.col-phone-12.col-pad_v-12.col-pad_h-7.col-pc-7
+          img(src="../assets/img/indexSection_2.png")
+    .indexSection.gridBg
+      .container
+        .imgblock.col-phone-12.col-pad_v-12.col-pad_h-7.col-pc-7
+          img(src="../assets/img/indexSection_3.png")
+        .textblock.col-phone-12.col-pad_v-12.col-pad_h-5.col-pc-5
+          img(src="../assets/img/h2_icon.gif" height="16" width="30")
+          h2 線上校稿，即時修訂即時編排
+          h4 雲書的線上校稿，即時修訂，舉凡是錯字、排版、標點符號，通通立即修正，隨時調整內容！
+          //- a(class='btn outLinebtn-navReport' href='#') 立即體驗
+    .indexSection.gridBg
+      .container
+        .textblock.col-phone-12.col-pad_v-12.col-pad_h-5.col-pc-5
+          img(src="../assets/img/h2_icon.gif" height="16" width="30")
+          h2 進階編輯
+          h4 想要調整表格、圖片或是整段章節？歡迎使用進階編輯功能，讓書的內容更加豐富好讀！
+          //- a(class='btn outLinebtn-navReport' href='#') 立即體驗
+        .imgblock.col-phone-12.col-pad_v-12.col-pad_h-7.col-pc-7
+          img(src="../assets/img/indexSection_4.png")
+    include _frame/__footer.jade

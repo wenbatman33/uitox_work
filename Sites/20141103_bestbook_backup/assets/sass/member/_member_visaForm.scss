@@ -1,0 +1,83 @@
+.memberRow{ display: block;}
+.tabtr{ width:100%; min-height:30px;height:auto;font-size:14px; }
+.tabtr font,span{ *font-size:12px; }
+.tabtr a{ text-decoration:underline }
+.tabtr input{ /*height:24px;*/  border: solid 1px #6c6c6c;}
+.tabtr .columnleft{float:left; width:20%; text-align:right; padding:2px 0 0; margin-right:5px; vertical-align: middle; font-size: 14px; line-height: 40px; }
+.tabtr .columnright{float:left; width:60%; padding:5px 0; text-align:left;  line-height: 40px;  }
+.tabtr .columnright .txtt{ position:relative; top:-1px; margin:0 2px 0 6px }
+.tabtr .columnright .txttb{ position:relative; top:-1px; margin:0 -2px 0 3px }
+.tabtr .columnright .txttc{ position:relative; top:-1px; margin:0 2px 0 -6px }
+.tabtr .columnright .txttd{ position:relative; top:-1px;font-size:12px;line-height:15px;}
+.tabtr .columnright .txtte{ position:relative; top:-1px; margin:0 2px 0 18px }
+.tabtr .columnright .txcol{ position:relative; top:-2px; color:#555555; font-size:11px; line-height:15px; }
+.tabtr .columnright .cvctxt{margin-left:22px;position:relative;top:-1px;}
+.tabtr .columnright .cartwidth{ width:42px; margin:0 2px; }
+.cartwidth{width:42px; margin:0 2px;}
+.tabtr .columnright .selmarght{ float:left; margin-right:3px;}
+.tabtr .columnright .cardinput{ float:left; display:inline-block; font-size: 14px; width: 230px;}
+.tabtr .columnright .cardinput input{ width: 100%;}
+
+.tabtr .columnright .UseBonus{float:left; top:0; left:0;}
+.tabtr .columnright .UseBonus font{position:relative; top:-2px;}
+/*.tabtr .columnright .addinfom{ float:left; display:inline-block; margin-top:0 \9; }
+.tabtr .columnright .addinfom span{ position:relative; top:-2px; }*/
+.tabtr .columnright .addinfomb{display:inline-block; margin-left:1px; position:relative; top:-1px; color:#0066bb; *position:relative; *top:1px;}
+.tabtr .columnright .addinfomb input{position:relative; top:2px;}
+.tabtr .columnright #new_consignee{ display:inline-block; float:left; }
+.tabtr .columnright .noborder{ border:none !important; width:290px;}
+/*.tabtr .columnright .sdiv{ height:24px !important; }*/
+.tabtr .vatnum{ position:relative; top:2px; }
+.tabtr .getadd{color:#0066bb; display:inline-block; position:relative; top:-1px; text-decoration:underline;}
+.tabtr .cartdown{ display:block; padding:15px 10px 0; }
+.tabtr .cartdown a{padding-left:3px;color:#0066cc;position:relative;top:-1px;text-decoration:underline;}
+.tabtr .columnright select{font-family:Verdana, Helvetica !important; }
+.tabtr .columnright img{vertical-align:top; position:relative; bottom:0; margin-bottom:17px }
+.checkoutbtn{text-align:center; margin:30px 0 0 }
+.checkoutlink{text-align:right; margin:-2px 0 51px}
+.checkoutlink a{cursor:hand;text-decoration:underline;color:#0066cc;font-size:12px;line-height:15px;}
+.input-text1{ width: 100px;}
+.gLineBox{
+	position: relative;
+	display: block;
+	width: 60%;
+	height: 100%;
+	margin: 0 auto;
+	min-height: 250px;
+	border: solid 1px #ccc;
+	padding: 10px;
+	@include box-sizing(border-box);
+}
+.visaTitle{
+	position: relative;
+	display: block;
+	width: 60%;
+	height: 40px;
+	margin: 10px auto;
+	background-color: #d9edf7;
+	line-height: 40px;
+	font-size: 20px;
+	padding: 0 5px;
+	color: #333;
+}
+.visaAmount{
+	color: #E90000;
+}
+.center{ position: relative; margin: 0 auto; text-align: center;}
+.cart_exptxt {
+	position: relative;
+	display: block;
+	width: 60%;
+	margin: 20px auto;
+	padding: 0 10px;
+	color: #999;
+	font-size: 11px;
+	line-height: 15px;
+}
+@include setMediaQueries(phone){
+	.gLineBox{width: 100%;}
+	.visaTitle{width: 100%;}
+	.cart_exptxt{width: 100%;}
+	.tabtr .columnleft{float:none; text-align: left; width: 100%;  line-height: 20px; }
+	.tabtr .columnright{float:none; width: 100%;  line-height: 20px; }
+}

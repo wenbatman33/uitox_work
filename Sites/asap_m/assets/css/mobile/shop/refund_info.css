@@ -1,0 +1,81 @@
+.refund .head {
+  color: #777777;
+  margin: 10px 0 10px;
+  font-size: 0.8em;
+}
+.refund .dollar {
+  font-size: 0.7em;
+  margin-right: 5px;
+  color: #be252c;
+}
+.refund .price {
+  color: #be252c;
+}
+.refund .name, .refund .tel, .refund .address, .refund .account {
+  width: 100%;
+  border: 1px solid #cccccc;
+  padding: 5px;
+  margin: 0 0 10px 0;
+  background: white;
+  font-size: 1em;
+  line-height: 1.35em;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.refund .city-1 {
+  float: left;
+  border: 1px solid #cccccc;
+  background: white;
+  height: 34px;
+  width: 49%;
+  padding: 0;
+  margin: 0 0 10px 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.refund .city-2 {
+  float: right;
+  border: 1px solid #cccccc;
+  background: white;
+  height: 34px;
+  width: 49%;
+  padding: 0;
+  margin: 0 0 10px 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.refund .bank-account {
+  border: 1px solid #cccccc;
+  background: white;
+  height: 34px;
+  width: 100%;
+  margin: 0 0 10px 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.refund .actions {
+  margin-top: 20px;
+}
+.refund .actions .btn-submit {
+  width: 100%;
+}
+.refund .line {
+  margin: 5px 0;
+}
+.refund .line input[type='checkbox'] {
+  height: 20px;
+  width: 20px;
+  margin: 0 5px 0 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.refund .line label {
+  font-size: 0.9em;
+  color: #777777;
+}

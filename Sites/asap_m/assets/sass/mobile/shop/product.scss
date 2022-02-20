@@ -1,0 +1,275 @@
+@import "../define/__init.scss";
+#product{
+	.crop{
+		margin: -10px -10px 0 -10px;
+		img{
+			width: 100%;
+		}
+	}
+	figcaption{
+		h1{
+			margin: 10px 0;
+			font-weight: bold;
+			line-height: 140%;
+		}
+		.line{
+			line-height: 140%;
+			margin: 5px 0;
+			padding: 5px 0 9px;
+			border-bottom: 1px solid $light_gray;
+			position: relative;
+			@include clearfix;
+			del{
+				font-size: 0.7em;
+				color: $dark_gray;
+			}
+			.dollar{
+				margin-right: -4px;
+				font-size: 0.8em;
+				color: $red;
+			}
+			.price{
+				font-size: 1.5em;
+				color: $red;
+			}
+			.head{
+				padding-top: 3px;
+				float: left;
+				font-size: 0.8em;
+			}
+			.price-block{
+				margin-left: 48px;
+			}
+			.attr{
+				margin-left: 45px;
+				li{
+					float: left;
+					border: 1px solid $gray;
+					margin-left: 3px;
+					margin-top: 3px;
+					cursor: pointer;
+					img{
+						width: 37px;
+						vertical-align: middle;
+					}
+					span{
+						display: none;
+						&.pro-color{
+							min-width: 25px;
+							height: 25px;
+							font-size: 0.8em;
+							text-align: center;
+							padding: 6px;
+						}
+					}					
+					&.selected{
+						border: 3px solid black;
+						img{
+							width: 33px;
+						}
+						.type{
+							padding: 3px;
+						}
+						span{
+							padding: 4px;
+						}
+					}
+					&.disabled{
+						border: 1px solid $light_gray;
+						img{
+							opacity: 0.5;
+							filter: grayscale(100%);
+							// Browser Specific
+							-webkit-filter: grayscale(100%);
+							-moz-filter: grayscale(100%);
+							-o-filter: grayscale(100%);
+							-ms-filter: grayscale(100%);
+						}
+						.type{
+							color: $light_gray;
+						}
+					}
+				}
+				.type{
+					min-width: 28px;
+					display: block;
+					padding: 5px;
+					text-align: center;
+				}
+			}
+			.quantity{
+				margin-left: 48px;
+				li{
+					float: left;
+					border: 1px solid $gray;
+					margin-left: 0;
+					&:first-child{
+						border-right: none;
+						background: $light_gray;
+						@include border-left-radius (5px);
+					}
+					&:last-child{
+						border-left: none;
+						background: $light_gray;
+						@include border-right-radius (5px);
+					}
+					.type{
+						min-width: 40px;
+						display: block;
+						color: black;
+						padding: 8px 0;
+						text-align: center;
+					}
+				}
+			}
+			.present{
+				margin-left: 48px;
+				padding: 3px;
+				background: $light_gray;
+				color: gray;
+				font-size: 0.8em;
+				li{
+					list-style: decimal inside;
+				}
+			}
+			.limit{
+				position: relative;
+				padding: 5px 10px;
+				margin: 0 -10px;
+				background: $ad_yellow;
+				font-size: 0.8em;
+				#countdown_dashboard{
+					position: absolute;
+					top: 6px;
+					left: 135px;
+					background: black;
+					color: white;
+					font-size: 1.2em;
+					.digit, .dash, .colon{
+						float: left;
+					}
+				}
+				&.pre-order-info{
+					color: $bright-red;
+					text-align: center;
+					font-weight: bold;
+					.pre-order-num{
+						color: $light_orange;
+						span{
+							padding: 0 10px;
+						}
+					}
+				}
+				&.pre-order-end{
+					display: none;
+				}
+			}
+			.group-prod{
+				.group-text{
+					font-size: 0.8em;
+					margin-bottom: 2px;
+				}
+				ul{
+					list-style-type: disc;
+					list-style-position: inside;
+					li{
+						margin: 5px 0;
+						.attr{
+							margin-left:10px;
+							select{
+								width:100%;
+							}
+						}
+					}
+				}
+			}
+		}
+		.title{
+			border-left: 5px solid $red;
+			border-bottom: none;
+			margin: 5px 0 0 -15px;
+			padding: 10px;
+			cursor: pointer;
+		}
+		.link{
+			border-bottom: none;
+			margin: 5px 0 0 -10px;
+			padding: 10px;
+			cursor: pointer;
+			display: block;
+			color: black;
+			font-size: 0.9em;
+		}
+		.icon-arrow-rs:before{
+			float: right;
+			margin-top: 2px;
+			margin-right: -10px;
+		}
+		.icon-arrow-ds:before{
+			float: right;
+			margin-top: 2px;
+			margin-right: -8px;
+		}
+		.desc{
+			margin: 0 -10px;
+			line-height: 160%;
+			padding: 10px 10px 0 10px;
+			font-size: 0.9em;
+			background: #f9f9f9;
+			color: $dark_gray;
+			word-break:break-all;
+			img{
+				width: 100%;
+			}
+		}
+		.close{
+			display: block;
+			background: #f9f9f9;
+			margin-top: 10px;
+			border-top: 1px solid $light_gray;
+			border-bottom: 1px solid $gray;
+			text-align: center;
+			color: black;
+			padding: 10px 0;
+		}
+	}
+}
+
+.inside-service{
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: black;
+	color: white;
+	z-index: 5;
+	h1{
+		text-align: center;
+		font-size: 0.8em;
+		padding: 5px 0;
+	}
+	.buy-actions{
+		border-top: 1px solid $gray;
+		background: white;
+		@include clearfix;
+		li{
+			float: left;
+			width: 50%;
+			padding: 5px;
+			text-align: center;
+			@include box-sizing(border-box);
+			a{
+				color: black;
+				display: block;		
+			}
+			&.order{
+				width: 100%;
+			}
+		}
+	}
+}
+
+.footer{
+	padding-top: 10px;
+	padding-bottom: 80px;
+}

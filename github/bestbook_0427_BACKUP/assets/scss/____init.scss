@@ -1,0 +1,37 @@
+html, body{
+	height: 100%;
+	font-family: 'Heiti TC', 'Microsoft JhengHei','Arial Unicode MS', Arial, Helvetica, sans-serif;
+	-webkit-overflow-scrolling: touch;
+}
+.hide{
+	display: none;
+}
+.floatLeft{
+	float: left;
+}
+.floatRight{
+	float: right;
+}
+.container{
+	position: relative;
+	width: 1200px;
+	min-width: 1200px;
+
+	margin: 0 auto;
+	height: auto;
+}
+.mainColumn{
+	position: relative;
+	display: block;
+	margin: 15px 0px;
+	height: auto;
+}
+.clear{
+	clear: both;
+}
+
+.bbBooks{
+	display:block;
+	width: 100%;
+	height: auto;
+}

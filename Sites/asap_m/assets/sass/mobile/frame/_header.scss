@@ -1,0 +1,75 @@
+[class^='header-'], [class*="header-"]{
+    height: 45px;
+    z-index: 10;
+    .layout{
+        height: 45px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: white;
+        z-index: 10;
+        @include box-shadow( 0 2px 5px -2px rgba( 0, 0, 0, .52 ) );
+        h3{
+            padding: 12px 0;
+            font-size: 1.2em;
+            text-align: center;
+        }
+        .icon-logo, .icon-logo-inn, .icon-logo-asap{
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 10px;
+        }
+        .icon-logo-uitox{
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 7px 10px;
+        }
+        .icon-logo-customer{
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 10px;
+            img{
+                height: 26px;
+            }
+        }
+        .cart-count{
+            position: absolute;
+            top: 5px;
+            right: 20px;
+            background: $red;
+            color: white;
+            padding: 0px 5px;
+            font-style: 0.8em;
+            text-align: center;
+            @include border-radius(10px);
+        }
+        .top-actions{
+            position: absolute;
+            right: 10px;
+            top: 0;
+            @include clearfix;
+            li{
+                float: left;
+                a{
+                    padding: 10px;
+                    display: block;
+                }
+            }
+        }
+        &.uitox{
+            .return-index a{
+                color: $blue;
+                padding: 15px 10px;
+            }
+            h3{
+                //margin-left: 125px;
+                font-size: 1.2em;
+                padding-top: 13px;
+            }
+        }
+    }
+}

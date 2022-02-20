@@ -1,0 +1,197 @@
+.mainColumn
+	.container
+		.editBook
+			.editCover.col-phone-12.col-pad_v-12.col-pad_h-2.col-pc-2
+				.coverBlock.col-phone-12.col-pad_v-12.col-pad_h-12.col-pc-12
+					h4 書籍介紹設定
+					.coverBlock__Inner
+						.deviceIpad
+							svg(viewBox="0,0,420,610")
+								image(xlink:href='../assets/img/device_ipad.svg', src='../assets/img/device_ipad.png', width='420', height='610')
+						.cover
+							img(src="../assets/img/book_default_large.jpg")
+					a(href="booksCoverEdit.html" class="btn btn-navReport") 封面修改
+			.editBookInfo.col-phone-12.col-pad_v-12.col-pad_h-10.col-pc-10
+				.editBookInfoBlock.col-phone-12.col-pad_v-12.col-pad_h-5.col-pc-5
+					.editBookTextField
+						label(class='cololr_gray6 textAligLeft') 書名:
+						span.prompt.cololr_red 尚未填寫
+						input(class='cololr_gray6' type='text', value='')
+					.editBookTextField
+						label(class='cololr_gray6 textAligLeft') 作者:
+						span.prompt.cololr_red 尚未填寫
+						input(class='cololr_gray6'  type='text', value='')
+					.editBookTextField
+						label(class='cololr_gray6 textAligLeft') 書籍語系:
+						span.prompt.cololr_red
+						select
+							option(value='繁體中文') 繁體中文
+							option(value='簡體中文') 簡體中文
+							option(value='英語') 英語
+							option(value='法語') 法語
+				.editBookInfoBlock.col-phone-12.col-pad_v-12.col-pad_h-7.col-pc-7
+					.editBookTextField
+						label(class='cololr_gray6 fz_12 textAligLeft') 書籍簡介:
+						span.prompt.cololr_red
+						textarea(cols="50" rows="5") 書籍簡介
+				.editBookInfoBlock.col-phone-12.col-pad_v-12.col-pad_h-12.col-pc-12
+					.editCategory.col-phone-12.col-pad_v-12.col-pad_h-7.col-pc-7
+						label(class='cololr_gray6 fz_12 textAligLeft') 分類:(希望被瀏覽的分類，最多兩個)
+						span.prompt.cololr_red.fz_12 
+							img(src="../assets/img/icon-inputWaring.png") 
+							|  請選擇分類
+						br
+						a(href="#")
+							span.tag.tagGray 心靈勵志/天賦/潛能開發
+							span.icon_14_cancel
+						a(href="#")
+							span.tag.tagGray 心靈勵志/天賦/潛能開發
+							span.icon_14_cancel
+						a(href="#")
+							span.tag.triggerBttn ＋選擇分類
+					.editCategory.col-phone-12.col-pad_v-12.col-pad_h-5.col-pc-5
+						#moreBooksEdit.btn 更多書名資訊
+			.editBookInfo.hideBg.col-phone-12.col-pad_v-12.col-pad_h-12.col-pc-12
+				.editBookInfoBlock.border_right.col-phone-12.col-pad_v-12.col-pad_h-4.col-pc-4
+					.editBookTextField
+						label(class='cololr_gray6 textAligLeft') 副標:(可不填)
+						span.prompt.cololr_red 
+						input(class='cololr_gray6' type='text', value='')
+					.editBookTextField
+						label(class='cololr_gray6 textAligLeft') 原文書名:(如果是原文書 可不填)
+						span.prompt.cololr_red
+						input(class='cololr_gray6'  type='text', value='')
+					.editBookTextField
+						label(class='cololr_gray6 textAligLeft') 原文副標:(可不填)
+						span.prompt.cololr_red
+						input(class='cololr_gray6'  type='text', value='')
+				.editBookInfoBlock.border_right.col-phone-12.col-pad_v-12.col-pad_h-4.col-pc-4
+					.editBookTextField
+						label(class='cololr_gray6 textAligLeft') 系列類型:(可不選)
+						span.prompt.cololr_red 錯誤
+						select
+							option(value='可不填') 可不選
+							option(value='冊') 冊
+							option(value='集') 集
+							option(value='話') 話
+					.editBookTextField
+						label(class='cololr_gray6 textAligLeft') 系列/叢書:(可不填)
+						span.prompt.cololr_red
+						input(class='cololr_gray6'  type='text', value='')
+					.editBookTextField
+						label(class='cololr_gray6 textAligLeft') 系列編號:(可不填)
+						span.prompt.cololr_red
+						input(class='cololr_gray6'  type='text', value='')
+				.editBookInfoBlock.col-phone-12.col-pad_v-12.col-pad_h-4.col-pc-4
+					.editBookTextField
+						label(class='cololr_gray6 textAligLeft') 出版日期:(未填寫，預設今日為出版日)
+						span.prompt.cololr_red 格式錯誤
+						input(class='cololr_gray6' type='date', value='YYYY/MM/DD')
+					.editBookTextField
+						label(class='cololr_gray6 textAligLeft') ISBN:(可不填)
+						span.prompt.cololr_red
+						input(class='cololr_gray6'  type='text', value='')
+					.editBookTextField
+						label(class='cololr_gray6 textAligLeft') 出版社:(可不填)
+						span.prompt.cololr_red
+						input(class='cololr_gray6'  type='text', value='')
+				.editBookInfoBlock.border_top.col-phone-12.col-pad_v-12.col-pad_h-12.col-pc-12
+					.editBookTextField
+						label(class='cololr_gray6 textAligLeft') 關鍵字:(希望被搜尋的關鍵字 可不填)
+						span.prompt.cololr_red
+						.keyword
+							label(class='cololr_gray6') 1.
+							input(class='cololr_gray9 keyword'  type='text', value='')
+							label(class='cololr_gray6') 2.
+							input(class='cololr_gray9 keyword'  type='text', value='')
+							label(class='cololr_gray6') 3.
+							input(class='cololr_gray9 keyword'  type='text', value='')
+							//- label(class='cololr_gray6') 4.
+							//- input(class='cololr_gray9 keyword'  type='text', value='可不填')
+							//- label(class='cololr_gray6') 5.
+							//- input(class='cololr_gray9 keyword'  type='text', value='可不填')
+							//- label(class='cololr_gray6') 6.
+							//- input(class='cololr_gray9 keyword'  type='text', value='可不填')
+							a(href='#')
+								span.cubetag ＋增加關鍵字
+			.editSellSetting.col-phone-12.col-pad_v-12.col-pad_h-12.col-pc-12
+				h3.cololr_red 銷售設定
+				.editSellSettingBlock.col-phone-12.col-pad_v-12.col-pad_h-6.col-pc-6
+					span.priceRed.fz_16 自訂售價：
+					select.currency
+						option(value='NTD') NTD
+						option(value='USD') USD
+						option(value='CNY') RMB
+						option(value='JPY') JPY
+					input(class='bookPrice' type='text', value='')
+					span（可為0）
+					a(class='fz_12 cololr_gray6' href='#')
+						span.icon_14_tips
+						span.fz_12 關於售價
+				.editSellSettingBlock.col-phone-12.col-pad_v-12.col-pad_h-6.col-pc-6
+					.editSellSettingBlockInner.col-phone-12.col-pad_v-12.col-pad_h-12.col-pc-12
+						span.priceRed.fz_16 銷售平台選擇
+					.editSellSettingBlockInner.col-phone-6.col-pad_v-6.col-pad_h-6.col-pc-6
+						p.inlineblock
+						input(id='google' type='checkbox', checked=true)
+						label(for='google')
+							img(src='../assets/img/shopGooglePlay.jpg', width='100', height='27')
+						a(class='fz_12 cololr_gray6' href='#')
+							span.icon_14_tips
+							span.fz_12  上架規則
+					.editSellSettingBlockInner.col-phone-6.col-pad_v-6.col-pad_h-6.col-pc-6
+						p.inlineblock.floatRight
+						input(id='amazon' type='checkbox', checked=true)
+						label(for='amazon')
+							img(src='../assets/img/shopiBooks.jpg', width='100', height='27')
+						a(class='fz_12 cololr_gray6' href='#')
+							span.icon_14_tips
+							span.fz_12 上架規則
+				.editSellSettingBlock.col-phone-12.col-pad_v-12.col-pad_h-12.col-pc-12
+					p
+						input(id='adult' type='checkbox', checked=false)
+						label(for='adult' class='fz_12 cololr_gray3') 是限制級書籍？
+					p
+						input(id='bookCopyright' type='checkbox', checked=true)
+						label(for='bookCopyright' class='fz_12 cololr_gray3') 我確認我有權利銷售此本電子書，同時我已閱讀並同意
+						a(class='fz_12 cololr_gray9' href='#')  出版品發行合約書
+			.bookConvert.col-phone-12.col-pad_v-12.col-pad_h-12.col-pc-12
+				.bookConvertInner.col-phone-12.col-pad_v-12.col-pad_h-1.col-pc-1
+					span.fz_14 書籍轉檔狀態：
+				.bookConvertInner.col-phone-12.col-pad_v-12.col-pad_h-10.col-pc-10
+					.progressBars
+						span(style="width: 80%")
+						div.percentage 轉檔中
+				.bookConvertInner.col-phone-12.col-pad_v-12.col-pad_h-1.col-pc-1
+					a(href="booksPreviewer.html" class="btn convertBtn") 電子書預覽
+					p.convertStatus 
+			.bookConvert.convertSuccess.col-phone-12.col-pad_v-12.col-pad_h-12.col-pc-12
+				.bookConvertInner.col-phone-12.col-pad_v-12.col-pad_h-1.col-pc-1
+					span.fz_14 書籍轉檔狀態：
+				.bookConvertInner.col-phone-12.col-pad_v-12.col-pad_h-10.col-pc-10
+					.progressBars
+						span(style="width: 100%") 
+						div.percentage 轉檔完成
+				.bookConvertInner.col-phone-12.col-pad_v-12.col-pad_h-1.col-pc-1
+					a(href="booksPreviewer.html" class="btn convertBtn") 電子書預覽
+			.bookConvert.convertFail.col-phone-12.col-pad_v-12.col-pad_h-12.col-pc-12
+				.bookConvertInner.col-phone-12.col-pad_v-12.col-pad_h-1.col-pc-1
+					span.fz_14 書籍轉檔狀態：
+				.bookConvertInner.col-phone-12.col-pad_v-12.col-pad_h-10.col-pc-10
+					.progressBars
+						span(style="width: 80%") 
+						div.percentage 轉檔失敗
+				.bookConvertInner.col-phone-12.col-pad_v-12.col-pad_h-1.col-pc-1
+					a(href="booksPreviewer.html" class="btn convertBtn") 重新上傳
+
+
+.editConfirm
+	.container
+		.editConfirmblock.is-hide
+			a(class='btn' href='booksList.html') 儲存離開
+			a(class='btn' href='booksList.html') 電子書預覽
+			a(class='btn' href='booksEdit_Step2.html') 下一步
+		.editConfirmblock
+			a(class='cancelbutton btn' href='booksList.html') 儲存離開
+			a(class='cancelbutton btn' href='booksList.html') 電子書預覽
+			a(class='cancelbutton btn' href='booksEdit_Step2.html') 下一步

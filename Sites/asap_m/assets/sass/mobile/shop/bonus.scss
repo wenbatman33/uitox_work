@@ -1,0 +1,80 @@
+@import "../define/__init.scss";
+//@import "../frame/_header.scss";
+.gold{
+	width: 50%;
+	padding-right: 10px;
+	float: left;
+	border-right: 1px solid $light_gray;
+	@include box-sizing(border-box);
+	h1{
+		margin-bottom: 10px;
+	}
+	.point{
+		text-align: right;
+	}
+	strong{
+		font-size: 3em;
+		margin-right: 5px;
+	}
+	.available{
+		color: $green;
+	}
+	.future{
+		color: $gray;
+	}
+	&:last-child{
+		border: none;
+		padding-left: 10px;
+		padding-right: 0;
+	}
+}
+.web{
+	h2{
+		margin-bottom: 10px;
+	}
+	p{
+		line-height: 140%;
+		margin: 5px 0;
+		font-size: 0.8em;
+		color: $dark_gray;
+	}
+	.available{
+		color: $green;
+	}
+	.expire{
+		padding: 5px;
+		background: $light_gray;
+		text-align: center;
+	}
+}
+.help{
+	.list{
+		position: relative;;
+		line-height: 140%;
+		position: relative;
+		border-bottom: 1px solid $light_gray;
+		padding: 10px;
+		//background: white;
+		&:last-child{
+			border-bottom: 0;
+		}
+		.btn-touch{
+			display: block;
+			color: $dark_gray;
+		}
+		.icon-arrow-rs{
+			position: absolute;
+			right: 5px;
+			top: 18px;
+		}
+		.desc{
+			margin-bottom: 10px;
+			font-size: 0.9em;
+		}
+		h1{
+			color: $blue;
+			font-size: 1.1em;
+			margin-bottom: 10px;
+		}
+	}
+}

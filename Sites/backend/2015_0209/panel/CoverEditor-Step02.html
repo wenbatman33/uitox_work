@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>編輯書封 | bestBook</title>
+<link rel="stylesheet" type="text/css" href="../stylesheets/reset.css"/>
+<link rel="stylesheet" type="text/css" href="../stylesheets/bb.css"/>
+<link rel="stylesheet" type="text/css" href="../stylesheets/panel.css"/>
+<link rel="stylesheet" type="text/css" href="../stylesheets/formUI.css"/>
+<link rel="stylesheet" type="text/css" href="../stylesheets/message.css"/>
+<link rel="stylesheet" type="text/css" href="../stylesheets/CoverEditorUI.css">
+<link rel="stylesheet" type="text/css" href="../stylesheets/jquery-ui-1.10.4.custom.min.css"/>
+<script src="../js/fabric/fabric.min.js"></script>
+<script src="../js/jquery-1.11.0.min.js"></script>
+<script src="../js/jquery-ui-1.10.4.custom.min.js"></script>
+<script src="../dev/Utils.js"></script>
+<script src="../js/jquery.colorPicker.js"/></script>
+</head>
+<body>
+<div class="ui-widget-overlay ui-front"></div>
+<div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front ui-dialog-buttons ui-resizable" tabindex="-1" role="dialog" style="position: absolute; height: auto; width:880px; top:30px; left: 133px; display: block;" aria-describedby="ui-id-1" aria-labelledby="ui-id-2"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix">
+<span id="ui-id-2" class="ui-dialog-title">編輯書的封面</span>
+<button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close" role="button" aria-disabled="false" title="close">
+<span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span><span class="ui-button-text">close</span>
+</button></div>
+<div id="ui-id-1" class="ui-dialog-content ui-widget-content" style="width: auto; min-height: 42px; max-height: none; height: auto;">
+
+<div class="coverEditor">
+	<div class="coverSpace" tabindex="0">
+		<canvas id="coverCanvas"></canvas>
+	</div>
+	<div class="coverToolbar">
+		<div id="select_template">
+				<div>
+					<div class="text fs-24">系統圖庫選擇</div>
+					<div class="marginTB10">移至第
+						<select>
+							<option>1</option>
+							<option>2</option>
+							<option>3</option>
+							<option>4</option>
+							<option>5</option>
+							<option>6</option>
+							<option>7</option>
+							<option>8</option>
+							<option>9</option>
+							<option>10</option>
+						</select>頁
+					</div>
+					
+					<div class="page_num"><a href="#" class="prev_page">第一頁</a><a href="#">上一頁</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a href="#" class="current">6</a><a href="#">7</a><a href="#">8</a><a href="#">9</a><a href="#"></a><a href="#">下一頁</a><a href="#" class="next_page">最後一頁</a></div>
+					
+					<ul class="template_list">
+						<li><span><img src="../images/Cover-01.jpg"></span></li>
+						<li><span><img src="../images/Cover-02.jpg"></span></li>
+						<li><span><img src="../images/Cover-03.jpg"></span></li>
+						<li><span><img src="../images/Cover-04.jpg"></span></li>
+						<li><span><img src="../images/Cover-05.jpg"></span></li>
+						<li><span><img src="../images/Cover-06.jpg"></span></li>
+						<li class="current"><span><img src="../images/Cover-07.jpg"></span></li>
+						<li><span><img src="../images/Cover-08.jpg"></span></li>
+						<li><span><img src="../images/Cover-09.jpg"></span></li>
+						<li><span><img src="../images/Cover-10.jpg"></span></li>
+						<li><span><img src="../images/Cover-11.jpg"></span></li>
+						<li><span><img src="../images/Cover-12.jpg"></span></li>
+						<li><span><img src="../images/Cover-13.jpg"></span></li>
+						<li><span><img src="../images/Cover-14.jpg"></span></li>
+						<li><span><img src="../images/Cover-15.jpg"></span></li>
+						<li><span><img src="../images/Cover-16.jpg"></span></li>
+					</ul>
+				</div>
+			</div>
+	</div>
+	<div class="clearfix"></div>
+</div>
+
+</div>
+<div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"><div class="ui-dialog-buttonset"><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">取消</span></button>
+	<a href="CoverEditor-Step03.html">
+	<button type="button" class="btn-default btn-accept ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">確定，下一步</span></button>
+	</a></div></div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div></div>
+
+</body>
+</html>

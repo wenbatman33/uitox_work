@@ -1,0 +1,167 @@
+.btn{
+    display: inline-block;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.8;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background:#fff;
+    border: 1px solid #dadada;
+    border-radius: 0px;
+    padding: 5px 20px;
+    vertical-align: top;
+    &:hover{
+		background:#f8f8f8;
+    }
+}
+.btn_s{
+    display: inline-block;
+    padding: 5px 5px;
+    margin-bottom: 0;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.2;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background:#fff;
+    border: 1px solid #eaeaea;
+    border-radius: 0px;
+    padding: 5px 8px;
+    &:hover{
+    background:#f8f8f8;
+    }
+}
+.tag {
+  display: inline-block;
+  height: 24px;
+  line-height: 24px;
+  border-radius: 99em;
+  font-size: 12px;
+  color: #4277A8;
+  text-align: center;
+  border: solid 1px #4277A8;
+  padding: 0px 10px;
+}
+.tagGray {
+  border: solid 1px #999;
+  color: #666;
+}
+
+$booksStatus:(
+    selling : $selling,
+    unSell : $unSell,
+    unPublish: $unPublish,
+    fail: $fail,
+    uplod: $uplod,
+) !default;
+
+@each $name, $color in $booksStatus{
+    .noticeIcon{
+        .nc-#{$name}{
+            color: $color;
+            border: solid 1px $color;
+        }
+    }
+    .noticeStatus{
+        a.nc-#{$name}{
+            color: $color !important;
+        }
+    }
+}
+
+.icon_14_cancel{
+    display: inline-block;
+    margin: 3px;
+    @include cssSprite($icon_14_cancel);
+}
+$btnTypes:(
+	navReport : #4277A8,
+	addBook: #F2254C,
+) !default;
+@each $name, $color in $btnTypes{
+	.btn-#{$name}{
+		background: $color;
+		color: #fff ;
+		border: 1px solid $color;
+		margin: 5px;
+		&:hover{
+			background: #fff;
+			border: 1px solid $color;
+			color: $color;
+			@include buttonPressShadow;
+		}
+	}
+}
+@each $name, $color in $btnTypes{
+	.outLinebtn-#{$name}{
+		background: #fff;
+		color: $color ;
+		border: 1px solid $color;
+		margin: 5px;
+		&:hover{
+			background: #f8f8f8;
+			border: 1px solid $color;
+			color: $color;
+			@include buttonPressShadow;
+		}
+	}
+}
+
+
+
+
+.setBtn{
+	display: inline-block;
+	background-color: #F2254C;
+	color: #fff;
+	font-weight: 400;
+    line-height: 1.8;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+	padding: 5px 20px;
+	font-size: 14px;
+}
+.setBtn:hover{
+	background-color: #F01E62;
+	@include buttonPressShadow;
+}
+.cancelbutton{
+	display: inline-block;
+	background-color: #fff;
+	color: #F2254C;
+	font-weight: 400;
+    line-height: 1.8;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+	border: solid 1px #F2254C;
+	padding: 5px 20px;
+	font-size: 14px;
+}
+.cancelbutton:hover{
+	@include buttonPressShadow;
+}

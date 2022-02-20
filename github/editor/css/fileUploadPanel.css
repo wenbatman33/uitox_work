@@ -1,0 +1,227 @@
+/* upload_panel UI */
+.upload_panel {
+	position:fixed;
+	bottom:0;
+	right:20px;
+	width:260px;
+	max-height:300px;
+	z-index: 20;
+	-webkit-box-shadow:1px 1px 3px rgba(0,0,0,0.3);
+	-moz-box-shadow:1px 1px 3px rgba(0,0,0,0.3);
+	box-shadow:1px 1px 3px rgba(0,0,0,0.3);
+}
+.upload_panel_header {
+	height:20px;
+	background:#464646;
+	vertical-align:middle;
+	text-align:right;
+}
+.upload_panel_header a {
+	display:inline-block;
+	text-align:center;
+	width:20px;
+	height:20px;
+	line-height:20px;
+	color:#fff;
+	font-size:12px;
+	font-weight:bolder;
+	text-decoration:none;
+}
+.upload_panel_header a:hover { background:#666; }
+
+.upload_panel_inner { background-color:#fff; max-height:265px; overflow-y:auto; }
+.upload_panel_inner ul li { position:relative; font-size:12px; height:50px; border-bottom:solid 1px #CCC; }
+.upload_panel_inner ul li:hover { background-color:#f2f2f2; }
+.upload_panel_inner ul li div { position:absolute; }
+.upload_panel_inner ul li div:nth-child(2) { left:10px; bottom:7px; width:170px; }
+
+.trans_panel_inner { background-color:#fff; max-height:265px; overflow-y:auto; }
+.trans_panel_inner ul li { position:relative; font-size:12px; height:50px; border-bottom:solid 1px #CCC; }
+.trans_panel_inner ul li:hover { background-color:#f2f2f2; }
+.trans_panel_inner ul li div { position:absolute; }
+.trans_panel_inner ul li div:nth-child(2) { left:10px; bottom:7px; width:170px; }
+
+.upload_panel_queue_meter {
+	top:7px; left:10px; min-width:170px !important;
+	position:relative;
+	display:inline-block;
+	min-width:80%;
+	height:10px;
+	padding:0px;
+	box-sizing: content-box;	
+	overflow: hidden;
+	background:#ccc;
+	-webkit-border-radius:20px;
+	-moz-border-radius:20px;
+	border-radius:20px;
+	-webkit-box-shadow:inset 1px 1px 3px rgba(0,0,0,0.5),1px 1px 0 #fff;
+	-moz-box-shadow:inset 1px 1px 3px rgba(0,0,0,0.5),1px 1px 0 #fff;
+	box-shadow:inset 1px 1px 3px rgba(0,0,0,0.5),1px 1px 0 #fff;
+}
+.upload_panel_queue_meter > span {
+	display:block;	
+	position:relative;
+	height:10px;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	overflow: hidden;
+	-webkit-border-radius:20px;
+	-moz-border-radius:20px;
+	border-radius:20px;
+	-webkit-box-shadow:1px 0 3px rgba(0,0,0,0.5);
+	-moz-box-shadow:1px 0 3px rgba(0,0,0,0.5);
+	box-shadow:1px 0 3px rgba(0,0,0,0.5);
+	border:solid 1px;
+}
+.upload_panel_queue_meter span:after {
+	display:block;
+	position:absolute;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+	content: "";
+	z-index: 1;
+}
+.upload_panel_queue_meter > span {
+	animation: upload_progress_move 0.5s linear infinite;
+	-moz-animation: upload_progress_move 0.5s linear infinite;
+	-webkit-animation: upload_progress_move 0.5s linear infinite;
+}
+
+.upload_panel_queue_moreUI { white-space:nowrap; text-overflow:ellipsis; overflow:hidden; }
+
+.upload_panel_advance_control {
+	left:190px;
+	right:0;
+	top:0;
+	bottom:0;
+	height:50px;
+	min-width:50px;
+	line-height:45px;
+	text-align:center;
+}
+.upload_panel_advance_control a {
+	display:inline-block;
+}
+
+.upload_panel_queue_control {
+	left:190px;
+	right:0;
+	top:0;
+	bottom:0;
+	height:50px;
+	min-width:50px;
+	line-height:45px;
+	text-align:center;
+}
+.upload_panel_queue_control a {
+	display:inline-block;
+	background: url(images/icon-ControlBtn.png) no-repeat;
+	width:25px;
+	height:25px;
+	vertical-align:middle;
+}
+.upload_panel_queue_control a:hover { background-color:#fff; }
+.upload_panel_queue_control a.upload_panel_queue_control_play { background-position:0 0; }
+.upload_panel_queue_control a.upload_panel_queue_control_pause { background-position:0 -25px; }
+.upload_panel_queue_control a.upload_panel_queue_control_delet { background-position:0 -50px; }
+
+.upload_panel_status_pause .upload_panel_queue_meter > span {
+	border-color: #e78200;
+	background: #ffdf99; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ffdf99 0%, #ffb414 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffdf99), color-stop(100%,#ffb414)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ffdf99 0%,#ffb414 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ffdf99 0%,#ffb414 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ffdf99 0%,#ffb414 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #ffdf99 0%,#ffb414 100%); /* W3C */
+}
+.upload_panel_status_pause .upload_panel_queue_moreUI .state {
+	text-shadow:none;
+	background-color:#e78200; color:#fff;
+}
+
+.upload_panel_status_wait .upload_panel_queue_meter > span {
+	border-color: #4d5c65;
+	background: #c2c9cd; /* Old browsers */
+	background: -moz-linear-gradient(top,  #c2c9cd 0%, #72828b 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c2c9cd), color-stop(100%,#72828b)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #c2c9cd 0%,#72828b 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #c2c9cd 0%,#72828b 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #c2c9cd 0%,#72828b 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #c2c9cd 0%,#72828b 100%); /* W3C */
+}
+.upload_panel_status_wait .upload_panel_queue_moreUI .state {
+	text-shadow:none;
+	background-color:#999; color:#fff;
+}
+
+
+.upload_panel_status_error .upload_panel_queue_meter > span {
+	border-color:#be141a;
+	background: #f0a3a3; /* Old browsers */
+	background: -moz-linear-gradient(top,  #f0a3a3 0%, #f42323 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f0a3a3), color-stop(100%,#f42323)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #f0a3a3 0%,#f42323 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #f0a3a3 0%,#f42323 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #f0a3a3 0%,#f42323 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #f0a3a3 0%,#f42323 100%); /* W3C */
+}
+.upload_panel_status_error .upload_panel_queue_moreUI .state {
+	text-shadow:none;
+	background-color:#e31e26; color:#fff;
+}
+
+.upload_panel_status_upload .upload_panel_queue_meter > span {
+	border-color:#61913f;
+	background:url(images/LoadingBarBG.png) #c2e09f; /* Old browsers */
+	background:url(images/LoadingBarBG.png), -moz-linear-gradient(top,  #c2e09f 0%, #72b922 100%); /* FF3.6+ */
+	background:url(images/LoadingBarBG.png), -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c2e09f), color-stop(100%,#72b922)); /* Chrome,Safari4+ */
+	background:url(images/LoadingBarBG.png), -webkit-linear-gradient(top,  #c2e09f 0%,#72b922 100%); /* Chrome10+,Safari5.1+ */
+	background:url(images/LoadingBarBG.png), -o-linear-gradient(top,  #c2e09f 0%,#72b922 100%); /* Opera 11.10+ */
+	background:url(images/LoadingBarBG.png), -ms-linear-gradient(top,  #c2e09f 0%,#72b922 100%); /* IE10+ */
+	background:url(images/LoadingBarBG.png), linear-gradient(to bottom,  #c2e09f 0%,#72b922 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c2e09f', endColorstr='#72b922',GradientType=0 ); /* IE6-9 */
+}
+.upload_panel_status_upload .upload_panel_queue_moreUI .state {
+	text-shadow:none;
+	background-color:#7bc143; color:#fff;
+}
+
+.upload_panel_status_complete .upload_panel_queue_meter > span {
+	border-color:#61913f;
+	background: #c2e09f; /* Old browsers */
+	background: -moz-linear-gradient(top,  #c2e09f 0%, #72b922 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c2e09f), color-stop(100%,#72b922)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #c2e09f 0%,#72b922 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #c2e09f 0%,#72b922 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #c2e09f 0%,#72b922 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #c2e09f 0%,#72b922 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c2e09f', endColorstr='#72b922',GradientType=0 ); /* IE6-9 */
+}
+.upload_panel_status_complete .upload_panel_queue_moreUI .state {
+	text-shadow:none;
+	background-color:#7bc143; color:#fff;
+}
+
+@-webkit-keyframes upload_progress_move {
+	0% { background-position: 0 0; }
+	100% { background-position: 8px 0px; }
+}
+@-moz-keyframes upload_progress_move {
+	0% { background-position: 0 0; }
+	100% { background-position: 8px 0px; }
+}
+@-ms-keyframes upload_progress_move {
+	0% { background-position: 0 0; }
+	100% { background-position: 8px 0px; }
+}
+@-o-keyframes upload_progress_move {
+	0% { background-position: 0 0; }
+	100% { background-position: 8px 0px; }
+}
+@keyframes upload_progress_move {
+	0% { background-position: 0 0; }
+	100% { background-position: 8px 0px; }
+}

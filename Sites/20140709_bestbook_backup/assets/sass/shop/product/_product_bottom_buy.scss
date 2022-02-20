@@ -1,0 +1,46 @@
+.main-product{
+	.bottom-buy{
+		position: fixed;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: $blue;
+		color: yellow;
+		display: none;
+		li{
+			float: left;
+			width: 25%;
+			text-align: center;
+			padding: 7px 0;
+		}
+		.price{
+			font-size: 1.3em;
+			margin-top: 25px;
+		}
+	}
+}
+
+//large screen
+@media only screen and (min-width: $screen-lg-min) and (max-width: $screen-lg-max){
+	.main-product{
+
+	}
+}
+
+//pad
+@media only screen and (min-width: $screen-md-min) and (max-width: $screen-md-max){
+	.main-product{
+		.bottom-buy{
+			display: block;
+		}
+	}
+}
+
+//mobile
+@media only screen and (max-width: $screen-sm-max){
+	.main-product{
+		.bottom-buy{
+			display: block;
+		}
+	}
+}

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>螢幕模擬器 | bestBook</title>
+<link rel="shortcut icon" href="../favicon.ico" />
+<link rel="stylesheet" type="text/css" href="../stylesheets/reset.css">
+<link rel="stylesheet" type="text/css" href="../stylesheets/bb.css">
+<link rel="stylesheet" type="text/css" href="../stylesheets/panel.css">
+<link rel="stylesheet" type="text/css" href="../stylesheets/formUI.css">
+<link rel="stylesheet" type="text/css" href="../stylesheets/viewerUI.css">
+
+<script src="../js/jquery-1.11.0.min.js"></script>
+<script src="../js/jquery-ui-1.10.4.custom.min.js"></script>
+<script src="../dev/Utils.js"></script>
+
+<script src="../js/jquery-migrate-1.2.1.min.js"></script>
+
+<script src="../js/revise.js"></script>
+<script src="../js/reviseOriginal.js"></script>
+<script src="../js/reviseViewer.js"></script>
+
+<script src="../js/splitter.js"></script>
+
+</head>
+<body>
+<div id="page" class="viewUI"> 
+	<!-- Header -->
+	<header></header>
+	<script>$("header").load("../header.html");</script>
+	<div class="content">
+		<div class="breadcrumb"><a href="#">首頁</a> > <a href="#">書的總表</a> > <span>螢幕模擬器</span></div>
+		<div class="headtitle">
+			<h1>螢幕模擬器</h1>(校稿/微調)
+			<span class="ArticleName">書名：過盡千帆皆不是，風花雪月寄此生</span>
+			<div class="right">
+				<form style="display:inline-block; vertical-align:middle;">
+					<label class="searchUI">
+						<input type="text" placeholder="搜尋 內文">
+						<button></button>
+					</label>
+				</form>　
+				<a href="#" class="btn-default btn-accept btn-large">儲存離開</a>　
+				<a href="#" class="btn-default btn-large">發佈上架</a>　
+			</div>
+		</div>
+		<div class="wrap-column" id="splitterContainer">
+			<div class="column L-side" id="leftPane">
+				<div class="column-inner">
+					<div class="connector top wrapper-dropdown"><span class="title">原稿</span>
+						<ul class="view-zoom style_connector">
+							<li class="has-sub"><span>共 <b class="col-red">13</b> 處建議微調</span>
+								<ul class="maxHeight">
+									<li><a href="#">1 cs: 100</a></li>
+									<li><a href="#">2 cs: 100</a></li>
+									<li><a href="#">3 cs: 100</a></li>
+									<li><a href="#">4 cs: 100</a></li>
+									<li><a href="#">5 cs: 100</a></li>
+									<li><a href="#">6 cs: 100</a></li>
+									<li><a href="#">7 cs: 100</a></li>
+									<li><a href="#">8 cs: 100</a></li>
+									<li><a href="#">9 cs: 100</a></li>
+									<li><a href="#">10 cs: 100</a></li>
+									<li><a href="#">11 cs: 100</a></li>
+									<li><a href="#">12 cs: 100</a></li>
+									<li><a href="#">13 cs: 100</a></li>
+								</ul>
+							</li>
+							<li class="float-right has-sub"><span>觸發連動</span>
+								<ul>
+									<li><a href="#">關閉</a></li>
+									<li><a href="#">雙向</a></li>
+									<li><a href="#">原稿</a></li>
+									<li><a href="#">eBook</a></li>
+								</ul>
+							</li>
+							<li class="float-right"><a href="#" class="icon-toolbar zoom-out" title="縮小">縮小</a></li>
+							<li class="float-right"><a href="#" class="icon-toolbar zoom-original" title="正常">正常</a></li>
+							<li class="float-right"><a href="#" class="icon-toolbar zoom-in" title="放大">放大</a></li>
+						</ul>
+						<ul>
+						</ul>
+					</div>
+					
+					<div id="original_panel">
+						<div class="original">
+							<div class="item" style="height:614px; width:868px;" pn="1"><img pn="1" src="http://demo.bestbook.com/Publisher/originalImg/3a5EIh/1"><div class="original_mark" style="top:20px; left:20px; height:614px; width:868px;"></div></div>
+							<div class="item" style="height:768px; width:1024px;" pn="2"><img pn="2" src="http://demo.bestbook.com/Publisher/originalImg/3a5EIh/2"><div class="original_mark" style="top:120px; left:20px; height:250px; width:1024px;"></div></div>
+							<div class="item" style="height:1055px; width:1024px;" pn="3"><img pn="3" src="http://demo.bestbook.com/Publisher/originalImg/3a5EIh/3"></div>
+							<div class="item" style="height:768px; width:1024px;" pn="4"><img pn="4" src="http://demo.bestbook.com/Publisher/originalImg/3a5EIh/4"></div>
+							<div class="item" style="height:768px; width:1024px;" pn="5"><img pn="5" src="http://demo.bestbook.com/Publisher/originalImg/3a5EIh/5"></div>
+							<div class="item" style="height:768px; width:1024px;" pn="6"><img pn="6" src="http://demo.bestbook.com/Publisher/originalImg/3a5EIh/6"></div>
+							<div class="item" style="height:768px; width:1024px;" pn="7"><img pn="7" src="http://demo.bestbook.com/Publisher/originalImg/3a5EIh/7"></div>
+							<div class="item" style="height:768px; width:1024px;" pn="8"><img pn="8" src="http://demo.bestbook.com/Publisher/originalImg/3a5EIh/8"></div>
+							<div class="item" style="height:768px; width:1024px;" pn="9"><img pn="9" src="http://demo.bestbook.com/Publisher/originalImg/3a5EIh/9"></div>
+							<div class="item" style="height:1078px; width:1024px;" pn="10"><img pn="10" src="http://demo.bestbook.com/Publisher/originalImg/3a5EIh/10"></div>
+							<div class="item" style="height:768px; width:1024px;" pn="11"><img pn="11" src="http://demo.bestbook.com/Publisher/originalImg/3a5EIh/11"></div>
+							<div class="item" style="height:768px; width:1024px;" pn="12"><img pn="12" src="http://demo.bestbook.com/Publisher/originalImg/3a5EIh/12"></div>
+							<div class="item" style="height:768px; width:1024px;" pn="13"><img pn="13" src="http://demo.bestbook.com/Publisher/originalImg/3a5EIh/13"></div>
+							<div class="item" style="height:1095px; width:1024px;" pn="14"><img pn="14" src="http://demo.bestbook.com/Publisher/originalImg/3a5EIh/14"></div>
+							<div class="item" style="height:1212px; width:1024px;" pn="15"><img pn="15" src="http://demo.bestbook.com/Publisher/originalImg/3a5EIh/15"></div>
+							<div class="item" style="height:768px; width:1024px;" pn="16"><img pn="16" src="http://demo.bestbook.com/Publisher/originalImg/3a5EIh/16"></div>
+							<div class="item" style="height:768px; width:1024px;" pn="17"><img pn="17" src="http://demo.bestbook.com/Publisher/originalImg/3a5EIh/17"></div>
+							<div class="item" style="height:768px; width:1024px;" pn="18"><img pn="18" src="http://demo.bestbook.com/Publisher/originalImg/3a5EIh/18"></div>
+							<div class="item" style="height:768px; width:1024px;" pn="19"><img pn="19" src="http://demo.bestbook.com/Publisher/originalImg/3a5EIh/19"></div>
+							<div class="item" style="height:768px; width:1024px;" pn="20"><img pn="20" src="http://demo.bestbook.com/Publisher/originalImg/3a5EIh/20"></div>
+							<div class="item" style="height:768px; width:1024px;" pn="21"><img pn="21" src="http://demo.bestbook.com/Publisher/originalImg/3a5EIh/21"></div>
+							<div class="item" style="height:768px; width:1024px;" pn="22"><img pn="22" src="http://demo.bestbook.com/Publisher/originalImg/3a5EIh/22"></div>
+							<div class="item" style="height:768px; width:1024px;" pn="23"><img pn="23" src="http://demo.bestbook.com/Publisher/originalImg/3a5EIh/23"></div>
+							<div class="item" style="height:951px; width:1024px;" pn="24"><img pn="24" src="http://demo.bestbook.com/Publisher/originalImg/3a5EIh/24"></div>
+							<div class="item" style="height:951px; width:1024px;" pn="25"><img pn="25" src="http://demo.bestbook.com/Publisher/originalImg/3a5EIh/25"></div>
+							<div class="item" style="height:951px; width:1024px;" pn="26"><img pn="26" src="http://demo.bestbook.com/Publisher/originalImg/3a5EIh/26"><div class="original_mark" style="top: -961px; left: 0px; height: 2px; width: 0px;"></div></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="column R-side" id="rightPane">
+				<div class="column-inner">
+					<div class="connector top wrapper-dropdown"><span class="title">電子書預覽</span>
+						<ul class="style_connector">
+							<li><a href="#" class="icon-toolbar undo" title="還原">還原</a></li>
+							<li><a href="#" class="icon-toolbar redo" title="重作">重作</a></li>
+							<li><a href="#" class="icon-toolbar text-bold" title="粗體">粗體</a></li>
+							<li><a href="#" class="icon-toolbar text-italic" title="斜體">斜體</a></li>
+							<li><a href="#" class="icon-toolbar text-underline" title="底線">底線</a></li>
+							<li class="has-sub"><a href="#" class="more" title="更多">更多</a>
+								<ul>
+									<li><a href="#" class="icon-toolbar text-strikeThrough" title="刪除線">刪除線</a></li>
+									<li class="has-sub"><a href="#" class="icon-toolbar text-subscript" title="上標">上下標</a>
+										<ul>
+											<li><a href="#">上標</a></li>
+											<li><a href="#">下標</a></li>
+										</ul>
+									</li>
+									<li class="has-sub"><a href="#" class="icon-toolbar text-head" title="標題">標題</a>
+										<ul>
+											<li><a href="#">H1</a></li>
+											<li><a href="#">H2</a></li>
+											<li><a href="#">H3</a></li>
+										</ul>
+									</li>
+									<li class="has-sub"><a href="#" class="icon-toolbar text-fontColor" title="字體顏色">字體顏色</a>
+										<ul class="ColorPickerUI">
+											<li class="T-Kw">
+												<table border="0" cellpadding="0" cellspacing="0" class="ColorPicker">
+													<tr>
+														<td><div class="color-items" title="RGB (0, 0, 0)" style="background-color: rgb(0, 0, 0);"></div></td>
+														<td><div class="color-items" title="RGB (68, 68, 68)" style="background-color: rgb(68, 68, 68);"></div></td>
+														<td><div class="color-items" title="RGB (102, 102, 102)" style="background-color: rgb(102, 102, 102);"></div></td>
+														<td><div class="color-items" title="RGB (153, 153, 153)" style="background-color: rgb(153, 153, 153);"></div></td>
+														<td><div class="color-items" title="RGB (204, 204, 204)" style="background-color: rgb(204, 204, 204);"></div></td>
+														<td><div class="color-items" title="RGB (238, 238, 238)" style="background-color: rgb(238, 238, 238);"></div></td>
+														<td><div class="color-items" title="RGB (243, 243, 243)" style="background-color: rgb(243, 243, 243);"></div></td>
+														<td><div class="color-items" title="RGB (255, 255, 255)" style="background-color: rgb(255, 255, 255);"></div></td>
+													</tr>
+												</table>
+											</li>
+											<li class="T-Kw">
+												<table border="0" cellpadding="0" cellspacing="0" class="ColorPicker">
+													<tr>
+														<td><div class="color-items" title="RGB (255, 0, 0)" style="background-color: rgb(255, 0, 0);"></div></td>
+														<td><div class="color-items" title="RGB (255, 153, 0)" style="background-color: rgb(255, 153, 0);"></div></td>
+														<td><div class="color-items" title="RGB (255, 255, 0)" style="background-color: rgb(255, 255, 0);"></div></td>
+														<td><div class="color-items" title="RGB (0, 255, 0)" style="background-color: rgb(0, 255, 0);"></div></td>
+														<td><div class="color-items" title="RGB (0, 255, 255)" style="background-color: rgb(0, 255, 255);"></div></td>
+														<td><div class="color-items" title="RGB (0, 0, 255)" style="background-color: rgb(0, 0, 255);"></div></td>
+														<td><div class="color-items" title="RGB (153, 0, 255)" style="background-color: rgb(153, 0, 255);"></div></td>
+														<td><div class="color-items" title="RGB (255, 0, 255)" style="background-color: rgb(255, 0, 255);;"></div></td>
+													</tr>
+												</table>
+											</li>
+											<li class="T-Kw">
+												<table cellpadding="0" cellspacing="0" class="ColorPicker">
+													<tr>
+														<td><div class="color-items" title="RGB (244, 204, 204)" style="background-color: rgb(244, 204, 204);"></div></td>
+														<td><div class="color-items" title="RGB (252, 229, 205)" style="background-color: rgb(252, 229, 205);"></div></td>
+														<td><div class="color-items" title="RGB (255, 242, 204)" style="background-color: rgb(255, 242, 204);"></div></td>
+														<td><div class="color-items" title="RGB (217, 234, 211)" style="background-color: rgb(217, 234, 211);"></div></td>
+														<td><div class="color-items" title="RGB (208, 224, 227)" style="background-color: rgb(208, 224, 227);"></div></td>
+														<td><div class="color-items" title="RGB (207, 226, 243)" style="background-color: rgb(207, 226, 243);"></div></td>
+														<td><div class="color-items" title="RGB (217, 210, 233)" style="background-color: rgb(217, 210, 233);"></div></td>
+														<td><div class="color-items" title="RGB (234, 209, 220)" style="background-color: rgb(234, 209, 220);"></div></td>
+													</tr>
+													<tr>
+														<td><div class="color-items" title="RGB (234, 153, 153)" style="background-color: rgb(234, 153, 153);"></div></td>
+														<td><div class="color-items" title="RGB (249, 203, 156)" style="background-color: rgb(249, 203, 156);"></div></td>
+														<td><div class="color-items" title="RGB (255, 229, 153)" style="background-color: rgb(255, 229, 153);"></div></td>
+														<td><div class="color-items" title="RGB (182, 215, 168)" style="background-color: rgb(182, 215, 168);"></div></td>
+														<td><div class="color-items" title="RGB (162, 196, 201)" style="background-color: rgb(162, 196, 201);"></div></td>
+														<td><div class="color-items" title="RGB (159, 197, 232)" style="background-color: rgb(159, 197, 232);"></div></td>
+														<td><div class="color-items" title="RGB (180, 167, 214)" style="background-color: rgb(180, 167, 214);"></div></td>
+														<td><div class="color-items" title="RGB (213, 166, 189)" style="background-color: rgb(213, 166, 189);"></div></td>
+													</tr>
+													<tr>
+														<td><div class="color-items" title="RGB (224, 102, 102)" style="background-color: rgb(224, 102, 102);"></div></td>
+														<td><div class="color-items" title="RGB (246, 178, 107)" style="background-color: rgb(246, 178, 107);"></div></td>
+														<td><div class="color-items" title="RGB (255, 217, 102)" style="background-color: rgb(255, 217, 102);"></div></td>
+														<td><div class="color-items" title="RGB (147, 196, 125)" style="background-color: rgb(147, 196, 125);"></div></td>
+														<td><div class="color-items" title="RGB (118, 165, 175)" style="background-color: rgb(118, 165, 175);"></div></td>
+														<td><div class="color-items" title="RGB (111, 168, 220)" style="background-color: rgb(111, 168, 220);"></div></td>
+														<td><div class="color-items" title="RGB (142, 124, 195)" style="background-color: rgb(142, 124, 195);"></div></td>
+														<td><div class="color-items" title="RGB (194, 123, 160)" style="background-color: rgb(194, 123, 160);"></div></td>
+													</tr>
+													<tr>
+														<td><div class="color-items" title="RGB (204, 0, 0)" style="background-color: rgb(204, 0, 0);"></div></td>
+														<td><div class="color-items" title="RGB (230, 145, 56)" style="background-color: rgb(230, 145, 56);"></div></td>
+														<td><div class="color-items" title="RGB (241, 194, 50)" style="background-color: rgb(241, 194, 50);"></div></td>
+														<td><div class="color-items" title="RGB (106, 168, 79)" style="background-color: rgb(106, 168, 79);"></div></td>
+														<td><div class="color-items" title="RGB (69, 129, 142)" style="background-color: rgb(69, 129, 142);"></div></td>
+														<td><div class="color-items" title="RGB (61, 133, 198)" style="background-color: rgb(61, 133, 198);"></div></td>
+														<td><div class="color-items" title="RGB (103, 78, 167)" style="background-color: rgb(103, 78, 167);"></div></td>
+														<td><div class="color-items" title="RGB (166, 77, 121)" style="background-color: rgb(166, 77, 121);"></div></td>
+													</tr>
+													<tr>
+														<td><div class="color-items" title="RGB (153, 0, 0)" style="background-color: rgb(153, 0, 0);"></div></td>
+														<td><div class="color-items" title="RGB (180, 95, 6)" style="background-color: rgb(180, 95, 6);"></div></td>
+														<td><div class="color-items" title="RGB (191, 144, 0)" style="background-color: rgb(191, 144, 0);"></div></td>
+														<td><div class="color-items" title="RGB (56, 118, 29)" style="background-color: rgb(56, 118, 29);"></div></td>
+														<td><div class="color-items" title="RGB (19, 79, 92)" style="background-color: rgb(19, 79, 92);"></div></td>
+														<td><div class="color-items" title="RGB (11, 83, 148)" style="background-color: rgb(11, 83, 148);"></div></td>
+														<td><div class="color-items" title="RGB (53, 28, 117)" style="background-color: rgb(53, 28, 117);"></div></td>
+														<td><div class="color-items" title="RGB (116, 27, 71)" style="background-color: rgb(116, 27, 71);"></div></td>
+													</tr>
+													<tr>
+														<td><div class="color-items" title="RGB (102, 0, 0)" style="background-color: rgb(102, 0, 0);"></div></td>
+														<td><div class="color-items" title="RGB (120, 63, 4)" style="background-color: rgb(120, 63, 4);"></div></td>
+														<td><div class="color-items" title="RGB (127, 96, 0)" style="background-color: rgb(127, 96, 0);"></div></td>
+														<td><div class="color-items" title="RGB (39, 78, 19)" style="background-color: rgb(39, 78, 19);"></div></td>
+														<td><div class="color-items" title="RGB (12, 52, 61)" style="background-color: rgb(12, 52, 61);"></div></td>
+														<td><div class="color-items" title="RGB (7, 55, 99)" style="background-color: rgb(7, 55, 99);"></div></td>
+														<td><div class="color-items" title="RGB (32, 18, 77)" style="background-color: rgb(32, 18, 77);"></div></td>
+														<td><div class="color-items" title="RGB (76, 17, 48)" style="background-color: rgb(76, 17, 48);"></div></td>
+													</tr>
+												</table>
+											</li>
+										</ul>
+									</li>
+									<li class="has-sub"><a href="#" class="icon-toolbar text-fontSize" title="文字大小">文字大小</a>
+										<ul>
+											<li><a href="#">最大</a></li>
+											<li><a href="#">大</a></li>
+											<li><a href="#">中</a></li>
+											<li><a href="#">小</a></li>
+										</ul>
+									</li>
+									<li class="has-sub"><a href="#" class="icon-toolbar justify" title="對齊">對齊</a>
+										<ul>
+											<li><a href="#" class="icon-toolbar justify-Left" title="靠左對齊">靠左對齊</a></li>
+											<li><a href="#" class="icon-toolbar justify-Center" title="置中對齊">置中對齊</a></li>
+											<li><a href="#" class="icon-toolbar justify-Right" title="靠右對齊">靠右對齊</a></li>
+											<li><a href="#" class="icon-toolbar justify-Full" title="左右對齊">左右對齊</a></li>
+										</ul>
+									</li>
+									<li><a href="#" class="icon-toolbar removeFormat" title="移除格式">移除格式</a></li>
+								</ul>
+							</li>
+							<li><a href="#" class="icon-toolbar save" title="儲存">儲存</a></li>
+							<li class="view-size posi-right has-sub"><span>切換 手機/平板 預覽</span>
+								<ul>
+									<li class="h">編輯模式</li>
+									<li><a href="#" class="resize" id="full-screen">滿版</a></li>
+									<li class="h">手機</li>
+									<li><a href="#" class="resize" id="iPhone-5s">iPhone 5s</a></li>
+									<li><a href="#" class="resize" id="Galaxy-Note-3">Galaxy Note 3</a></li>
+									<li><a href="#" class="resize" id="HTC-One">HTC One</a></li>
+									<li><a href="#" class="resize" id="Sony-Xperia">Sony Xperia</a></li>
+									<li class="h">平板</li>
+									<li><a href="#" class="resize" id="iPad-Air">iPad Air</a></li>
+									<li><a href="#" class="resize" id="iPad-Mini">iPad Mini</a></li>
+									<li><a href="#" class="resize" id="Galaxy-Note-10">Galaxy Note 10</a></li>
+									<li><a href="#" class="resize" id="Nexus-ASUS">Nexus(ASUS)</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					
+					<div id="viewer_panel">
+						<div class="viewer iPhone-5s">
+							<iframe class="viewer_frame" src="http://demo.bestbook.com/Viewer/connector.do?write=1&bookid=3a5EIh"></iframe>
+						</div>
+					</div>
+					
+					<a href="#" class="arrow prev" title="上一頁">上一頁</a> <a href="#" class="arrow next" title="下一頁">下一頁</a>
+					
+					<div class="connector bottom">
+						<div class="RangeSlider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" aria-disabled="false">
+							<a href="#" class="ui-slider-handle ui-state-default ui-corner-all">
+							<div id="range_tooltip"></div>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<script>
+$(function(){
+	//放大
+	$(".zoom-in").click(function(){
+		$(".original img").animate({"width" : "+=50px",}, "fast");
+     return false; 
+	});
+	//縮小
+	$(".zoom-out").click(function(){
+		$(".original img").animate({"width" : "-=50px",}, "fast");
+     return false; 
+	});
+	//1:1
+	$(".zoom-original").click(function(){
+		$(".original img").animate({"width" : "100%",}, "fast");
+     return false; 
+	});
+})
+
+$(function(){	
+	
+	function last() {
+		var lastClass =  $(".viewer").attr('class').split(' ').pop();
+		$(".viewer").removeClass(lastClass);
+	}
+	$('.view-size a.resize').click(function(){
+		last();
+		var cid = $(this).attr('id');
+		$("#viewer_panel .viewer").addClass(cid);
+	})
+
+})
+
+
+//Initial load of page
+$(document).ready(sizeContent);
+
+//Every resize of window
+$(window).resize(sizeContent);
+
+//Dynamically assign height
+function sizeContent() {
+    var newHeight = $("html").height() - $("header").height() - $("footer").height() - 10 + "px";
+    $(".wrap-column").css("height", newHeight);
+}
+
+// Header Show/Hide
+$(function(){
+	$("header").css({
+		"position": "fixed",
+		"z-index": "99999"
+		}).delay(1000).animate({top : "-63",},500);
+		return;
+})
+$(function(){
+	$("header").hover(function(){
+		$(this).animate({top : "0",},500);
+	});
+	$("header").mouseleave(function(){
+		$(this).animate({top : "-63",},500);
+		});
+	return;
+})
+
+
+// Panel Resizeble
+$(document).ready(function() {
+	$("#splitterContainer").splitter({
+		minAsize:400,
+		maxAsize:660,
+		splitVertical:true,
+		A:$('#leftPane'),
+		B:$('#rightPane'),
+		slave:$("#rightSplitterContainer"),
+		closeableto:0
+	});
+});
+</script> 
+		</div>
+	</div>
+	
+	<!-- Footer -->
+	<footer></footer>
+	<script>$("footer").load("../footer.html");</script> 
+</div>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>bestbook</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Content-Language" content="zh-TW">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="viewport" content="width=device-width, user-scalable=yes">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="雲書">
+    <meta property="og:title" content="雲書 - 讓出書簡單又愉快！">
+    <meta property="og:description" content="雲書 - 讓出書簡單又愉快！">
+    <meta name="keywords" content="電子書, 出版, epub, 作家, 版稅, 稿費">
+    <meta name="description" content="雲書 - 讓出書簡單又愉快！">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width"><!--[if IE 8]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="../assets/css/bestbook.css">
+    <link rel="stylesheet" href="../assets/css/girds.css">
+    <link rel="stylesheet" href="../assets/css/animate/_animate.css">
+    <script src="../assets/js/jquery/jquery-1.10.2.min.js"></script>
+    <script src="../assets/js/bestbook.js"></script>
+  </head>
+  <link rel="stylesheet" href="../assets/css/publisher_20150505.css">
+  <body>
+    <header class="globalheader">
+      <div class="container">
+        <div class="logoWrap col-phone-4 col-pad_v-3 col-pad_h-3 col-pc-4"><a href="#">
+            <div class="logo"></div></a></div>
+        <div class="function col-phone-8 col-pad_v-9 col-pad_h-9 col-pc-8">
+          <div class="notices_btu"><span class="icon_notices"></span><span class="notice_tips">20</span></div><a href="#">
+            <div class="userlogged"><span class="iconUser"></span><span>UserName</span></div></a>
+        </div>
+      </div>
+    </header>
+    <div class="localNav">
+      <div class="container">
+        <div class="breadcrumbs"><a href="booksList.html">首頁</a><span>｜編輯封面</span></div>
+      </div>
+    </div>
+    <div class="mainColumn">
+      <div class="container">
+        <div class="booksCoverEdit col">
+          <div class="booksCoverEdit__block col-5">
+            <div tabindex="0" class="coverSpace">
+              <canvas id="coverCanvas"></canvas>
+            </div>
+            <div class="marginTB10 alignC"><a href="CoverEditor-Step02.html">重新選擇圖檔</a></div>
+          </div>
+          <div class="booksCoverEdit__block padding10 col-5">
+            <div class="coverToolbar">
+              <div class="tip">在圖上拖拉文字框，可改變字的大小、位置、角度</div>
+              <div class="field"></div>
+              <div class="label">
+                <input type="checkbox">
+                <label>書名</label>
+              </div>
+              <div class="setting"><span>3.65天的愛情</span>
+                <div style="" class="objectProperties">
+                  <ul class="objectSetUI">
+                    <li class="objectFontFamily">
+                      <select name="en_fontList">
+                        <option value="華康細明體">華康細明體</option>
+                        <option value="華康細黑體">華康細黑體</option>
+                        <option value="華康中明體">華康中明體</option>
+                        <option value="華康中黑體">華康中黑體</option>
+                        <option value="華康粗明體">華康粗明體</option>
+                        <option value="華康粗黑體">華康粗黑體</option>
+                        <option value="華康特明體">華康特明體</option>
+                        <option value="華康特黑體">華康特黑體</option>
+                        <option value="華康超明體">華康超明體</option>
+                        <option value="華康超黑體">華康超黑體</option>
+                        <option value="新細明體">新細明體</option>
+                        <option value="微軟正黑體">微軟正黑體</option>
+                        <option value="標楷體">標楷體</option>
+                        <option value="宋體">宋體</option>
+                        <option disabled="disabled">----------</option>
+                        <option value="Arial">Arial</option>
+                        <option value="Arial Black">Arial Black</option>
+                        <option value="Blackletter">Blackletter</option>
+                        <option value="Courier">Courier</option>
+                        <option value="Fixedsys">Fixedsys</option>
+                        <option value="Comic Sans">Comic Sans</option>
+                        <option value="Impact">Impact</option>
+                        <option value="Marlett">Marlett</option>
+                        <option value="MS Sans Serif">MS Sans Serif</option>
+                        <option value="Tahoma">Tahoma</option>
+                        <option value="Terminal">Terminal</option>
+                        <option value="Times New Roman">Times New Roman</option>
+                        <option value="verdana">verdana</option>
+                      </select>
+                      <li class="objectFontWeight current"></li>
+                      <li class="objectFontStyle"></li>
+                      <li class="objectTextUnderline"></li>
+                      <li class="objectFontColor">
+                        <label for="objectFontColor"></label>
+                        <input type="text" name="objectFontColor" value="#333399" class="objFontColor">
+                      </li>
+                    </li>
+                  </ul>
+                </div>
+                <div class="objectText">
+                  <textarea></textarea>
+                </div>
+              </div>
+              <hr>
+              <div class="field"></div>
+              <div class="label">
+                <label>副標</label>
+                <input type="checkbox">
+              </div>
+              <div class="setting"><span>一輩子最刻骨銘心的回憶</span>
+                <div style="display:none;" class="objectProperties">
+                  <ul class="objectSetUI">
+                    <li class="objectFontFamily">
+                      <select name="en_fontList">
+                        <option value="華康細明體">華康細明體</option>
+                        <option value="華康細黑體">華康細黑體</option>
+                        <option value="華康中明體">華康中明體</option>
+                        <option value="華康中黑體">華康中黑體</option>
+                        <option value="華康粗明體">華康粗明體</option>
+                        <option value="華康粗黑體">華康粗黑體</option>
+                        <option value="華康特明體">華康特明體</option>
+                        <option value="華康特黑體">華康特黑體</option>
+                        <option value="華康超明體">華康超明體</option>
+                        <option value="華康超黑體">華康超黑體</option>
+                        <option value="新細明體">新細明體</option>
+                        <option value="微軟正黑體">微軟正黑體</option>
+                        <option value="標楷體">標楷體</option>
+                        <option value="宋體">宋體</option>
+                        <option disabled="disabled">----------</option>
+                        <option value="Arial">Arial</option>
+                        <option value="Arial Black">Arial Black</option>
+                        <option value="Blackletter">Blackletter</option>
+                        <option value="Courier">Courier</option>
+                        <option value="Fixedsys">Fixedsys</option>
+                        <option value="Comic Sans">Comic Sans</option>
+                        <option value="Impact">Impact</option>
+                        <option value="Marlett">Marlett</option>
+                        <option value="MS Sans Serif">MS Sans Serif</option>
+                        <option value="Tahoma">Tahoma</option>
+                        <option value="Terminal">Terminal</option>
+                        <option value="Times New Roman">Times New Roman</option>
+                        <option value="verdana">verdana</option>
+                      </select>
+                    </li>
+                    <li class="objectFontWeight current"></li>
+                    <li class="objectFontStyle"></li>
+                    <li class="objectTextUnderline"></li>
+                    <li class="objectFontColor">
+                      <label for="objectFontColor"></label>
+                      <input type="text" name="objectFontColor" value="#333399" class="objFontColor">
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer-copyright">
+      <div class="container"><small>Copyright &copy; Corporation All rights reserved. Golden Board Cultural and Creative Ltd., Co </small><small><a href="http://w.bestbook.com/about.do">金舷國際文創事業有限公司</a></small></div>
+    </footer>
+  </body>
+</html>

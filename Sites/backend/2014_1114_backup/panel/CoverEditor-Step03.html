@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"/>
+<title>編輯書封 | bestBook</title>
+<link rel="stylesheet" type="text/css" href="../stylesheets/reset.css"/>
+<link rel="stylesheet" type="text/css" href="../stylesheets/bb.css"/>
+<link rel="stylesheet" type="text/css" href="../stylesheets/panel.css"/>
+<link rel="stylesheet" type="text/css" href="../stylesheets/formUI.css"/>
+<link rel="stylesheet" type="text/css" href="../stylesheets/message.css"/>
+<link rel="stylesheet" type="text/css" href="../stylesheets/CoverEditorUI.css">
+<link rel="stylesheet" type="text/css" href="../stylesheets/jquery-ui-1.10.4.custom.min.css"/>
+<script src="../js/fabric/fabric.min.js"></script>
+<script src="../js/jquery-1.11.0.min.js"></script>
+<script src="../js/jquery-ui-1.10.4.custom.min.js"></script>
+<script src="../dev/Utils.js"></script>
+<script src="../js/jquery.colorPicker.js"/></script>
+</head>
+<body>
+<div class="ui-widget-overlay ui-front"></div>
+<div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front ui-dialog-buttons ui-resizable" tabindex="-1" role="dialog" style="position:absolute; height: auto; width:880px; top:30px; left:133px; display:block;" aria-describedby="ui-id-1" aria-labelledby="ui-id-2"><div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix">
+<span id="ui-id-2" class="ui-dialog-title">編輯書的封面</span>
+<button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close" role="button" aria-disabled="false" title="close">
+<span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span><span class="ui-button-text">close</span>
+</button></div>
+<div id="ui-id-1" class="ui-dialog-content ui-widget-content" style="width: auto; min-height: 42px; max-height: none; height: auto;">
+
+<div class="coverEditor">
+	<div class="coverSpace" tabindex="0">
+		<canvas id="coverCanvas"></canvas>
+	<div class="marginTB10 alignC">
+		<a href="CoverEditor-Step02.html">重新選擇圖檔</a>
+	</div>
+	</div>
+	<div class="coverToolbar">
+		<div class="tip">在圖上拖拉文字框，可改變字的大小、位置、角度</div>
+		<div class="field">
+			<div class="label"><label><input type="checkbox">書名</label></div>
+			<div class="setting">
+				<span>3.65天的愛情</span>
+				<div class="objectProperties" style="display:none;">
+					<ul class="objectSetUI">
+						<li class="objectFontFamily">
+							<select name="en_fontList">
+								<option value="華康細明體">華康細明體</option>
+								<option value="華康細黑體">華康細黑體</option>
+								<option value="華康中明體">華康中明體</option>
+								<option value="華康中黑體">華康中黑體</option>
+								<option value="華康粗明體">華康粗明體</option>
+								<option value="華康粗黑體">華康粗黑體</option>
+								<option value="華康特明體">華康特明體</option>
+								<option value="華康特黑體">華康特黑體</option>
+								<option value="華康超明體">華康超明體</option>
+								<option value="華康超黑體">華康超黑體</option>
+								<option value="新細明體">新細明體</option>
+								<option value="微軟正黑體">微軟正黑體</option>
+								<option value="標楷體">標楷體</option>
+								<option value="宋體">宋體</option>
+								<option disabled="disabled">----------</option>
+								<option value="Arial">Arial</option>
+								<option value="Arial Black">Arial Black</option>
+								<option value="Blackletter">Blackletter</option>
+								<option value="Courier">Courier</option>
+								<option value="Fixedsys">Fixedsys</option>
+								<option value="Comic Sans">Comic Sans</option>
+								<option value="Impact">Impact</option>
+								<option value="Marlett">Marlett</option>
+								<option value="MS Sans Serif">MS Sans Serif</option>
+								<option value="Tahoma">Tahoma</option>
+								<option value="Terminal">Terminal</option>
+								<option value="Times New Roman">Times New Roman</option>
+								<option value="verdana">verdana</option>
+							</select>
+						</li>
+						<li class="objectFontWeight current"></li>
+						<li class="objectFontStyle"></li>
+						<li class="objectTextUnderline"></li>
+					<li class="objectFontColor"><label for="objectFontColor"></label> <input class="objFontColor" type="text" name="objectFontColor" value="#333399" /></li>
+					</ul>
+					<div class="objectText"><textarea></textarea></div>
+				</div>
+			</div>
+		</div>
+		<hr>
+		<div class="field">
+		<div class="label"><label><input type="checkbox">副標</label></div>
+		<div class="setting">
+			<span>一輩子最刻骨銘心的回憶</span>
+			<div class="objectProperties" style="display:none;">
+				<ul class="objectSetUI">
+					<li class="objectFontFamily">
+						<select name="en_fontList">
+							<option value="華康細明體">華康細明體</option>
+							<option value="華康細黑體">華康細黑體</option>
+							<option value="華康中明體">華康中明體</option>
+							<option value="華康中黑體">華康中黑體</option>
+							<option value="華康粗明體">華康粗明體</option>
+							<option value="華康粗黑體">華康粗黑體</option>
+							<option value="華康特明體">華康特明體</option>
+							<option value="華康特黑體">華康特黑體</option>
+							<option value="華康超明體">華康超明體</option>
+							<option value="華康超黑體">華康超黑體</option>
+							<option value="新細明體">新細明體</option>
+							<option value="微軟正黑體">微軟正黑體</option>
+							<option value="標楷體">標楷體</option>
+							<option value="宋體">宋體</option>
+							<option disabled="disabled">----------</option>
+							<option value="Arial">Arial</option>
+							<option value="Arial Black">Arial Black</option>
+							<option value="Blackletter">Blackletter</option>
+							<option value="Courier">Courier</option>
+							<option value="Fixedsys">Fixedsys</option>
+							<option value="Comic Sans">Comic Sans</option>
+							<option value="Impact">Impact</option>
+							<option value="Marlett">Marlett</option>
+							<option value="MS Sans Serif">MS Sans Serif</option>
+							<option value="Tahoma">Tahoma</option>
+							<option value="Terminal">Terminal</option>
+							<option value="Times New Roman">Times New Roman</option>
+							<option value="verdana">verdana</option>
+						</select>
+					</li>
+					<li class="objectFontWeight current"></li>
+					<li class="objectFontStyle"></li>
+					<li class="objectTextUnderline"></li>
+					<li class="objectFontColor"><label for="objectFontColor"></label> <input class="objFontColor" type="text" name="objectFontColor" value="#333399" /></li>
+				</ul>
+				<div class="objectText"><textarea></textarea></div>
+			</div>
+		</div>
+	</div>
+		<hr>
+		<div class="field">
+		<div class="label"><label><input type="checkbox">作者</label></div>
+		<div class="setting">
+			<span>金秀賢</span>
+			<div class="objectProperties" style="display:none;">
+				<ul class="objectSetUI">
+					<li class="objectFontFamily">
+						<select name="en_fontList">
+							<option value="華康細明體">華康細明體</option>
+							<option value="華康細黑體">華康細黑體</option>
+							<option value="華康中明體">華康中明體</option>
+							<option value="華康中黑體">華康中黑體</option>
+							<option value="華康粗明體">華康粗明體</option>
+							<option value="華康粗黑體">華康粗黑體</option>
+							<option value="華康特明體">華康特明體</option>
+							<option value="華康特黑體">華康特黑體</option>
+							<option value="華康超明體">華康超明體</option>
+							<option value="華康超黑體">華康超黑體</option>
+							<option value="新細明體">新細明體</option>
+							<option value="微軟正黑體">微軟正黑體</option>
+							<option value="標楷體">標楷體</option>
+							<option value="宋體">宋體</option>
+							<option disabled="disabled">----------</option>
+							<option value="Arial">Arial</option>
+							<option value="Arial Black">Arial Black</option>
+							<option value="Blackletter">Blackletter</option>
+							<option value="Courier">Courier</option>
+							<option value="Fixedsys">Fixedsys</option>
+							<option value="Comic Sans">Comic Sans</option>
+							<option value="Impact">Impact</option>
+							<option value="Marlett">Marlett</option>
+							<option value="MS Sans Serif">MS Sans Serif</option>
+							<option value="Tahoma">Tahoma</option>
+							<option value="Terminal">Terminal</option>
+							<option value="Times New Roman">Times New Roman</option>
+							<option value="verdana">verdana</option>
+						</select>
+					</li>
+					<li class="objectFontWeight current"></li>
+					<li class="objectFontStyle"></li>
+					<li class="objectTextUnderline"></li>
+					<li class="objectFontColor"><label for="objectFontColor"></label> <input class="objFontColor" type="text" name="objectFontColor" value="#333399" /></li>
+				</ul>
+				<div class="objectText"><textarea></textarea></div>
+			</div>
+		</div>
+	</div>	
+	<hr>
+	<div>
+		<a href="#" id="create_new_text">新增文字</a>
+	</div>
+	<hr>
+	</div>
+		<img id="save_img_out" /> 
+	<div class="clearfix"></div>
+</div>
+
+</div>
+<div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"><div class="ui-dialog-buttonset"><button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">取消</span></button><button type="button" class="btn-default btn-accept ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false"><span class="ui-button-text">確定</span></button></div></div><div class="ui-resizable-handle ui-resizable-n" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-w" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-sw" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-ne" style="z-index: 90;"></div><div class="ui-resizable-handle ui-resizable-nw" style="z-index: 90;"></div></div>
+
+<script type="text/javascript">
+var selectedObj = null;
+var coverCanvas = null;
+$(document).ready(function(){
+	coverCanvas = new fabric.Canvas('coverCanvas');
+	//coverCanvas.setWidth(724);
+	//coverCanvas.setHeight(1024);
+	
+	//coverCanvas.setWidth(362);
+	//coverCanvas.setHeight(512);
+	
+	coverCanvas.setWidth(410);
+	coverCanvas.setHeight(580);
+	
+	
+	$("#create_new_text").on('click', function() {
+		coverCanvas.add(createText());
+	});
+	
+	coverCanvas.on('selection:cleared', function() {//unSelected Text
+		selectedObj = null;
+		$(".objectProperties").hide();
+	});
+	
+	$(".coverSpace").keydown(function(e){
+		if(e.which == 46){
+			removeSelected();
+		}
+	});
+	
+	coverCanvas.add(createText());
+	
+	coverCanvas.setBackgroundImage('cover/default/Cover-15.jpg', coverCanvas.renderAll.bind(coverCanvas));
+	
+	$(".objectProperties .objectText textarea").on('keyup', function() {
+		selectedObj.setText(this.value);
+		coverCanvas.renderAll();
+	});
+	
+	$(".objectProperties [name='en_fontList']").on('change', function() {
+		selectedObj.setFontFamily(this.value);
+		coverCanvas.renderAll();
+	});
+	
+	$(".objectProperties [name='zh_fontList']").on('change', function() {
+		selectedObj.setFontFamily(this.value);
+		coverCanvas.renderAll();
+	});
+	
+	$(".objectProperties [name='objectFontColor']").on('change keyup', function() {
+		selectedObj.setFill(this.value);
+		coverCanvas.renderAll();
+	});
+});
+
+function createText() {
+	var text = new fabric.Text("輸入文字", {
+		left: 50, top: 50,
+		fontFamily: '新細明體'
+	});
+	text.lockUniScaling = true;
+	
+	text.on('selected', showTextProperties);
+	
+	return text;
+}
+function showTextProperties() {
+	//this.setTextDecoration("line-through");
+	
+	selectedObj = this;
+	$(".objectProperties").show();
+	//fontStyle: 'italic',
+	//fontWeight: 'bold' fontWeight: 'normal'
+	//textDecoration: 'underline'
+	//textDecoration: 'line-through'
+	//textDecoration: 'overline'
+	
+	$(".objectProperties").find(".objectText textarea").html(selectedObj.getText());
+	
+	var fontFamily = selectedObj.getFontFamily();
+	
+	$(".objectProperties").find("[name='en_fontList']").val(fontFamily);
+	$(".objectProperties").find("[name='zh_fontList']").val(fontFamily);
+	
+	$(".objectProperties").find(".objectFontWeight span").html(selectedObj.getFontWeight());
+	$(".objectProperties").find(".objectFontStyle span").html(selectedObj.getFontStyle());
+	
+	var decoration = selectedObj.getTextDecoration();
+	$(".objectProperties").find(".objectTextUnderline span").html(decoration);
+	
+	var fill = new fabric.Color(selectedObj.getFill()).toHex();
+	$(".objectProperties").find("[name='objectFontColor']").val("#"+fill);
+}
+
+function removeSelected() {
+	var activeObject = coverCanvas.getActiveObject(),
+	activeGroup = coverCanvas.getActiveGroup();
+
+	if (activeGroup) {
+		var objectsInGroup = activeGroup.getObjects();
+		coverCanvas.discardActiveGroup();
+		objectsInGroup.forEach(function(object) {
+			coverCanvas.remove(object);
+		});
+		
+	}else if (activeObject) {
+		coverCanvas.remove(activeObject);
+	}
+}
+
+function saveToImg() {
+	var width = coverCanvas.getWidth();
+	var height = coverCanvas.getHeight();
+	
+	var scale_width = (2000 / width); 
+	var scale_height = (2400 / height); 
+	  
+	var use_scale = (scale_width > scale_height?scale_height:scale_width);
+	
+	var dataURL = coverCanvas.toDataURL({
+	  format: 'png',
+	  multiplier: use_scale
+	});
+	
+	$("#save_img_out").attr("src", dataURL);
+}
+
+</script>
+
+<script type="text/javascript">
+$(function() {
+	$('.objFontColor').colorPicker();
+})
+</script>
+</body>
+</html>

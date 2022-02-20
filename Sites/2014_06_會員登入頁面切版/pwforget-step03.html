@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<meta http-equiv="content-language" content="zh-tw">
+	<title>會員登入</title>
+	<link rel="stylesheet" href="css/login.css">
+	<script type="text/javascript" src="./js/jquery.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$( window ).resize(function() {
+				var width = $('.loginTopWrap').width();
+				var circleWidth=$('.formsCircle').width();
+				var abLeft=(width-circleWidth)/2;
+					console.log(abLeft);
+					$('.rwdDiv').css('left',abLeft);
+			});
+			$( window ).resize();
+			$( ".logo" ).click(function() {
+				window.open("http://w.bestbook.com/",'_self');
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="loginTopWrap">
+		<div class="rwdDiv">
+			<div class="formsCircle">
+				<div class="circle c1"></div>
+				<div class="circle c2"></div>
+				<div class="circle c3"></div>
+				<div class="logo"></div>
+				<div class="loginForm">
+                	<p class="loginFormTitle">請設定新密碼。</p>
+                    <div class="field">
+                        <div class="fieldinput_100"><input type="email" name="username" class="l" placeholder="請輸入新密碼"></div>
+                        <div class="error">請輸入新密碼</div>
+                    </div>
+                    <div class="field">
+                        <div class="fieldinput_100"><input type="email" name="username" class="l" placeholder="請確認新密碼"></div>
+                        <div class="error">請確認新密碼</div>
+                     </div>
+                    <div class="toolbar_center">
+                        <a href="javascript:void(0);" class="btn-cancel">取消</a>
+                        <a href="javascript:void(0);" class="btn-default btnLarge ">確認送出</a>
+                    </div>
+                </div>
+			</div>
+			<div class="cloud"></div>
+		</div>
+	</div>
+	<div class="loginSubWrap">
+		<div class="loginSubInner">
+			<div class="device_pc"></div>
+			<div class="device_notebook"></div>
+			<div class="device_phone"></div>
+			<div class="device_pad"></div>
+		</div>
+	</div>
+	<div class="footer">
+		Copyright © 2014 BestBook.com All Rights Reserved.</br>
+		客服中心地址：台灣台北市基隆路一段163號9F-2</br>
+		客服中心電話：02-2748-9888</br>
+		金舷國際文創事業有限公司
+	</div>
+
+
+</body>
+</html>
